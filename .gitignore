@@ -1,0 +1,23 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+tmp/
+__pycache__/
+.DS_Store
+
+# Base bruta fornecida pela organização (a aplicação usa recortes processados)
+/Dados .Json/
+
+# Logs locais de transcrição
+/transcricao*.log
+
+# Documentação, scripts de pesquisa, relatórios, auditoria e previews internos
+/docs/internal/
+
+# Estado local das ferramentas
+/.codex/
+/.agents/
+*.log

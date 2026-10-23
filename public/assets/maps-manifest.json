@@ -1,0 +1,55 @@
+{
+  "source": "https://valorant.dyn.riotcdn.net/x/content-catalog/PublicContentCatalog-release-08.09.zip",
+  "owner": "Riot Games",
+  "catalogVersion": "08.09",
+  "assets": [
+    {
+      "file": "/assets/maps/ascent.png",
+      "archiveMember": "Maps/7EAECC1B-4337-BBF6-6AB9-04B8F06B3319_splash.png",
+      "bytes": 3193110,
+      "id": "7eaecc1b-4337-bbf6-6ab9-04b8f06b3319",
+      "name": "Ascent",
+      "kind": "maps"
+    },
+    {
+      "file": "/assets/maps/split.png",
+      "archiveMember": "Maps/D960549E-485C-E861-8D71-AA9D1AED12A2_splash.png",
+      "bytes": 3077048,
+      "id": "d960549e-485c-e861-8d71-aa9d1aed12a2",
+      "name": "Split",
+      "kind": "maps"
+    },
+    {
+      "file": "/assets/maps/bind.png",
+      "archiveMember": "Maps/2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA_splash.png",
+      "bytes": 2661829,
+      "id": "2c9d57ec-4431-9c5e-2939-8f9ef6dd5cba",
+      "name": "Bind",
+      "kind": "maps"
+    },
+    {
+      "file": "/assets/maps/lotus.png",
+      "archiveMember": "Maps/2FE4ED3A-450A-948B-6D6B-E89A78E680A9_splash.png",
+      "bytes": 8352652,
+      "id": "2fe4ed3a-450a-948b-6d6b-e89a78e680a9",
+      "name": "Lotus",
+      "kind": "maps"
+    },
+    {
+      "file": "/assets/maps/icebox.png",
+      "archiveMember": "Maps/E2AD5C54-4114-A870-9641-8EA21279579A_splash.png",
+      "bytes": 3331335,
+      "id": "e2ad5c54-4114-a870-9641-8ea21279579a",
+      "name": "Icebox",
+      "kind": "maps"
+    },
+    {
+      "file": "/assets/maps/haven.png",
+      "archiveMember": "Maps/2BEE0DC9-4FFE-519B-1CBD-7FBE763A6047_splash.png",
+      "bytes": 3541033,
+      "id": "2bee0dc9-4ffe-519b-1cbd-7fbe763a6047",
+      "name": "Haven",
+      "kind": "maps"
+    }
+  ]
+}

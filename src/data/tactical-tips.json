@@ -1,0 +1,1832 @@
+{
+  "versao": 2,
+  "totalDicas": 110,
+  "fonteDocumento": "docs/internal/DICAS_FRTTT_ANALISAVEIS_JSON_COMPLETO.md",
+  "escopo": "Todos os 110 itens analisáveis da seção 4 do Markdown. Não são 110 erros detectados em uma partida. Dicas sem observabilidade, listadas como exclusões na seção 5, não são detectores.",
+  "notas": [
+    "As descrições são paráfrases dos trechos das transcrições referenciados em cada item, adaptadas para texto; não são diagnósticos de uma partida.",
+    "Métodos, janelas e limiares são propostas analíticas, não regras universais ou falas literais do autor.",
+    "Mensurável classifica o recorte observado, não a qualidade da decisão. Indício exige contexto adicional.",
+    "Geometria complementar exige cadastro de regiões/rotas do mapa e não significa detector implementado.",
+    "IDs de agentes e armas precisam de um dicionário verificado. Pistol em R1/R13; tratar overtime à parte."
+  ],
+  "tipos": [
+    {
+      "id": "economia",
+      "nome": "Economia",
+      "descricao": "Compra coletiva, bônus e sequência de recursos.",
+      "total": 14
+    },
+    {
+      "id": "pistol",
+      "nome": "Pistol",
+      "descricao": "Equipamento, distância e papel do agente no pistol.",
+      "total": 8
+    },
+    {
+      "id": "posicionamento",
+      "nome": "Posicionamento e duelos",
+      "descricao": "Reposicionamento, sobrevivência e exposição.",
+      "total": 16
+    },
+    {
+      "id": "trabalho-em-equipe",
+      "nome": "Trabalho em equipe",
+      "descricao": "Trocas, entradas, controle, rotações e lurk.",
+      "total": 18
+    },
+    {
+      "id": "objetivo",
+      "nome": "Plant, afterplant e retake",
+      "descricao": "Spike, ocupação do site e uso do tempo.",
+      "total": 16
+    },
+    {
+      "id": "clutch",
+      "nome": "Clutch e vantagem numérica",
+      "descricao": "Estados 1vX, ameaças e conversão de vantagem.",
+      "total": 8
+    },
+    {
+      "id": "operator",
+      "nome": "Operator e escolha de arma",
+      "descricao": "Picks, alcance e variação de posições.",
+      "total": 8
+    },
+    {
+      "id": "mira",
+      "nome": "Mira e treino",
+      "descricao": "Acertos, distâncias e prioridades de revisão.",
+      "total": 6
+    },
+    {
+      "id": "habilidades",
+      "nome": "Habilidades e composição",
+      "descricao": "Participação, ferramentas e funções complementares.",
+      "total": 6
+    },
+    {
+      "id": "ascent",
+      "nome": "Táticas de Ascent",
+      "descricao": "Aplicações nas entradas, ligações e defesas do mapa.",
+      "total": 10
+    }
+  ],
+  "campos": {
+    "J": {
+      "nome": "Jogadores e agentes",
+      "caminhos": [
+        "players[].puuid",
+        "players[].teamId",
+        "players[].characterId",
+        "players[].stats"
+      ]
+    },
+    "R": {
+      "nome": "Resultado e lado do round",
+      "caminhos": [
+        "roundResults[].roundNum",
+        "roundResults[].winningTeam",
+        "roundResults[].winningTeamRole",
+        "roundResults[].roundResult",
+        "roundResults[].roundResultCode",
+        "roundResults[].roundCeremony"
+      ]
+    },
+    "K": {
+      "nome": "Abates e ordem temporal",
+      "caminhos": [
+        "roundResults[].playerStats[].kills[].killer",
+        "roundResults[].playerStats[].kills[].victim",
+        "roundResults[].playerStats[].kills[].assistants",
+        "roundResults[].playerStats[].kills[].timeSinceRoundStartMillis",
+        "roundResults[].playerStats[].kills[].timeSinceGameStartMillis"
+      ]
+    },
+    "F": {
+      "nome": "Fonte da finalização",
+      "caminhos": [
+        "roundResults[].playerStats[].kills[].finishingDamage.damageType",
+        "roundResults[].playerStats[].kills[].finishingDamage.damageItem",
+        "roundResults[].playerStats[].kills[].finishingDamage.isSecondaryFireMode"
+      ]
+    },
+    "L": {
+      "nome": "Posições e orientações amostradas",
+      "caminhos": [
+        "roundResults[].playerStats[].kills[].playerLocations[]",
+        "roundResults[].playerStats[].kills[].victimLocation",
+        "roundResults[].plantPlayerLocations[]",
+        "roundResults[].defusePlayerLocations[]"
+      ]
+    },
+    "P": {
+      "nome": "Plant concluído",
+      "caminhos": [
+        "roundResults[].bombPlanter",
+        "roundResults[].plantRoundTime",
+        "roundResults[].plantSite",
+        "roundResults[].plantLocation"
+      ]
+    },
+    "D": {
+      "nome": "Defuse concluído",
+      "caminhos": [
+        "roundResults[].bombDefuser",
+        "roundResults[].defuseRoundTime",
+        "roundResults[].defuseLocation"
+      ]
+    },
+    "E": {
+      "nome": "Equipamento e economia registrados",
+      "caminhos": [
+        "roundResults[].playerStats[].economy.loadoutValue",
+        "roundResults[].playerStats[].economy.weapon",
+        "roundResults[].playerStats[].economy.armor",
+        "roundResults[].playerStats[].economy.spent",
+        "roundResults[].playerStats[].economy.remaining"
+      ]
+    },
+    "H": {
+      "nome": "Dano e acertos agregados por round",
+      "caminhos": [
+        "roundResults[].playerStats[].damage[].receiver",
+        "roundResults[].playerStats[].damage[].damage",
+        "roundResults[].playerStats[].damage[].headshots",
+        "roundResults[].playerStats[].damage[].bodyshots",
+        "roundResults[].playerStats[].damage[].legshots"
+      ]
+    },
+    "U": {
+      "nome": "Total de ativações por habilidade na partida",
+      "caminhos": [
+        "players[].stats.abilityCasts.grenadeCasts",
+        "players[].stats.abilityCasts.ability1Casts",
+        "players[].stats.abilityCasts.ability2Casts",
+        "players[].stats.abilityCasts.ultimateCasts"
+      ]
+    }
+  },
+  "dicas": [
+    {
+      "id": "001",
+      "tipo": "economia",
+      "titulo": "Planejar a economia do round seguinte antes de gastar",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Usar E em rounds consecutivos para comparar gasto/saldo atual com o equipamento registrado no próximo; destacar compras atuais seguidas de queda de equipamento.",
+        "campos": ["E"],
+        "limites": "I. Mostra a sequência econômica, não a previsão mínima exibida na loja, drops ou intenção.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 34–81 e 175–240 s.",
+      "descricao": "Antes de comprar, olhe o mínimo de créditos previsto para a próxima rodada. Faça a conta para chegar ao próximo armado com uma arma boa, escudo e habilidades, em vez de gastar agora e ficar com uma compra incompleta depois."
+    },
+    {
+      "id": "002",
+      "tipo": "economia",
+      "titulo": "Diferenciar eco, meia compra e armado completo",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Construir faixas declaradas de E, com arma, armadura, loadoutValue, gasto e distribuição do time. Comparar conversão por faixa.",
+        "campos": ["E", "R"],
+        "limites": "I. O valor sozinho não distingue compra ruim de arma preservada, estratégia de ultimate ou compra legítima. Não há habilidades compradas.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 210–244 e 457–513 s.",
+      "descricao": "Diferencie o round de economia, a meia compra e o armado completo. A escolha deve acompanhar o dinheiro do time: quando a economia está quebrada entre os jogadores, não dá para cada um comprar como se os cinco estivessem na mesma situação."
+    },
+    {
+      "id": "003",
+      "tipo": "economia",
+      "titulo": "Não deixar uma meia compra sem querer comprometer o armado planejado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Identificar rounds de recursos inferiores com gasto elevado relativo ao time, seguidos de equipamento inferior no próximo; registrar também o resultado dos dois rounds.",
+        "campos": ["E", "R"],
+        "limites": "I. É triagem econômica, não prova de gasto desnecessário.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 220–244 s.",
+      "descricao": "Não transforme uma economia em meia compra só porque sobrou dinheiro para uma pistola ou um colete. Se esse gasto impedir uma arma boa, escudo e habilidades no próximo armado, é melhor guardar."
+    },
+    {
+      "id": "004",
+      "tipo": "economia",
+      "titulo": "Considerar o placar para decidir um forçado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Reconstruir o placar antes de cada round com R; cruzar compras de recursos baixos com proximidade de derrota e resultado.",
+        "campos": ["E", "R"],
+        "limites": "I. O contexto é mensurável; “forçou porque estava atrás” não é. Não impor os exemplos de placar como regra universal.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 248–289 s.",
+      "descricao": "O placar também pesa na decisão de forçar. Quando o time está muito atrás e se aproxima de perder a partida, pode fazer sentido arriscar uma compra em vez de entregar mais um round de economia."
+    },
+    {
+      "id": "005",
+      "tipo": "economia",
+      "titulo": "Considerar o plant e as baixas causadas ao adversário para forçar após perder pistol",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Em R1→R2 e R13→R14, combinar P/K/R/E: houve plant, quantos inimigos morreram, equipamento seguinte e conversão.",
+        "campos": ["P", "K", "R", "E"],
+        "limites": "I. Oportunidade e resultado são observáveis; a superioridade do forçado sobre um eco hipotético não é.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 293–397 s.",
+      "descricao": "Depois de perder o pistol atacando, considere o plant e quantos adversários morreram. Se vocês plantaram e tiraram muitas armas do outro time, o forçado pode disputar de igual para igual com a compra que eles conseguem fazer."
+    },
+    {
+      "id": "006",
+      "tipo": "economia",
+      "titulo": "Valorizar a arma sobrevivente e jogar o bônus sem trocar tudo",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Procurar sobrevivência inferida no round anterior, continuidade do identificador de arma e gasto reduzido em R3/R15; comparar com troca de equipamento.",
+        "campos": ["E", "K"],
+        "limites": "I. Arma igual não comprova ser o mesmo exemplar; não há evento de preservação ou compra individual.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 399–451 s.",
+      "descricao": "Ganhou o pistol e sobreviveu com a arma do segundo round? Valorize essa arma no terceiro, em vez de trocar tudo por um rifle. Se ganhar, você ainda pode pegar a arma do adversário sem ter gasto para substituí-la."
+    },
+    {
+      "id": "007",
+      "tipo": "economia",
+      "titulo": "Usar o bônus para chegar com economia ao round seguinte, mesmo se perder",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Avaliar sequências de E/R em R2–R4 e R14–R16: gasto no bônus, resultado e distribuição de equipamento na rodada posterior.",
+        "campos": ["E", "R"],
+        "limites": "I. Avalia o efeito econômico observado da sequência, não o contrafactual de uma compra diferente.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 419–451 s.",
+      "descricao": "O bônus não precisa ser vencido para ter valor. Ao jogar o terceiro round com as armas que sobraram, o time preserva dinheiro para conseguir um armado no quarto mesmo se perder."
+    },
+    {
+      "id": "008",
+      "tipo": "economia",
+      "titulo": "Ajustar a compra ao dinheiro do conjunto do time",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Mostrar cinco equipamentos, gastos e saldos lado a lado; contar discrepâncias e relacionar com vitória/derrota e round seguinte.",
+        "campos": ["E", "R"],
+        "limites": "M para descompasso observado. Um time desigual não está automaticamente errado: pode haver arma salva, papel específico ou plano.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 457–513 s.",
+      "descricao": "A compra deve acompanhar a situação dos cinco jogadores. Olhe quem consegue armar e quem está sem dinheiro para decidir entre comprar junto, fazer uma meia compra ou economizar."
+    },
+    {
+      "id": "009",
+      "tipo": "economia",
+      "titulo": "Quando a maioria consegue comprar, o jogador sem recursos pode acompanhar uma compra coletiva",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Separar cenários quatro equipados/um abaixo e três/dois usando E; observar desempenho e se o jogador menos equipado contribuiu com abate/assistência.",
+        "campos": ["E", "K"],
+        "limites": "I. Não validar a condição de “ultimate valiosa”, que não tem disponibilidade por round.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 485–497 s.",
+      "descricao": "Se quatro conseguem comprar e só um está sem recursos, esse jogador pode acompanhar o round do time. Com três equipados e dois sem dinheiro, a aula recomenda considerar também uma ultimate importante antes de escolher entre forçar e fazer meia compra."
+    },
+    {
+      "id": "010",
+      "tipo": "economia",
+      "titulo": "Não usar a riqueza de um único jogador para decidir a compra dos cinco",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Detectar um equipamento alto e quatro baixos; avaliar gasto e resultados coletivos, mantendo explícita a possibilidade de arma salva.",
+        "campos": ["E", "R"],
+        "limites": "I. A distribuição é observável, a call econômica não.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 499–513 s.",
+      "descricao": "Quando só um jogador tem dinheiro e os outros quatro não, a compra dele não deve arrastar o time inteiro para um forçado. A equipe faz a economia; quem tem recursos lida com a própria arma dentro desse contexto."
+    },
+    {
+      "id": "011",
+      "tipo": "economia",
+      "titulo": "Ler a economia adversária e adaptar onde enfrentar",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Relacionar os jogadores mais/menos equipados do adversário com primeiros abates, vítimas e regiões dos confrontos (E/K, opcional L).",
+        "campos": ["E", "K", "L"],
+        "limites": "I/G. É leitura retrospectiva. Sem previsão registrada, não se mede “acerto de leitura” nem o que estava disponível no TAB.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A03, 515–571 s.",
+      "descricao": "Olhe a economia adversária para pensar onde vale enfrentar. Um jogador com menos dinheiro pode mudar sua arma, suas habilidades ou sua maneira de segurar uma região, e essa leitura pode abrir uma oportunidade para o ataque."
+    },
+    {
+      "id": "012",
+      "tipo": "economia",
+      "titulo": "Considerar sobreviventes e possíveis drops antes de pressupor um adversário mal equipado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar sobreviventes inferidos, saldos anteriores e equipamento posterior dos colegas. Procurar casos em que pouco saldo individual não resultou em arma inferior.",
+        "campos": ["E", "K", "R"],
+        "limites": "I. O efeito pode ser compatível com drop, pickup ou outro fluxo; não existe transferência de arma identificada.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 573–605 s.",
+      "descricao": "Não conclua que um adversário estará mal armado apenas pelo saldo dele. Se alguém do outro time sobreviveu, pode haver uma arma preservada ou um drop para quem ficou sem dinheiro."
+    },
+    {
+      "id": "013",
+      "tipo": "economia",
+      "titulo": "Evitar desperdiçar uma vantagem de equipamento",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Comparar loadoutValue total dos times e conversão do time mais equipado; listar derrotas com vantagem grande e CeremonyThrifty.",
+        "campos": ["E", "R"],
+        "limites": "M para resultado condicionado ao equipamento. É um desdobramento analítico dos exemplos, não uma prova de “anti-eco mal jogado”.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 293–451 s, princípio econômico dos exemplos.",
+      "descricao": "Compare o que os dois times conseguem colocar no round antes de escolher a compra. No exemplo do segundo round, causar muitas baixas e plantar permite um forçado justamente porque o adversário também fica limitado no equipamento."
+    },
+    {
+      "id": "014",
+      "tipo": "economia",
+      "titulo": "Avaliar economia pela sequência, não só pelo resultado do round de gasto",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Criar janelas de dois/três rounds com gasto coletivo, vitórias, perdas de equipamento inferidas e recuperação da compra.",
+        "campos": ["E", "R"],
+        "limites": "M para a sequência observada; não atribuir o resultado apenas à compra, ignorando lado, execução e adversário.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 399–513 s.",
+      "descricao": "Pense na compra como uma sequência de rounds. Preservar uma arma no bônus ou segurar um gasto agora pode deixar o time pronto para o próximo armado, mesmo que o round atual termine em derrota."
+    },
+    {
+      "id": "015",
+      "tipo": "pistol",
+      "titulo": "Adaptar a compra do pistol ao agente e à função",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Isolar R1/R13, cruzar J/E e comparar arma/armadura registradas, abates e resultado por agente.",
+        "campos": ["J", "E", "R"],
+        "limites": "I. O kit de utilidade adquirido e a função combinada não aparecem. A preferência da aula não vira obrigação automática.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A03, 18–31 s; A08, 5–117 s.",
+      "descricao": "A compra do pistol depende do agente e do que você pretende fazer com ele. Não escolha a mesma combinação para todos: adapte a pistola e as habilidades ao papel que vai cumprir."
+    },
+    {
+      "id": "016",
+      "tipo": "pistol",
+      "titulo": "Ghost para confrontos mais longos; Frenzy quando a intenção é encurtar",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Mapear as armas em F e medir distância entre killer e vítima nas finalizações; confrontar com o equipamento do pistol.",
+        "campos": ["F", "L", "E"],
+        "limites": "I. São distâncias das kills, não de todos os duelos/tentativas. O arquivo não permite dizer se a arma foi bem escolhida para os tiros que erraram.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A08, 17–56, 87–109 e 261–277 s.",
+      "descricao": "Use a distância esperada para escolher a pistola. Na aula, a Ghost é indicada para trocas mais longas, enquanto a Frenzy combina com a intenção de encurtar e entrar perto do adversário."
+    },
+    {
+      "id": "017",
+      "tipo": "pistol",
+      "titulo": "Usar a mobilidade/escape ao assumir risco com pistola",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar primeiros eventos, continuidade após a primeira kill e mortes rapidamente respondidas por agente/equipamento.",
+        "campos": ["J", "K", "E", "R"],
+        "limites": "I. Pode avaliar o resultado da exposição; não verificar dash, satchel, escape disponível ou acionamento.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A08, 57–75 e 105–143 s.",
+      "descricao": "Agentes com mobilidade e escape podem aproveitar uma pistola mais agressiva para entrar e encurtar. Nos agentes mais travados, a orientação é favorecer confrontos compatíveis com a Ghost em vez de se jogar em uma disputa muito próxima."
+    },
+    {
+      "id": "018",
+      "tipo": "pistol",
+      "titulo": "Reyna pode jogar atrás do entry e buscar refrag no pistol",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Se a composição contiver o agente, medir primeira morte, primeiro abate, trocas temporais e presença próxima dos aliados em K/L.",
+        "campos": ["J", "K", "L"],
+        "limites": "I. Ordem dos abates não prova ordem de entrada. A cura/reset de vida não é observável. Se o agente não existir, marcar não aplicável.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A08, 280–302 s; A09, 323–331 s.",
+      "descricao": "No pistol, a Reyna pode acompanhar quem entra primeiro e buscar o refrag. A ideia é deixar Jett ou Raze abrir espaço e permitir que a Reyna consiga a kill e aproveite seu reset para continuar o round."
+    },
+    {
+      "id": "019",
+      "tipo": "pistol",
+      "titulo": "Controladores/sentinelas/suportes podem priorizar utilidade e aproveitar uma pistola de quem morreu",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Identificar configurações econômicas de pistol e divergências entre arma de E e finalizações em F; relacionar a participação por assistências.",
+        "campos": ["E", "F", "K", "U"],
+        "limites": "I. Não confirma compra de habilidades nem pickup. A utilidade só tem volume agregado no mapa.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A08, 161–260 e 305–470 s.",
+      "descricao": "Não sacrifique automaticamente a utilidade do suporte para comprar uma pistola melhor. Nos exemplos de sentinelas e outros agentes de apoio, a prioridade é preparar as habilidades; depois da entrada, uma pistola de quem morreu pode ser aproveitada."
+    },
+    {
+      "id": "020",
+      "tipo": "pistol",
+      "titulo": "Com Sheriff no pistol, explorar distância e não exigir HS em toda eliminação",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir distâncias das finalizações identificadas como Sheriff e composição de acertos do jogador no pistol, mantendo as duas séries separadas.",
+        "campos": ["F", "L", "H"],
+        "limites": "I. Não atribuir cada bodyshot à Sheriff ou a uma kill específica; dano agregado não prova a sequência “dois tiros no peito”.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A08, 623–666 s.",
+      "descricao": "De Sheriff no pistol, procure posições de confronto mais longo e não trate o headshot como a única forma de matar. A aula destaca que acertar o corpo também pode resolver o duelo, em vez de forçar uma mira perfeita na cabeça."
+    },
+    {
+      "id": "021",
+      "tipo": "pistol",
+      "titulo": "Usar o secundário da Classic em curta distância",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Após validar o UUID da Classic, filtrar F.isSecondaryFireMode, medir distância das finalizações e comparar os dois modos.",
+        "campos": ["F", "L"],
+        "limites": "M para o modo registrado e distância da kill. Sem tiros errados, não há taxa de acerto nem eficácia por tentativa.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A08, 727–775 s.",
+      "descricao": "O disparo secundário da Classic é uma opção forte quando o inimigo está muito perto. À distância, a orientação muda: tenha calma com os tiros em vez de tratar o burst como solução para qualquer confronto."
+    },
+    {
+      "id": "022",
+      "tipo": "pistol",
+      "titulo": "No pistol, buscar controle e conversão coletiva, não só abates",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Cruzar primeiro abate, vantagem numérica, plant e resultado; comparar contribuição individual com o objetivo.",
+        "campos": ["K", "P", "R", "L"],
+        "limites": "M para esses desfechos; G para distribuição espacial. Não há indicador único que meça todo o “controle de mapa”.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A08, 210–240 e 280–302 s.",
+      "descricao": "O pistol também é um round de controle de mapa e de combinação entre agentes. Invista nas ferramentas que permitem ao grupo entrar e continuar a disputa, em vez de pensar apenas na sua pistola ou na sua kill."
+    },
+    {
+      "id": "023",
+      "tipo": "posicionamento",
+      "titulo": "Depois de matar, mudar de posição em vez de ficar no mesmo pixel",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Localizar o killer em L no abate e na próxima amostra em que aparece; medir deslocamento, tempo entre amostras e resultado seguinte.",
+        "campos": ["K", "L"],
+        "limites": "I. Mudança é verificável entre amostras; ausência de mudança aparente não prova que ficou parado.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A01, 45–223 e 426–524 s; A19, 609–638 s.",
+      "descricao": "Depois de matar, não fique plantado no mesmo pixel. Procure outra posição vantajosa para que o próximo inimigo não encontre você exatamente onde o primeiro contato revelou."
+    },
+    {
+      "id": "024",
+      "tipo": "posicionamento",
+      "titulo": "Escolher posições com possibilidade de sair depois do primeiro contato",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir morte/retaliação após kill por região, aliado próximo e agente; procurar posições com sequência recorrente de “mata um e morre”.",
+        "campos": ["K", "L", "R", "J"],
+        "limites": "I/G. A taxa indica risco realizado; escape viável exige geometria, utilidade e vídeo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A01, 180–223 e 499–554 s; A25, 714–732 e 1588–1603 s.",
+      "descricao": "Escolha posições em que consiga matar e sair. Se o segundo adversário pode chegar cobrando imediatamente e você não tem apoio, ficar preso no mesmo lugar limita o valor da primeira kill."
+    },
+    {
+      "id": "025",
+      "tipo": "posicionamento",
+      "titulo": "Capitalizar a primeira eliminação e preservar o benefício para o round",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Primeiro abate, sobrevivência posterior do opener e conversão do time (K/R). Separar a kill inicial de avançar e morrer em seguida.",
+        "campos": ["K", "R"],
+        "limites": "M para os resultados; não provar que recuar teria vencido.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A01, 60–69 e 171–179 s; A20, 1035–1099 s.",
+      "descricao": "Aproveite a primeira kill para se colocar em outra situação favorável. Reposicione e continue construindo vantagem, em vez de ficar exposto esperando ser cobrado no mesmo lugar."
+    },
+    {
+      "id": "026",
+      "tipo": "posicionamento",
+      "titulo": "Antecipar a resposta ao abate e mudar o ângulo para surpreender o próximo inimigo",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar posição do killer em kills sucessivas, intervalos, origem das vítimas e retaliações sofridas.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Não afirmar que o segundo adversário recebeu call ou esperava o pixel anterior.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A01, 84–177 e 437–481 s.",
+      "descricao": "Pense no que o próximo inimigo fará depois de saber onde você matou. Mude o ângulo para pegá-lo durante a procura, em vez de aceitar o confronto no pixel em que ele já vem mirando."
+    },
+    {
+      "id": "027",
+      "tipo": "posicionamento",
+      "titulo": "Não continuar expondo o corpo a uma região já ocupada por vários adversários",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Nas mortes, contar inimigos/aliados presentes nas regiões próximas e relacionar posição a vantagem numérica.",
+        "campos": ["K", "L"],
+        "limites": "I/G. O snapshot é informação retrospectiva; paredes, smokes e visão do jogador não estão no arquivo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A01, 135–175 s; A24, 771–821 s.",
+      "descricao": "Se vários inimigos já passaram para uma região, não continue abrindo de corpo inteiro como se ainda estivesse no primeiro contato. Mude a posição e procure uma disputa mais favorável."
+    },
+    {
+      "id": "028",
+      "tipo": "posicionamento",
+      "titulo": "Preferir um off-angle que quebre a abertura previsível do oponente",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Agrupar coordenadas de combate e comparar sucesso de posições menos repetidas com posições frequentes, por lado e fase.",
+        "campos": ["K", "L", "R"],
+        "limites": "I/G. “Rara” não é sinônimo de off-angle. Identificar a quebra da mira exige geometria/vídeo; há viés de amostrar apenas eventos.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 269–291 e 806–864 s; A23, 301–350 s; A27, 210–235 s.",
+      "descricao": "Um bom off-angle fica fora da abertura de mira que o adversário costuma fazer. Evite o canto muito conhecido e procure uma posição em que ele precise corrigir a mira ao encontrar você."
+    },
+    {
+      "id": "029",
+      "tipo": "posicionamento",
+      "titulo": "Reservar exposições muito agressivas para agentes com possibilidade de escape",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Cruzar agente, região avançada, primeiro abate e sobrevivência/retaliação em J/K/L.",
+        "campos": ["J", "K", "L"],
+        "limites": "I/G. O agente é identificável; disponibilidade do escape e sua execução não.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A13, 447–506 s; A23, 29–79 s; A24, 124–150 s.",
+      "descricao": "Uma exposição muito agressiva pede uma forma de escapar depois do contato. No exemplo de Operator, a jogada de aproximar para um segundo pick é recomendada para agentes com escape, não como uma abertura gratuita para qualquer personagem."
+    },
+    {
+      "id": "030",
+      "tipo": "posicionamento",
+      "titulo": "Sem ajuda, recuar; com cobertura, sustentar uma posição mais avançada",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar presença/proximidade de aliados no mesmo snapshot com morte sem troca e resultado da região.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Proximidade não é cobertura nem linha de tiro. Não culpar quem aparece perto.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 321–331 s; A25, 316–332 e 661–714 s; A26, 196–223 s.",
+      "descricao": "Algumas posições avançadas são fortes quando existe alguém somando com você. Sem esse apoio, não sustente o mesmo risco como se o companheiro ainda estivesse pronto para ajudar."
+    },
+    {
+      "id": "031",
+      "tipo": "posicionamento",
+      "titulo": "Usar posições diferentes conforme a quantidade de jogadores vivos",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Agrupar desempenho de posições em 5v5, 3v3, 2v2 e outros estados inferidos (K/L).",
+        "campos": ["K", "L"],
+        "limites": "I/G. Contexto numérico é calculável; classificar posição como adequada ainda exige mapa e utilidade.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A25, 1553–1574 s.",
+      "descricao": "Uma posição pode ser ruim contra cinco jogadores e boa em um 3v3 ou 2v2. Considere quantos adversários ainda podem aparecer e combine com o aliado qual lado cada um vai segurar."
+    },
+    {
+      "id": "032",
+      "tipo": "posicionamento",
+      "titulo": "Conhecer o tempo de chegada dos inimigos no começo do round",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir tempo da primeira eliminação por região/lado e primeiras aparições disponíveis em snapshots.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Primeira kill não é primeiro contato nem chegada. As amostras oferecem limites, não tempo mínimo garantido de rotação.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A01, 229–338 s; A23, 514–547 s; A24, 59–71 e 1130–1164 s.",
+      "descricao": "Aprenda o tempo que o oponente leva para chegar aos primeiros pixels do round. Saber aproximadamente quando ele pode aparecer ajuda a estar preparado para o confronto, em vez de reagir como se a chegada fosse uma surpresa."
+    },
+    {
+      "id": "033",
+      "tipo": "posicionamento",
+      "titulo": "Atualizar as posições possíveis dos inimigos conforme o tempo passa",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Guardar último ponto conhecido pelo analista, timestamp e deslocamento até nova amostra; relacionar mortes tardias a regiões que ficaram sem amostragem.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Não é última posição vista pelo jogador. Para estimar alcançabilidade, precisa mapa navegável, regras de movimento e habilidades.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A01, 816–915 s; A07, 268–428 s.",
+      "descricao": "Use o tempo desde a última informação para pensar onde o inimigo já pode ter chegado. Esse intervalo também pode permitir que você mude de posição antes de ele aparecer e crie uma vantagem inesperada."
+    },
+    {
+      "id": "034",
+      "tipo": "posicionamento",
+      "titulo": "Evitar oferecer vários confrontos ao mesmo tempo; reduzir lados de exposição",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Identificar concentração de inimigos em direções/regiões distintas, sequência de dano agregado de vários atacantes e morte sem resposta.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Dano de vários jogadores pode ter ocorrido em momentos separados; não chamar de duelo simultâneo comprovado.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A02, 833–980 s; A04, 755–796 s; A26, 33–127 s; A27, 484–530 s.",
+      "descricao": "Se você não sabe de onde o inimigo vem, procure uma posição que reduza os lados pelos quais pode ser atacado. Use cobertura e informação para diminuir os pixels possíveis, em vez de ficar exposto a tudo."
+    },
+    {
+      "id": "035",
+      "tipo": "posicionamento",
+      "titulo": "Depois de revelado em um clutch, reposicionar",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Em estados 1vX, comparar pontos do sobrevivente entre eventos e resultado após sua primeira kill.",
+        "campos": ["K", "L", "R"],
+        "limites": "I. A kill pode revelar sua localização por call, mas a transmissão e a percepção não estão registradas.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 759–831 s; A23, 1172–1234 s.",
+      "descricao": "No clutch, depois que o adversário viu você, tente fazer algo diferente e reposicionar. Ele pode continuar procurando o lugar anterior enquanto você já está em um ângulo mais favorável."
+    },
+    {
+      "id": "036",
+      "tipo": "posicionamento",
+      "titulo": "Não repetir indefinidamente uma jogada de surpresa",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir repetição de região/ponto em rounds consecutivos, variabilidade espacial e resultados das primeiras versus posteriores ocorrências.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Apenas padrões amostrados; uma partida não estabelece que o adversário se adaptou.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A13, 348–381 s; A25, 673–705 e 798–830 s.",
+      "descricao": "Não dependa sempre da surpresa do mesmo lugar. Ao mudar a posição entre rounds, você encontra adversários que ainda esperam a ameaça na região anterior e abrem sem o mesmo cuidado."
+    },
+    {
+      "id": "037",
+      "tipo": "posicionamento",
+      "titulo": "Quando a mira/munição/situação falhar, dificultar a própria morte para facilitar a troca",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir se a morte foi respondida e o intervalo da retaliação, mantendo separadas mortes com e sem aliados próximos em L.",
+        "campos": ["K", "L"],
+        "limites": "I. Só o desfecho de ajuda à troca é avaliável; pulos, esquiva, falta de munição e intenção não.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A01, 555–602 s; A05, 217–311 s.",
+      "descricao": "Se errou e não consegue finalizar, não vire um alvo fácil. Dificulte o tiro do adversário para dar ao companheiro uma oportunidade melhor de fazer a troca."
+    },
+    {
+      "id": "038",
+      "tipo": "posicionamento",
+      "titulo": "Matar um na frente do retake e voltar para ganhar tempo",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Após plant, localizar kill atacante fora/na borda do site, recuo observado, tempo até próximo abate defensor/defuse e resultado.",
+        "campos": ["K", "P", "L", "D", "R"],
+        "limites": "I/G. Mede sequência compatível com atraso; não prova que a kill causou todo o tempo gasto.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A20, 1017–1099 s.",
+      "descricao": "Ao pegar uma kill à frente do afterplant, considere voltar. O adversário que vem para o retake precisará avançar com mais cuidado e limpar posições, e esse tempo ganho vale mais do que continuar procurando luta sem necessidade."
+    },
+    {
+      "id": "039",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Entrar junto, evitando uma sequência de jogadores chegando sozinhos",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir intervalos entre mortes do mesmo time, retaliação, proximidade de aliados e concentração espacial dos atacantes nos eventos de entrada.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Morrer em sequência não prova entrada dessincronizada; inimigo forte e utilidade adversária produzem o mesmo resultado.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A10, 233–333 s; A21, 589–609 s.",
+      "descricao": "Entre junto com o time, combinando presença e habilidades. Quando um chega, morre e só depois o próximo aparece, a defesa consegue responder a vários confrontos separados em vez de lidar com a entrada inteira."
+    },
+    {
+      "id": "040",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Fazer a troca do companheiro e jogar no contato combinado",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Usar K para trocas temporais em 1/3/5 s, tempo de resposta e quem troca quem; L para distância entre envolvidos quando disponível.",
+        "campos": ["K", "L"],
+        "limites": "M para a retaliação definida; I para coordenação. Uma assistência não equivale a uma troca e vice-versa.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A01, 200–216 s; A20, 1110–1131 e 1274–1282 s.",
+      "descricao": "Jogue de um jeito que o companheiro consiga responder ao contato. Com apoio combinado, um jogador pode disputar e o outro abrir para fazer a troca; sem isso, a mesma posição pode virar apenas uma kill entregue."
+    },
+    {
+      "id": "041",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Pedir companhia para agressivar, em vez de entregar uma kill isolada",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Relacionar mortes em regiões avançadas com aliado mais próximo, resposta temporal e resultado do round.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Não existe registro do pedido, da aceitação ou de uma linha de tiro viável.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A23, 1240–1270 s.",
+      "descricao": "Se quiser agressivar, chame alguém para jogar junto. Avançar para uma região em que vários inimigos conseguem cobrar você sem um parceiro por perto torna a disputa muito mais difícil."
+    },
+    {
+      "id": "042",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Usar um jogador para atrair atenção enquanto o parceiro pune de outro ângulo",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Encontrar duplas próximas da mesma região, sequência de kills, assistências e posições distintas ao redor do combate.",
+        "campos": ["K", "L"],
+        "limites": "I/G. Pode indicar uma estrutura de dupla; não confirma bait combinado, distração ou crossfire efetivo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 168–202 s; A23, 85–132 e 327–350 s.",
+      "descricao": "Combine uma dupla em que um jogador busca contato e atrai a atenção enquanto o outro espera em um ângulo diferente. O segundo entra na luta quando os adversários passam a mirar o companheiro."
+    },
+    {
+      "id": "043",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Conservar o espaço conquistado em vez de devolver tudo depois de entrar",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar ocupação amostrada de regiões antes e depois do plant, perda de pontos avançados e resultado do retake.",
+        "campos": ["L", "P", "R", "D"],
+        "limites": "I/G. Ausência de jogador no local não significa perda de controle: armadilhas e linhas de visão não estão registradas.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A06, 607–649 s; A09, 700–766 s.",
+      "descricao": "Não domine uma grande parte do mapa para depois deixar de aproveitá-la. Entenda o espaço que foi conquistado e como ele empurra os defensores para trás antes de devolver essa vantagem."
+    },
+    {
+      "id": "044",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Pressionar uma região para deslocar defensores e explorar outra",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Procurar sequência de eventos/posições em um lado, mudança de distribuição defensora e plant em outro; medir intervalo e número de defensores presentes nas amostras.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Não rotular automaticamente como fake: pressão por utilidade e intenção não são registradas.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A06, 473–605 s; A20, 469–818 s; A21, 190–231 s.",
+      "descricao": "Dominar uma região muda o espaço disponível para a defesa e pode provocar rotações. Pense na reação adversária a essa pressão para decidir onde concentrar o ataque, em vez de tomar espaço sem um plano para usá-lo."
+    },
+    {
+      "id": "045",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Quando matar o adversário avançado, explorar rapidamente o espaço que ele deixou",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Identificar kill em região avançada defensora; medir intervalo até progressão atacante observada, próxima kill ou plant no lado correspondente.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Requer mapa e inferência do papel do morto. Não garantir que o site ficou livre ou que a informação chegou à equipe.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A20, 335–460 e 647–684 s.",
+      "descricao": "Quando matar um defensor avançado, a decisão de explorar o espaço precisa ser rápida. A ideia é chegar antes de a defesa se recompor e aproveitar os jogadores ainda fora de posição."
+    },
+    {
+      "id": "046",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Acelerar quando a equipe já conseguiu abates na entrada",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Relacionar kills locais iniciais, tempo até plant, número de jogadores chegando nas amostras e conversão.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. O intervalo até plant é real; tempo da call e começo da aceleração não são.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A20, 600–610 e 674–684 s; A21, 825–850 s.",
+      "descricao": "Se a movimentação de entrada já rendeu uma ou duas kills, acompanhe a oportunidade e entre. Não deixe o grupo parado enquanto a vantagem conquistada permite acelerar sobre o site."
+    },
+    {
+      "id": "047",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Não insistir na mesma entrada quando o adversário já está concentrado nela",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar repetição do site/rota, concentração defensora nos eventos, perdas antes do plant e resultados entre tentativas.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Uma derrota pode vir de execução; não declarar que a rotação alternativa estava livre.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A21, 774–821 e 1002–1057 s.",
+      "descricao": "Não repita apenas ir até um bombsite e estourar, principalmente quando a defesa já está concentrada esperando. Trabalhe espaço e reavalie o alvo se a mesma entrada continua recebendo resistência."
+    },
+    {
+      "id": "048",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Trocar o alvo quando um defensor está dominando os confrontos naquela região",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Agregar primeiras kills/multikills de um defensor por região e comparar a escolha do ataque nos rounds posteriores.",
+        "campos": ["K", "L", "R"],
+        "limites": "I/G. Mede padrão e eventual mudança; não determina medo, respeito ou causalidade.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A21, 1039–1057 s.",
+      "descricao": "Se um defensor está vencendo todos os confrontos naquela região e você sabe onde ele está, considere atacar outro lugar. Não é uma questão de medo, mas de deixar de oferecer repetidamente o jogo que está funcionando para ele."
+    },
+    {
+      "id": "049",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Ganhar espaço no lado vazio e controlar a rotação, permitindo concentrar aliados no outro site",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Procurar distribuição defensora 1+4 nas amostras e posição avançada do isolado; relacionar com plant/resultado.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. O lado estar sem inimigos no snapshot não prova que o defensor sabia disso; não há detecção/armadilhas.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A01, 778–812 s; A23, 575–638 s; A25, 853–911 s; A27, 787–805 s.",
+      "descricao": "Quando o time identifica pressão em um lado, o jogador do outro pode ganhar espaço e assumir mais responsabilidade por aquela região. Isso permite que os quatro aliados reforcem o lado pressionado sem abandonar a possibilidade de responder ao outro."
+    },
+    {
+      "id": "050",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Cuidar das costas quando o plano concentra jogadores na frente",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir separação de um aliado do grupo principal, mortes/abates em rotas de flanco e contribuição antes/depois do plant.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Não reconhecer “costas desprotegidas” só pela ausência de jogadores; pode haver utilidade cobrindo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 799–868 s; A20, 300–328 e 1837–1845 s.",
+      "descricao": "Ao concentrar jogadores na frente, prepare também a proteção das costas. Nos exemplos de split, a utilidade da sentinela fica olhando o flanco enquanto o restante do grupo progride."
+    },
+    {
+      "id": "051",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Fazer lurk no timing do contato e das mortes do outro lado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Identificar jogador separado por região; medir avanço amostrado e abates dele após eventos dos aliados em outra região, com defasagem em segundos.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Isolado não significa lurker. Não há começo exato da movimentação ou motivo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A26, 649–703 s; A27, 1748–1861 s.",
+      "descricao": "O timing do lurk depende do contato do time no outro lado. Quando começam a acontecer mortes e rotações, pode surgir a brecha para avançar; sem esse contato, alguém ainda pode estar parado esperando sua passagem."
+    },
+    {
+      "id": "052",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Transformar o lurk em espaço útil, cortar rotações e depois esperar o time",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Verificar kills do isolado, mudança de posição dos aliados, plant subsequente, convergência no site e resultado.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Uma kill longe do grupo pode ser flanco, duelo independente ou consequência do round; não assumir a função.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A26, 710–780 s.",
+      "descricao": "Depois de encontrar uma brecha no lurk, use as kills e o espaço para cortar a rotação. Quando já conquistou uma posição útil, não precisa continuar correndo atrás de combate: espere o time chegar e concluir a jogada."
+    },
+    {
+      "id": "053",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Adaptar a distribuição ao perder espaço ou sofrer pressão",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar posições defensivas entre eventos, recuo observado, presença de reforços e resultado; separar sustentar site de conceder plant e defusar.",
+        "campos": ["K", "L", "R", "P"],
+        "limites": "I/G. Mede reação espacial compatível; não verifica pedido de ajuda nem pressão não letal de utilidade.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A27, 123–206 s; A06, 599–605 s.",
+      "descricao": "Se o adversário tomou uma região e você não consegue recuperá-la, recue e reorganize a defesa. Ajuste as posições e o apoio conforme a direção da pressão, em vez de insistir no espaço perdido."
+    },
+    {
+      "id": "054",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "No retake, considerar mais de uma rota em vez de colocar todos na mesma passagem",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Agrupar posições defensoras pós-plant por rota e medir sincronização dos abates, tempo até defuse e sucesso.",
+        "campos": ["K", "L", "D", "R"],
+        "limites": "I/G. Precisa mapa; snapshots não garantem a trajetória completa. Duas rotas não significam melhor decisão em todos os casos.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A21, 854–902 s.",
+      "descricao": "No retake, não pense só na passagem em que todos já estão agrupados. A análise da aula destaca a alternativa de mandar uma dupla pelo flanco para criar outra frente de disputa."
+    },
+    {
+      "id": "055",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Observar quais agentes morreram para entender quem pode rotacionar",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Usar J/K para agentes vivos por instante e L para posições amostradas; medir quem aparece posteriormente no combate/retake.",
+        "campos": ["J", "K", "L"],
+        "limites": "M para identidade e sequência; I/G para função/região inicial. Não presumir rotação apenas pelo estereótipo do agente.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A07, 144–238 s; A19, 336–409 s; A23, 567–573 s.",
+      "descricao": "A identidade de quem morreu ajuda a pensar em quem ainda pode aparecer e por onde. Cruze os agentes restantes com as informações do round para levantar possibilidades de rotação ou flanco."
+    },
+    {
+      "id": "056",
+      "tipo": "trabalho-em-equipe",
+      "titulo": "Ter um plano e adaptá-lo quando o round muda",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Após perda de vantagem ou mortes relevantes, comparar tempo até novo plant/kill e redistribuição espacial. Documentar mudanças de padrão compatíveis com adaptação.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "I/G. Não mede qualidade da liderança nem existência da call. Um movimento pode ter sido planejado desde o começo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A06, 419–471 e 685–735 s; A20, 1990–2086 s.",
+      "descricao": "Defina o plano do time, mas esteja pronto para improvisar quando ele não funcionar. Uma mudança no meio do round pode exigir outra distribuição ou uma decisão rápida combinada entre os jogadores."
+    },
+    {
+      "id": "057",
+      "tipo": "objetivo",
+      "titulo": "Aproveitar a janela para plantar quando o adversário ainda está longe",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir tempo até plant, inimigos vivos e distância deles à spike no snapshot de conclusão (P/L/K).",
+        "campos": ["P", "L", "K"],
+        "limites": "I. Sem início/tentativa de plant e rotas, não provar que plantou na primeira janela segura nem calcular o tempo de chegada exato.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 6–26 s.",
+      "descricao": "Se a última informação coloca o adversário longe e você tem noção do tempo de deslocamento, aproveite a janela para plantar. Não adie uma conclusão possível do objetivo sem considerar o espaço e o tempo disponíveis."
+    },
+    {
+      "id": "058",
+      "tipo": "objetivo",
+      "titulo": "Plantar depois de conquistar/limpar o espaço necessário",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Nos plants concluídos, medir sobreviventes dos dois lados, distribuição espacial e mortes do planter/aliados logo depois.",
+        "campos": ["P", "K", "L", "R"],
+        "limites": "I/G. Não detecta todas as tentativas fracassadas, nem limpeza por drone. Proximidade inimiga não prova site não limpo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 27–41 s; A26, 784–902 s; A27, 1515–1529 s.",
+      "descricao": "O afterplant começa depois de o time conquistar o bombsite. A orientação parte desse preparo: dominar e limpar o espaço antes de tratar a posição como pronta para plantar e defender."
+    },
+    {
+      "id": "059",
+      "tipo": "objetivo",
+      "titulo": "Escolher um plant que o time consiga defender",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Agrupar plantLocation por site; relacionar distribuição aliada no plant, deslocamentos posteriores e conversão.",
+        "campos": ["P", "L", "R"],
+        "limites": "I/G. Coordenada é exata; “aberto para longa”, “seguro” e “jogável” precisam de geometria e consideração de smokes/altura.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 102–132 s; A26, 234–262 s; A27, 1225–1272 e 1332–1366 s.",
+      "descricao": "Plante em uma posição fácil para o seu time jogar depois. A spike precisa combinar com as posições que vocês conseguem ocupar e defender, não apenas com o lugar em que você conseguiu concluir o plant."
+    },
+    {
+      "id": "060",
+      "tipo": "objetivo",
+      "titulo": "Usar plant mais protegido quando falta informação/espaço",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar grupos de coordenadas previamente anotados como mais protegidos/expostos, quantidade de inimigos vivos e sobrevivência do planter.",
+        "campos": ["P", "L", "K", "R"],
+        "limites": "I/G. Não mede a informação do jogador; o arquivo mostra apenas plants concluídos, gerando viés de sobrevivência.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A02, 883–905 s; A27, 1250–1272 e 1344–1366 s.",
+      "descricao": "Sem informação sobre a posição adversária, não plante aberto para vários lados. Procure uma boa cobertura para não oferecer diferentes formas de ser punido durante a ação."
+    },
+    {
+      "id": "061",
+      "tipo": "objetivo",
+      "titulo": "Planejar a próxima posição enquanto planta e reposicionar ao terminar",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir deslocamento do planter entre o snapshot de plant e a próxima amostra; registrar defasagem, kill/morte seguinte e resultado.",
+        "campos": ["P", "L", "K", "R"],
+        "limites": "I. Não observa o pensamento durante o plant nem o instante de saída.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A04, 44–66, 321–349 e 972–1000 s.",
+      "descricao": "Use o tempo do plant para pensar na próxima decisão: onde estão os inimigos e para onde você vai depois? Termine a ação com um plano, em vez de ficar parado procurando o que fazer só quando a spike já está no chão."
+    },
+    {
+      "id": "062",
+      "tipo": "objetivo",
+      "titulo": "Depois de plantar, não oferecer duelos gratuitos a quem precisa procurar você",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Contar mortes atacantes logo após o plant, perda da vantagem numérica e deslocamentos amostrados em direção aos defensores.",
+        "campos": ["P", "K", "L", "R"],
+        "limites": "I/G. Não chamar de “duelo gratuito” automaticamente; pode haver necessidade de disputar espaço/impedir defuse.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 345–408 e 972–1021 s; A07, 327–358 s.",
+      "descricao": "Depois de plantar, quem precisa encontrar você é o defensor. Não facilite a vida dele oferecendo um duelo franco na entrada quando ele ainda teria de procurar sua posição por todo o bombsite."
+    },
+    {
+      "id": "063",
+      "tipo": "objetivo",
+      "titulo": "Usar o tempo da spike como condição de vitória",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Separar vitórias por detonação de eliminação e derrotas por defuse; calcular defuseRoundTime - plantRoundTime e kill final de cada lado antes do defuse.",
+        "campos": ["P", "D", "K", "R"],
+        "limites": "M para resultado e intervalo observado. Não inventar duração de fake/metade ou contar tempo restante por um temporizador não validado.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 370–469 e 1108–1115 s; A04, 230–304 s.",
+      "descricao": "Aprenda a acompanhar o tempo da spike e quanto ainda existe para jogar. O relógio muda a decisão de esperar, disputar ou ir com tudo; não trate o afterplant como uma busca obrigatória pela última kill."
+    },
+    {
+      "id": "064",
+      "tipo": "objetivo",
+      "titulo": "Valorizar afterplants vencidos sem precisar eliminar todos",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Nas detonações, procurar defensores ainda não eliminados antes dos eventos de bomba; registrar estado inferido e resultado.",
+        "campos": ["P", "K", "R"],
+        "limites": "M para a existência desses casos; I para o método usado. Sobrevivência e objetivo precisam separar mortes pós-detonação.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 1108–1115 s.",
+      "descricao": "Você pode vencer um clutch fazendo o tempo da spike acabar, sem precisar eliminar o adversário. Valorize o posicionamento e a pressão do objetivo em vez de procurar uma troca de tiros desnecessária."
+    },
+    {
+      "id": "065",
+      "tipo": "objetivo",
+      "titulo": "No 1v2, lidar rapidamente com quem dá cobertura e ainda conseguir disputar o defuse",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Em afterplants 1v2 inferidos, ordenar abates, identidade do defuser e distância temporal do último abate ao defuse concluído.",
+        "campos": ["K", "P", "D"],
+        "limites": "I. Não há início de defuse; não se sabe quem estava dando cobertura, se o parceiro largou ou se houve fake.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A04, 138–304 s.",
+      "descricao": "No afterplant contra dois, pense no jogador que dá cobertura enquanto o outro defusa. Resolva esse confronto com rapidez e use o tempo desde o clique para decidir se precisa abrir imediatamente no defuser ou se ainda pode trabalhar a jogada."
+    },
+    {
+      "id": "066",
+      "tipo": "objetivo",
+      "titulo": "Garantir cobertura de outros lados quando fizer um pick no afterplant",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Ver distribuição aliada, orientações disponíveis e morte/retaliação na região do pick. Comparar pares que permanecem próximos com jogador isolado.",
+        "campos": ["K", "L", "R", "P"],
+        "limites": "I/G. Orientação/proximidade não confirmam cobertura nem atenção. A vítima não tem orientação no instante da morte.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 1023–1059 s; A20, 1299–1365 s.",
+      "descricao": "Antes de procurar um pick no afterplant, tenha certeza de que as outras posições estão cobertas. Pense em como ajudar o time com o agente e as habilidades que ainda tem, em vez de abrir deixando outros lados livres."
+    },
+    {
+      "id": "067",
+      "tipo": "objetivo",
+      "titulo": "Preservar variedade de posições para tornar o retake trabalhoso",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar dispersão aliada no plant e em eventos seguintes, número de regiões ocupadas e resultado do afterplant.",
+        "campos": ["P", "L", "R"],
+        "limites": "I/G. Mais dispersão não é sempre melhor: pode impedir trades. Não medir “quantos pixels o defensor precisou limpar” sem vídeo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 416–478 s; A09, 700–766 s.",
+      "descricao": "Use as possibilidades do espaço para que o defensor não saiba de imediato onde você está. Tenha um plano de posição ou de volta e esteja disposto a mudá-lo durante o clutch."
+    },
+    {
+      "id": "068",
+      "tipo": "objetivo",
+      "titulo": "Jogar de fora do bomb quando o plant e as posições permitem",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Após classificar perímetro do site, medir atacantes fora dele, coordenada da spike, kills pós-plant e conversão.",
+        "campos": ["P", "L", "K", "R"],
+        "limites": "I/G. Não há confirmação de linhas de visão ou utilidade para impedir o defuse de fora.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A20, 1282–1294 s; A26, 234–262 s; A27, 1627–1657 s.",
+      "descricao": "Se o plant está aberto e os agentes têm ferramentas para jogar de trás, aproveite essa condição. Não é obrigatório manter todo mundo dentro do bombsite quando o objetivo pode ser defendido de fora."
+    },
+    {
+      "id": "069",
+      "tipo": "objetivo",
+      "titulo": "Não abandonar o espaço de ligação útil ao afterplant",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Em entradas por dois acessos, comparar presença na ligação antes/depois do plant e mortes aliadas posteriores na mesma região.",
+        "campos": ["P", "L", "K", "R", "D"],
+        "limites": "I/G. É uma aplicação específica de conservar espaço; estado da porta e controle por utilidade não aparecem.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 700–766 s.",
+      "descricao": "Se a entrada por duas frentes conquistou uma ligação importante, não devolva esse espaço automaticamente. Manter jogadores ali pode dar ao time muito mais opções de afterplant do que fechar todos dentro do bombsite."
+    },
+    {
+      "id": "070",
+      "tipo": "objetivo",
+      "titulo": "Avaliar o retake considerando que a spike plantada favorece o atacante",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Separar resultados da defesa antes e depois de plant; estratificar retake por site, vivos no plant e equipamento.",
+        "campos": ["P", "E", "R", "K"],
+        "limites": "M para resultados condicionais. Não interpretar todos os plants como tentativas de retake ou considerar um retake perdido erro inevitável.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A04, 594–608 s.",
+      "descricao": "Jogar o retake é mais difícil do que segurar uma spike já plantada. Leve essa vantagem de posição e de objetivo em conta ao pensar nos confrontos, em vez de esperar que toda retomada termine em vitória."
+    },
+    {
+      "id": "071",
+      "tipo": "objetivo",
+      "titulo": "Ajustar o plano de afterplant/retake à identidade dos sobreviventes",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Reconstruir quais agentes sobreviveram ao plant e comparar finalizações/assistências/resultado por configuração.",
+        "campos": ["J", "P", "K", "R"],
+        "limites": "I. Há identidade, mas não habilidades restantes, ult pronta ou possibilidade de quebrar reconhecimento.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A20, 1141–1225 e 1282–1294 s.",
+      "descricao": "Assim que entrar no bombsite, olhe quais agentes adversários continuam vivos e que ferramentas podem chegar no retake. Combine quem responde ao reconhecimento e adapte o posicionamento às habilidades do próprio time."
+    },
+    {
+      "id": "072",
+      "tipo": "objetivo",
+      "titulo": "Não deixar o relógio encerrar um ataque ainda sem plant",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Identificar derrota atacante por Round timer expired, estado numérico inferido e sequência final de kills; comparar com plants tardios.",
+        "campos": ["R", "P", "K"],
+        "limites": "M para timeout; I para a causa. Não chamar de indecisão: pode haver spike perdida, bloqueio, dano ou impossibilidade de plant.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A19, 840–848 s; A02, 6–26 s, como desdobramento do uso do tempo.",
+      "descricao": "Leve o relógio em conta antes de terminar a disputa. Quando o tempo está acabando, um confronto ou uma espera a mais pode deixar o ataque sem oportunidade de concluir o plant."
+    },
+    {
+      "id": "073",
+      "tipo": "clutch",
+      "titulo": "Tratar o clutch conforme o cenário: com spike, sem spike, atacando ou defendendo",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Reconstruir entradas 1vX e segmentar por lado, existência de plant, tempo, equipamento e resultado.",
+        "campos": ["K", "P", "R", "D", "E"],
+        "limites": "M para classificação do estado inferido. Não usar CeremonyClutch como inventário completo nem equiparar todos os 1vX.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 473–717 s.",
+      "descricao": "O clutch muda conforme o lado e a situação da spike. Defendendo uma bomba plantada, você pode usar posição e tempo; chegando para desarmar, precisa limpar espaço e provocar uma resposta sem deixar o relógio acabar."
+    },
+    {
+      "id": "074",
+      "tipo": "clutch",
+      "titulo": "Isolar duelos em vez de enfrentar todos juntos",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Em 1vX, ordenar kills do sobrevivente, medir intervalos e distribuição espacial dos inimigos nos snapshots.",
+        "campos": ["K", "L", "R"],
+        "limites": "I/G. Kills sequenciais não provam duelos isolados; tiros e ameaças simultâneas não estão registrados.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 755–796 s; A07, 575–628 s.",
+      "descricao": "No 1vX, procure jogar vários x1 separados. Use a informação e o espaço para enfrentar um adversário por vez, em vez de abrir diretamente para dois que já estão chegando juntos."
+    },
+    {
+      "id": "075",
+      "tipo": "clutch",
+      "titulo": "Escolher primeiro a ameaça que pode chegar mais cedo",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar distância das ameaças amostradas, quem foi eliminado primeiro e eventual morte por outro inimigo.",
+        "campos": ["K", "L", "R"],
+        "limites": "I/G. Só uma aproximação retrospectiva; faltam som, visibilidade e tempo navegável. Não declarar que o jogador ignorou informação.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A07, 585–620 s.",
+      "descricao": "Use os passos e a posição dos inimigos para decidir quem chega primeiro. Resolva a ameaça mais próxima e vá ajustando a posição para não tomar de lado enquanto enfrenta a seguinte."
+    },
+    {
+      "id": "076",
+      "tipo": "clutch",
+      "titulo": "Reduzir possibilidades e proteger as costas ao reposicionar no clutch",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir mudança de região do sobrevivente, separação de adversários e se os confrontos seguintes ocorrem em uma ou várias regiões.",
+        "campos": ["K", "L", "R"],
+        "limites": "I/G. Para afirmar isolamento de linhas de tiro, seriam necessários geometria 3D e bloqueios dinâmicos.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A02, 833–1016 s; A07, 286–428 s.",
+      "descricao": "Reposicione para reduzir as possibilidades do inimigo e proteger suas costas. Conforme chegam novas informações, feche as regiões que ele já não pode ocupar e concentre a atenção no que ainda é possível."
+    },
+    {
+      "id": "077",
+      "tipo": "clutch",
+      "titulo": "Tirar proveito de padrões do mesmo adversário",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar posições amostradas e escolhas de rota/região do oponente em rounds anteriores, e mudanças nas respostas do jogador.",
+        "campos": ["K", "L", "R"],
+        "limites": "I/G. O JSON não registra fake defuse ou tendência de não abrir; só padrões de eventos/posição. Não afirmar adaptação consciente.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A02, 594–648 s; A23, 485–512 s.",
+      "descricao": "Preste atenção ao jeito de jogar de quem você já enfrentou. Se o adversário mostrou repetidamente que não abre em uma situação, essa leitura pode orientar uma decisão diferente na próxima disputa."
+    },
+    {
+      "id": "078",
+      "tipo": "clutch",
+      "titulo": "Valorizar posicionamento e objetivo em vez de medir clutch só por kills",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Para cada estado 1vX, registrar vitória por objetivo, kills posteriores e se o sobrevivente vence sem eliminar todos.",
+        "campos": ["K", "P", "R"],
+        "limites": "M para desfecho; não mede calma ou criatividade.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 1051–1115 s; A04, 345–408 s.",
+      "descricao": "Valorize uma posição boa em vez de medir o clutch só pelas kills. Uma volta inesperada ou uma espera que deixa o relógio acabar pode ganhar o round sem precisar aceitar o confronto de frente."
+    },
+    {
+      "id": "079",
+      "tipo": "clutch",
+      "titulo": "Preservar vantagem numérica e não oferecer duelos separados ao último adversário",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Detectar 2v1/3v1 perdidos, sequência de mortes sem retaliação e dispersão dos aliados nos snapshots.",
+        "campos": ["K", "L", "R"],
+        "limites": "M para vantagem perdida; I/G para “entregou x1”. É desdobramento da dica de isolar duelos, não uma fala adicional inventada.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A04, 755–796 s; A07, 575–628 s, leitura do lado oposto.",
+      "descricao": "A orientação de isolar x1 também serve como alerta para quem tem a vantagem: não facilite uma sequência em que o último inimigo encontra cada jogador sozinho. Procure manter uma disputa em que os aliados consigam participar juntos."
+    },
+    {
+      "id": "080",
+      "tipo": "clutch",
+      "titulo": "Julgar a decisão por repetição e contexto, não por uma derrota isolada",
+      "classificacao": "mensuravel",
+      "inferencia": {
+        "metodo": "Agrupar situações comparáveis e sempre mostrar sucessos/tentativas, composição, lado e economia; neste arquivo, usar contagens e exemplos.",
+        "campos": ["R", "E", "J", "K"],
+        "limites": "M para descrição da amostra. Uma partida não permite validar taxas universais nem provar que uma tática é superior.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A20, 1888–1946 s.",
+      "descricao": "Uma jogada boa também pode dar errado. O importante é conseguir repeti-la com consistência e ganhar mais vezes do que perder, não abandonar o plano só porque em um round o adversário acertou tudo."
+    },
+    {
+      "id": "081",
+      "tipo": "operator",
+      "titulo": "Depois de conseguir um pick de Operator, trocar de região",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Filtrar kills de Operator em F, comparar a posição do jogador em eventos posteriores e novas regiões de confronto.",
+        "campos": ["F", "K", "L"],
+        "limites": "I/G. Não concluir que fez a troca de função solicitada a um aliado; não há call ou equipagem contínua.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A13, 313–342 s.",
+      "descricao": "Depois de um pick de Operator, considere trocar de região com um aliado. Sabendo onde a arma está, o outro time pode evitar aquele confronto; em outro lugar, você volta a surpreender."
+    },
+    {
+      "id": "082",
+      "tipo": "operator",
+      "titulo": "Variar a posição de Operator entre rounds",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar a região da primeira aparição/kill disponível do jogador entre rounds com Operator registrada.",
+        "campos": ["F", "E", "K", "L"],
+        "limites": "I/G. Primeira amostra não é posição inicial; o arquivo não permite verificar todos os ângulos que ele segurou sem contato.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A13, 348–381 s.",
+      "descricao": "Varie a região em que começa de Operator de um round para outro. O adversário pode abrir esperando uma troca de rifle e encontrar a arma em um lugar diferente do que viu antes."
+    },
+    {
+      "id": "083",
+      "tipo": "operator",
+      "titulo": "Recuar por posições sucessivas e deixar os atacantes entrarem na mira",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Nas multikills de Operator, medir pontos sucessivos, distância entre eles, sentido do deslocamento em relação ao site e retaliação.",
+        "campos": ["F", "K", "L"],
+        "limites": "I/G. Não há histórico para afirmar que ficou parado esperando ou que o recuo foi contínuo.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A13, 387–437 s.",
+      "descricao": "De Operator na defesa, não precisa perseguir os adversários depois da primeira kill. Vá para outra posição mais recuada e faça com que eles precisem entrar na sua mira novamente."
+    },
+    {
+      "id": "084",
+      "tipo": "operator",
+      "titulo": "O segundo pick mais agressivo exige saída segura",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Após primeira kill, procurar aproximação observada ao próximo alvo, segunda kill e morte/continuidade do jogador, por agente.",
+        "campos": ["F", "K", "L", "J"],
+        "limites": "I/G. Não verificar escape disponível; a agressividade é inferida das amostras e da camada de mapa.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A13, 439–506 s.",
+      "descricao": "Uma opção mais avançada é aproximar depois do primeiro pick, surpreender o segundo inimigo e voltar rápido. A aula condiciona esse risco a um agente com escape, para não ficar preso depois do tiro."
+    },
+    {
+      "id": "085",
+      "tipo": "operator",
+      "titulo": "Avaliar se Operator combina com o ritmo do ataque e com o agente",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Cruzar rounds atacantes com Operator em E, tempo até primeiro abate/plant, participação em K/F, sobrevivência e resultado.",
+        "campos": ["E", "F", "K", "P", "R"],
+        "limites": "I. Ritmo coletivo pode ser aproximado; não há intenção de rush nem taxa de disparos.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A13, 478–514 s.",
+      "descricao": "Escolha a Operator pensando no agente, no mapa e na situação. A aula recomenda escape para quem está aprendendo e alerta que comprar a arma atacando não faz sentido em qualquer ocasião."
+    },
+    {
+      "id": "086",
+      "tipo": "operator",
+      "titulo": "Usar Operator em confrontos/posições onde seu alcance pode render",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar distância das finalizações por Operator com outras armas, posição do atirador e resultados dos rounds em que ela foi registrada.",
+        "campos": ["F", "L", "R", "E"],
+        "limites": "I/G. Distância de kills sofre seleção: não inclui tiros errados ou duelos perdidos com arma momentaneamente trocada.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A23, 135–230 s; A24, 447–469 s.",
+      "descricao": "Aproveite regiões longas e posições em que a Operator pode impor seu alcance. Escolher um pixel diferente da altura e do lugar que o inimigo costuma mirar também pode favorecer o primeiro tiro."
+    },
+    {
+      "id": "087",
+      "tipo": "operator",
+      "titulo": "Em emergência de distância muito curta, o autor considera o no-scope uma opção",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Listar finalizações de Operator a curta distância para revisão, usando F/L e uma escala calibrada se quiser metros.",
+        "campos": ["F", "L"],
+        "limites": "I. Não há flag inequívoca de scope. isSecondaryFireMode não deve ser convertido em “no-scope” sem documentação específica; só se detecta o contexto de kill próxima.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A12, 329–498 s; A13, 208–248 s.",
+      "descricao": "Se o inimigo já está muito perto e você não consegue preparar outra resposta, o no-scope é uma opção. A aula mostra essa saída em curta distância e trata a decisão como algo que precisa ser sentido e praticado, não como um tiro para qualquer alcance."
+    },
+    {
+      "id": "088",
+      "tipo": "operator",
+      "titulo": "Não usar a mesma expectativa de headshot para rifle, Operator e outras armas",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Separar equipamento registrado e fonte das finalizações ao interpretar H; não penalizar um perfil de sniper simplesmente por proporção menor de HS.",
+        "campos": ["E", "H", "F", "K"],
+        "limites": "I. Não calcular HS% exato por arma com este dano agregado. A distinção é contextual e evita um diagnóstico incorreto.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A13, 214–225 s; A12, 308–317 s; A08, 623–666 s.",
+      "descricao": "De Operator, não faz sentido exigir um headshot quando um acerto no corpo já resolve. Ajuste sua prioridade à arma que está usando, em vez de jogar todos os confrontos com a mesma expectativa de mira."
+    },
+    {
+      "id": "089",
+      "tipo": "mira",
+      "titulo": "Manter a mira na altura da cabeça e reduzir ajustes desnecessários",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Calcular proporção de acertos na cabeça/corpo/perna e dano por round, com contexto econômico e de função.",
+        "campos": ["H", "E", "R"],
+        "limites": "I. Mede resultado dos acertos, não altura da mira. Não dizer “mira baixa” só por HS% baixo.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A11, 175–193 e 415–453 s; A19, 648–752 s.",
+      "descricao": "Mantenha a mira na altura em que espera encontrar a cabeça e reduza os ajustes verticais desnecessários. No treino, procure posicionar antes do contato para precisar corrigir mais para os lados do que para cima e para baixo."
+    },
+    {
+      "id": "090",
+      "tipo": "mira",
+      "titulo": "Treinar as armas que realmente utiliza, incluindo pistol, Spectre e rifles",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Fazer inventário de arma registrada por round, finalizações por arma e contextos com mais mortes/menos participação para priorizar revisão.",
+        "campos": ["E", "F", "K", "H", "R"],
+        "limites": "M para uso registrado e kills; I para recomendar foco de treino. Não medir adesão ou eficácia do treino sem dados das sessões.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A11, 224–230 s; A28, 29–89 s.",
+      "descricao": "Treine as armas que realmente fazem parte do seu jogo, não só o rifle preferido. A rotina mostrada inclui pistol e Spectre, além das armas usadas nos confrontos armados."
+    },
+    {
+      "id": "091",
+      "tipo": "mira",
+      "titulo": "Controlar a cadência da pistola em vez de atirar sem reset",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Nos pistols, observar H, dano sem finalização e resultados das trocas para selecionar casos com dificuldade.",
+        "campos": ["H", "K", "R"],
+        "limites": "I, fraco. Não há cadência, tiros errados ou ordem dos acertos. Esse indício não distingue recoil ruim, movimentação, adversário ou distância.",
+        "requerGeometria": false,
+        "indicioFraco": true
+      },
+      "origem": "A08, 471–577 e 670–719 s.",
+      "descricao": "Não fique apertando o tiro da pistola o mais rápido possível. Aprenda o intervalo em que a mira volta a concentrar para atirar com calma; a Sheriff, por exemplo, pede mais espaço entre os disparos."
+    },
+    {
+      "id": "092",
+      "tipo": "mira",
+      "titulo": "Adaptar o tipo de tiro à distância; o autor prefere taps em longa distância",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Medir distâncias das kills e composição agregada dos acertos por jogador/round como séries separadas; destacar contextos de confronto distante.",
+        "campos": ["F", "L", "H"],
+        "limites": "I, fraco. Não identifica tap, burst, spray, agachamento ou o desempenho de todos os duelos por distância.",
+        "requerGeometria": false,
+        "indicioFraco": true
+      },
+      "origem": "A28, 1218–1297 s; A11, 324–336 e 455–500 s.",
+      "descricao": "Adapte o tiro à distância. Para confrontos muito longos, a aula orienta dar taps com calma e sentir o recoil, em vez de tentar resolver tudo com a mesma sequência rápida de tiros."
+    },
+    {
+      "id": "093",
+      "tipo": "mira",
+      "titulo": "Abrir ângulos por partes, com pré-posicionamento, para facilitar o primeiro confronto",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Observar primeiras mortes, regiões recorrentes de punição e contribuição com dano para selecionar pontos de entrada a revisar.",
+        "campos": ["K", "H", "L"],
+        "limites": "I/G, fraco. Não distingue abertura em blocos, erro de movimento ou utilidade; a execução em si exige vídeo/telemetria.",
+        "requerGeometria": true,
+        "indicioFraco": true
+      },
+      "origem": "A01, 339–385 s; A22, 866–940 s; A28, 1023–1128 s.",
+      "descricao": "Abra os pixels com a mira firme e preparada para os lugares em que o adversário pode estar. Limpe as posições por partes, em vez de atravessar a abertura sem saber qual confronto está procurando."
+    },
+    {
+      "id": "094",
+      "tipo": "mira",
+      "titulo": "Procurar eliminar com vantagem de posição, inclusive pegando o inimigo de lado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Usar o snapshot anterior mais recente da futura vítima. Comparar seu viewRadians com a direção da posição da vítima para a posição do killer na kill, aplicando limites explícitos de intervalo e deslocamento. Por exemplo: até 1 s, até 100 unidades do mapa e diferença angular de pelo menos 135° como candidato a morte pelas costas.",
+        "campos": ["K", "L", "F"],
+        "limites": "I. É uma estimativa da orientação anterior, não a orientação no tiro. A vítima pode virar rapidamente; parede, verticalidade e visibilidade também não são conhecidas. Reportar apenas candidatos, nunca uma taxa confirmada de kills de lado/costas.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A04, 578–590 s; A23, 1194–1202 s; A27, 459–481 s.",
+      "descricao": "Procure ganhar pela posição, não apenas pela capacidade de acertar um duelo de frente. A ideia da aula é criar uma jogada em que você encontra o adversário de lado e chega ao confronto com vantagem."
+    },
+    {
+      "id": "095",
+      "tipo": "habilidades",
+      "titulo": "Usar as habilidades disponíveis para criar oportunidade",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Apresentar U por jogador/slot e normalizar pelo número de rounds como média de volume da partida; cruzar com participação geral e resultado.",
+        "campos": ["U", "J", "K", "R"],
+        "limites": "I. Casts/round é média do total, não série por round. Não detecta morrer com utilidade, desperdício ou momento correto de uso.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 125–212 s; A04, 630–646 s.",
+      "descricao": "Antes de decidir como disputar o objetivo, pense nas habilidades que você ainda pode usar. Uma flash, um reconhecimento ou outra ferramenta pode criar a oportunidade que faltava para resolver a situação."
+    },
+    {
+      "id": "096",
+      "tipo": "habilidades",
+      "titulo": "Utilidade pode finalizar e ajudar a impedir a disputa do objetivo",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Filtrar finalizações damageType == Ability, medir instante relativo ao plant/defuse, vítima e resultado.",
+        "campos": ["F", "K", "P", "D"],
+        "limites": "M para kills letais por habilidade; I para negação do objetivo. Vítima perto da spike não prova que plantava/defusava.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A02, 186–212 s; A25, 470–510 s.",
+      "descricao": "Use suas habilidades para interferir na disputa da spike e tirar o adversário de uma posição confortável. Elas fazem parte das opções para lidar com quem está no objetivo, não são algo separado da jogada."
+    },
+    {
+      "id": "097",
+      "tipo": "habilidades",
+      "titulo": "Jogar em conjunto com as habilidades dos colegas",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Analisar assistências registradas em K, pares recorrentes, proximidade e participação coletiva, juntamente com U total.",
+        "campos": ["K", "L", "U"],
+        "limites": "I. Assistência não identifica flash, drone, stun ou a causa exata da ajuda; não há sincronização de casts para medir.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A09, 288–398 s; A23, 832–865 s; A24, 977–1029 s.",
+      "descricao": "Combine as habilidades com a entrada e o contato dos colegas. Nos exemplos, o reconhecimento prepara o espaço, a cegueira ajuda quem entra e os jogadores avançam aproveitando o que o parceiro acabou de fazer."
+    },
+    {
+      "id": "098",
+      "tipo": "habilidades",
+      "titulo": "Escolher uma composição com funções complementares e sinergia",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Mapear os characterId, registrar composição das duas equipes e observar contribuição por lado: primeiras kills, assists, objetivo e casts totais.",
+        "campos": ["J", "K", "R", "P", "U"],
+        "limites": "M para composição e desfechos; I para sinergia. Uma única composição por equipe não permite comparar alternativas nem validar o meta.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A06, 87–221 s; A09, 89–260 s.",
+      "descricao": "Converse sobre o que cada jogador sabe fazer e monte uma composição com sinergia. Treine essa combinação até o time se sentir confortável antes de trocar de agentes e tentar um plano que ainda não domina."
+    },
+    {
+      "id": "099",
+      "tipo": "habilidades",
+      "titulo": "Escolher posição levando em conta os agentes e ferramentas do outro time",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Cruzar posições de combate com identidade dos oponentes vivos, vítimas e resultado, preservando o contexto de cada round.",
+        "campos": ["J", "K", "L"],
+        "limites": "I/G. Não afirmar que um canto era imune a drone/faca/flash; faltam lançamentos, geometria dos efeitos e cooldowns.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 249–262, 521–617 e 735–800 s; A23, 419–483 s; A27, 633–655 s.",
+      "descricao": "Antes de escolher uma posição, olhe os agentes do outro time e o que pode expulsar ou revelar você. Uma posição aberta pode funcionar sem determinada flash ou reconhecimento e precisar de outro jeito de jogar quando essas ferramentas estão presentes."
+    },
+    {
+      "id": "100",
+      "tipo": "habilidades",
+      "titulo": "Manter funções e revisar o próprio jogo, sem julgar tudo só pelo placar ou K/D",
+      "classificacao": "misto",
+      "inferencia": {
+        "metodo": "Separar participação no objetivo, trocas, primeiros confrontos, resultado por fase e economia; registrar aspectos que o feed não explica.",
+        "campos": ["J", "K", "R", "P", "E"],
+        "limites": "M para os recortes; I para função/sinergia. Não concluir falta de disciplina, treino inadequado ou qualidade do capitão.",
+        "requerGeometria": false,
+        "indicioFraco": false
+      },
+      "origem": "A06, 162–221, 229–361 e 367–415 s.",
+      "descricao": "Treine para melhorar a execução do time, não apenas para ganhar o treino. Mantenha as funções e depois reveja a partida com senso crítico, olhando o que acertou e errou em vez de justificar tudo por uma jogada individual que deu kill."
+    },
+    {
+      "id": "101",
+      "tipo": "ascent",
+      "titulo": "Executar B com entrada e acompanhamento, mantendo opção de lurk pelo meio",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Depois de cadastrar garagem/B main, B e meio, comparar posição amostrada do grupo, separação do possível lurker, kills de entrada, plant B e conversão.",
+        "campos": ["J", "K", "L", "P", "R"],
+        "limites": "G/I. Não confirmar paranoia, smokes Mercado/Base, dash ou olho. characterId deve indicar se os agentes do exemplo estão presentes.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 288–398 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Na entrada B de Ascent mostrada na aula, a Jett abre espaço e a Reyna acompanha para o refrag. Omen e Sova ajudam a entrada com suas habilidades, enquanto a Killjoy mantém a opção de trabalhar pelo meio."
+    },
+    {
+      "id": "102",
+      "tipo": "ascent",
+      "titulo": "Na entrada A, acompanhar quem abre espaço",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Relacionar primeiras kills/mortes na entrada, distância dos aliados em snapshots, plant A e troca do primeiro jogador morto.",
+        "campos": ["J", "K", "L", "P", "R"],
+        "limites": "G/I. Não observar o dash para dentro da smoke, seu tempo ou se o suporte cumpriu a call.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 458–562 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Na execução A, a entrada da Jett só funciona se o restante acompanhar o espaço criado. A Reyna ajuda com o olho e progride junto de Omen e Sova enquanto a primeira jogadora ganha tempo dentro da própria smoke."
+    },
+    {
+      "id": "103",
+      "tipo": "ascent",
+      "titulo": "Fazer split A por duas frentes, com chegada coordenada",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Buscar presença amostrada em A main e varanda/árvore, evolução ao site e intervalo entre confrontos das duas frentes.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "G/I. Sem eventos durante a aproximação, o split pode não ser classificável; não inventar uma rota contínua.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 566–699 s.",
+      "mapas": ["Ascent"],
+      "descricao": "No split A de Ascent, combine a progressão por varanda/árvore com o grupo que vem pela entrada principal. A utilidade prepara os dois lados para que todos cheguem ao bombsite dentro da mesma execução."
+    },
+    {
+      "id": "104",
+      "tipo": "ascent",
+      "titulo": "Após split A, aproveitar a varanda/árvore em vez de fechar todos dentro do site",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Relacionar coordenadas de plant A, presença na ligação no plant e em eventos posteriores, locais de mortes e defuse sofrido.",
+        "campos": ["K", "L", "P", "R", "D"],
+        "limites": "G/I. Não há estado da porta nem confirmação de espaço realmente controlado.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 700–766 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Depois do split A, vocês já conquistaram varanda e ligação. Não feche a porta e junte todo mundo dentro do bombsite por hábito: mantenha esse espaço e jogue com um parceiro ali para aproveitar o domínio que a entrada criou."
+    },
+    {
+      "id": "105",
+      "tipo": "ascent",
+      "titulo": "Fazer split B combinando a frente de garagem e a entrada pelo meio",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Procurar grupo em garagem/B main e outro em meio/mercado, com eventos próximos e convergência para plant B.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "G/I. Não verificar torreta, alarmbot, smokes ou sincronização de drone; só a estrutura espacial amostrada.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 768–868 s.",
+      "mapas": ["Ascent"],
+      "descricao": "No split B, prepare a chegada pelo meio ao mesmo tempo que o outro grupo domina garagem/B main. Use o reconhecimento e as habilidades de entrada para fazer as duas frentes convergirem, mantendo a proteção do flanco."
+    },
+    {
+      "id": "106",
+      "tipo": "ascent",
+      "titulo": "Evitar insistir no site em que a composição adversária concentra ferramentas fortes de contenção",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Identificar os agentes citados quando presentes, onde aparecem nas amostras e perdas/plant/conversão ao atacar esse site.",
+        "campos": ["J", "K", "L", "P", "R"],
+        "limites": "G/I. O exemplo Killjoy+Raze não é regra universal. Sem efeito de utilidade, não atribuir uma derrota ao setup nem dizer que era evitável.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A09, 402–453 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Ao ver Killjoy e Raze na composição adversária, a aula alerta para a combinação de contenção que pode aparecer na B. Nesse exemplo, a preferência é mudar para a A em vez de insistir na entrada que favorece esse setup."
+    },
+    {
+      "id": "107",
+      "tipo": "ascent",
+      "titulo": "Na defesa da A, combinar posição de surpresa no vinho com contato de um aliado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Com o vinho e acessos cadastrados, localizar jogador nessa região no evento, colega no site e sequência de kills/retaliações.",
+        "campos": ["K", "L", "R"],
+        "limites": "G/I. O texto não fornece coordenadas exatas do pixel. Não verificar o passo silencioso, bait ou escolha de não smokar.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 109–202 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Para aproveitar a posição de surpresa no vinho, combine o contato com alguém do bombsite. O parceiro chama a atenção na luta e permite que você participe de um ângulo que os atacantes não estão priorizando."
+    },
+    {
+      "id": "108",
+      "tipo": "ascent",
+      "titulo": "Na B, escolher entre disputar corredor e esperar uma entrada em posição alternativa conforme o timing",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Comparar regiões de confronto em B, tempo do round, first kill e mortalidade ao longo da entrada; distinguir momento inicial de combate já avançado.",
+        "campos": ["K", "L", "R"],
+        "limites": "G/I. Não saber quem tinha a mira primeiro ou se a rota estava visível; é aproximação temporal/espacial.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 429–516 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Na defesa B, disputar o corredor depende de quem chega com a mira pronta primeiro. Se os atacantes já têm o pixel e você está no fundo do bombsite, espere em um off-angle em vez de peitar de volta a linha que eles já seguram."
+    },
+    {
+      "id": "109",
+      "tipo": "ascent",
+      "titulo": "Ao defender B em posições expostas ao meio, considerar a cobertura do meio/mercado",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Relacionar mortes no site/barco com presença aliada no meio/mercado e origem amostrada de quem matou.",
+        "campos": ["K", "L", "R"],
+        "limites": "G/I. Presença é diferente de controle; smoke, armadilha e ângulo efetivo não estão no JSON.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 634–660 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Posições de B como o barco ficam mais viáveis quando o time controla meio e mercado. Sem esse domínio, tenha cuidado com a exposição extra e não trate a posição como forte independentemente do resto do mapa."
+    },
+    {
+      "id": "110",
+      "tipo": "ascent",
+      "titulo": "Escolher a rota de entrada B — bomb, barco/escada, mercado/base — e revisar seus pontos críticos",
+      "classificacao": "indicio",
+      "inferencia": {
+        "metodo": "Classificar pontos de confronto por rota/região; listar mortes recorrentes, trocas, tempo até plant e resultado.",
+        "campos": ["K", "L", "P", "R"],
+        "limites": "G/I. A sequência exata de limpeza, passagem pela borda da smoke e ordem da mira exigem vídeo. Não inferir altura a partir de x,y.",
+        "requerGeometria": true,
+        "indicioFraco": false
+      },
+      "origem": "A22, 944–1130 e 1220–1293 s.",
+      "mapas": ["Ascent"],
+      "descricao": "Antes de entrar B, escolha para onde vai progredir: bombsite, barco/escada ou mercado/base. Limpe os pontos críticos dessa rota com a mira preparada para a ameaça mais imediata, em vez de decidir cada curva sem um plano."
+    }
+  ]
+}
