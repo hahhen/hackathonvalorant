@@ -6,13 +6,7 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Check,
-  Clock3,
-  MapPin,
-  Search,
-} from "lucide-react";
+import { ArrowUpRight, Check, Clock3, MapPin, Search } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -148,7 +142,6 @@ function MatchCard({
         </div>
       </div>
       <div className="match-card-body pt-[13px] px-4.5 pb-0 max-[650px]:px-4.5">
-        <p className="mb-2 text-sm font-medium text-foreground">USP Stars × {match.teams.orbit.name}</p>
         <div className="match-card-meta flex items-center justify-between gap-2 text-[12px] text-muted-foreground [&_>_span:last-child]:flex [&_>_span:last-child]:items-center [&_>_span:last-child]:gap-[5px] max-[650px]:text-[13px]">
           <span>{match.date}</span>
           <span>

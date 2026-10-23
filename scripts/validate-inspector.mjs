@@ -318,7 +318,9 @@ for (const round of official.rounds) {
       .length,
     4,
   );
-  assert.ok(html.includes("Exemplos de interface, sem análise automática"));
+  assert.ok(!html.includes("Mock · exemplos"));
+  assert.ok(html.includes('data-slot="select-trigger"'));
+  assert.ok(html.includes('data-slot="select-value"'));
   assert.ok(html.includes("Jogador para dicas individuais"));
 }
 const { getRoundOutcome } = load("src/lib/round-outcome.ts");
@@ -336,6 +338,152 @@ assert.equal(endings.get("Eliminação"), 20);
 assert.equal(getRoundOutcome({ result: "unknown", events: [] }), undefined);
 const { EventInspector } = load("src/components/review/event-inspector.tsx");
 const { TooltipProvider } = load("src/components/ui/tooltip.tsx");
+const { RoundSelector } = load("src/components/review/round-selector.tsx");
+const renderRoundSelector = (match, rounds, roundNumber) =>
+  renderToStaticMarkup(
+    createElement(
+      TooltipProvider,
+      null,
+      createElement(RoundSelector, {
+        match,
+        rounds,
+        roundNumber,
+        onRound: () => {},
+      }),
+    ),
+  );
+const { officialReviews, officialMatches, getOfficialReview } = load(
+  "src/data/official-matches.ts",
+);
+assert.equal(officialMatches.length, 4);
+assert.equal(
+  getOfficialReview(official.match.id),
+  undefined,
+  "Old Ascent match is no longer exposed by the library",
+);
+let uspSnapshots = 0;
+const { RoundLoadouts } = load("src/components/review/round-loadouts.tsx");
+const { weaponImage, hasWeaponImage } = load("src/data/assets.ts");
+const { resolveAgentAbility, agentCatalog } = load(
+  "src/data/agent-abilities.ts",
+);
+for (const [id, definition] of Object.entries(agentCatalog)) {
+  for (const [slot, ability] of Object.entries(definition.abilities)) {
+    assert.equal(
+      resolveAgentAbility(id.toUpperCase(), slot).sprite,
+      ability.sprite,
+    );
+    assert.equal(resolveAgentAbility(definition.name, slot).name, ability.name);
+  }
+}
+assert.equal(resolveAgentAbility("Raze", "GrenadeAbility").name, "Boom Bot");
+assert.equal(resolveAgentAbility("Raze", "Ability2").name, "Paint Shells");
+assert.equal(resolveAgentAbility("Sova", "Ultimate").name, "Hunter's Fury");
+assert.equal(resolveAgentAbility("Sova", ""), undefined);
+assert.ok(
+  renderToStaticMarkup(
+    createElement(RoundLoadouts, {
+      round: { ...official.rounds[0], loadouts: undefined },
+      players: official.players,
+    }),
+  ).includes("Equipamento não informado nesta partida"),
+);
+for (const review of officialReviews) {
+  assert.equal(getOfficialReview(review.match.id), review);
+  assert.equal(review.match.teams.horizon.name, "USP Stars");
+  const getPlayer = (id) => review.players.find((player) => player.id === id);
+  for (const player of review.players)
+    assert.ok(
+      existsSync(
+        resolve(
+          root,
+          "public" + load("src/data/assets.ts").agentImage(player.agent),
+        ),
+      ),
+    );
+  for (const round of review.rounds) {
+    const inspector = renderToStaticMarkup(
+      createElement(
+        TooltipProvider,
+        null,
+        createElement(EventInspector, {
+          match: review.match,
+          players: review.players,
+          rounds: review.rounds,
+          roundNumber: round.number,
+          onRound: () => {},
+        }),
+      ),
+    );
+    assert.ok(
+      inspector.includes(
+        `/assets/minimaps/${review.match.map.toLowerCase()}.png`,
+      ),
+    );
+    assert.ok(!inspector.includes("Posições e orientações do snapshot"));
+    const selector = renderRoundSelector(
+      review.match,
+      review.rounds,
+      round.number,
+    );
+    assert.ok(selector.includes("Eventos do JSON"));
+    assert.ok(selector.includes('aria-label="Selecionar round"'));
+    assert.equal((selector.match(/aria-pressed="true"/g) ?? []).length, 1);
+    assert.ok(!inspector.includes('aria-label="Selecionar round"'));
+    assert.equal((inspector.match(/data-loadout-player=/g) ?? []).length, 10);
+    assert.ok(
+      inspector.indexOf("data-loadout-player=") <
+        inspector.indexOf(
+          `/assets/minimaps/${review.match.map.toLowerCase()}.png`,
+        ),
+      "Loadouts render above the minimap",
+    );
+    assert.ok(
+      !inspector.includes("Resumo do round, não do evento selecionado"),
+    );
+    assert.ok(!/<h3[^>]*>Equipamento do round<\/h3>/.test(inspector));
+    const loadouts = renderToStaticMarkup(
+      createElement(RoundLoadouts, { round, players: review.players }),
+    );
+    assert.ok(loadouts.includes("grid-cols-2"));
+    assert.ok(
+      loadouts.includes("Meu time") && loadouts.includes("Time inimigo"),
+    );
+    for (const summary of round.loadouts) {
+      assert.ok(loadouts.includes(`data-loadout-player="${summary.playerId}"`));
+      if (summary.economy?.weapon && hasWeaponImage(summary.economy.weapon))
+        assert.ok(
+          loadouts.includes(weaponImage(summary.economy.weapon)) ||
+            loadouts.includes(
+              encodeURIComponent(weaponImage(summary.economy.weapon)),
+            ),
+        );
+    }
+    for (const event of round.events) {
+      if (event.ability?.sprite) {
+        assert.ok(inspector.includes(event.ability.namePtBr));
+        assert.ok(
+          inspector.includes(encodeURIComponent(event.ability.sprite)) ||
+            inspector.includes(event.ability.sprite),
+        );
+      }
+      const html = renderToStaticMarkup(
+        createElement(TacticalMinimap, {
+          mapName: review.match.mapId,
+          event,
+          showNames: true,
+          showDirections: true,
+          getPlayer,
+          objectiveLocation: snapshotObjective(round, event),
+        }),
+      );
+      assert.equal(count(html, "player"), event.positions.length);
+      assertDeathMarkers(html, event, getPlayer);
+      uspSnapshots++;
+    }
+  }
+}
+assert.equal(uspSnapshots, 594);
 const { Scoreboard } = load("src/components/review/scoreboard.tsx");
 const { scoreboardColumns, formatScoreboardValue, compareScoreboardPlayers } =
   load("src/lib/scoreboard.ts");
@@ -366,12 +514,26 @@ assert.deepEqual(headers, [
   "KAST",
   "FK",
   "FD",
+  "Δ",
 ]);
-assert.ok(scoreboard.includes('colSpan="12"'));
-assert.ok(scoreboard.includes("table-fixed"),"Player column must not expand with automatic table layout");
-assert.ok(scoreboard.includes("max-[650px]:w-[132px]"),"Compact fixed player column on mobile");
-assert.equal((scoreboard.match(/<col\b/g) ?? []).length,12,"Explicit widths for player and all 11 statistics");
-assert.ok(scoreboard.includes("shrink-0") && scoreboard.includes("min-w-0 flex-1"),"Portrait stays compact and long names truncate instead of widening the column");
+assert.ok(scoreboard.includes('colSpan="13"'));
+assert.ok(
+  scoreboard.includes("table-fixed"),
+  "Player column must not expand with automatic table layout",
+);
+assert.ok(
+  scoreboard.includes("max-[650px]:w-[132px]"),
+  "Compact fixed player column on mobile",
+);
+assert.equal(
+  (scoreboard.match(/<col\b/g) ?? []).length,
+  13,
+  "Explicit widths for player and all 12 statistics",
+);
+assert.ok(
+  scoreboard.includes("shrink-0") && scoreboard.includes("min-w-0 flex-1"),
+  "Portrait stays compact and long names truncate instead of widening the column",
+);
 assert.ok(
   scoreboard.includes("Meu time") && scoreboard.includes("Time inimigo"),
 );
@@ -380,11 +542,34 @@ assert.ok(
 );
 assert.ok(scoreboard.includes("text-success"));
 const teamHeaders = [
-  ...scoreboard.matchAll(/<td[^>]*colSpan="12"[^>]*>([\s\S]*?)<\/td>/g),
+  ...scoreboard.matchAll(/<td[^>]*colSpan="13"[^>]*>([\s\S]*?)<\/td>/g),
 ].map((match) => match[1].replace(/<[^>]*>/g, ""));
 assert.deepEqual(teamHeaders, ["Meu timeDERROTA", "Time inimigoVITÓRIA"]);
 const player = { ...official.players[0], kills: 20, deaths: 10 };
 assert.equal(formatScoreboardValue(player, "delta"), "+10");
+for (const [fk, fd, expected] of [
+  [5, 2, "+3"],
+  [2, 5, "-3"],
+  [2, 2, "0"],
+  [2, undefined, "—"],
+]) {
+  assert.equal(
+    formatScoreboardValue(
+      { ...player, firstKills: fk, firstDeaths: fd },
+      "openingDelta",
+    ),
+    expected,
+  );
+}
+assert.equal(
+  compareScoreboardPlayers(
+    { ...player, firstKills: 5, firstDeaths: 2 },
+    { ...player, firstKills: 2, firstDeaths: 5 },
+    "openingDelta",
+    false,
+  ),
+  -1,
+);
 assert.equal(formatScoreboardValue(player, "ratio"), "2.00");
 assert.equal(
   formatScoreboardValue({ ...player, kills: 0, deaths: 0 }, "ratio"),
@@ -404,7 +589,7 @@ assert.equal(
   ),
   1,
 );
-assert.equal(scoreboardColumns.length, 11);
+assert.equal(scoreboardColumns.length, 12);
 for (const round of official.rounds) {
   const html = renderToStaticMarkup(
     createElement(
@@ -419,11 +604,18 @@ for (const round of official.rounds) {
       }),
     ),
   );
-  assert.ok(html.includes("Eventos do JSON"));
-  assert.ok(!html.includes("Eventos simulados"));
+  const selector = renderRoundSelector(
+    official.match,
+    official.rounds,
+    round.number,
+  );
+  assert.ok(selector.includes("Eventos do JSON"));
+  assert.ok(!selector.includes("Eventos simulados"));
   assert.ok(html.includes("JOGADORES NESTE SNAPSHOT"));
   assert.ok(html.includes("/assets/minimaps/ascent.png"));
-  assert.ok(html.includes(round.site ? `Plant no ${round.site}` : "Sem plant"));
+  assert.ok(
+    selector.includes(round.site ? `Plant no ${round.site}` : "Sem plant"),
+  );
   assert.equal(count(html, "player"), round.events[0].positions.length);
   if (round.result === "Detonate")
     assert.ok(html.includes("O JSON não registra o horário da detonação"));

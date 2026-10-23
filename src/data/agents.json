@@ -1,0 +1,1053 @@
+{
+  "owner": "Riot Games",
+  "provider": "Riot Games Public Content Catalog (official)",
+  "source": "PublicContentCatalog-release-13.08",
+  "catalogVersion": "13.08.00.5627607",
+  "catalogSha256": "fbb4ede150e8022cb7ce52744daf9dcf250cef5e8a07fe0ff6ff96e52c144560",
+  "slotAliases": {
+    "Ability1": "ability1",
+    "Ability2": "ability2",
+    "GrenadeAbility": "grenade",
+    "Ultimate": "ultimate",
+    "Passive": "passive"
+  },
+  "agents": {
+    "e370fa57-4757-3604-3648-499e1f642d3f": {
+      "name": "Gekko",
+      "portrait": "/assets/agents/gekko.png",
+      "abilities": {
+        "ability1": {
+          "name": "Wingman",
+          "namePtBr": "Wingman",
+          "catalogLabel": "E370FA57-4757-3604-3648-499E1F642D3F_Ability1",
+          "sprite": "/assets/abilities/gekko/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Dizzy",
+          "namePtBr": "Dizzy",
+          "catalogLabel": "E370FA57-4757-3604-3648-499E1F642D3F_Ability2",
+          "sprite": "/assets/abilities/gekko/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Mosh Pit",
+          "namePtBr": "Mosh Pit",
+          "catalogLabel": "E370FA57-4757-3604-3648-499E1F642D3F_Grenade",
+          "sprite": "/assets/abilities/gekko/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Thrash",
+          "namePtBr": "Thrash",
+          "catalogLabel": "E370FA57-4757-3604-3648-499E1F642D3F_Ultimate",
+          "sprite": "/assets/abilities/gekko/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "dade69b4-4f5a-8528-247b-219e5a1facd6": {
+      "name": "Fade",
+      "portrait": "/assets/agents/fade.png",
+      "abilities": {
+        "ability1": {
+          "name": "Seize",
+          "namePtBr": "Clausura",
+          "catalogLabel": "DADE69B4-4F5A-8528-247B-219E5A1FACD6_Ability1",
+          "sprite": "/assets/abilities/fade/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Haunt",
+          "namePtBr": "Assombrar",
+          "catalogLabel": "DADE69B4-4F5A-8528-247B-219E5A1FACD6_Ability2",
+          "sprite": "/assets/abilities/fade/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Prowler",
+          "namePtBr": "Espreitador",
+          "catalogLabel": "DADE69B4-4F5A-8528-247B-219E5A1FACD6_Grenade",
+          "sprite": "/assets/abilities/fade/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Nightfall",
+          "namePtBr": "Véu da Noite",
+          "catalogLabel": "DADE69B4-4F5A-8528-247B-219E5A1FACD6_Ultimate",
+          "sprite": "/assets/abilities/fade/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "5f8d3a7f-467b-97f3-062c-13acf203c006": {
+      "name": "Breach",
+      "portrait": "/assets/agents/breach.png",
+      "abilities": {
+        "ability1": {
+          "name": "Flashpoint",
+          "namePtBr": "Estopim",
+          "catalogLabel": "5F8D3A7F-467B-97F3-062C-13ACF203C006_Ability1",
+          "sprite": "/assets/abilities/breach/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Fault Line",
+          "namePtBr": "Falha Tectônica",
+          "catalogLabel": "5F8D3A7F-467B-97F3-062C-13ACF203C006_Ability2",
+          "sprite": "/assets/abilities/breach/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Aftershock",
+          "namePtBr": "Pós-choque",
+          "catalogLabel": "5F8D3A7F-467B-97F3-062C-13ACF203C006_Grenade",
+          "sprite": "/assets/abilities/breach/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Rolling Thunder",
+          "namePtBr": "Onda Trovejante",
+          "catalogLabel": "5F8D3A7F-467B-97F3-062C-13ACF203C006_Ultimate",
+          "sprite": "/assets/abilities/breach/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "cc8b64c8-4b25-4ff9-6e7f-37b4da43d235": {
+      "name": "Deadlock",
+      "portrait": "/assets/agents/deadlock.png",
+      "abilities": {
+        "ability1": {
+          "name": "Sonic Sensor",
+          "namePtBr": "Sensor Sônico",
+          "catalogLabel": "CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Ability1",
+          "sprite": "/assets/abilities/deadlock/ability1.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Barrier Mesh",
+          "namePtBr": "Barreira de Contenção",
+          "catalogLabel": "CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Grenade",
+          "sprite": "/assets/abilities/deadlock/grenade.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "GravNet",
+          "namePtBr": "GravNet",
+          "catalogLabel": "CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Ability2",
+          "sprite": "/assets/abilities/deadlock/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Annihilation",
+          "namePtBr": "Aniquilação",
+          "catalogLabel": "CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Ultimate",
+          "sprite": "/assets/abilities/deadlock/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "b444168c-4e35-8076-db47-ef9bf368f384": {
+      "name": "Tejo",
+      "portrait": "/assets/agents/tejo.png",
+      "abilities": {
+        "ability2": {
+          "name": "Guided Salvo",
+          "namePtBr": "Rajada Guiada",
+          "catalogLabel": "B444168C-4E35-8076-DB47-EF9BF368F384_Ability2",
+          "sprite": "/assets/abilities/tejo/ability2.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Special Delivery",
+          "namePtBr": "Entrega Especial",
+          "catalogLabel": "B444168C-4E35-8076-DB47-EF9BF368F384_Ability1",
+          "sprite": "/assets/abilities/tejo/ability1.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Armageddon",
+          "namePtBr": "Armagedom",
+          "catalogLabel": "B444168C-4E35-8076-DB47-EF9BF368F384_Ultimate",
+          "sprite": "/assets/abilities/tejo/ultimate.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Stealth Drone",
+          "namePtBr": "Drone Furtivo",
+          "catalogLabel": "B444168C-4E35-8076-DB47-EF9BF368F384_Grenade",
+          "sprite": "/assets/abilities/tejo/grenade.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "f94c3b30-42be-e959-889c-5aa313dba261": {
+      "name": "Raze",
+      "portrait": "/assets/agents/raze.png",
+      "abilities": {
+        "ability1": {
+          "name": "Blast Pack",
+          "namePtBr": "Carga de Explosivos",
+          "catalogLabel": "F94C3B30-42BE-E959-889C-5AA313DBA261_Ability1",
+          "sprite": "/assets/abilities/raze/ability1.png",
+          "weaponIds": [
+            "d002a9a2-4b43-86c6-1dbc-58bc7815ff9c"
+          ]
+        },
+        "ability2": {
+          "name": "Paint Shells",
+          "namePtBr": "Cartuchos de Tinta",
+          "catalogLabel": "F94C3B30-42BE-E959-889C-5AA313DBA261_Ability2",
+          "sprite": "/assets/abilities/raze/ability2.png",
+          "weaponIds": [
+            "6bd46791-4f27-aa65-7d67-3f8d9d8b8b90"
+          ]
+        },
+        "grenade": {
+          "name": "Boom Bot",
+          "namePtBr": "Bumba",
+          "catalogLabel": "F94C3B30-42BE-E959-889C-5AA313DBA261_Grenade",
+          "sprite": "/assets/abilities/raze/grenade.png",
+          "weaponIds": [
+            "2e20a5af-4726-95f6-7d9c-9db9a18dada9"
+          ]
+        },
+        "ultimate": {
+          "name": "Showstopper",
+          "namePtBr": "Estraga-prazeres",
+          "catalogLabel": "F94C3B30-42BE-E959-889C-5AA313DBA261_Ultimate",
+          "sprite": "/assets/abilities/raze/ultimate.png",
+          "weaponIds": [
+            "9438be81-46b8-d8b0-8a66-f9a0251fb728"
+          ]
+        }
+      }
+    },
+    "22697a3d-45bf-8dd7-4fec-84a9e28c69d7": {
+      "name": "Chamber",
+      "portrait": "/assets/agents/chamber.png",
+      "abilities": {
+        "ability2": {
+          "name": "Rendezvous",
+          "namePtBr": "Rendezvous",
+          "catalogLabel": "22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Ability2",
+          "sprite": "/assets/abilities/chamber/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Trademark",
+          "namePtBr": "Marca Registrada",
+          "catalogLabel": "22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Grenade",
+          "sprite": "/assets/abilities/chamber/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Headhunter",
+          "namePtBr": "Caçador de Cabeças",
+          "catalogLabel": "22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Ability1",
+          "sprite": "/assets/abilities/chamber/ability1.png",
+          "weaponIds": [
+            "856d9a7e-4b06-dc37-15dc-9d809c37cb90"
+          ]
+        },
+        "ultimate": {
+          "name": "Tour De Force",
+          "namePtBr": "Tour de Force",
+          "catalogLabel": "22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Ultimate",
+          "sprite": "/assets/abilities/chamber/ultimate.png",
+          "weaponIds": [
+            "39099fb5-4293-def4-1e09-2e9080ce7456"
+          ]
+        }
+      }
+    },
+    "601dbbe7-43ce-be57-2a40-4abd24953621": {
+      "name": "KAY/O",
+      "portrait": "/assets/agents/kayo.png",
+      "abilities": {
+        "grenade": {
+          "name": "FRAG/ment",
+          "namePtBr": "FRAG/mento",
+          "catalogLabel": "601DBBE7-43CE-BE57-2A40-4ABD24953621_Grenade",
+          "sprite": "/assets/abilities/kayo/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "FLASH/drive",
+          "namePtBr": "GRANADA/clarão",
+          "catalogLabel": "601DBBE7-43CE-BE57-2A40-4ABD24953621_Ability1",
+          "sprite": "/assets/abilities/kayo/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "ZERO/point",
+          "namePtBr": "PONTO/zero",
+          "catalogLabel": "601DBBE7-43CE-BE57-2A40-4ABD24953621_Ability2",
+          "sprite": "/assets/abilities/kayo/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "NULL/cmd",
+          "namePtBr": "ANULAR/cmd",
+          "catalogLabel": "601DBBE7-43CE-BE57-2A40-4ABD24953621_Ultimate",
+          "sprite": "/assets/abilities/kayo/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "6f2a04ca-43e0-be17-7f36-b3908627744d": {
+      "name": "Skye",
+      "portrait": "/assets/agents/skye.png",
+      "abilities": {
+        "ability1": {
+          "name": "Trailblazer",
+          "namePtBr": "Predador Explosivo",
+          "catalogLabel": "6F2A04CA-43E0-BE17-7F36-B3908627744D_Ability1",
+          "sprite": "/assets/abilities/skye/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Guiding Light",
+          "namePtBr": "Luz Desbravadora",
+          "catalogLabel": "6F2A04CA-43E0-BE17-7F36-B3908627744D_Ability2",
+          "sprite": "/assets/abilities/skye/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Regrowth",
+          "namePtBr": "Reflorescer",
+          "catalogLabel": "6F2A04CA-43E0-BE17-7F36-B3908627744D_Grenade",
+          "sprite": "/assets/abilities/skye/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Seekers",
+          "namePtBr": "Rastreadores",
+          "catalogLabel": "6F2A04CA-43E0-BE17-7F36-B3908627744D_Ultimate",
+          "sprite": "/assets/abilities/skye/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "117ed9e3-49f3-6512-3ccf-0cada7e3823b": {
+      "name": "Cypher",
+      "portrait": "/assets/agents/cypher.png",
+      "abilities": {
+        "ability1": {
+          "name": "Cyber Cage",
+          "namePtBr": "Jaula Cibernética",
+          "catalogLabel": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Ability1",
+          "sprite": "/assets/abilities/cypher/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Spycam",
+          "namePtBr": "Câmera de Vigilância",
+          "catalogLabel": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Ability2",
+          "sprite": "/assets/abilities/cypher/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Trapwire",
+          "namePtBr": "Fio-armadilha",
+          "catalogLabel": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Grenade",
+          "sprite": "/assets/abilities/cypher/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Neural Theft",
+          "namePtBr": "Assalto Neural",
+          "catalogLabel": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Ultimate",
+          "sprite": "/assets/abilities/cypher/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "320b2a48-4d9b-a075-30f1-1f93a9b638fa": {
+      "name": "Sova",
+      "portrait": "/assets/agents/sova.png",
+      "abilities": {
+        "ability1": {
+          "name": "Shock Bolt",
+          "namePtBr": "Flecha de Choque",
+          "catalogLabel": "320B2A48-4D9B-A075-30F1-1F93A9B638FA_Ability1",
+          "sprite": "/assets/abilities/sova/ability1.png",
+          "weaponIds": [
+            "193c78af-4498-4d51-c445-adac288425be"
+          ]
+        },
+        "ability2": {
+          "name": "Recon Bolt",
+          "namePtBr": "Flecha Rastreadora",
+          "catalogLabel": "320B2A48-4D9B-A075-30F1-1F93A9B638FA_Ability2",
+          "sprite": "/assets/abilities/sova/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Owl Drone",
+          "namePtBr": "Drone Coruja",
+          "catalogLabel": "320B2A48-4D9B-A075-30F1-1F93A9B638FA_Grenade",
+          "sprite": "/assets/abilities/sova/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Hunter's Fury",
+          "namePtBr": "Fúria do Caçador",
+          "catalogLabel": "320B2A48-4D9B-A075-30F1-1F93A9B638FA_Ultimate",
+          "sprite": "/assets/abilities/sova/ultimate.png",
+          "weaponIds": []
+        },
+        "passive": {
+          "name": "Uncanny Marksman",
+          "namePtBr": "Mira Extraordinária",
+          "catalogLabel": "320B2A48-4D9B-A075-30F1-1F93A9B638FA_Passive",
+          "sprite": null,
+          "weaponIds": []
+        }
+      }
+    },
+    "7c8a4701-4de6-9355-b254-e09bc2a34b72": {
+      "name": "Miks",
+      "portrait": "/assets/agents/miks.png",
+      "abilities": {
+        "grenade": {
+          "name": "M-pulse",
+          "namePtBr": "Pulso M",
+          "catalogLabel": "7C8A4701-4DE6-9355-B254-E09BC2A34B72_Grenade",
+          "sprite": "/assets/abilities/miks/grenade.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Waveform",
+          "namePtBr": "Ressonância",
+          "catalogLabel": "7C8A4701-4DE6-9355-B254-E09BC2A34B72_Ability2",
+          "sprite": "/assets/abilities/miks/ability2.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Harmonize",
+          "namePtBr": "Harmonia",
+          "catalogLabel": "7C8A4701-4DE6-9355-B254-E09BC2A34B72_Ability1",
+          "sprite": "/assets/abilities/miks/ability1.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Bassquake",
+          "namePtBr": "Melodia Sísmica",
+          "catalogLabel": "7C8A4701-4DE6-9355-B254-E09BC2A34B72_Ultimate",
+          "sprite": "/assets/abilities/miks/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "1e58de9c-4950-5125-93e9-a0aee9f98746": {
+      "name": "Killjoy",
+      "portrait": "/assets/agents/killjoy.png",
+      "abilities": {
+        "grenade": {
+          "name": "Nanoswarm",
+          "namePtBr": "Nanoenxame",
+          "catalogLabel": "1E58DE9C-4950-5125-93E9-A0AEE9F98746_Grenade",
+          "sprite": "/assets/abilities/killjoy/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "ALARMBOT",
+          "namePtBr": "Robô de Alarme",
+          "catalogLabel": "1E58DE9C-4950-5125-93E9-A0AEE9F98746_Ability1",
+          "sprite": "/assets/abilities/killjoy/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "TURRET",
+          "namePtBr": "Torreta",
+          "catalogLabel": "1E58DE9C-4950-5125-93E9-A0AEE9F98746_Ability2",
+          "sprite": "/assets/abilities/killjoy/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Lockdown",
+          "namePtBr": "Confinamento",
+          "catalogLabel": "1E58DE9C-4950-5125-93E9-A0AEE9F98746_Ultimate",
+          "sprite": "/assets/abilities/killjoy/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "95b78ed7-4637-86d9-7e41-71ba8c293152": {
+      "name": "Harbor",
+      "portrait": "/assets/agents/harbor.png",
+      "abilities": {
+        "ability1": {
+          "name": "High Tide",
+          "namePtBr": "Maré Alta",
+          "catalogLabel": "95B78ED7-4637-86D9-7E41-71BA8C293152_Ability1",
+          "sprite": "/assets/abilities/harbor/ability1.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Storm Surge",
+          "namePtBr": "Temporal",
+          "catalogLabel": "95B78ED7-4637-86D9-7E41-71BA8C293152_Grenade",
+          "sprite": "/assets/abilities/harbor/grenade.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Cove",
+          "namePtBr": "Enseada",
+          "catalogLabel": "95B78ED7-4637-86D9-7E41-71BA8C293152_Ability2",
+          "sprite": "/assets/abilities/harbor/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Reckoning",
+          "namePtBr": "Acerto de Contas",
+          "catalogLabel": "95B78ED7-4637-86D9-7E41-71BA8C293152_Ultimate",
+          "sprite": "/assets/abilities/harbor/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "efba5359-4016-a1e5-7626-b1ae76895940": {
+      "name": "Vyse",
+      "portrait": "/assets/agents/vyse.png",
+      "abilities": {
+        "ability1": {
+          "name": "Shear",
+          "namePtBr": "Cerca-Viva",
+          "catalogLabel": "EFBA5359-4016-A1E5-7626-B1AE76895940_Ability1",
+          "sprite": "/assets/abilities/vyse/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Arc Rose",
+          "namePtBr": "Rosa Arcana",
+          "catalogLabel": "EFBA5359-4016-A1E5-7626-B1AE76895940_Ability2",
+          "sprite": "/assets/abilities/vyse/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Razorvine",
+          "namePtBr": "Espinheiro Cortante",
+          "catalogLabel": "EFBA5359-4016-A1E5-7626-B1AE76895940_Grenade",
+          "sprite": "/assets/abilities/vyse/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Steel Garden",
+          "namePtBr": "Jardim de Aço",
+          "catalogLabel": "EFBA5359-4016-A1E5-7626-B1AE76895940_Ultimate",
+          "sprite": "/assets/abilities/vyse/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "707eab51-4836-f488-046a-cda6bf494859": {
+      "name": "Viper",
+      "portrait": "/assets/agents/viper.png",
+      "abilities": {
+        "ability1": {
+          "name": "Poison Cloud",
+          "namePtBr": "Nuvem Venenosa",
+          "catalogLabel": "707EAB51-4836-F488-046A-CDA6BF494859_Ability1",
+          "sprite": "/assets/abilities/viper/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Toxic Screen",
+          "namePtBr": "Cortina Tóxica",
+          "catalogLabel": "707EAB51-4836-F488-046A-CDA6BF494859_Ability2",
+          "sprite": "/assets/abilities/viper/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Snake Bite",
+          "namePtBr": "Veneno de Cobra",
+          "catalogLabel": "707EAB51-4836-F488-046A-CDA6BF494859_Grenade",
+          "sprite": "/assets/abilities/viper/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Viper's Pit",
+          "namePtBr": "Poço Peçonhento",
+          "catalogLabel": "707EAB51-4836-F488-046A-CDA6BF494859_Ultimate",
+          "sprite": "/assets/abilities/viper/ultimate.png",
+          "weaponIds": []
+        },
+        "passive": {
+          "name": "Toxic",
+          "namePtBr": "Tóxica",
+          "catalogLabel": "707EAB51-4836-F488-046A-CDA6BF494859_Passive",
+          "sprite": null,
+          "weaponIds": []
+        }
+      }
+    },
+    "eb93336a-449b-9c1b-0a54-a891f7921d69": {
+      "name": "Phoenix",
+      "portrait": "/assets/agents/phoenix.png",
+      "abilities": {
+        "grenade": {
+          "name": "Blaze",
+          "namePtBr": "Labareda",
+          "catalogLabel": "EB93336A-449B-9C1B-0A54-A891F7921D69_Grenade",
+          "sprite": "/assets/abilities/phoenix/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Hot Hands",
+          "namePtBr": "Mãos Quentes",
+          "catalogLabel": "EB93336A-449B-9C1B-0A54-A891F7921D69_Ability1",
+          "sprite": "/assets/abilities/phoenix/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Curveball",
+          "namePtBr": "Bola Curva",
+          "catalogLabel": "EB93336A-449B-9C1B-0A54-A891F7921D69_Ability2",
+          "sprite": "/assets/abilities/phoenix/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Run it Back",
+          "namePtBr": "Renascimento",
+          "catalogLabel": "EB93336A-449B-9C1B-0A54-A891F7921D69_Ultimate",
+          "sprite": "/assets/abilities/phoenix/ultimate.png",
+          "weaponIds": []
+        },
+        "passive": {
+          "name": "Heating Up",
+          "namePtBr": "Aquecimento",
+          "catalogLabel": "EB93336A-449B-9C1B-0A54-A891F7921D69_Passive",
+          "sprite": null,
+          "weaponIds": []
+        }
+      }
+    },
+    "92eeef5d-43b5-1d4a-8d03-b3927a09034b": {
+      "name": "Veto",
+      "portrait": "/assets/agents/veto.png",
+      "abilities": {
+        "ability2": {
+          "name": "Interceptor",
+          "namePtBr": "Interceptador",
+          "catalogLabel": "92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Ability2",
+          "sprite": "/assets/abilities/veto/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Crosscut",
+          "namePtBr": "Travessia",
+          "catalogLabel": "92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Grenade",
+          "sprite": "/assets/abilities/veto/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Evolution",
+          "namePtBr": "Evolução",
+          "catalogLabel": "92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Ultimate",
+          "sprite": "/assets/abilities/veto/ultimate.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Chokehold",
+          "namePtBr": "Imobilidade",
+          "catalogLabel": "92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Ability1",
+          "sprite": "/assets/abilities/veto/ability1.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "41fb69c1-4189-7b37-f117-bcaf1e96f1bf": {
+      "name": "Astra",
+      "portrait": "/assets/agents/astra.png",
+      "abilities": {
+        "ability1": {
+          "name": "Nova Pulse",
+          "namePtBr": "Pulso Nova",
+          "catalogLabel": "41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Ability1",
+          "sprite": "/assets/abilities/astra/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Nebula  / Dissipate",
+          "namePtBr": "Nebulosa / Dissipar",
+          "catalogLabel": "41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Ability2",
+          "sprite": "/assets/abilities/astra/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Gravity Well",
+          "namePtBr": "Poço Gravitacional",
+          "catalogLabel": "41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Grenade",
+          "sprite": "/assets/abilities/astra/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Astral Form / Cosmic Divide",
+          "namePtBr": "Forma Astral / Divisa\nCósmica",
+          "catalogLabel": "41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Ultimate",
+          "sprite": "/assets/abilities/astra/ultimate.png",
+          "weaponIds": []
+        },
+        "passive": {
+          "name": "Astral Form",
+          "namePtBr": "Forma Astral",
+          "catalogLabel": "41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Passive",
+          "sprite": "/assets/abilities/astra/passive.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "9f0d8ba9-4140-b941-57d3-a7ad57c6b417": {
+      "name": "Brimstone",
+      "portrait": "/assets/agents/brimstone.png",
+      "abilities": {
+        "grenade": {
+          "name": "Stim Beacon",
+          "namePtBr": "Sinalizador Estimulante",
+          "catalogLabel": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Grenade",
+          "sprite": "/assets/abilities/brimstone/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Incendiary",
+          "namePtBr": "Incendiário",
+          "catalogLabel": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Ability1",
+          "sprite": "/assets/abilities/brimstone/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Sky Smoke",
+          "namePtBr": "Fumaça Celeste",
+          "catalogLabel": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Ability2",
+          "sprite": "/assets/abilities/brimstone/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Orbital Strike",
+          "namePtBr": "Ataque Orbital",
+          "catalogLabel": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Ultimate",
+          "sprite": "/assets/abilities/brimstone/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "0e38b510-41a8-5780-5e8f-568b2a4f2d6c": {
+      "name": "Iso",
+      "portrait": "/assets/agents/iso.png",
+      "abilities": {
+        "ability1": {
+          "name": "Undercut",
+          "namePtBr": "Centelha Debilitante",
+          "catalogLabel": "0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Ability1",
+          "sprite": "/assets/abilities/iso/ability1.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Kill Contract",
+          "namePtBr": "Contrato de Abate",
+          "catalogLabel": "0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Ultimate",
+          "sprite": "/assets/abilities/iso/ultimate.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Double Tap",
+          "namePtBr": "Fluxo Protetor",
+          "catalogLabel": "0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Ability2",
+          "sprite": "/assets/abilities/iso/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Contingency",
+          "namePtBr": "Contingência",
+          "catalogLabel": "0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Grenade",
+          "sprite": "/assets/abilities/iso/grenade.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "1dbf2edd-4729-0984-3115-daa5eed44993": {
+      "name": "Clove",
+      "portrait": "/assets/agents/clove.png",
+      "abilities": {
+        "grenade": {
+          "name": "Pick-me-up",
+          "namePtBr": "Revitalizar",
+          "catalogLabel": "1DBF2EDD-4729-0984-3115-DAA5EED44993_Grenade",
+          "sprite": "/assets/abilities/clove/grenade.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Ruse",
+          "namePtBr": "Artimanha",
+          "catalogLabel": "1DBF2EDD-4729-0984-3115-DAA5EED44993_Ability2",
+          "sprite": "/assets/abilities/clove/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Not Dead Yet",
+          "namePtBr": "Ainda Não Morri",
+          "catalogLabel": "1DBF2EDD-4729-0984-3115-DAA5EED44993_Ultimate",
+          "sprite": "/assets/abilities/clove/ultimate.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Meddle",
+          "namePtBr": "Desvitalização",
+          "catalogLabel": "1DBF2EDD-4729-0984-3115-DAA5EED44993_Ability1",
+          "sprite": "/assets/abilities/clove/ability1.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "bb2a4828-46eb-8cd1-e765-15848195d751": {
+      "name": "Neon",
+      "portrait": "/assets/agents/neon.png",
+      "abilities": {
+        "ability2": {
+          "name": "High Gear",
+          "namePtBr": "Equipamento Voltaico",
+          "catalogLabel": "BB2A4828-46EB-8CD1-E765-15848195D751_Ability2",
+          "sprite": "/assets/abilities/neon/ability2.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Relay Bolt",
+          "namePtBr": "Ricochete Elétrico",
+          "catalogLabel": "BB2A4828-46EB-8CD1-E765-15848195D751_Ability1",
+          "sprite": "/assets/abilities/neon/ability1.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Fast Lane",
+          "namePtBr": "Via Expressa",
+          "catalogLabel": "BB2A4828-46EB-8CD1-E765-15848195D751_Grenade",
+          "sprite": "/assets/abilities/neon/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Overdrive",
+          "namePtBr": "Sobrecarga",
+          "catalogLabel": "BB2A4828-46EB-8CD1-E765-15848195D751_Ultimate",
+          "sprite": "/assets/abilities/neon/ultimate.png",
+          "weaponIds": [
+            "95336ae4-45d4-1032-cfaf-6bad01910607"
+          ]
+        }
+      }
+    },
+    "7f94d92c-4234-0a36-9646-3a87eb8b5c89": {
+      "name": "Yoru",
+      "portrait": "/assets/agents/yoru.png",
+      "abilities": {
+        "grenade": {
+          "name": "FAKEOUT",
+          "namePtBr": "Distração",
+          "catalogLabel": "7F94D92C-4234-0A36-9646-3A87EB8B5C89_Grenade",
+          "sprite": "/assets/abilities/yoru/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "BLINDSIDE",
+          "namePtBr": "Ponto Cego",
+          "catalogLabel": "7F94D92C-4234-0A36-9646-3A87EB8B5C89_Ability1",
+          "sprite": "/assets/abilities/yoru/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "GATECRASH",
+          "namePtBr": "Passagem Dimensional",
+          "catalogLabel": "7F94D92C-4234-0A36-9646-3A87EB8B5C89_Ability2",
+          "sprite": "/assets/abilities/yoru/ability2.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "DIMENSIONAL DRIFT",
+          "namePtBr": "Espionagem Dimensional",
+          "catalogLabel": "7F94D92C-4234-0A36-9646-3A87EB8B5C89_Ultimate",
+          "sprite": "/assets/abilities/yoru/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "df1cb487-4902-002e-5c17-d28e83e78588": {
+      "name": "Waylay",
+      "portrait": "/assets/agents/waylay.png",
+      "abilities": {
+        "ability2": {
+          "name": "Refract",
+          "namePtBr": "Refração",
+          "catalogLabel": "DF1CB487-4902-002E-5C17-D28E83E78588_Ability2",
+          "sprite": "/assets/abilities/waylay/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Saturate",
+          "namePtBr": "Saturação",
+          "catalogLabel": "DF1CB487-4902-002E-5C17-D28E83E78588_Grenade",
+          "sprite": "/assets/abilities/waylay/grenade.png",
+          "weaponIds": []
+        },
+        "ability1": {
+          "name": "Lightspeed",
+          "namePtBr": "Velocidade da Luz",
+          "catalogLabel": "DF1CB487-4902-002E-5C17-D28E83E78588_Ability1",
+          "sprite": "/assets/abilities/waylay/ability1.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Convergent Paths",
+          "namePtBr": "Caminhos Convergentes",
+          "catalogLabel": "DF1CB487-4902-002E-5C17-D28E83E78588_Ultimate",
+          "sprite": "/assets/abilities/waylay/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "569fdd95-4d10-43ab-ca70-79becc718b46": {
+      "name": "Sage",
+      "portrait": "/assets/agents/sage.png",
+      "abilities": {
+        "ability1": {
+          "name": "Slow Orb",
+          "namePtBr": "Orbe de Lentidão",
+          "catalogLabel": "569FDD95-4D10-43AB-CA70-79BECC718B46_Ability1",
+          "sprite": "/assets/abilities/sage/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Healing Orb",
+          "namePtBr": "Orbe Curativo",
+          "catalogLabel": "569FDD95-4D10-43AB-CA70-79BECC718B46_Ability2",
+          "sprite": "/assets/abilities/sage/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Barrier Orb",
+          "namePtBr": "Orbe de Barreira",
+          "catalogLabel": "569FDD95-4D10-43AB-CA70-79BECC718B46_Grenade",
+          "sprite": "/assets/abilities/sage/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Resurrection",
+          "namePtBr": "Ressurreição",
+          "catalogLabel": "569FDD95-4D10-43AB-CA70-79BECC718B46_Ultimate",
+          "sprite": "/assets/abilities/sage/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc": {
+      "name": "Reyna",
+      "portrait": "/assets/agents/reyna.png",
+      "abilities": {
+        "ability1": {
+          "name": "Devour",
+          "namePtBr": "Devorar",
+          "catalogLabel": "A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Ability1",
+          "sprite": "/assets/abilities/reyna/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Dismiss",
+          "namePtBr": "Dispensar",
+          "catalogLabel": "A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Ability2",
+          "sprite": "/assets/abilities/reyna/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Leer",
+          "namePtBr": "Olhar Voraz",
+          "catalogLabel": "A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Grenade",
+          "sprite": "/assets/abilities/reyna/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Empress",
+          "namePtBr": "Imperatriz",
+          "catalogLabel": "A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Ultimate",
+          "sprite": "/assets/abilities/reyna/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "8e253930-4c05-31dd-1b6c-968525494517": {
+      "name": "Omen",
+      "portrait": "/assets/agents/omen.png",
+      "abilities": {
+        "ability1": {
+          "name": "Paranoia",
+          "namePtBr": "Paranoia",
+          "catalogLabel": "8E253930-4C05-31DD-1B6C-968525494517_Ability1",
+          "sprite": "/assets/abilities/omen/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Dark Cover",
+          "namePtBr": "Manto Sombrio",
+          "catalogLabel": "8E253930-4C05-31DD-1B6C-968525494517_Ability2",
+          "sprite": "/assets/abilities/omen/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Shrouded Step",
+          "namePtBr": "Passos Tenebrosos",
+          "catalogLabel": "8E253930-4C05-31DD-1B6C-968525494517_Grenade",
+          "sprite": "/assets/abilities/omen/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "From the Shadows",
+          "namePtBr": "Salto das Sombras",
+          "catalogLabel": "8E253930-4C05-31DD-1B6C-968525494517_Ultimate",
+          "sprite": "/assets/abilities/omen/ultimate.png",
+          "weaponIds": []
+        }
+      }
+    },
+    "add6443a-41bd-e414-f6ad-e58d267f4e95": {
+      "name": "Jett",
+      "portrait": "/assets/agents/jett.png",
+      "abilities": {
+        "ability1": {
+          "name": "Updraft",
+          "namePtBr": "Corrente Ascendente",
+          "catalogLabel": "ADD6443A-41BD-E414-F6AD-E58D267F4E95_Ability1",
+          "sprite": "/assets/abilities/jett/ability1.png",
+          "weaponIds": []
+        },
+        "ability2": {
+          "name": "Tailwind",
+          "namePtBr": "Brisa de Impulso",
+          "catalogLabel": "ADD6443A-41BD-E414-F6AD-E58D267F4E95_Ability2",
+          "sprite": "/assets/abilities/jett/ability2.png",
+          "weaponIds": []
+        },
+        "grenade": {
+          "name": "Cloudburst",
+          "namePtBr": "Erupção das Brumas",
+          "catalogLabel": "ADD6443A-41BD-E414-F6AD-E58D267F4E95_Grenade",
+          "sprite": "/assets/abilities/jett/grenade.png",
+          "weaponIds": []
+        },
+        "ultimate": {
+          "name": "Blade Storm",
+          "namePtBr": "Tormenta de Aço",
+          "catalogLabel": "ADD6443A-41BD-E414-F6AD-E58D267F4E95_Ultimate",
+          "sprite": "/assets/abilities/jett/ultimate.png",
+          "weaponIds": []
+        },
+        "passive": {
+          "name": "Drift",
+          "namePtBr": "Deriva",
+          "catalogLabel": "ADD6443A-41BD-E414-F6AD-E58D267F4E95_Passive",
+          "sprite": "/assets/abilities/jett/passive.png",
+          "weaponIds": []
+        }
+      }
+    }
+  }
+}

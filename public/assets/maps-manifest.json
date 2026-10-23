@@ -1,55 +1,252 @@
 {
-  "source": "https://valorant.dyn.riotcdn.net/x/content-catalog/PublicContentCatalog-release-08.09.zip",
   "owner": "Riot Games",
-  "catalogVersion": "08.09",
+  "provider": "Riot Games Public Content Catalog (official)",
+  "source": "PublicContentCatalog-release-13.08",
+  "catalogVersion": "13.08.00.5627607",
+  "catalogSha256": "fbb4ede150e8022cb7ce52744daf9dcf250cef5e8a07fe0ff6ff96e52c144560",
   "assets": [
     {
-      "file": "/assets/maps/ascent.png",
-      "archiveMember": "Maps/7EAECC1B-4337-BBF6-6AB9-04B8F06B3319_splash.png",
-      "bytes": 3193110,
+      "id": "dd3a1cd9-41b1-50ea-3bd6-a7bb3c5978bd",
+      "name": "Gauntlet",
+      "kind": "maps",
+      "file": "/assets/maps/gauntlet-dd3a1cd9.png",
+      "archiveMember": "Maps/DD3A1CD9-41B1-50EA-3BD6-A7BB3C5978BD_splash.png",
+      "bytes": 3268399,
+      "sha256": "8164d2baf0104623c1b2dbba15cabbc5e5ecce046a7d731f45e018e23ff1190e"
+    },
+    {
       "id": "7eaecc1b-4337-bbf6-6ab9-04b8f06b3319",
       "name": "Ascent",
-      "kind": "maps"
+      "kind": "maps",
+      "file": "/assets/maps/ascent.png",
+      "archiveMember": "Maps/7EAECC1B-4337-BBF6-6AB9-04B8F06B3319_splash.png",
+      "bytes": 3934689,
+      "sha256": "a8e8978729190f23538f3f18a2c3a465a2c52e19c9ac865efd4f83ec92e78304"
     },
     {
-      "file": "/assets/maps/split.png",
-      "archiveMember": "Maps/D960549E-485C-E861-8D71-AA9D1AED12A2_splash.png",
-      "bytes": 3077048,
       "id": "d960549e-485c-e861-8d71-aa9d1aed12a2",
       "name": "Split",
-      "kind": "maps"
+      "kind": "maps",
+      "file": "/assets/maps/split.png",
+      "archiveMember": "Maps/D960549E-485C-E861-8D71-AA9D1AED12A2_splash.png",
+      "bytes": 3819812,
+      "sha256": "7ea9653605d1471aa3821ca1507c8598f65ed470b72e647518aa2e5d92520e92"
     },
     {
-      "file": "/assets/maps/bind.png",
-      "archiveMember": "Maps/2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA_splash.png",
-      "bytes": 2661829,
+      "id": "b529448b-4d60-346e-e89e-00a4c527a405",
+      "name": "Fracture",
+      "kind": "maps",
+      "file": "/assets/maps/fracture.png",
+      "archiveMember": "Maps/B529448B-4D60-346E-E89E-00A4C527A405_splash.png",
+      "bytes": 3193081,
+      "sha256": "13d69e4caea935429900ecc5c7816576e869aff47bb049e4ff4a242e02fb0850"
+    },
+    {
       "id": "2c9d57ec-4431-9c5e-2939-8f9ef6dd5cba",
       "name": "Bind",
-      "kind": "maps"
+      "kind": "maps",
+      "file": "/assets/maps/bind.png",
+      "archiveMember": "Maps/2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA_splash.png",
+      "bytes": 3351612,
+      "sha256": "52891081fb2a87ee4f3d9d1e143121fa69ae98a9e90867355e36e3bda7181470"
     },
     {
-      "file": "/assets/maps/lotus.png",
-      "archiveMember": "Maps/2FE4ED3A-450A-948B-6D6B-E89A78E680A9_splash.png",
-      "bytes": 8352652,
+      "id": "a9009649-421f-d5d5-f80c-0cbe02c125bb",
+      "name": "Skirmish A",
+      "kind": "maps",
+      "file": "/assets/maps/skirmisha-a9009649.png",
+      "archiveMember": "Maps/A9009649-421F-D5D5-F80C-0CBE02C125BB_splash.png",
+      "bytes": 13094407,
+      "sha256": "8e40220c6d60d4abe47519a7474da5cdb534a113bad0319bbdd2cd09032e81c1"
+    },
+    {
+      "id": "a38a3f9a-4042-844c-8970-a3ac2f7ce93d",
+      "name": "Skirmish B",
+      "kind": "maps",
+      "file": "/assets/maps/skirmishb-a38a3f9a.png",
+      "archiveMember": "Maps/A38A3F9A-4042-844C-8970-A3AC2F7CE93D_splash.png",
+      "bytes": 13094407,
+      "sha256": "8e40220c6d60d4abe47519a7474da5cdb534a113bad0319bbdd2cd09032e81c1"
+    },
+    {
+      "id": "a264de0f-4a04-9c78-c97a-a6b192ce6e86",
+      "name": "Skirmish C",
+      "kind": "maps",
+      "file": "/assets/maps/skirmishc-a264de0f.png",
+      "archiveMember": "Maps/A264DE0F-4A04-9C78-C97A-A6B192CE6E86_splash.png",
+      "bytes": 13094407,
+      "sha256": "8e40220c6d60d4abe47519a7474da5cdb534a113bad0319bbdd2cd09032e81c1"
+    },
+    {
+      "id": "4490f1d6-4818-bf5f-9b3a-9c9a8dbb52ed",
+      "name": "Skirmish E",
+      "kind": "maps",
+      "file": "/assets/maps/skirmishe-4490f1d6.png",
+      "archiveMember": "Maps/4490F1D6-4818-BF5F-9B3A-9C9A8DBB52ED_splash.png",
+      "bytes": 13094407,
+      "sha256": "8e40220c6d60d4abe47519a7474da5cdb534a113bad0319bbdd2cd09032e81c1"
+    },
+    {
+      "id": "1c7555fc-4bc6-3b98-9674-789d47ef6c50",
+      "name": "Skirmish D",
+      "kind": "maps",
+      "file": "/assets/maps/skirmishd-1c7555fc.png",
+      "archiveMember": "Maps/1C7555FC-4BC6-3B98-9674-789D47EF6C50_splash.png",
+      "bytes": 13094407,
+      "sha256": "8e40220c6d60d4abe47519a7474da5cdb534a113bad0319bbdd2cd09032e81c1"
+    },
+    {
+      "id": "2fb9a4fd-47b8-4e7d-a969-74b4046ebd53",
+      "name": "Breeze",
+      "kind": "maps",
+      "file": "/assets/maps/breeze.png",
+      "archiveMember": "Maps/2FB9A4FD-47B8-4E7D-A969-74B4046EBD53_splash.png",
+      "bytes": 14105270,
+      "sha256": "0ab4652a6df6c85c997140b5b27dc3a010f365e0f9506f340cba3ff7cca345f8"
+    },
+    {
+      "id": "690b3ed2-4dff-945b-8223-6da834e30d24",
+      "name": "District",
+      "kind": "maps",
+      "file": "/assets/maps/district.png",
+      "archiveMember": "Maps/690B3ED2-4DFF-945B-8223-6DA834E30D24_splash.png",
+      "bytes": 3410043,
+      "sha256": "c0d5f14f0b41f3acf258f57f3ab4ca5ad72bdb1c078aadfb418ff0e299e58a06"
+    },
+    {
+      "id": "12452a9d-48c3-0b02-e7eb-0381c3520404",
+      "name": "Kasbah",
+      "kind": "maps",
+      "file": "/assets/maps/kasbah.png",
+      "archiveMember": "Maps/12452A9D-48C3-0B02-E7EB-0381C3520404_splash.png",
+      "bytes": 3173462,
+      "sha256": "b7e6e5ae0276e57f7fd1f56578744626bbe8341f91d5b728f6f389f21fcfb2f7"
+    },
+    {
+      "id": "2c09d728-42d5-30d8-43dc-96a05cc7ee9d",
+      "name": "Drift",
+      "kind": "maps",
+      "file": "/assets/maps/drift.png",
+      "archiveMember": "Maps/2C09D728-42D5-30D8-43DC-96A05CC7EE9D_splash.png",
+      "bytes": 3510234,
+      "sha256": "76baa16fca7d31f2c2e2322145b8eff12cff30f5532b4c5cb2a581610d660eb4"
+    },
+    {
+      "id": "d6336a5a-428f-c591-98db-c8a291159134",
+      "name": "Glitch",
+      "kind": "maps",
+      "file": "/assets/maps/glitch.png",
+      "archiveMember": "Maps/D6336A5A-428F-C591-98DB-C8A291159134_splash.png",
+      "bytes": 3142917,
+      "sha256": "5d9172d038bbd180b5823030b45d476f7a7183c795621e4c5b4f16ed475f8af3"
+    },
+    {
+      "id": "de28aa9b-4cbe-1003-320e-6cb3ec309557",
+      "name": "Piazza",
+      "kind": "maps",
+      "file": "/assets/maps/piazza.png",
+      "archiveMember": "Maps/DE28AA9B-4CBE-1003-320E-6CB3EC309557_splash.png",
+      "bytes": 3385161,
+      "sha256": "f1499c07fa31eba2c33d7831cd2c882e2d92619dcc9c68a21cf9711c24c29d62"
+    },
+    {
+      "id": "224b0a95-48b9-f703-1bd8-67aca101a61f",
+      "name": "Abyss",
+      "kind": "maps",
+      "file": "/assets/maps/abyss.png",
+      "archiveMember": "Maps/224B0A95-48B9-F703-1BD8-67ACA101A61F_splash.png",
+      "bytes": 3259059,
+      "sha256": "57ccfeb984d3220190821d9221fd7548416e234e69bba2d4081b77ba81a184e7"
+    },
+    {
       "id": "2fe4ed3a-450a-948b-6d6b-e89a78e680a9",
       "name": "Lotus",
-      "kind": "maps"
+      "kind": "maps",
+      "file": "/assets/maps/lotus.png",
+      "archiveMember": "Maps/2FE4ED3A-450A-948B-6D6B-E89A78E680A9_splash.png",
+      "bytes": 11108276,
+      "sha256": "9d57d46fa23fa50412763cefd08e0f7a495345e819515957b00bfa7e2c83a96b"
     },
     {
-      "file": "/assets/maps/icebox.png",
-      "archiveMember": "Maps/E2AD5C54-4114-A870-9641-8EA21279579A_splash.png",
-      "bytes": 3331335,
+      "id": "92584fbe-486a-b1b2-9faa-39b0f486b498",
+      "name": "Sunset",
+      "kind": "maps",
+      "file": "/assets/maps/sunset.png",
+      "archiveMember": "Maps/92584FBE-486A-B1B2-9FAA-39B0F486B498_splash.png",
+      "bytes": 4122379,
+      "sha256": "110f75f4771ce0843f33d75aefd0d6b4c096b60e33610ffdfe26b1a3f2f0a651"
+    },
+    {
+      "id": "1f10dab3-4294-3827-fa35-c2aa00213cf3",
+      "name": "Basic Training",
+      "kind": "maps",
+      "file": "/assets/maps/basictraining-1f10dab3.png",
+      "archiveMember": "Maps/1F10DAB3-4294-3827-FA35-C2AA00213CF3_splash.png",
+      "bytes": 96581919,
+      "sha256": "b65cf8f31244774aa9b98f96bc11a92bf48a09b7a9b7c09ea7a8e35949b05137"
+    },
+    {
+      "id": "fd267378-4d1d-484f-ff52-77821ed10dc2",
+      "name": "Pearl",
+      "kind": "maps",
+      "file": "/assets/maps/pearl.png",
+      "archiveMember": "Maps/FD267378-4D1D-484F-FF52-77821ED10DC2_splash.png",
+      "bytes": 3427509,
+      "sha256": "c05199ada9f3aecb91e182b297a063ba956109b7e430d36b6ec8e51589d2bc96"
+    },
+    {
+      "id": "756da597-416b-c0f2-f47b-afbdf28670bc",
+      "name": "Summit",
+      "kind": "maps",
+      "file": "/assets/maps/summit.png",
+      "archiveMember": "Maps/756DA597-416B-C0F2-F47B-AFBDF28670BC_splash.png",
+      "bytes": 12354642,
+      "sha256": "d43b152d56eb50f03de574e12ddd3db8d8145abf698cae0a40c9573e65dd8fb6"
+    },
+    {
       "id": "e2ad5c54-4114-a870-9641-8ea21279579a",
       "name": "Icebox",
-      "kind": "maps"
+      "kind": "maps",
+      "file": "/assets/maps/icebox.png",
+      "archiveMember": "Maps/E2AD5C54-4114-A870-9641-8EA21279579A_splash.png",
+      "bytes": 4322890,
+      "sha256": "ceacf88c76f5702c3a1c77fd49ff0eb9f07b84b5233cedfdd4314974e8369c5c"
     },
     {
-      "file": "/assets/maps/haven.png",
-      "archiveMember": "Maps/2BEE0DC9-4FFE-519B-1CBD-7FBE763A6047_splash.png",
-      "bytes": 3541033,
+      "id": "ee613ee9-28b7-4beb-9666-08db13bb2244",
+      "name": "The Range",
+      "kind": "maps",
+      "file": "/assets/maps/therange-ee613ee9.png",
+      "archiveMember": "Maps/EE613EE9-28B7-4BEB-9666-08DB13BB2244_splash.png",
+      "bytes": 3713275,
+      "sha256": "c5de015e0d508f291e2b52e61c023d979c93643da81efd75e03d7eeb95cf9e75"
+    },
+    {
+      "id": "5914d1e0-40c4-cfdd-6b88-eba06347686c",
+      "name": "The Range",
+      "kind": "maps",
+      "file": "/assets/maps/therange-5914d1e0.png",
+      "archiveMember": "Maps/5914D1E0-40C4-CFDD-6B88-EBA06347686C_splash.png",
+      "bytes": 96581919,
+      "sha256": "b65cf8f31244774aa9b98f96bc11a92bf48a09b7a9b7c09ea7a8e35949b05137"
+    },
+    {
+      "id": "1c18ab1f-420d-0d8b-71d0-77ad3c439115",
+      "name": "Corrode",
+      "kind": "maps",
+      "file": "/assets/maps/corrode.png",
+      "archiveMember": "Maps/1C18AB1F-420D-0D8B-71D0-77AD3C439115_splash.png",
+      "bytes": 28207226,
+      "sha256": "371bbc8f68630a92ff30c41ab694a14d13202ea3337e6b52e9d8a774674469f8"
+    },
+    {
       "id": "2bee0dc9-4ffe-519b-1cbd-7fbe763a6047",
       "name": "Haven",
-      "kind": "maps"
+      "kind": "maps",
+      "file": "/assets/maps/haven.png",
+      "archiveMember": "Maps/2BEE0DC9-4FFE-519B-1CBD-7FBE763A6047_splash.png",
+      "bytes": 4336874,
+      "sha256": "4a11a5641dd17297d8817de54a31a90a018f69432bb4412fd8c09befe7b8a4c1"
     }
   ]
 }

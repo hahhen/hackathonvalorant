@@ -1,446 +1,1953 @@
 {
-  "source": "https://valorant.dyn.riotcdn.net/x/content-catalog/PublicContentCatalog-release-08.09.zip",
   "owner": "Riot Games",
-  "catalogVersion": "08.09",
+  "provider": "Riot Games Public Content Catalog (official)",
+  "source": "PublicContentCatalog-release-13.08",
+  "catalogVersion": "13.08.00.5627607",
+  "catalogSha256": "fbb4ede150e8022cb7ce52744daf9dcf250cef5e8a07fe0ff6ff96e52c144560",
   "assets": [
     {
-      "file": "/assets/agents/gekko.png",
-      "archiveMember": "Characters/E370FA57-4757-3604-3648-499E1F642D3F_small.png",
-      "bytes": 1075324,
       "id": "e370fa57-4757-3604-3648-499e1f642d3f",
       "name": "Gekko",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/gekko.png",
+      "archiveMember": "Characters/E370FA57-4757-3604-3648-499E1F642D3F_small.png",
+      "bytes": 1241669,
+      "sha256": "b837bc419d00271a1ed2dad1da9ee4312b9096c701c6d1e17010a9550b846c81"
     },
     {
-      "file": "/assets/agents/fade.png",
-      "archiveMember": "Characters/DADE69B4-4F5A-8528-247B-219E5A1FACD6_small.png",
-      "bytes": 1242249,
       "id": "dade69b4-4f5a-8528-247b-219e5a1facd6",
       "name": "Fade",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/fade.png",
+      "archiveMember": "Characters/DADE69B4-4F5A-8528-247B-219E5A1FACD6_small.png",
+      "bytes": 1406659,
+      "sha256": "f13f93f40da6e2581c0e9b550168fc2e934e5ff3fb55160803d630de11a22e4c"
     },
     {
-      "file": "/assets/agents/breach.png",
-      "archiveMember": "Characters/5F8D3A7F-467B-97F3-062C-13ACF203C006_small.png",
-      "bytes": 732017,
       "id": "5f8d3a7f-467b-97f3-062c-13acf203c006",
       "name": "Breach",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/breach.png",
+      "archiveMember": "Characters/5F8D3A7F-467B-97F3-062C-13ACF203C006_small.png",
+      "bytes": 834666,
+      "sha256": "ad635cdcf49556062d0617ec799f39cbc4cd35c60fae65c54c7e013490630499"
     },
     {
-      "file": "/assets/agents/deadlock.png",
-      "archiveMember": "Characters/CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_small.png",
-      "bytes": 1164836,
       "id": "cc8b64c8-4b25-4ff9-6e7f-37b4da43d235",
       "name": "Deadlock",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/deadlock.png",
+      "archiveMember": "Characters/CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_small.png",
+      "bytes": 1349271,
+      "sha256": "1b66a5b1707a7d97aef189b90ec235dd45a0af14d2f1979154728630a319b5a4"
     },
     {
-      "file": "/assets/agents/raze.png",
-      "archiveMember": "Characters/F94C3B30-42BE-E959-889C-5AA313DBA261_small.png",
-      "bytes": 1014379,
+      "id": "b444168c-4e35-8076-db47-ef9bf368f384",
+      "name": "Tejo",
+      "kind": "agents",
+      "file": "/assets/agents/tejo.png",
+      "archiveMember": "Characters/B444168C-4E35-8076-DB47-EF9BF368F384_small.png",
+      "bytes": 969358,
+      "sha256": "49dd4a69117b75a12129ea97b843dbb877856b851abe404cecdd739756be895e"
+    },
+    {
       "id": "f94c3b30-42be-e959-889c-5aa313dba261",
       "name": "Raze",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/raze.png",
+      "archiveMember": "Characters/F94C3B30-42BE-E959-889C-5AA313DBA261_small.png",
+      "bytes": 1180991,
+      "sha256": "26d69743dad725c52956e0a037b5cda1eab2874356d85ea02e793a760dd5688b"
     },
     {
-      "file": "/assets/agents/chamber.png",
-      "archiveMember": "Characters/22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_small.png",
-      "bytes": 863840,
       "id": "22697a3d-45bf-8dd7-4fec-84a9e28c69d7",
       "name": "Chamber",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/chamber.png",
+      "archiveMember": "Characters/22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_small.png",
+      "bytes": 997849,
+      "sha256": "3dcc50580a4879af45e1b7dc8377e1540ff858b22917c051d7094565b3e79f1a"
     },
     {
-      "file": "/assets/agents/kayo.png",
-      "archiveMember": "Characters/601DBBE7-43CE-BE57-2A40-4ABD24953621_small.png",
-      "bytes": 1041028,
       "id": "601dbbe7-43ce-be57-2a40-4abd24953621",
       "name": "KAY/O",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/kayo.png",
+      "archiveMember": "Characters/601DBBE7-43CE-BE57-2A40-4ABD24953621_small.png",
+      "bytes": 1196076,
+      "sha256": "680a2c5679158ebf5eaac73f8d994f1a4c68574c46ee2191a4ac71bd080da0d2"
     },
     {
-      "file": "/assets/agents/skye.png",
-      "archiveMember": "Characters/6F2A04CA-43E0-BE17-7F36-B3908627744D_small.png",
-      "bytes": 987645,
       "id": "6f2a04ca-43e0-be17-7f36-b3908627744d",
       "name": "Skye",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/skye.png",
+      "archiveMember": "Characters/6F2A04CA-43E0-BE17-7F36-B3908627744D_small.png",
+      "bytes": 1150274,
+      "sha256": "78b329ab7a9f6e6d96289945789dd25eae0842534ae8d71ae4dc65048c7a599b"
     },
     {
-      "file": "/assets/agents/cypher.png",
-      "archiveMember": "Characters/117ED9E3-49F3-6512-3CCF-0CADA7E3823B_small.png",
-      "bytes": 848865,
       "id": "117ed9e3-49f3-6512-3ccf-0cada7e3823b",
       "name": "Cypher",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/cypher.png",
+      "archiveMember": "Characters/117ED9E3-49F3-6512-3CCF-0CADA7E3823B_small.png",
+      "bytes": 974346,
+      "sha256": "20d22a4fe2b041f17994d4de7f6baaf0c30c9a9574de69b5071b77023837d69e"
     },
     {
-      "file": "/assets/agents/sova.png",
-      "archiveMember": "Characters/320B2A48-4D9B-A075-30F1-1F93A9B638FA_small.png",
-      "bytes": 895877,
       "id": "320b2a48-4d9b-a075-30f1-1f93a9b638fa",
       "name": "Sova",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/sova.png",
+      "archiveMember": "Characters/320B2A48-4D9B-A075-30F1-1F93A9B638FA_small.png",
+      "bytes": 1033516,
+      "sha256": "2526606317bb09026ae50377df0fe29049498ba3bc35d33854529520f3bbe801"
     },
     {
-      "file": "/assets/agents/killjoy.png",
-      "archiveMember": "Characters/1E58DE9C-4950-5125-93E9-A0AEE9F98746_small.png",
-      "bytes": 784314,
+      "id": "7c8a4701-4de6-9355-b254-e09bc2a34b72",
+      "name": "Miks",
+      "kind": "agents",
+      "file": "/assets/agents/miks.png",
+      "archiveMember": "Characters/7C8A4701-4DE6-9355-B254-E09BC2A34B72_small.png",
+      "bytes": 752513,
+      "sha256": "c97dfeee91cea9268389048b6ef99bf3f34863e587cc418aba66613f0244795b"
+    },
+    {
       "id": "1e58de9c-4950-5125-93e9-a0aee9f98746",
       "name": "Killjoy",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/killjoy.png",
+      "archiveMember": "Characters/1E58DE9C-4950-5125-93E9-A0AEE9F98746_small.png",
+      "bytes": 923672,
+      "sha256": "4316f7d97308950ae4374a064716f62437239783b0c323ac7c7abc52f369e7eb"
     },
     {
-      "file": "/assets/agents/harbor.png",
-      "archiveMember": "Characters/95B78ED7-4637-86D9-7E41-71BA8C293152_small.png",
-      "bytes": 1114430,
       "id": "95b78ed7-4637-86d9-7e41-71ba8c293152",
       "name": "Harbor",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/harbor.png",
+      "archiveMember": "Characters/95B78ED7-4637-86D9-7E41-71BA8C293152_small.png",
+      "bytes": 1276084,
+      "sha256": "c8f3c25ee3525ca80fe0ca01236a0b77e2891036b662025aeeb0807ffd149864"
     },
     {
-      "file": "/assets/agents/viper.png",
-      "archiveMember": "Characters/707EAB51-4836-F488-046A-CDA6BF494859_small.png",
-      "bytes": 815961,
+      "id": "efba5359-4016-a1e5-7626-b1ae76895940",
+      "name": "Vyse",
+      "kind": "agents",
+      "file": "/assets/agents/vyse.png",
+      "archiveMember": "Characters/EFBA5359-4016-A1E5-7626-B1AE76895940_small.png",
+      "bytes": 456404,
+      "sha256": "672005b2bd7b898f7a2fb908f6bd78503cc68415c39656f925be7e1dbcb7add2"
+    },
+    {
       "id": "707eab51-4836-f488-046a-cda6bf494859",
       "name": "Viper",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/viper.png",
+      "archiveMember": "Characters/707EAB51-4836-F488-046A-CDA6BF494859_small.png",
+      "bytes": 940095,
+      "sha256": "dfc05c80aa1538e34e6d866fbe9f923c3413acc52d2f14d766c1530dabf7ee80"
     },
     {
-      "file": "/assets/agents/phoenix.png",
-      "archiveMember": "Characters/EB93336A-449B-9C1B-0A54-A891F7921D69_small.png",
-      "bytes": 847418,
       "id": "eb93336a-449b-9c1b-0a54-a891f7921d69",
       "name": "Phoenix",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/phoenix.png",
+      "archiveMember": "Characters/EB93336A-449B-9C1B-0A54-A891F7921D69_small.png",
+      "bytes": 991957,
+      "sha256": "07434a7d5996a1518c27567852c71ee3d134a0145adbe5d77443ae199fcabab7"
     },
     {
-      "file": "/assets/agents/astra.png",
-      "archiveMember": "Characters/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_small.png",
-      "bytes": 847575,
+      "id": "92eeef5d-43b5-1d4a-8d03-b3927a09034b",
+      "name": "Veto",
+      "kind": "agents",
+      "file": "/assets/agents/veto.png",
+      "archiveMember": "Characters/92EEEF5D-43B5-1D4A-8D03-B3927A09034B_small.png",
+      "bytes": 587784,
+      "sha256": "16ef4b1f5f3e0a29cb442e0daffe5074e0be3151e30c2b344fdb364eb34f779f"
+    },
+    {
       "id": "41fb69c1-4189-7b37-f117-bcaf1e96f1bf",
       "name": "Astra",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/astra.png",
+      "archiveMember": "Characters/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_small.png",
+      "bytes": 995192,
+      "sha256": "875572c53d13f47854a121530ff9ded86715153c3a99a83220716309a7cd10ea"
     },
     {
-      "file": "/assets/agents/brimstone.png",
-      "archiveMember": "Characters/9F0D8BA9-4140-B941-57D3-A7AD57C6B417_small.png",
-      "bytes": 722237,
       "id": "9f0d8ba9-4140-b941-57d3-a7ad57c6b417",
       "name": "Brimstone",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/brimstone.png",
+      "archiveMember": "Characters/9F0D8BA9-4140-B941-57D3-A7AD57C6B417_small.png",
+      "bytes": 836775,
+      "sha256": "8db510e44d8a367efbc2c23856af13a38a9293970d93d40a1d65877ff5f9a3a0"
     },
     {
-      "file": "/assets/agents/iso.png",
-      "archiveMember": "Characters/0E38B510-41A8-5780-5E8F-568B2A4F2D6C_small.png",
-      "bytes": 610445,
       "id": "0e38b510-41a8-5780-5e8f-568b2a4f2d6c",
       "name": "Iso",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/iso.png",
+      "archiveMember": "Characters/0E38B510-41A8-5780-5E8F-568B2A4F2D6C_small.png",
+      "bytes": 701167,
+      "sha256": "7ab108b22ad7161c29028c2c2ceb6e7abb5a756429a90f9e0ab43c087d61c32f"
     },
     {
-      "file": "/assets/agents/clove.png",
-      "archiveMember": "Characters/1DBF2EDD-4729-0984-3115-DAA5EED44993_small.png",
-      "bytes": 658608,
       "id": "1dbf2edd-4729-0984-3115-daa5eed44993",
       "name": "Clove",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/clove.png",
+      "archiveMember": "Characters/1DBF2EDD-4729-0984-3115-DAA5EED44993_small.png",
+      "bytes": 770600,
+      "sha256": "743591717a49b0faa5d28bab76f247afcc383c648fa2fd828e1c329b43859ffc"
     },
     {
-      "file": "/assets/agents/neon.png",
-      "archiveMember": "Characters/BB2A4828-46EB-8CD1-E765-15848195D751_small.png",
-      "bytes": 368125,
       "id": "bb2a4828-46eb-8cd1-e765-15848195d751",
       "name": "Neon",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/neon.png",
+      "archiveMember": "Characters/BB2A4828-46EB-8CD1-E765-15848195D751_small.png",
+      "bytes": 417392,
+      "sha256": "bc2c970eb4327d2639d69c3a60c7d8bf2f7ca779a6d719c0f1e92ef85d52d2d4"
     },
     {
-      "file": "/assets/agents/yoru.png",
-      "archiveMember": "Characters/7F94D92C-4234-0A36-9646-3A87EB8B5C89_small.png",
-      "bytes": 31783,
       "id": "7f94d92c-4234-0a36-9646-3a87eb8b5c89",
       "name": "Yoru",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/yoru.png",
+      "archiveMember": "Characters/7F94D92C-4234-0A36-9646-3A87EB8B5C89_small.png",
+      "bytes": 1127168,
+      "sha256": "5454b06367637ba9c6fae1fd3a36eddc1cdd7d53758c4d3c2c31fe18bd36b846"
     },
     {
-      "file": "/assets/agents/sage.png",
-      "archiveMember": "Characters/569FDD95-4D10-43AB-CA70-79BECC718B46_small.png",
-      "bytes": 673934,
+      "id": "df1cb487-4902-002e-5c17-d28e83e78588",
+      "name": "Waylay",
+      "kind": "agents",
+      "file": "/assets/agents/waylay.png",
+      "archiveMember": "Characters/DF1CB487-4902-002E-5C17-D28E83E78588_small.png",
+      "bytes": 815932,
+      "sha256": "3ffcd87e74a8ed29796243bce68a138a5a2441da402745d27e9db6bd84ee7506"
+    },
+    {
       "id": "569fdd95-4d10-43ab-ca70-79becc718b46",
       "name": "Sage",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/sage.png",
+      "archiveMember": "Characters/569FDD95-4D10-43AB-CA70-79BECC718B46_small.png",
+      "bytes": 736741,
+      "sha256": "b3ce07d2b76468466020f8daece19a553584dd92c198ceb147df0387cf81b696"
     },
     {
-      "file": "/assets/agents/reyna.png",
-      "archiveMember": "Characters/A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_small.png",
-      "bytes": 639947,
       "id": "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc",
       "name": "Reyna",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/reyna.png",
+      "archiveMember": "Characters/A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_small.png",
+      "bytes": 745229,
+      "sha256": "372fb8a01e0f331dd8017d07562e339da6487d5e9d90e2fce527c61563b14f60"
     },
     {
-      "file": "/assets/agents/omen.png",
-      "archiveMember": "Characters/8E253930-4C05-31DD-1B6C-968525494517_small.png",
-      "bytes": 889083,
       "id": "8e253930-4c05-31dd-1b6c-968525494517",
       "name": "Omen",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/omen.png",
+      "archiveMember": "Characters/8E253930-4C05-31DD-1B6C-968525494517_small.png",
+      "bytes": 1049964,
+      "sha256": "15a3a62d16299064dbbd3fab4e71bc96bc28603158c3d09a3f19a48123081723"
     },
     {
-      "file": "/assets/agents/jett.png",
-      "archiveMember": "Characters/ADD6443A-41BD-E414-F6AD-E58D267F4E95_small.png",
-      "bytes": 874945,
       "id": "add6443a-41bd-e414-f6ad-e58d267f4e95",
       "name": "Jett",
-      "kind": "agents"
+      "kind": "agents",
+      "file": "/assets/agents/jett.png",
+      "archiveMember": "Characters/ADD6443A-41BD-E414-F6AD-E58D267F4E95_small.png",
+      "bytes": 1020512,
+      "sha256": "4c73f5e9a7d8a4a82c59f104e5644deb80035771bb11a43a822c6829d0964aed"
     },
     {
-      "file": "/assets/weapons/melee.png",
-      "archiveMember": "Weapons/2F59173C-4BED-B6C3-2191-DEA9B58BE9C7.png",
-      "bytes": 56243,
       "id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
       "name": "Melee",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/melee.png",
+      "archiveMember": "Weapons/2F59173C-4BED-B6C3-2191-DEA9B58BE9C7.png",
+      "bytes": 25281,
+      "sha256": "cf7f0b6574b9acb864fa02d8d2146d31dc92bd402e5f6ebd317712ef805a4053"
     },
     {
+      "id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
+      "name": "Melee",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/melee-kill.png",
       "archiveMember": "Weapons/2F59173C-4BED-B6C3-2191-DEA9B58BE9C7_killstream.png",
-      "bytes": 1785
+      "bytes": 2500,
+      "sha256": "bcb009d78e21e07547839383751381f68ab37b4b3a70651d18d1427552dac259"
     },
     {
-      "file": "/assets/weapons/odin.png",
-      "archiveMember": "Weapons/63E6C2B6-4A8E-869C-3D4C-E38355226584.png",
-      "bytes": 42000,
       "id": "63e6c2b6-4a8e-869c-3d4c-e38355226584",
       "name": "Odin",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/odin.png",
+      "archiveMember": "Weapons/63E6C2B6-4A8E-869C-3D4C-E38355226584.png",
+      "bytes": 36970,
+      "sha256": "d2928fa71221cdf53ae542b0aa287feedc2f2353f4f5e5717556b16174c93676"
     },
     {
+      "id": "63e6c2b6-4a8e-869c-3d4c-e38355226584",
+      "name": "Odin",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/odin-kill.png",
       "archiveMember": "Weapons/63E6C2B6-4A8E-869C-3D4C-E38355226584_killstream.png",
-      "bytes": 1868
+      "bytes": 2885,
+      "sha256": "8eaab6d542b251ce2b5a473316c10f1a88a33f5385df1051177f168194c2ff97"
     },
     {
-      "file": "/assets/weapons/ares.png",
-      "archiveMember": "Weapons/55D8A0F4-4274-CA67-FE2C-06AB45EFDF58.png",
-      "bytes": 41278,
       "id": "55d8a0f4-4274-ca67-fe2c-06ab45efdf58",
       "name": "Ares",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/ares.png",
+      "archiveMember": "Weapons/55D8A0F4-4274-CA67-FE2C-06AB45EFDF58.png",
+      "bytes": 34683,
+      "sha256": "7c96b0d9ea7a723a318d3709248d7a6defe1c165f24b676d693345b310218da8"
     },
     {
+      "id": "55d8a0f4-4274-ca67-fe2c-06ab45efdf58",
+      "name": "Ares",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/ares-kill.png",
       "archiveMember": "Weapons/55D8A0F4-4274-CA67-FE2C-06AB45EFDF58_killstream.png",
-      "bytes": 3375
+      "bytes": 5281,
+      "sha256": "0911df46a6f8ccad3a160e7e10562dd0b433794f52072180697d54846ae9aa2a"
     },
     {
-      "file": "/assets/weapons/vandal.png",
-      "archiveMember": "Weapons/9C82E19D-4575-0200-1A81-3EACF00CF872.png",
-      "bytes": 52339,
       "id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
       "name": "Vandal",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/vandal.png",
+      "archiveMember": "Weapons/9C82E19D-4575-0200-1A81-3EACF00CF872.png",
+      "bytes": 34646,
+      "sha256": "29f4de6328d3d20f61b2b94af04fecb6bd8e9349ce877ec13d0b72067d9bdf14"
     },
     {
+      "id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+      "name": "Vandal",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/vandal-kill.png",
       "archiveMember": "Weapons/9C82E19D-4575-0200-1A81-3EACF00CF872_killstream.png",
-      "bytes": 3744
+      "bytes": 5557,
+      "sha256": "f34bc7cb3a58393fdd83446f26e7949f68e62531ddd8536ecce3552601d456c4"
     },
     {
-      "file": "/assets/weapons/bulldog.png",
-      "archiveMember": "Weapons/AE3DE142-4D85-2547-DD26-4E90BED35CF7.png",
-      "bytes": 57008,
       "id": "ae3de142-4d85-2547-dd26-4e90bed35cf7",
       "name": "Bulldog",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/bulldog.png",
+      "archiveMember": "Weapons/AE3DE142-4D85-2547-DD26-4E90BED35CF7.png",
+      "bytes": 36040,
+      "sha256": "d428d1f49cc14585465bff6865bdcbd5277795012424fd7e5fd68c72ddaacc16"
     },
     {
+      "id": "ae3de142-4d85-2547-dd26-4e90bed35cf7",
+      "name": "Bulldog",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/bulldog-kill.png",
       "archiveMember": "Weapons/AE3DE142-4D85-2547-DD26-4E90BED35CF7_killstream.png",
-      "bytes": 2807
+      "bytes": 4297,
+      "sha256": "1116f18cc08d4f769d63e2df9f6186748fce3bba16d6efdbfd96341e34a0bf67"
     },
     {
-      "file": "/assets/weapons/phantom.png",
-      "archiveMember": "Weapons/EE8E8D15-496B-07AC-E5F6-8FAE5D4C7B1A.png",
-      "bytes": 43448,
       "id": "ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a",
       "name": "Phantom",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/phantom.png",
+      "archiveMember": "Weapons/EE8E8D15-496B-07AC-E5F6-8FAE5D4C7B1A.png",
+      "bytes": 38525,
+      "sha256": "71533851239acf60bc95b036fdb768c3133b08b97e90446449d9c85120d33b3c"
     },
     {
+      "id": "ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a",
+      "name": "Phantom",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/phantom-kill.png",
       "archiveMember": "Weapons/EE8E8D15-496B-07AC-E5F6-8FAE5D4C7B1A_killstream.png",
-      "bytes": 2648
+      "bytes": 3972,
+      "sha256": "b50e593259557867ff9dfce75e58da913a49623fc338b21e1788daeb2951233a"
     },
     {
-      "file": "/assets/weapons/judge.png",
-      "archiveMember": "Weapons/EC845BF4-4F79-DDDA-A3DA-0DB3774B2794.png",
-      "bytes": 57995,
       "id": "ec845bf4-4f79-ddda-a3da-0db3774b2794",
       "name": "Judge",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/judge.png",
+      "archiveMember": "Weapons/EC845BF4-4F79-DDDA-A3DA-0DB3774B2794.png",
+      "bytes": 36417,
+      "sha256": "fd16d7437fe2078b5d835dde34416343e768474de4adb6f5e51ac812357121ef"
     },
     {
+      "id": "ec845bf4-4f79-ddda-a3da-0db3774b2794",
+      "name": "Judge",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/judge-kill.png",
       "archiveMember": "Weapons/EC845BF4-4F79-DDDA-A3DA-0DB3774B2794_killstream.png",
-      "bytes": 2310
+      "bytes": 3537,
+      "sha256": "06d7d0cff13b5ff181603bbed29196b6e9fac33cbddec3362611b9a822f5498f"
     },
     {
-      "file": "/assets/weapons/bucky.png",
-      "archiveMember": "Weapons/910BE174-449B-C412-AB22-D0873436B21B.png",
-      "bytes": 38266,
       "id": "910be174-449b-c412-ab22-d0873436b21b",
       "name": "Bucky",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/bucky.png",
+      "archiveMember": "Weapons/910BE174-449B-C412-AB22-D0873436B21B.png",
+      "bytes": 32300,
+      "sha256": "29332b0b47a8e4834117e879d8048ea9742837eefccabac937edb9528022ec99"
     },
     {
+      "id": "910be174-449b-c412-ab22-d0873436b21b",
+      "name": "Bucky",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/bucky-kill.png",
       "archiveMember": "Weapons/910BE174-449B-C412-AB22-D0873436B21B_killstream.png",
-      "bytes": 2158
+      "bytes": 3351,
+      "sha256": "5338c73544df55fe2cd998fe32efb05ce064e5390002ef0ab8f9d8ec9548dc64"
     },
     {
-      "file": "/assets/weapons/frenzy.png",
-      "archiveMember": "Weapons/44D4E95C-4157-0037-81B2-17841BF2E8E3.png",
-      "bytes": 139923,
       "id": "44d4e95c-4157-0037-81b2-17841bf2e8e3",
       "name": "Frenzy",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/frenzy.png",
+      "archiveMember": "Weapons/44D4E95C-4157-0037-81B2-17841BF2E8E3.png",
+      "bytes": 19336,
+      "sha256": "cff5a8f23119a08ffb79d4923b54dbe0687dba4cb88333f321e6210326d0030f"
     },
     {
+      "id": "44d4e95c-4157-0037-81b2-17841bf2e8e3",
+      "name": "Frenzy",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/frenzy-kill.png",
       "archiveMember": "Weapons/44D4E95C-4157-0037-81B2-17841BF2E8E3_killstream.png",
-      "bytes": 1951
+      "bytes": 2821,
+      "sha256": "01f74b674b1006262ead0849167d6dbfb0e86f3e1329e8fd46bd28402a83330c"
     },
     {
-      "file": "/assets/weapons/classic.png",
-      "archiveMember": "Weapons/29A0CFAB-485B-F5D5-779A-B59F85E204A8.png",
-      "bytes": 129351,
       "id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
       "name": "Classic",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/classic.png",
+      "archiveMember": "Weapons/29A0CFAB-485B-F5D5-779A-B59F85E204A8.png",
+      "bytes": 21464,
+      "sha256": "925f06fecab4a6f79f976dda50748503f4724545e3333d4087aca212db3e1cae"
     },
     {
+      "id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+      "name": "Classic",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/classic-kill.png",
       "archiveMember": "Weapons/29A0CFAB-485B-F5D5-779A-B59F85E204A8_killstream.png",
-      "bytes": 2072
+      "bytes": 2867,
+      "sha256": "0cc98824818d5e180bb91d65665e217d40d6ac2567810d1eaff9f49fe02c412e"
     },
     {
-      "file": "/assets/weapons/ghost.png",
-      "archiveMember": "Weapons/1BAA85B4-4C70-1284-64BB-6481DFC3BB4E.png",
-      "bytes": 50149,
+      "id": "410b2e0b-4ceb-1321-1727-20858f7f3477",
+      "name": "Bandit",
+      "kind": "weapons",
+      "file": "/assets/weapons/bandit.png",
+      "archiveMember": "Weapons/410B2E0B-4CEB-1321-1727-20858F7F3477.png",
+      "bytes": 21308,
+      "sha256": "7cd2099347b20887574fbcd26e5ad3076576d871079f0b078bfd7e404852ea48"
+    },
+    {
+      "id": "410b2e0b-4ceb-1321-1727-20858f7f3477",
+      "name": "Bandit",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/bandit-kill.png",
+      "archiveMember": "Weapons/410B2E0B-4CEB-1321-1727-20858F7F3477_killstream.png",
+      "bytes": 4894,
+      "sha256": "61f245a89b61f4d321f4547d1b9d414f75fc50d80b0e11817b29d748b04e80a6"
+    },
+    {
       "id": "1baa85b4-4c70-1284-64bb-6481dfc3bb4e",
       "name": "Ghost",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/ghost.png",
+      "archiveMember": "Weapons/1BAA85B4-4C70-1284-64BB-6481DFC3BB4E.png",
+      "bytes": 19791,
+      "sha256": "b24e1ff278ab19b7c4b2031a1bf8ac4dc1cb5c5f15f4f2309fd2435d5b3e78b2"
     },
     {
+      "id": "1baa85b4-4c70-1284-64bb-6481dfc3bb4e",
+      "name": "Ghost",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/ghost-kill.png",
       "archiveMember": "Weapons/1BAA85B4-4C70-1284-64BB-6481DFC3BB4E_killstream.png",
-      "bytes": 1752
+      "bytes": 2614,
+      "sha256": "d886f3107dccece72ec332c318bce12e21b6b0cc1c259409d737ff310b74d2c5"
     },
     {
-      "file": "/assets/weapons/sheriff.png",
-      "archiveMember": "Weapons/E336C6B8-418D-9340-D77F-7A9E4CFE0702.png",
-      "bytes": 87890,
       "id": "e336c6b8-418d-9340-d77f-7a9e4cfe0702",
       "name": "Sheriff",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/sheriff.png",
+      "archiveMember": "Weapons/E336C6B8-418D-9340-D77F-7A9E4CFE0702.png",
+      "bytes": 21070,
+      "sha256": "47f5684694719c68959868876cf5acdcfe68d5e4ae52faab3a38c16c6d32c3af"
     },
     {
+      "id": "e336c6b8-418d-9340-d77f-7a9e4cfe0702",
+      "name": "Sheriff",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/sheriff-kill.png",
       "archiveMember": "Weapons/E336C6B8-418D-9340-D77F-7A9E4CFE0702_killstream.png",
-      "bytes": 1917
+      "bytes": 2767,
+      "sha256": "5e2705c6aa8849e4feb6cbe8d74fbfe58e9c23ac01c313c9002a621858ef97c3"
     },
     {
-      "file": "/assets/weapons/shorty.png",
-      "archiveMember": "Weapons/42DA8CCC-40D5-AFFC-BEEC-15AA47B42EDA.png",
-      "bytes": 47612,
       "id": "42da8ccc-40d5-affc-beec-15aa47b42eda",
       "name": "Shorty",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/shorty.png",
+      "archiveMember": "Weapons/42DA8CCC-40D5-AFFC-BEEC-15AA47B42EDA.png",
+      "bytes": 18387,
+      "sha256": "5ef83c543299f9cb49091fe692b7dedc7436eb7d089826ff88c186d38fdc4e79"
     },
     {
+      "id": "42da8ccc-40d5-affc-beec-15aa47b42eda",
+      "name": "Shorty",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/shorty-kill.png",
       "archiveMember": "Weapons/42DA8CCC-40D5-AFFC-BEEC-15AA47B42EDA_killstream.png",
-      "bytes": 1839
+      "bytes": 2686,
+      "sha256": "a8ec4859e069b69c56ea0bb309039733c7cb84fe8bebf4dbbe74e612b13482a8"
     },
     {
-      "file": "/assets/weapons/operator.png",
-      "archiveMember": "Weapons/A03B24D3-4319-996D-0F8C-94BBFBA1DFC7.png",
-      "bytes": 34417,
       "id": "a03b24d3-4319-996d-0f8c-94bbfba1dfc7",
       "name": "Operator",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/operator.png",
+      "archiveMember": "Weapons/A03B24D3-4319-996D-0F8C-94BBFBA1DFC7.png",
+      "bytes": 30746,
+      "sha256": "b9b68ac22a7408379187c923af82f33722a69eb89efaf06863eab05fc0aaa4c5"
     },
     {
+      "id": "a03b24d3-4319-996d-0f8c-94bbfba1dfc7",
+      "name": "Operator",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/operator-kill.png",
       "archiveMember": "Weapons/A03B24D3-4319-996D-0F8C-94BBFBA1DFC7_killstream.png",
-      "bytes": 2655
+      "bytes": 4229,
+      "sha256": "48de7a690b279cb05281faa6a61746623d3cfbe1c41ff5025200b08257c04f48"
     },
     {
-      "file": "/assets/weapons/guardian.png",
-      "archiveMember": "Weapons/4ADE7FAA-4CF1-8376-95EF-39884480959B.png",
-      "bytes": 42661,
       "id": "4ade7faa-4cf1-8376-95ef-39884480959b",
       "name": "Guardian",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/guardian.png",
+      "archiveMember": "Weapons/4ADE7FAA-4CF1-8376-95EF-39884480959B.png",
+      "bytes": 37300,
+      "sha256": "0c747dfedfe47b1549b3d87931e3f099cdb20433571b9feaa3b094bc322d5884"
     },
     {
+      "id": "4ade7faa-4cf1-8376-95ef-39884480959b",
+      "name": "Guardian",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/guardian-kill.png",
       "archiveMember": "Weapons/4ADE7FAA-4CF1-8376-95EF-39884480959B_killstream.png",
-      "bytes": 2522
+      "bytes": 3799,
+      "sha256": "cb4ec0c1a314d94f94662a3b53bd5418ebc3f850e5ab96736cc75da0e86f340e"
     },
     {
-      "file": "/assets/weapons/outlaw.png",
-      "archiveMember": "Weapons/5F0AAF7A-4289-3998-D5FF-EB9A5CF7EF5C.png",
-      "bytes": 34228,
       "id": "5f0aaf7a-4289-3998-d5ff-eb9a5cf7ef5c",
       "name": "Outlaw",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/outlaw.png",
+      "archiveMember": "Weapons/5F0AAF7A-4289-3998-D5FF-EB9A5CF7EF5C.png",
+      "bytes": 27561,
+      "sha256": "18a5dc8603de198fe46f60a3ea6e71ac580f1dbfd9b5a64e9ff08a0cb2357aec"
     },
     {
+      "id": "5f0aaf7a-4289-3998-d5ff-eb9a5cf7ef5c",
+      "name": "Outlaw",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/outlaw-kill.png",
       "archiveMember": "Weapons/5F0AAF7A-4289-3998-D5FF-EB9A5CF7EF5C_killstream.png",
-      "bytes": 3930
+      "bytes": 6084,
+      "sha256": "2b5b405e8ff430f41026e02275d8b148ec3875f93ebf375396c60362dc91f4b9"
     },
     {
-      "file": "/assets/weapons/marshal.png",
-      "archiveMember": "Weapons/C4883E50-4494-202C-3EC3-6B8A9284F00B.png",
-      "bytes": 32516,
       "id": "c4883e50-4494-202c-3ec3-6b8a9284f00b",
       "name": "Marshal",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/marshal.png",
+      "archiveMember": "Weapons/C4883E50-4494-202C-3EC3-6B8A9284F00B.png",
+      "bytes": 28653,
+      "sha256": "be91c81b6ac7fe057e6fb4b63152ed7f3ed0f57d7f2c03c0298c19f6f4c22f3d"
     },
     {
+      "id": "c4883e50-4494-202c-3ec3-6b8a9284f00b",
+      "name": "Marshal",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/marshal-kill.png",
       "archiveMember": "Weapons/C4883E50-4494-202C-3EC3-6B8A9284F00B_killstream.png",
-      "bytes": 3319
+      "bytes": 5288,
+      "sha256": "58a81d75903f6242bb788a7147f59a9d97a621d629b47c5142b54b429b672cfd"
     },
     {
-      "file": "/assets/weapons/spectre.png",
-      "archiveMember": "Weapons/462080D1-4035-2937-7C09-27AA2A5C27A7.png",
-      "bytes": 54267,
       "id": "462080d1-4035-2937-7c09-27aa2a5c27a7",
       "name": "Spectre",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/spectre.png",
+      "archiveMember": "Weapons/462080D1-4035-2937-7C09-27AA2A5C27A7.png",
+      "bytes": 27724,
+      "sha256": "724dae09b0a734a1e79c3ec28d4c55ef747c8725b2711491b20dff71d3f7593e"
     },
     {
+      "id": "462080d1-4035-2937-7c09-27aa2a5c27a7",
+      "name": "Spectre",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/spectre-kill.png",
       "archiveMember": "Weapons/462080D1-4035-2937-7C09-27AA2A5C27A7_killstream.png",
-      "bytes": 2284
+      "bytes": 3298,
+      "sha256": "ae9d14fab0ebb8231b47becc90bbda4253cfc426b6ecbebe7275e04f176b1aa7"
     },
     {
-      "file": "/assets/weapons/stinger.png",
-      "archiveMember": "Weapons/F7E1B454-4AD4-1063-EC0A-159E56B58941.png",
-      "bytes": 57585,
       "id": "f7e1b454-4ad4-1063-ec0a-159e56b58941",
       "name": "Stinger",
-      "kind": "weapons"
+      "kind": "weapons",
+      "file": "/assets/weapons/stinger.png",
+      "archiveMember": "Weapons/F7E1B454-4AD4-1063-EC0A-159E56B58941.png",
+      "bytes": 25051,
+      "sha256": "95dfe5f1bc0b664b6a20f951092fc1c4ff8862cf3a20748881c604855efa10d7"
     },
     {
+      "id": "f7e1b454-4ad4-1063-ec0a-159e56b58941",
+      "name": "Stinger",
+      "kind": "weapon-killfeed",
       "file": "/assets/weapons/stinger-kill.png",
       "archiveMember": "Weapons/F7E1B454-4AD4-1063-EC0A-159E56B58941_killstream.png",
-      "bytes": 2170
+      "bytes": 3057,
+      "sha256": "5eff7c055127cc87d24c52ec4f0afa85ad366c9b31ef341cf1d6a98c18d77b37"
+    },
+    {
+      "id": "0afb2636-4093-c63b-4ef1-1e97966e2a3e",
+      "name": "SPIKE",
+      "kind": "weapons",
+      "file": "/assets/weapons/spike.png",
+      "archiveMember": "Weapons/0AFB2636-4093-C63B-4EF1-1E97966E2A3E.png",
+      "bytes": 6612,
+      "sha256": "ca3666971bea523922fbd1d7d21ad8653a1700fdd812b99d30b95c71b6608916"
+    },
+    {
+      "id": "0afb2636-4093-c63b-4ef1-1e97966e2a3e",
+      "name": "SPIKE",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/spike-kill.png",
+      "archiveMember": "Weapons/0AFB2636-4093-C63B-4EF1-1E97966E2A3E_killstream.png",
+      "bytes": 6612,
+      "sha256": "ca3666971bea523922fbd1d7d21ad8653a1700fdd812b99d30b95c71b6608916"
+    },
+    {
+      "id": "95336ae4-45d4-1032-cfaf-6bad01910607",
+      "name": "Overdrive",
+      "kind": "weapons",
+      "file": "/assets/weapons/overdrive.png",
+      "archiveMember": "Weapons/95336AE4-45D4-1032-CFAF-6BAD01910607.png",
+      "bytes": 30368,
+      "sha256": "cffa8a6dfa97185c997fb47425fd15d5169dd6775dfee79a14d5e89b353fc702"
+    },
+    {
+      "id": "95336ae4-45d4-1032-cfaf-6bad01910607",
+      "name": "Overdrive",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/overdrive-kill.png",
+      "archiveMember": "Weapons/95336AE4-45D4-1032-CFAF-6BAD01910607_killstream.png",
+      "bytes": 30368,
+      "sha256": "cffa8a6dfa97185c997fb47425fd15d5169dd6775dfee79a14d5e89b353fc702"
+    },
+    {
+      "id": "8db0a1bf-4a50-832a-4566-faaaa6d250ca",
+      "name": "Warden",
+      "kind": "weapons",
+      "file": "/assets/weapons/warden.png",
+      "archiveMember": "Weapons/8DB0A1BF-4A50-832A-4566-FAAAA6D250CA.png",
+      "bytes": 36527,
+      "sha256": "c4b47dba3e5c663307db2fef5646b98653ccba586a780d03cf06e2f961992533"
+    },
+    {
+      "id": "8db0a1bf-4a50-832a-4566-faaaa6d250ca",
+      "name": "Warden",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/warden-kill.png",
+      "archiveMember": "Weapons/8DB0A1BF-4A50-832A-4566-FAAAA6D250CA_killstream.png",
+      "bytes": 7781,
+      "sha256": "cc522e2f0c4e3c87f4f682d9ec01cb0ac4dc30d016acc27515652b924532b209"
+    },
+    {
+      "id": "3de32920-4a8f-0499-7740-648a5bf95470",
+      "name": "Golden Gun",
+      "kind": "weapons",
+      "file": "/assets/weapons/goldengun.png",
+      "archiveMember": "Weapons/3DE32920-4A8F-0499-7740-648A5BF95470.png",
+      "bytes": 20212,
+      "sha256": "7e29f14afd883dc4674e2d9e784ad38b0b9f15c355737d6a1bb945ca98ae73a3"
+    },
+    {
+      "id": "3de32920-4a8f-0499-7740-648a5bf95470",
+      "name": "Golden Gun",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/goldengun-kill.png",
+      "archiveMember": "Weapons/3DE32920-4A8F-0499-7740-648A5BF95470_killstream.png",
+      "bytes": 20212,
+      "sha256": "7e29f14afd883dc4674e2d9e784ad38b0b9f15c355737d6a1bb945ca98ae73a3"
+    },
+    {
+      "id": "129b0cfb-4c77-45e5-ba86-5694b231b242",
+      "name": "BIG KNIFE",
+      "kind": "weapons",
+      "file": "/assets/weapons/bigknife.png",
+      "archiveMember": "Weapons/129B0CFB-4C77-45E5-BA86-5694B231B242.png",
+      "bytes": 61498,
+      "sha256": "f65107af4da49f4e0cc24a12ec809878591d01c03e08d1c7d25d1f21059f3cdd"
+    },
+    {
+      "id": "129b0cfb-4c77-45e5-ba86-5694b231b242",
+      "name": "BIG KNIFE",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/bigknife-kill.png",
+      "archiveMember": "Weapons/129B0CFB-4C77-45E5-BA86-5694B231B242_killstream.png",
+      "bytes": 2500,
+      "sha256": "bcb009d78e21e07547839383751381f68ab37b4b3a70651d18d1427552dac259"
+    },
+    {
+      "id": "193c78af-4498-4d51-c445-adac288425be",
+      "name": "Shock Bolt",
+      "kind": "weapons",
+      "file": "/assets/weapons/shockbolt.png",
+      "archiveMember": "Weapons/193C78AF-4498-4D51-C445-ADAC288425BE.png",
+      "bytes": 6186,
+      "sha256": "c2854486afe863c015ed32ced167253ca01d47b9bd9a6a91d8edd0da52847082"
+    },
+    {
+      "id": "193c78af-4498-4d51-c445-adac288425be",
+      "name": "Shock Bolt",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/shockbolt-kill.png",
+      "archiveMember": "Weapons/193C78AF-4498-4D51-C445-ADAC288425BE_killstream.png",
+      "bytes": 6186,
+      "sha256": "c2854486afe863c015ed32ced167253ca01d47b9bd9a6a91d8edd0da52847082"
+    },
+    {
+      "id": "9438be81-46b8-d8b0-8a66-f9a0251fb728",
+      "name": "Showstopper",
+      "kind": "weapons",
+      "file": "/assets/weapons/showstopper.png",
+      "archiveMember": "Weapons/9438BE81-46B8-D8B0-8A66-F9A0251FB728.png",
+      "bytes": 58811,
+      "sha256": "7da19ccc70460e60344674c7ef05c52ed5e97425c46a1949b4657135514659eb"
+    },
+    {
+      "id": "9438be81-46b8-d8b0-8a66-f9a0251fb728",
+      "name": "Showstopper",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/showstopper-kill.png",
+      "archiveMember": "Weapons/9438BE81-46B8-D8B0-8A66-F9A0251FB728_killstream.png",
+      "bytes": 58811,
+      "sha256": "7da19ccc70460e60344674c7ef05c52ed5e97425c46a1949b4657135514659eb"
+    },
+    {
+      "id": "d002a9a2-4b43-86c6-1dbc-58bc7815ff9c",
+      "name": "Blast Pack",
+      "kind": "weapons",
+      "file": "/assets/weapons/blastpack.png",
+      "archiveMember": "Weapons/D002A9A2-4B43-86C6-1DBC-58BC7815FF9C.png",
+      "bytes": 3476,
+      "sha256": "b798554d64d80d07c6925b380db0a3825a2658b1dcf6ca4834c25456be667227"
+    },
+    {
+      "id": "d002a9a2-4b43-86c6-1dbc-58bc7815ff9c",
+      "name": "Blast Pack",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/blastpack-kill.png",
+      "archiveMember": "Weapons/D002A9A2-4B43-86C6-1DBC-58BC7815FF9C_killstream.png",
+      "bytes": 3476,
+      "sha256": "b798554d64d80d07c6925b380db0a3825a2658b1dcf6ca4834c25456be667227"
+    },
+    {
+      "id": "2e20a5af-4726-95f6-7d9c-9db9a18dada9",
+      "name": "Boom Bot",
+      "kind": "weapons",
+      "file": "/assets/weapons/boombot.png",
+      "archiveMember": "Weapons/2E20A5AF-4726-95F6-7D9C-9DB9A18DADA9.png",
+      "bytes": 55146,
+      "sha256": "1b56df9c4adbe42a97e243d4cee587adc0b28ff95e7bab1c4162dec13ea9fe96"
+    },
+    {
+      "id": "2e20a5af-4726-95f6-7d9c-9db9a18dada9",
+      "name": "Boom Bot",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/boombot-kill.png",
+      "archiveMember": "Weapons/2E20A5AF-4726-95F6-7D9C-9DB9A18DADA9_killstream.png",
+      "bytes": 55146,
+      "sha256": "1b56df9c4adbe42a97e243d4cee587adc0b28ff95e7bab1c4162dec13ea9fe96"
+    },
+    {
+      "id": "6bd46791-4f27-aa65-7d67-3f8d9d8b8b90",
+      "name": "Paint Shells",
+      "kind": "weapons",
+      "file": "/assets/weapons/paintshells.png",
+      "archiveMember": "Weapons/6BD46791-4F27-AA65-7D67-3F8D9D8B8B90.png",
+      "bytes": 48702,
+      "sha256": "7be80b7ff358785cab6387e9e80f16d1d8c124104c858ccb6efaed365f5d2d1f"
+    },
+    {
+      "id": "6bd46791-4f27-aa65-7d67-3f8d9d8b8b90",
+      "name": "Paint Shells",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/paintshells-kill.png",
+      "archiveMember": "Weapons/6BD46791-4F27-AA65-7D67-3F8D9D8B8B90_killstream.png",
+      "bytes": 48702,
+      "sha256": "7be80b7ff358785cab6387e9e80f16d1d8c124104c858ccb6efaed365f5d2d1f"
+    },
+    {
+      "id": "5261a41b-4c56-8eb5-9e46-7193f363477e",
+      "name": "Snowball Launcher",
+      "kind": "weapons",
+      "file": "/assets/weapons/snowballlauncher.png",
+      "archiveMember": "Weapons/5261A41B-4C56-8EB5-9E46-7193F363477E.png",
+      "bytes": 1441,
+      "sha256": "9d14b9fe339e780ff726dd2e37b3e63c5483d0281129536adcbbed864dc6ddbf"
+    },
+    {
+      "id": "5261a41b-4c56-8eb5-9e46-7193f363477e",
+      "name": "Snowball Launcher",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/snowballlauncher-kill.png",
+      "archiveMember": "Weapons/5261A41B-4C56-8EB5-9E46-7193F363477E_killstream.png",
+      "bytes": 1441,
+      "sha256": "9d14b9fe339e780ff726dd2e37b3e63c5483d0281129536adcbbed864dc6ddbf"
+    },
+    {
+      "id": "856d9a7e-4b06-dc37-15dc-9d809c37cb90",
+      "name": "Headhunter",
+      "kind": "weapons",
+      "file": "/assets/weapons/headhunter.png",
+      "archiveMember": "Weapons/856D9A7E-4B06-DC37-15DC-9D809C37CB90.png",
+      "bytes": 4135,
+      "sha256": "55b031f827c6cc1c7eb756dac3f00594cd4f9d665d74b4900a7e5f164ef0c9b9"
+    },
+    {
+      "id": "856d9a7e-4b06-dc37-15dc-9d809c37cb90",
+      "name": "Headhunter",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/headhunter-kill.png",
+      "archiveMember": "Weapons/856D9A7E-4B06-DC37-15DC-9D809C37CB90_killstream.png",
+      "bytes": 4135,
+      "sha256": "55b031f827c6cc1c7eb756dac3f00594cd4f9d665d74b4900a7e5f164ef0c9b9"
+    },
+    {
+      "id": "39099fb5-4293-def4-1e09-2e9080ce7456",
+      "name": "Tour De Force",
+      "kind": "weapons",
+      "file": "/assets/weapons/tourdeforce.png",
+      "archiveMember": "Weapons/39099FB5-4293-DEF4-1E09-2E9080CE7456.png",
+      "bytes": 7350,
+      "sha256": "a38ba1ce5c7120299dcce54f995661108a86fe9e2e84cd8906ea9a95663efce1"
+    },
+    {
+      "id": "39099fb5-4293-def4-1e09-2e9080ce7456",
+      "name": "Tour De Force",
+      "kind": "weapon-killfeed",
+      "file": "/assets/weapons/tourdeforce-kill.png",
+      "archiveMember": "Weapons/39099FB5-4293-DEF4-1E09-2E9080CE7456_killstream.png",
+      "bytes": 7350,
+      "sha256": "a38ba1ce5c7120299dcce54f995661108a86fe9e2e84cd8906ea9a95663efce1"
+    },
+    {
+      "id": "4dec83d5-4902-9ab3-bed6-a7a390761157",
+      "name": "Light Armor",
+      "kind": "armors",
+      "file": "/assets/armors/lightarmor.png",
+      "archiveMember": "Armors/4DEC83D5-4902-9AB3-BED6-A7A390761157.png",
+      "bytes": 9610,
+      "sha256": "68d4b6540c7b3de63d3e197466ef06b9c4de16ccf376bdd07332546d68e5e539"
+    },
+    {
+      "id": "822bcab2-40a2-324e-c137-e09195ad7692",
+      "name": "Heavy Armor",
+      "kind": "armors",
+      "file": "/assets/armors/heavyarmor.png",
+      "archiveMember": "Armors/822BCAB2-40A2-324E-C137-E09195AD7692.png",
+      "bytes": 9720,
+      "sha256": "f5d9c3d276d37b015d7e01e05d5329803d1d3b3c84a748dc9f003808f93f5ac6"
+    },
+    {
+      "id": "b1b9086d-41bd-a516-5d29-e3b34a6f1644",
+      "name": "Regen Shield",
+      "kind": "armors",
+      "file": "/assets/armors/regenshield.png",
+      "archiveMember": "Armors/B1B9086D-41BD-A516-5D29-E3B34A6F1644.png",
+      "bytes": 21238,
+      "sha256": "fa73589dec8b01632406ac738ce3e9172dd3b41099e1e9c3161384f8ec9d95d6"
+    },
+    {
+      "id": "e370fa57-4757-3604-3648-499e1f642d3f_ability1",
+      "name": "Wingman",
+      "kind": "abilities",
+      "file": "/assets/abilities/gekko/ability1.png",
+      "archiveMember": "Abilities/E370FA57-4757-3604-3648-499E1F642D3F_Ability1.png",
+      "bytes": 65954,
+      "sha256": "d5ab137ac997108a0adfb64e57f4e499168f87b25a9d5d3bd3f37f378af2cb14"
+    },
+    {
+      "id": "e370fa57-4757-3604-3648-499e1f642d3f_ability2",
+      "name": "Dizzy",
+      "kind": "abilities",
+      "file": "/assets/abilities/gekko/ability2.png",
+      "archiveMember": "Abilities/E370FA57-4757-3604-3648-499E1F642D3F_Ability2.png",
+      "bytes": 66966,
+      "sha256": "50f119e69562597330a6fc33ce36458b60b0ad6b15bf1ab051a793dea6dbcc69"
+    },
+    {
+      "id": "e370fa57-4757-3604-3648-499e1f642d3f_grenade",
+      "name": "Mosh Pit",
+      "kind": "abilities",
+      "file": "/assets/abilities/gekko/grenade.png",
+      "archiveMember": "Abilities/E370FA57-4757-3604-3648-499E1F642D3F_Grenade.png",
+      "bytes": 57271,
+      "sha256": "159cc96e19ac6136852325747014e63ed7a9c3b2ab9b2bad1194961eb7dc9663"
+    },
+    {
+      "id": "e370fa57-4757-3604-3648-499e1f642d3f_ultimate",
+      "name": "Thrash",
+      "kind": "abilities",
+      "file": "/assets/abilities/gekko/ultimate.png",
+      "archiveMember": "Abilities/E370FA57-4757-3604-3648-499E1F642D3F_Ultimate.png",
+      "bytes": 63031,
+      "sha256": "a96a972ede13ed226dd241a2d6c32f772989b11c6f2ef4619cd03331c6f78710"
+    },
+    {
+      "id": "dade69b4-4f5a-8528-247b-219e5a1facd6_ability1",
+      "name": "Seize",
+      "kind": "abilities",
+      "file": "/assets/abilities/fade/ability1.png",
+      "archiveMember": "Abilities/DADE69B4-4F5A-8528-247B-219E5A1FACD6_Ability1.png",
+      "bytes": 53586,
+      "sha256": "54264c49ad561ec14fa3ca7fefe1c005830624d90d211699ad0ad60e60d363a0"
+    },
+    {
+      "id": "dade69b4-4f5a-8528-247b-219e5a1facd6_ability2",
+      "name": "Haunt",
+      "kind": "abilities",
+      "file": "/assets/abilities/fade/ability2.png",
+      "archiveMember": "Abilities/DADE69B4-4F5A-8528-247B-219E5A1FACD6_Ability2.png",
+      "bytes": 54009,
+      "sha256": "f559be902ba8422f3afd176b8bcd5fad04bb03733a6b3d90977006100a1e37db"
+    },
+    {
+      "id": "dade69b4-4f5a-8528-247b-219e5a1facd6_grenade",
+      "name": "Prowler",
+      "kind": "abilities",
+      "file": "/assets/abilities/fade/grenade.png",
+      "archiveMember": "Abilities/DADE69B4-4F5A-8528-247B-219E5A1FACD6_Grenade.png",
+      "bytes": 49929,
+      "sha256": "d3577a86e9b3cdf2d8782d157864c288d1d2fe099773ddd13da35c52fad2c426"
+    },
+    {
+      "id": "dade69b4-4f5a-8528-247b-219e5a1facd6_ultimate",
+      "name": "Nightfall",
+      "kind": "abilities",
+      "file": "/assets/abilities/fade/ultimate.png",
+      "archiveMember": "Abilities/DADE69B4-4F5A-8528-247B-219E5A1FACD6_Ultimate.png",
+      "bytes": 64790,
+      "sha256": "d794c44d6a6e7689aba49d12e2e15bba88789beb9569df11514b02cf8cf6ecab"
+    },
+    {
+      "id": "5f8d3a7f-467b-97f3-062c-13acf203c006_ability1",
+      "name": "Flashpoint",
+      "kind": "abilities",
+      "file": "/assets/abilities/breach/ability1.png",
+      "archiveMember": "Abilities/5F8D3A7F-467B-97F3-062C-13ACF203C006_Ability1.png",
+      "bytes": 57033,
+      "sha256": "75f2d5bcfadb3a924a8123ae2eef60e016ea64e808cc7756ef24f2bbbc3ac373"
+    },
+    {
+      "id": "5f8d3a7f-467b-97f3-062c-13acf203c006_ability2",
+      "name": "Fault Line",
+      "kind": "abilities",
+      "file": "/assets/abilities/breach/ability2.png",
+      "archiveMember": "Abilities/5F8D3A7F-467B-97F3-062C-13ACF203C006_Ability2.png",
+      "bytes": 65186,
+      "sha256": "e9aa4dade0d79e837dc2280c8c7afce25fd9475e23117e7c1457276f0344b0ca"
+    },
+    {
+      "id": "5f8d3a7f-467b-97f3-062c-13acf203c006_grenade",
+      "name": "Aftershock",
+      "kind": "abilities",
+      "file": "/assets/abilities/breach/grenade.png",
+      "archiveMember": "Abilities/5F8D3A7F-467B-97F3-062C-13ACF203C006_Grenade.png",
+      "bytes": 59816,
+      "sha256": "6516d66490dac6b7115574d654f78ecf6ace8a08ad2d9b6ac545d86cddd70c2f"
+    },
+    {
+      "id": "5f8d3a7f-467b-97f3-062c-13acf203c006_ultimate",
+      "name": "Rolling Thunder",
+      "kind": "abilities",
+      "file": "/assets/abilities/breach/ultimate.png",
+      "archiveMember": "Abilities/5F8D3A7F-467B-97F3-062C-13ACF203C006_Ultimate.png",
+      "bytes": 64218,
+      "sha256": "75b4debc904d31ced3e4dc549072f36b32aefef0240d2468e2b101d2ee7bd783"
+    },
+    {
+      "id": "cc8b64c8-4b25-4ff9-6e7f-37b4da43d235_ability1",
+      "name": "Sonic Sensor",
+      "kind": "abilities",
+      "file": "/assets/abilities/deadlock/ability1.png",
+      "archiveMember": "Abilities/CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Ability1.png",
+      "bytes": 65035,
+      "sha256": "1cb32be458d8b29904e86f05dfc5555ce224175c6175516e97ab1b0bf9261338"
+    },
+    {
+      "id": "cc8b64c8-4b25-4ff9-6e7f-37b4da43d235_grenade",
+      "name": "Barrier Mesh",
+      "kind": "abilities",
+      "file": "/assets/abilities/deadlock/grenade.png",
+      "archiveMember": "Abilities/CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Grenade.png",
+      "bytes": 47891,
+      "sha256": "8a40c0edc58d69db8b4ecdad0f769318c22dc4b8e5cf0edd3bd53bc00cc4e21e"
+    },
+    {
+      "id": "cc8b64c8-4b25-4ff9-6e7f-37b4da43d235_ability2",
+      "name": "GravNet",
+      "kind": "abilities",
+      "file": "/assets/abilities/deadlock/ability2.png",
+      "archiveMember": "Abilities/CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Ability2.png",
+      "bytes": 67924,
+      "sha256": "07e8dbd392c2d7c9beac820ecce44f1db67aa2603b48664cf1dd33bcc79fe6d5"
+    },
+    {
+      "id": "cc8b64c8-4b25-4ff9-6e7f-37b4da43d235_ultimate",
+      "name": "Annihilation",
+      "kind": "abilities",
+      "file": "/assets/abilities/deadlock/ultimate.png",
+      "archiveMember": "Abilities/CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235_Ultimate.png",
+      "bytes": 52485,
+      "sha256": "d1ba21d2b61915a34ffb2c8c34e7de67de870593b94a011aa5ef253eaa9d6a3d"
+    },
+    {
+      "id": "b444168c-4e35-8076-db47-ef9bf368f384_ability2",
+      "name": "Guided Salvo",
+      "kind": "abilities",
+      "file": "/assets/abilities/tejo/ability2.png",
+      "archiveMember": "Abilities/B444168C-4E35-8076-DB47-EF9BF368F384_Ability2.png",
+      "bytes": 54027,
+      "sha256": "dafeda18d461f29829bd5f08eb6751d97f7063ea63fadb9e2e893c11181ed702"
+    },
+    {
+      "id": "b444168c-4e35-8076-db47-ef9bf368f384_ability1",
+      "name": "Special Delivery",
+      "kind": "abilities",
+      "file": "/assets/abilities/tejo/ability1.png",
+      "archiveMember": "Abilities/B444168C-4E35-8076-DB47-EF9BF368F384_Ability1.png",
+      "bytes": 60413,
+      "sha256": "0eac899881c5e15b6879e10b532b7b3dbc6778e423c1d26177f46ab783bcdbeb"
+    },
+    {
+      "id": "b444168c-4e35-8076-db47-ef9bf368f384_ultimate",
+      "name": "Armageddon",
+      "kind": "abilities",
+      "file": "/assets/abilities/tejo/ultimate.png",
+      "archiveMember": "Abilities/B444168C-4E35-8076-DB47-EF9BF368F384_Ultimate.png",
+      "bytes": 67445,
+      "sha256": "ca04d923a41929bef19155a08979e4e7aa5e308d1637fd6b584aa55369cf5e66"
+    },
+    {
+      "id": "b444168c-4e35-8076-db47-ef9bf368f384_grenade",
+      "name": "Stealth Drone",
+      "kind": "abilities",
+      "file": "/assets/abilities/tejo/grenade.png",
+      "archiveMember": "Abilities/B444168C-4E35-8076-DB47-EF9BF368F384_Grenade.png",
+      "bytes": 49841,
+      "sha256": "476785a9f726f845076a7de5ea047e2443e806771b334113949c0de7a1b92535"
+    },
+    {
+      "id": "f94c3b30-42be-e959-889c-5aa313dba261_ability1",
+      "name": "Blast Pack",
+      "kind": "abilities",
+      "file": "/assets/abilities/raze/ability1.png",
+      "archiveMember": "Abilities/F94C3B30-42BE-E959-889C-5AA313DBA261_Ability1.png",
+      "bytes": 33220,
+      "sha256": "d2b856fa3a2d89524cc893cd0923b41745e25803cc52f93082adcc1dc41e693c"
+    },
+    {
+      "id": "f94c3b30-42be-e959-889c-5aa313dba261_ability2",
+      "name": "Paint Shells",
+      "kind": "abilities",
+      "file": "/assets/abilities/raze/ability2.png",
+      "archiveMember": "Abilities/F94C3B30-42BE-E959-889C-5AA313DBA261_Ability2.png",
+      "bytes": 48702,
+      "sha256": "7be80b7ff358785cab6387e9e80f16d1d8c124104c858ccb6efaed365f5d2d1f"
+    },
+    {
+      "id": "f94c3b30-42be-e959-889c-5aa313dba261_grenade",
+      "name": "Boom Bot",
+      "kind": "abilities",
+      "file": "/assets/abilities/raze/grenade.png",
+      "archiveMember": "Abilities/F94C3B30-42BE-E959-889C-5AA313DBA261_Grenade.png",
+      "bytes": 55146,
+      "sha256": "1b56df9c4adbe42a97e243d4cee587adc0b28ff95e7bab1c4162dec13ea9fe96"
+    },
+    {
+      "id": "f94c3b30-42be-e959-889c-5aa313dba261_ultimate",
+      "name": "Showstopper",
+      "kind": "abilities",
+      "file": "/assets/abilities/raze/ultimate.png",
+      "archiveMember": "Abilities/F94C3B30-42BE-E959-889C-5AA313DBA261_Ultimate.png",
+      "bytes": 58811,
+      "sha256": "7da19ccc70460e60344674c7ef05c52ed5e97425c46a1949b4657135514659eb"
+    },
+    {
+      "id": "22697a3d-45bf-8dd7-4fec-84a9e28c69d7_ability2",
+      "name": "Rendezvous",
+      "kind": "abilities",
+      "file": "/assets/abilities/chamber/ability2.png",
+      "archiveMember": "Abilities/22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Ability2.png",
+      "bytes": 48464,
+      "sha256": "67ca8d4cff0f911574e0554acdd6d5c2cccd50b20b763be5a8ed7f0def3c084f"
+    },
+    {
+      "id": "22697a3d-45bf-8dd7-4fec-84a9e28c69d7_grenade",
+      "name": "Trademark",
+      "kind": "abilities",
+      "file": "/assets/abilities/chamber/grenade.png",
+      "archiveMember": "Abilities/22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Grenade.png",
+      "bytes": 58278,
+      "sha256": "c416d40d7a7d08ee586a2d2640cefa6f72628d13ccc09b23e451696f59488d1e"
+    },
+    {
+      "id": "22697a3d-45bf-8dd7-4fec-84a9e28c69d7_ability1",
+      "name": "Headhunter",
+      "kind": "abilities",
+      "file": "/assets/abilities/chamber/ability1.png",
+      "archiveMember": "Abilities/22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Ability1.png",
+      "bytes": 32704,
+      "sha256": "d735449baf22e1294ebfcfdd56e6661230f2d1133f3cc055c7c303392432c449"
+    },
+    {
+      "id": "22697a3d-45bf-8dd7-4fec-84a9e28c69d7_ultimate",
+      "name": "Tour De Force",
+      "kind": "abilities",
+      "file": "/assets/abilities/chamber/ultimate.png",
+      "archiveMember": "Abilities/22697A3D-45BF-8DD7-4FEC-84A9E28C69D7_Ultimate.png",
+      "bytes": 46717,
+      "sha256": "996cc88efb1e82753ec39235a99c78774fccd5644378e04682c2ab0470e597e5"
+    },
+    {
+      "id": "601dbbe7-43ce-be57-2a40-4abd24953621_grenade",
+      "name": "FRAG/ment",
+      "kind": "abilities",
+      "file": "/assets/abilities/kayo/grenade.png",
+      "archiveMember": "Abilities/601DBBE7-43CE-BE57-2A40-4ABD24953621_Grenade.png",
+      "bytes": 86113,
+      "sha256": "f583478d91b56b4cad4433553749f5c416515a0aa893e6188361af70db40a6ab"
+    },
+    {
+      "id": "601dbbe7-43ce-be57-2a40-4abd24953621_ability1",
+      "name": "FLASH/drive",
+      "kind": "abilities",
+      "file": "/assets/abilities/kayo/ability1.png",
+      "archiveMember": "Abilities/601DBBE7-43CE-BE57-2A40-4ABD24953621_Ability1.png",
+      "bytes": 55104,
+      "sha256": "c3dd21284468e99aeaa0c54862e1e1d4eacf020ec620ca20f7c8e8e1c62fa481"
+    },
+    {
+      "id": "601dbbe7-43ce-be57-2a40-4abd24953621_ability2",
+      "name": "ZERO/point",
+      "kind": "abilities",
+      "file": "/assets/abilities/kayo/ability2.png",
+      "archiveMember": "Abilities/601DBBE7-43CE-BE57-2A40-4ABD24953621_Ability2.png",
+      "bytes": 42855,
+      "sha256": "a1b265effdfa9855fed8c76475b77f601ef89ed3ed32024f530079077e968221"
+    },
+    {
+      "id": "601dbbe7-43ce-be57-2a40-4abd24953621_ultimate",
+      "name": "NULL/cmd",
+      "kind": "abilities",
+      "file": "/assets/abilities/kayo/ultimate.png",
+      "archiveMember": "Abilities/601DBBE7-43CE-BE57-2A40-4ABD24953621_Ultimate.png",
+      "bytes": 52459,
+      "sha256": "d692d086cad0b83f3cc02de80bfb88fdeb11a3b055a519d4e5a1198aa6731adf"
+    },
+    {
+      "id": "6f2a04ca-43e0-be17-7f36-b3908627744d_ability1",
+      "name": "Trailblazer",
+      "kind": "abilities",
+      "file": "/assets/abilities/skye/ability1.png",
+      "archiveMember": "Abilities/6F2A04CA-43E0-BE17-7F36-B3908627744D_Ability1.png",
+      "bytes": 58545,
+      "sha256": "00cd4b5ab8ea65bee6bdef55944d280177451d80d24657c7f114563c71ce6a9e"
+    },
+    {
+      "id": "6f2a04ca-43e0-be17-7f36-b3908627744d_ability2",
+      "name": "Guiding Light",
+      "kind": "abilities",
+      "file": "/assets/abilities/skye/ability2.png",
+      "archiveMember": "Abilities/6F2A04CA-43E0-BE17-7F36-B3908627744D_Ability2.png",
+      "bytes": 41781,
+      "sha256": "1b44c827dd1f8b77da520d532276f53503ca5171f7081d2da2494c5b872ccc76"
+    },
+    {
+      "id": "6f2a04ca-43e0-be17-7f36-b3908627744d_grenade",
+      "name": "Regrowth",
+      "kind": "abilities",
+      "file": "/assets/abilities/skye/grenade.png",
+      "archiveMember": "Abilities/6F2A04CA-43E0-BE17-7F36-B3908627744D_Grenade.png",
+      "bytes": 55517,
+      "sha256": "4830b7b0a86ea6fd227d2c099a1fc84bb44351bdba8e4c4b04d90d26814f6cd6"
+    },
+    {
+      "id": "6f2a04ca-43e0-be17-7f36-b3908627744d_ultimate",
+      "name": "Seekers",
+      "kind": "abilities",
+      "file": "/assets/abilities/skye/ultimate.png",
+      "archiveMember": "Abilities/6F2A04CA-43E0-BE17-7F36-B3908627744D_Ultimate.png",
+      "bytes": 70919,
+      "sha256": "338c1ef2cb438b8cef3857e1b5d9fc59c2d309e9897d7475ece5fb8456c442cb"
+    },
+    {
+      "id": "117ed9e3-49f3-6512-3ccf-0cada7e3823b_ability1",
+      "name": "Cyber Cage",
+      "kind": "abilities",
+      "file": "/assets/abilities/cypher/ability1.png",
+      "archiveMember": "Abilities/117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Ability1.png",
+      "bytes": 53488,
+      "sha256": "2ec928b9d4f49581e2f19e45ac59638f5abc9d933cc23995a680a6ad29affacb"
+    },
+    {
+      "id": "117ed9e3-49f3-6512-3ccf-0cada7e3823b_ability2",
+      "name": "Spycam",
+      "kind": "abilities",
+      "file": "/assets/abilities/cypher/ability2.png",
+      "archiveMember": "Abilities/117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Ability2.png",
+      "bytes": 45350,
+      "sha256": "7e73af945a1f73c33a7beb72279047cf493378e71e86325a24336427f99d41db"
+    },
+    {
+      "id": "117ed9e3-49f3-6512-3ccf-0cada7e3823b_grenade",
+      "name": "Trapwire",
+      "kind": "abilities",
+      "file": "/assets/abilities/cypher/grenade.png",
+      "archiveMember": "Abilities/117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Grenade.png",
+      "bytes": 37819,
+      "sha256": "f5fe534b8c25513cd00efff9c89fa779aab33d42386b6074cb6f8dc73bdce6d6"
+    },
+    {
+      "id": "117ed9e3-49f3-6512-3ccf-0cada7e3823b_ultimate",
+      "name": "Neural Theft",
+      "kind": "abilities",
+      "file": "/assets/abilities/cypher/ultimate.png",
+      "archiveMember": "Abilities/117ED9E3-49F3-6512-3CCF-0CADA7E3823B_Ultimate.png",
+      "bytes": 48045,
+      "sha256": "b8f113aeaacb2d9249cf4bcb430ad9d2cfd9e1e6366f8bc86690e068298207fc"
+    },
+    {
+      "id": "320b2a48-4d9b-a075-30f1-1f93a9b638fa_ability1",
+      "name": "Shock Bolt",
+      "kind": "abilities",
+      "file": "/assets/abilities/sova/ability1.png",
+      "archiveMember": "Abilities/320B2A48-4D9B-A075-30F1-1F93A9B638FA_Ability1.png",
+      "bytes": 47789,
+      "sha256": "079fca87b3f3ca2c74d8d418738cb0c5abe7599dc646a37329c161175a10d530"
+    },
+    {
+      "id": "320b2a48-4d9b-a075-30f1-1f93a9b638fa_ability2",
+      "name": "Recon Bolt",
+      "kind": "abilities",
+      "file": "/assets/abilities/sova/ability2.png",
+      "archiveMember": "Abilities/320B2A48-4D9B-A075-30F1-1F93A9B638FA_Ability2.png",
+      "bytes": 56932,
+      "sha256": "86bcea0da9f20a7648cd8122ebd6925960c3a4de8ea87e90b2a595a6db2f32ea"
+    },
+    {
+      "id": "320b2a48-4d9b-a075-30f1-1f93a9b638fa_grenade",
+      "name": "Owl Drone",
+      "kind": "abilities",
+      "file": "/assets/abilities/sova/grenade.png",
+      "archiveMember": "Abilities/320B2A48-4D9B-A075-30F1-1F93A9B638FA_Grenade.png",
+      "bytes": 35084,
+      "sha256": "8e79b6e95c1b5169ed8703f901140423bcc043f0598bc199110ae2b9c61f1ea2"
+    },
+    {
+      "id": "320b2a48-4d9b-a075-30f1-1f93a9b638fa_ultimate",
+      "name": "Hunter's Fury",
+      "kind": "abilities",
+      "file": "/assets/abilities/sova/ultimate.png",
+      "archiveMember": "Abilities/320B2A48-4D9B-A075-30F1-1F93A9B638FA_Ultimate.png",
+      "bytes": 54099,
+      "sha256": "4a0e8953f710f6b7995fb1b3354cc667a4d66cc1cb65f2fa83df73e9802d6613"
+    },
+    {
+      "id": "7c8a4701-4de6-9355-b254-e09bc2a34b72_grenade",
+      "name": "M-pulse",
+      "kind": "abilities",
+      "file": "/assets/abilities/miks/grenade.png",
+      "archiveMember": "Abilities/7C8A4701-4DE6-9355-B254-E09BC2A34B72_Grenade.png",
+      "bytes": 63355,
+      "sha256": "1cc34c40798a03b3f5957f029e22cf5eff8d572f731552acc1ec50f95398321d"
+    },
+    {
+      "id": "7c8a4701-4de6-9355-b254-e09bc2a34b72_ability2",
+      "name": "Waveform",
+      "kind": "abilities",
+      "file": "/assets/abilities/miks/ability2.png",
+      "archiveMember": "Abilities/7C8A4701-4DE6-9355-B254-E09BC2A34B72_Ability2.png",
+      "bytes": 59665,
+      "sha256": "ad64f96539b38dbf60d78f36792d064b06e7d1a7619046ffcef36cdf5c0b8eb4"
+    },
+    {
+      "id": "7c8a4701-4de6-9355-b254-e09bc2a34b72_ability1",
+      "name": "Harmonize",
+      "kind": "abilities",
+      "file": "/assets/abilities/miks/ability1.png",
+      "archiveMember": "Abilities/7C8A4701-4DE6-9355-B254-E09BC2A34B72_Ability1.png",
+      "bytes": 52737,
+      "sha256": "551d12734970a314c9f3850efeff903020612bff767695506587af9d12913908"
+    },
+    {
+      "id": "7c8a4701-4de6-9355-b254-e09bc2a34b72_ultimate",
+      "name": "Bassquake",
+      "kind": "abilities",
+      "file": "/assets/abilities/miks/ultimate.png",
+      "archiveMember": "Abilities/7C8A4701-4DE6-9355-B254-E09BC2A34B72_Ultimate.png",
+      "bytes": 56128,
+      "sha256": "8b4c81f8b341d4b6d54868706621cb826e92df6e19fdf88ffd48c66cfbda2586"
+    },
+    {
+      "id": "1e58de9c-4950-5125-93e9-a0aee9f98746_grenade",
+      "name": "Nanoswarm",
+      "kind": "abilities",
+      "file": "/assets/abilities/killjoy/grenade.png",
+      "archiveMember": "Abilities/1E58DE9C-4950-5125-93E9-A0AEE9F98746_Grenade.png",
+      "bytes": 64251,
+      "sha256": "5c096355352fe58ea197488ee35813456cb75e3b1cd299d7eb83d59541584ac6"
+    },
+    {
+      "id": "1e58de9c-4950-5125-93e9-a0aee9f98746_ability1",
+      "name": "ALARMBOT",
+      "kind": "abilities",
+      "file": "/assets/abilities/killjoy/ability1.png",
+      "archiveMember": "Abilities/1E58DE9C-4950-5125-93E9-A0AEE9F98746_Ability1.png",
+      "bytes": 60180,
+      "sha256": "b1e79404dfb3b7c79ea832ab268eeca9227665e8c7d3470225cbc4c062bb0aa1"
+    },
+    {
+      "id": "1e58de9c-4950-5125-93e9-a0aee9f98746_ability2",
+      "name": "TURRET",
+      "kind": "abilities",
+      "file": "/assets/abilities/killjoy/ability2.png",
+      "archiveMember": "Abilities/1E58DE9C-4950-5125-93E9-A0AEE9F98746_Ability2.png",
+      "bytes": 41034,
+      "sha256": "bc2072b3ca26515b16c6722ef91bfc7d05920204831aeebdd54d24240b2680e8"
+    },
+    {
+      "id": "1e58de9c-4950-5125-93e9-a0aee9f98746_ultimate",
+      "name": "Lockdown",
+      "kind": "abilities",
+      "file": "/assets/abilities/killjoy/ultimate.png",
+      "archiveMember": "Abilities/1E58DE9C-4950-5125-93E9-A0AEE9F98746_Ultimate.png",
+      "bytes": 70313,
+      "sha256": "bd067dd1de0df9f82a5163e9f93158532217f35a310737619c47509381cb1804"
+    },
+    {
+      "id": "95b78ed7-4637-86d9-7e41-71ba8c293152_ability1",
+      "name": "High Tide",
+      "kind": "abilities",
+      "file": "/assets/abilities/harbor/ability1.png",
+      "archiveMember": "Abilities/95B78ED7-4637-86D9-7E41-71BA8C293152_Ability1.png",
+      "bytes": 46703,
+      "sha256": "7256a4445dfa390ef43740ab48f2e904429822088311db0c4b8e41061501dc81"
+    },
+    {
+      "id": "95b78ed7-4637-86d9-7e41-71ba8c293152_grenade",
+      "name": "Storm Surge",
+      "kind": "abilities",
+      "file": "/assets/abilities/harbor/grenade.png",
+      "archiveMember": "Abilities/95B78ED7-4637-86D9-7E41-71BA8C293152_Grenade.png",
+      "bytes": 19059,
+      "sha256": "bb5e64a7c26168d0410e4ab7912ea90e77254ea4739727735428111ed17b0e43"
+    },
+    {
+      "id": "95b78ed7-4637-86d9-7e41-71ba8c293152_ability2",
+      "name": "Cove",
+      "kind": "abilities",
+      "file": "/assets/abilities/harbor/ability2.png",
+      "archiveMember": "Abilities/95B78ED7-4637-86D9-7E41-71BA8C293152_Ability2.png",
+      "bytes": 26516,
+      "sha256": "aab1504278b55a45008eb48d3760bdef4343e2d5a1ee9973ff26be865b74a811"
+    },
+    {
+      "id": "95b78ed7-4637-86d9-7e41-71ba8c293152_ultimate",
+      "name": "Reckoning",
+      "kind": "abilities",
+      "file": "/assets/abilities/harbor/ultimate.png",
+      "archiveMember": "Abilities/95B78ED7-4637-86D9-7E41-71BA8C293152_Ultimate.png",
+      "bytes": 45105,
+      "sha256": "ca4d0e29eaef3c76c61c3a0c902034a9ab9cc94673b6472669f9f3ce7dbe8b24"
+    },
+    {
+      "id": "efba5359-4016-a1e5-7626-b1ae76895940_ability1",
+      "name": "Shear",
+      "kind": "abilities",
+      "file": "/assets/abilities/vyse/ability1.png",
+      "archiveMember": "Abilities/EFBA5359-4016-A1E5-7626-B1AE76895940_Ability1.png",
+      "bytes": 51156,
+      "sha256": "72f3b96a6eff684b777ccc760b4a5545ab434d0b25fced366e7146e2ebb38dea"
+    },
+    {
+      "id": "efba5359-4016-a1e5-7626-b1ae76895940_ability2",
+      "name": "Arc Rose",
+      "kind": "abilities",
+      "file": "/assets/abilities/vyse/ability2.png",
+      "archiveMember": "Abilities/EFBA5359-4016-A1E5-7626-B1AE76895940_Ability2.png",
+      "bytes": 51958,
+      "sha256": "ca63dc6767c2aafb9a409593d6a3515a996384a8cf13b9e97673ba81ba0877a6"
+    },
+    {
+      "id": "efba5359-4016-a1e5-7626-b1ae76895940_grenade",
+      "name": "Razorvine",
+      "kind": "abilities",
+      "file": "/assets/abilities/vyse/grenade.png",
+      "archiveMember": "Abilities/EFBA5359-4016-A1E5-7626-B1AE76895940_Grenade.png",
+      "bytes": 57005,
+      "sha256": "7fff359d9a28693791d84b1ac3d14dc005dcb1d4e2c869ec8f4f18c88a944730"
+    },
+    {
+      "id": "efba5359-4016-a1e5-7626-b1ae76895940_ultimate",
+      "name": "Steel Garden",
+      "kind": "abilities",
+      "file": "/assets/abilities/vyse/ultimate.png",
+      "archiveMember": "Abilities/EFBA5359-4016-A1E5-7626-B1AE76895940_Ultimate.png",
+      "bytes": 51694,
+      "sha256": "122b81366f9a84a671f113a79732b2af639479fe6abaf6133847a02ee23ff38e"
+    },
+    {
+      "id": "707eab51-4836-f488-046a-cda6bf494859_ability1",
+      "name": "Poison Cloud",
+      "kind": "abilities",
+      "file": "/assets/abilities/viper/ability1.png",
+      "archiveMember": "Abilities/707EAB51-4836-F488-046A-CDA6BF494859_Ability1.png",
+      "bytes": 48772,
+      "sha256": "745c456b351caa3327a225d67324eb4397337de7e3e65c755796710d30d60677"
+    },
+    {
+      "id": "707eab51-4836-f488-046a-cda6bf494859_ability2",
+      "name": "Toxic Screen",
+      "kind": "abilities",
+      "file": "/assets/abilities/viper/ability2.png",
+      "archiveMember": "Abilities/707EAB51-4836-F488-046A-CDA6BF494859_Ability2.png",
+      "bytes": 50206,
+      "sha256": "89616d226711165d3e1b10ba1d7cb4218f9865f5f152630bdda66bcf47b39344"
+    },
+    {
+      "id": "707eab51-4836-f488-046a-cda6bf494859_grenade",
+      "name": "Snake Bite",
+      "kind": "abilities",
+      "file": "/assets/abilities/viper/grenade.png",
+      "archiveMember": "Abilities/707EAB51-4836-F488-046A-CDA6BF494859_Grenade.png",
+      "bytes": 44355,
+      "sha256": "d0238a0193b0dc28ebe16084bd96f5e59dbc6b9ec172df31f4baf9d6ae325fef"
+    },
+    {
+      "id": "707eab51-4836-f488-046a-cda6bf494859_ultimate",
+      "name": "Viper's Pit",
+      "kind": "abilities",
+      "file": "/assets/abilities/viper/ultimate.png",
+      "archiveMember": "Abilities/707EAB51-4836-F488-046A-CDA6BF494859_Ultimate.png",
+      "bytes": 46836,
+      "sha256": "6cab18ccfd03ee1c6239c3a639752c2579b38457996865fd265d92206e44f692"
+    },
+    {
+      "id": "eb93336a-449b-9c1b-0a54-a891f7921d69_grenade",
+      "name": "Blaze",
+      "kind": "abilities",
+      "file": "/assets/abilities/phoenix/grenade.png",
+      "archiveMember": "Abilities/EB93336A-449B-9C1B-0A54-A891F7921D69_Grenade.png",
+      "bytes": 43869,
+      "sha256": "35fc06f0fd08b340ae32bb633dbca5e5857e7dabe3035b486fb58dcc5be9a465"
+    },
+    {
+      "id": "eb93336a-449b-9c1b-0a54-a891f7921d69_ability1",
+      "name": "Hot Hands",
+      "kind": "abilities",
+      "file": "/assets/abilities/phoenix/ability1.png",
+      "archiveMember": "Abilities/EB93336A-449B-9C1B-0A54-A891F7921D69_Ability1.png",
+      "bytes": 43337,
+      "sha256": "69f8152656e871f7789f52819bb7e168ddbd57c19b425fba579fd7113149537c"
+    },
+    {
+      "id": "eb93336a-449b-9c1b-0a54-a891f7921d69_ability2",
+      "name": "Curveball",
+      "kind": "abilities",
+      "file": "/assets/abilities/phoenix/ability2.png",
+      "archiveMember": "Abilities/EB93336A-449B-9C1B-0A54-A891F7921D69_Ability2.png",
+      "bytes": 41995,
+      "sha256": "bba0d2ebe1ef4cd48929857a8b0c4d41112062553142d0d50cd1adf98ce5c2b4"
+    },
+    {
+      "id": "eb93336a-449b-9c1b-0a54-a891f7921d69_ultimate",
+      "name": "Run it Back",
+      "kind": "abilities",
+      "file": "/assets/abilities/phoenix/ultimate.png",
+      "archiveMember": "Abilities/EB93336A-449B-9C1B-0A54-A891F7921D69_Ultimate.png",
+      "bytes": 51009,
+      "sha256": "9d899b6299c83cbc9d5d44fe3a3950d1199b31e84bc648c8ff91326a0536984f"
+    },
+    {
+      "id": "92eeef5d-43b5-1d4a-8d03-b3927a09034b_ability2",
+      "name": "Interceptor",
+      "kind": "abilities",
+      "file": "/assets/abilities/veto/ability2.png",
+      "archiveMember": "Abilities/92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Ability2.png",
+      "bytes": 54234,
+      "sha256": "e54f21bce4f7541b7c41d24c1f44913ba86a768c57ca651d82a03ba859a12d6d"
+    },
+    {
+      "id": "92eeef5d-43b5-1d4a-8d03-b3927a09034b_grenade",
+      "name": "Crosscut",
+      "kind": "abilities",
+      "file": "/assets/abilities/veto/grenade.png",
+      "archiveMember": "Abilities/92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Grenade.png",
+      "bytes": 43226,
+      "sha256": "1e823f2d9cf9a7c79b3d2c9d90ed54a773a60bec2bf5f4cd6f1c890d7d6e301b"
+    },
+    {
+      "id": "92eeef5d-43b5-1d4a-8d03-b3927a09034b_ultimate",
+      "name": "Evolution",
+      "kind": "abilities",
+      "file": "/assets/abilities/veto/ultimate.png",
+      "archiveMember": "Abilities/92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Ultimate.png",
+      "bytes": 61220,
+      "sha256": "ac7b27107b97f9e61c0f4887b3de132ec2524dd433018817294a329c7af63010"
+    },
+    {
+      "id": "92eeef5d-43b5-1d4a-8d03-b3927a09034b_ability1",
+      "name": "Chokehold",
+      "kind": "abilities",
+      "file": "/assets/abilities/veto/ability1.png",
+      "archiveMember": "Abilities/92EEEF5D-43B5-1D4A-8D03-B3927A09034B_Ability1.png",
+      "bytes": 52962,
+      "sha256": "166435991cec1af86ba8d0fc7d184d127cea60b13be1aa7d4a182bb178489e98"
+    },
+    {
+      "id": "41fb69c1-4189-7b37-f117-bcaf1e96f1bf_ability1",
+      "name": "Nova Pulse",
+      "kind": "abilities",
+      "file": "/assets/abilities/astra/ability1.png",
+      "archiveMember": "Abilities/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Ability1.png",
+      "bytes": 64598,
+      "sha256": "a5feb834804b29c43a90919c410f81cc0de7594a4892b98ce467da484fd37a3e"
+    },
+    {
+      "id": "41fb69c1-4189-7b37-f117-bcaf1e96f1bf_ability2",
+      "name": "Nebula  / Dissipate",
+      "kind": "abilities",
+      "file": "/assets/abilities/astra/ability2.png",
+      "archiveMember": "Abilities/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Ability2.png",
+      "bytes": 55035,
+      "sha256": "8b9c6f7bed42888fbbad0cc7d5b3dbff64430f1f9cab413594e00f71f35fc0d1"
+    },
+    {
+      "id": "41fb69c1-4189-7b37-f117-bcaf1e96f1bf_grenade",
+      "name": "Gravity Well",
+      "kind": "abilities",
+      "file": "/assets/abilities/astra/grenade.png",
+      "archiveMember": "Abilities/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Grenade.png",
+      "bytes": 64497,
+      "sha256": "89bc7bef75791004c235eeb3528503489d991b39429920c650e9c36d5c75428f"
+    },
+    {
+      "id": "41fb69c1-4189-7b37-f117-bcaf1e96f1bf_ultimate",
+      "name": "Astral Form / Cosmic Divide",
+      "kind": "abilities",
+      "file": "/assets/abilities/astra/ultimate.png",
+      "archiveMember": "Abilities/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Ultimate.png",
+      "bytes": 68831,
+      "sha256": "55c513c2ce521d296c2c6db1f1a8e0ef20b3de1f89672bb3e3657a33ff962897"
+    },
+    {
+      "id": "41fb69c1-4189-7b37-f117-bcaf1e96f1bf_passive",
+      "name": "Astral Form",
+      "kind": "abilities",
+      "file": "/assets/abilities/astra/passive.png",
+      "archiveMember": "Abilities/41FB69C1-4189-7B37-F117-BCAF1E96F1BF_Passive.png",
+      "bytes": 44732,
+      "sha256": "5967eb66dcdd151a89719ab9bf8a23125b387c728fc745574e70d86183189c10"
+    },
+    {
+      "id": "9f0d8ba9-4140-b941-57d3-a7ad57c6b417_grenade",
+      "name": "Stim Beacon",
+      "kind": "abilities",
+      "file": "/assets/abilities/brimstone/grenade.png",
+      "archiveMember": "Abilities/9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Grenade.png",
+      "bytes": 49076,
+      "sha256": "fb0563e950c30ade5a3ac1fec8de5283f1bbe0a6b07369449b3660262ad4c1c3"
+    },
+    {
+      "id": "9f0d8ba9-4140-b941-57d3-a7ad57c6b417_ability1",
+      "name": "Incendiary",
+      "kind": "abilities",
+      "file": "/assets/abilities/brimstone/ability1.png",
+      "archiveMember": "Abilities/9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Ability1.png",
+      "bytes": 45226,
+      "sha256": "302ec42032937be5f0f3a63a3151e6681c926b69c693e43fb73f5e4c1853a811"
+    },
+    {
+      "id": "9f0d8ba9-4140-b941-57d3-a7ad57c6b417_ability2",
+      "name": "Sky Smoke",
+      "kind": "abilities",
+      "file": "/assets/abilities/brimstone/ability2.png",
+      "archiveMember": "Abilities/9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Ability2.png",
+      "bytes": 33241,
+      "sha256": "98f23013914aecc1153eb9b76200cac40c12f7f2d5a6ee601d59fffa9157d7c8"
+    },
+    {
+      "id": "9f0d8ba9-4140-b941-57d3-a7ad57c6b417_ultimate",
+      "name": "Orbital Strike",
+      "kind": "abilities",
+      "file": "/assets/abilities/brimstone/ultimate.png",
+      "archiveMember": "Abilities/9F0D8BA9-4140-B941-57D3-A7AD57C6B417_Ultimate.png",
+      "bytes": 61938,
+      "sha256": "bc22dee52824df60c2baaec4a58f8e95ea6579c24c36e6aae2ca39cf8311a84a"
+    },
+    {
+      "id": "0e38b510-41a8-5780-5e8f-568b2a4f2d6c_ability1",
+      "name": "Undercut",
+      "kind": "abilities",
+      "file": "/assets/abilities/iso/ability1.png",
+      "archiveMember": "Abilities/0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Ability1.png",
+      "bytes": 66473,
+      "sha256": "0458833d3f63237b61b9aa01bf6f25963e6addf731764044a9de47b0a3b0e372"
+    },
+    {
+      "id": "0e38b510-41a8-5780-5e8f-568b2a4f2d6c_ultimate",
+      "name": "Kill Contract",
+      "kind": "abilities",
+      "file": "/assets/abilities/iso/ultimate.png",
+      "archiveMember": "Abilities/0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Ultimate.png",
+      "bytes": 61911,
+      "sha256": "14b29bb772cefed9b5bb888de34cd23a0cb6882a94add9418275ae59e8e40bd3"
+    },
+    {
+      "id": "0e38b510-41a8-5780-5e8f-568b2a4f2d6c_ability2",
+      "name": "Double Tap",
+      "kind": "abilities",
+      "file": "/assets/abilities/iso/ability2.png",
+      "archiveMember": "Abilities/0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Ability2.png",
+      "bytes": 50370,
+      "sha256": "8fe420c4f3707558deefbeadd40a1b8fe1e4608d2be1f882da59f0626c8258de"
+    },
+    {
+      "id": "0e38b510-41a8-5780-5e8f-568b2a4f2d6c_grenade",
+      "name": "Contingency",
+      "kind": "abilities",
+      "file": "/assets/abilities/iso/grenade.png",
+      "archiveMember": "Abilities/0E38B510-41A8-5780-5E8F-568B2A4F2D6C_Grenade.png",
+      "bytes": 71115,
+      "sha256": "8907bc451fb354559421b9b06441d6021a553e1796613a67c03fe90dcf978272"
+    },
+    {
+      "id": "1dbf2edd-4729-0984-3115-daa5eed44993_grenade",
+      "name": "Pick-me-up",
+      "kind": "abilities",
+      "file": "/assets/abilities/clove/grenade.png",
+      "archiveMember": "Abilities/1DBF2EDD-4729-0984-3115-DAA5EED44993_Grenade.png",
+      "bytes": 46478,
+      "sha256": "b7abb09731a5504c23255bdfdb7fe08ba3f550bc8fa6e5e10f144e0b0485f283"
+    },
+    {
+      "id": "1dbf2edd-4729-0984-3115-daa5eed44993_ability2",
+      "name": "Ruse",
+      "kind": "abilities",
+      "file": "/assets/abilities/clove/ability2.png",
+      "archiveMember": "Abilities/1DBF2EDD-4729-0984-3115-DAA5EED44993_Ability2.png",
+      "bytes": 44565,
+      "sha256": "736a6e454a0d25adc281af2c0dde4509ae498b7205ad837b042e39031a1f33fc"
+    },
+    {
+      "id": "1dbf2edd-4729-0984-3115-daa5eed44993_ultimate",
+      "name": "Not Dead Yet",
+      "kind": "abilities",
+      "file": "/assets/abilities/clove/ultimate.png",
+      "archiveMember": "Abilities/1DBF2EDD-4729-0984-3115-DAA5EED44993_Ultimate.png",
+      "bytes": 44572,
+      "sha256": "c283c3afde07b3999b2f7c9ab46df871d192dd3912242d165ef1e50591ee2a20"
+    },
+    {
+      "id": "1dbf2edd-4729-0984-3115-daa5eed44993_ability1",
+      "name": "Meddle",
+      "kind": "abilities",
+      "file": "/assets/abilities/clove/ability1.png",
+      "archiveMember": "Abilities/1DBF2EDD-4729-0984-3115-DAA5EED44993_Ability1.png",
+      "bytes": 47227,
+      "sha256": "c2e54da42c073861f99422cbc4a50ae8154ad624325ebdc2f721580dd70e8430"
+    },
+    {
+      "id": "bb2a4828-46eb-8cd1-e765-15848195d751_ability2",
+      "name": "High Gear",
+      "kind": "abilities",
+      "file": "/assets/abilities/neon/ability2.png",
+      "archiveMember": "Abilities/BB2A4828-46EB-8CD1-E765-15848195D751_Ability2.png",
+      "bytes": 55691,
+      "sha256": "fa0b4a1ac383d3f0c589b704b8cd838b48b7ef75b2ce12bc7fbc5de54ad35a79"
+    },
+    {
+      "id": "bb2a4828-46eb-8cd1-e765-15848195d751_ability1",
+      "name": "Relay Bolt",
+      "kind": "abilities",
+      "file": "/assets/abilities/neon/ability1.png",
+      "archiveMember": "Abilities/BB2A4828-46EB-8CD1-E765-15848195D751_Ability1.png",
+      "bytes": 49311,
+      "sha256": "b641aa6f06d64852dcc94e542413f444a6188580891bdbee5e4e68c93c124bf0"
+    },
+    {
+      "id": "bb2a4828-46eb-8cd1-e765-15848195d751_grenade",
+      "name": "Fast Lane",
+      "kind": "abilities",
+      "file": "/assets/abilities/neon/grenade.png",
+      "archiveMember": "Abilities/BB2A4828-46EB-8CD1-E765-15848195D751_Grenade.png",
+      "bytes": 51039,
+      "sha256": "f4472199af44b3daab1ed7b926dcd7b56f45cdd794378e28f67ff2b5bd9909e9"
+    },
+    {
+      "id": "bb2a4828-46eb-8cd1-e765-15848195d751_ultimate",
+      "name": "Overdrive",
+      "kind": "abilities",
+      "file": "/assets/abilities/neon/ultimate.png",
+      "archiveMember": "Abilities/BB2A4828-46EB-8CD1-E765-15848195D751_Ultimate.png",
+      "bytes": 30368,
+      "sha256": "cffa8a6dfa97185c997fb47425fd15d5169dd6775dfee79a14d5e89b353fc702"
+    },
+    {
+      "id": "7f94d92c-4234-0a36-9646-3a87eb8b5c89_grenade",
+      "name": "FAKEOUT",
+      "kind": "abilities",
+      "file": "/assets/abilities/yoru/grenade.png",
+      "archiveMember": "Abilities/7F94D92C-4234-0A36-9646-3A87EB8B5C89_Grenade.png",
+      "bytes": 49887,
+      "sha256": "ea4abe62479f95ada898b09edd9be7179ee6e73467cd2f80ae247f321092dd33"
+    },
+    {
+      "id": "7f94d92c-4234-0a36-9646-3a87eb8b5c89_ability1",
+      "name": "BLINDSIDE",
+      "kind": "abilities",
+      "file": "/assets/abilities/yoru/ability1.png",
+      "archiveMember": "Abilities/7F94D92C-4234-0A36-9646-3A87EB8B5C89_Ability1.png",
+      "bytes": 62576,
+      "sha256": "2df1143dc7b245f564b62d9b756aff08a46cbe275599cc92e5a73c83b7cbbbed"
+    },
+    {
+      "id": "7f94d92c-4234-0a36-9646-3a87eb8b5c89_ability2",
+      "name": "GATECRASH",
+      "kind": "abilities",
+      "file": "/assets/abilities/yoru/ability2.png",
+      "archiveMember": "Abilities/7F94D92C-4234-0A36-9646-3A87EB8B5C89_Ability2.png",
+      "bytes": 53379,
+      "sha256": "78c0fa57ce3d5329bc7eb0ff88bc47736a6444de12464abe6e5f4419aee67d52"
+    },
+    {
+      "id": "7f94d92c-4234-0a36-9646-3a87eb8b5c89_ultimate",
+      "name": "DIMENSIONAL DRIFT",
+      "kind": "abilities",
+      "file": "/assets/abilities/yoru/ultimate.png",
+      "archiveMember": "Abilities/7F94D92C-4234-0A36-9646-3A87EB8B5C89_Ultimate.png",
+      "bytes": 67868,
+      "sha256": "04624c1a76cb85ccf508bc56ddb18724c231493a4c37141be0942f6b52c20ec5"
+    },
+    {
+      "id": "df1cb487-4902-002e-5c17-d28e83e78588_ability2",
+      "name": "Refract",
+      "kind": "abilities",
+      "file": "/assets/abilities/waylay/ability2.png",
+      "archiveMember": "Abilities/DF1CB487-4902-002E-5C17-D28E83E78588_Ability2.png",
+      "bytes": 52486,
+      "sha256": "45e8ed5e7b65025ef47d8f4156eabead4dbe6a7f7d87d7541dd4c2b611c55f8c"
+    },
+    {
+      "id": "df1cb487-4902-002e-5c17-d28e83e78588_grenade",
+      "name": "Saturate",
+      "kind": "abilities",
+      "file": "/assets/abilities/waylay/grenade.png",
+      "archiveMember": "Abilities/DF1CB487-4902-002E-5C17-D28E83E78588_Grenade.png",
+      "bytes": 65012,
+      "sha256": "13ba50a20b6e3b7e452e03e4e3cb5ba692c01edc073e72bb90bca8d6164a12ec"
+    },
+    {
+      "id": "df1cb487-4902-002e-5c17-d28e83e78588_ability1",
+      "name": "Lightspeed",
+      "kind": "abilities",
+      "file": "/assets/abilities/waylay/ability1.png",
+      "archiveMember": "Abilities/DF1CB487-4902-002E-5C17-D28E83E78588_Ability1.png",
+      "bytes": 51468,
+      "sha256": "77e2db1db920903327fa1bf263a69b8ee941c691293a2f8aa4cc5aed18769de6"
+    },
+    {
+      "id": "df1cb487-4902-002e-5c17-d28e83e78588_ultimate",
+      "name": "Convergent Paths",
+      "kind": "abilities",
+      "file": "/assets/abilities/waylay/ultimate.png",
+      "archiveMember": "Abilities/DF1CB487-4902-002E-5C17-D28E83E78588_Ultimate.png",
+      "bytes": 60852,
+      "sha256": "9e39c9d428cabed6886995aac350e39b9235b02ae929ea88bd86d2412b7739ae"
+    },
+    {
+      "id": "569fdd95-4d10-43ab-ca70-79becc718b46_ability1",
+      "name": "Slow Orb",
+      "kind": "abilities",
+      "file": "/assets/abilities/sage/ability1.png",
+      "archiveMember": "Abilities/569FDD95-4D10-43AB-CA70-79BECC718B46_Ability1.png",
+      "bytes": 68203,
+      "sha256": "375aeace262bc9065c4c539ca9a50cf77d09ac32d377eb409685e17b202fbe43"
+    },
+    {
+      "id": "569fdd95-4d10-43ab-ca70-79becc718b46_ability2",
+      "name": "Healing Orb",
+      "kind": "abilities",
+      "file": "/assets/abilities/sage/ability2.png",
+      "archiveMember": "Abilities/569FDD95-4D10-43AB-CA70-79BECC718B46_Ability2.png",
+      "bytes": 37844,
+      "sha256": "56bdc6163ffcc9fd78d98d50b83b05177ed704dca649bb36dd210e2c30b8e7b6"
+    },
+    {
+      "id": "569fdd95-4d10-43ab-ca70-79becc718b46_grenade",
+      "name": "Barrier Orb",
+      "kind": "abilities",
+      "file": "/assets/abilities/sage/grenade.png",
+      "archiveMember": "Abilities/569FDD95-4D10-43AB-CA70-79BECC718B46_Grenade.png",
+      "bytes": 30452,
+      "sha256": "c15685c3ef3aa2d09c0e3d5c3fc268e7c388fa8ad59aa419a7c4eb217e648ed0"
+    },
+    {
+      "id": "569fdd95-4d10-43ab-ca70-79becc718b46_ultimate",
+      "name": "Resurrection",
+      "kind": "abilities",
+      "file": "/assets/abilities/sage/ultimate.png",
+      "archiveMember": "Abilities/569FDD95-4D10-43AB-CA70-79BECC718B46_Ultimate.png",
+      "bytes": 54744,
+      "sha256": "a8c0cdda404348376e9681fbb9a9e0fd9463bd56d16c44602073189db2be9d0a"
+    },
+    {
+      "id": "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc_ability1",
+      "name": "Devour",
+      "kind": "abilities",
+      "file": "/assets/abilities/reyna/ability1.png",
+      "archiveMember": "Abilities/A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Ability1.png",
+      "bytes": 49224,
+      "sha256": "eba902518bc05f26f6f3a9b7df45d4bab27d35b82c05aae0b889f70a33db082d"
+    },
+    {
+      "id": "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc_ability2",
+      "name": "Dismiss",
+      "kind": "abilities",
+      "file": "/assets/abilities/reyna/ability2.png",
+      "archiveMember": "Abilities/A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Ability2.png",
+      "bytes": 61164,
+      "sha256": "8c4bf9b6b0f32cb8984457eea45caa44bbb7e768b11930af6065ca5af509564d"
+    },
+    {
+      "id": "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc_grenade",
+      "name": "Leer",
+      "kind": "abilities",
+      "file": "/assets/abilities/reyna/grenade.png",
+      "archiveMember": "Abilities/A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Grenade.png",
+      "bytes": 45874,
+      "sha256": "46f91c3b0366b62e4f6efe8c3386f95f1d9c442fcde430c322a562ad4c6a4dc2"
+    },
+    {
+      "id": "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc_ultimate",
+      "name": "Empress",
+      "kind": "abilities",
+      "file": "/assets/abilities/reyna/ultimate.png",
+      "archiveMember": "Abilities/A3BFB853-43B2-7238-A4F1-AD90E9E46BCC_Ultimate.png",
+      "bytes": 68658,
+      "sha256": "8c922eb91d92b45e22bf1720805a91f940661fa8de5a6cc1ed5517e5af433bbb"
+    },
+    {
+      "id": "8e253930-4c05-31dd-1b6c-968525494517_ability1",
+      "name": "Paranoia",
+      "kind": "abilities",
+      "file": "/assets/abilities/omen/ability1.png",
+      "archiveMember": "Abilities/8E253930-4C05-31DD-1B6C-968525494517_Ability1.png",
+      "bytes": 45266,
+      "sha256": "e7c5c1973fa01b9a33d7d1bad34d3691e430d6088c53a22a04db0a515ed193b4"
+    },
+    {
+      "id": "8e253930-4c05-31dd-1b6c-968525494517_ability2",
+      "name": "Dark Cover",
+      "kind": "abilities",
+      "file": "/assets/abilities/omen/ability2.png",
+      "archiveMember": "Abilities/8E253930-4C05-31DD-1B6C-968525494517_Ability2.png",
+      "bytes": 43561,
+      "sha256": "7ca95574d4976826d240885bc7d3f31edbf3756a600b5bae78480ab28633cde1"
+    },
+    {
+      "id": "8e253930-4c05-31dd-1b6c-968525494517_grenade",
+      "name": "Shrouded Step",
+      "kind": "abilities",
+      "file": "/assets/abilities/omen/grenade.png",
+      "archiveMember": "Abilities/8E253930-4C05-31DD-1B6C-968525494517_Grenade.png",
+      "bytes": 47327,
+      "sha256": "f3eb8574135a01c668b090075de5c3e5d7f34a8a63cb620273bed8c54129283e"
+    },
+    {
+      "id": "8e253930-4c05-31dd-1b6c-968525494517_ultimate",
+      "name": "From the Shadows",
+      "kind": "abilities",
+      "file": "/assets/abilities/omen/ultimate.png",
+      "archiveMember": "Abilities/8E253930-4C05-31DD-1B6C-968525494517_Ultimate.png",
+      "bytes": 53392,
+      "sha256": "b598783f0ab6058961e0b2acaf2ea1b7b7b2ea55c9a0722e8edf8c34fa5431c4"
+    },
+    {
+      "id": "add6443a-41bd-e414-f6ad-e58d267f4e95_ability1",
+      "name": "Updraft",
+      "kind": "abilities",
+      "file": "/assets/abilities/jett/ability1.png",
+      "archiveMember": "Abilities/ADD6443A-41BD-E414-F6AD-E58D267F4E95_Ability1.png",
+      "bytes": 42511,
+      "sha256": "98b2e5f3356914bbc99e64919aa5669ade6eec66be2b682a2cbbc8a0d54406f1"
+    },
+    {
+      "id": "add6443a-41bd-e414-f6ad-e58d267f4e95_ability2",
+      "name": "Tailwind",
+      "kind": "abilities",
+      "file": "/assets/abilities/jett/ability2.png",
+      "archiveMember": "Abilities/ADD6443A-41BD-E414-F6AD-E58D267F4E95_Ability2.png",
+      "bytes": 36550,
+      "sha256": "99b1a52c3b168dc485ffff9a4d66b6a2f5bd82dce9764edbb34d6b6adfef308a"
+    },
+    {
+      "id": "add6443a-41bd-e414-f6ad-e58d267f4e95_grenade",
+      "name": "Cloudburst",
+      "kind": "abilities",
+      "file": "/assets/abilities/jett/grenade.png",
+      "archiveMember": "Abilities/ADD6443A-41BD-E414-F6AD-E58D267F4E95_Grenade.png",
+      "bytes": 44771,
+      "sha256": "1c192cf0e29f1aaf997d112b7430f304a3ac3533e3759d0159515a9f5bc8764e"
+    },
+    {
+      "id": "add6443a-41bd-e414-f6ad-e58d267f4e95_ultimate",
+      "name": "Blade Storm",
+      "kind": "abilities",
+      "file": "/assets/abilities/jett/ultimate.png",
+      "archiveMember": "Abilities/ADD6443A-41BD-E414-F6AD-E58D267F4E95_Ultimate.png",
+      "bytes": 50720,
+      "sha256": "aecd0340e2594da10fa08562dfd8390c198cb0058ace524cc6f7176d0d747a0d"
+    },
+    {
+      "id": "add6443a-41bd-e414-f6ad-e58d267f4e95_passive",
+      "name": "Drift",
+      "kind": "abilities",
+      "file": "/assets/abilities/jett/passive.png",
+      "archiveMember": "Abilities/ADD6443A-41BD-E414-F6AD-E58D267F4E95_Passive.png",
+      "bytes": 39893,
+      "sha256": "09d1a9020a0711d49572021e2a7ba5c1a681b17be56b50ba60a70ca021233618"
     }
   ]
 }

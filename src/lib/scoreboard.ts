@@ -46,6 +46,11 @@ export const scoreboardColumns = [
     description:
       "Rounds em que foi o primeiro a morrer. Inclui mortes ambientais e empates no milissegundo.",
   },
+  {
+    key: "openingDelta",
+    label: "Δ",
+    description: "Saldo de primeiros duelos: FK − FD.",
+  },
 ] as const;
 export type ScoreboardKey = (typeof scoreboardColumns)[number]["key"];
 export function scoreboardValue(
@@ -53,6 +58,10 @@ export function scoreboardValue(
   key: ScoreboardKey,
 ): number | null {
   if (key === "delta") return player.kills - player.deaths;
+  if (key === "openingDelta")
+    return player.firstKills != null && player.firstDeaths != null
+      ? player.firstKills - player.firstDeaths
+      : null;
   if (key === "ratio")
     return player.deaths
       ? player.kills / player.deaths
@@ -64,7 +73,8 @@ export function scoreboardValue(
 export function formatScoreboardValue(player: Player, key: ScoreboardKey) {
   const value = scoreboardValue(player, key);
   if (value == null) return "—";
-  if (key === "delta") return value > 0 ? `+${value}` : String(value);
+  if (key === "delta" || key === "openingDelta")
+    return value > 0 ? `+${value}` : String(value);
   if (key === "ratio") return value === Infinity ? "∞" : value.toFixed(2);
   if (key === "headshotPercent" || key === "kastPercent") return `${value}%`;
   return String(value);

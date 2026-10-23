@@ -24,7 +24,8 @@ const asset = (kind, id) => ({
     )?.name,
 });
 const normalizeTeamId = (id, friendlyTeamId) => {
-  if (id === "Red" || id === "Blue") return id === friendlyTeamId ? "horizon" : "orbit";
+  if (id === "Red" || id === "Blue")
+    return id === friendlyTeamId ? "horizon" : "orbit";
   throw new Error(`Unsupported team: ${id}`);
 };
 const other = (id) => (id === "horizon" ? "orbit" : "horizon");
@@ -34,10 +35,29 @@ const location = (point) => {
   return { x: point.x, y: point.y };
 };
 const roles = ids.roles;
+const abilityCatalog = JSON.parse(
+  readFileSync(resolve(root, "src/data/agents.json"), "utf8"),
+);
+
+export function resolveKillAbility(characterId, damageType, damageItem) {
+  if (damageType !== "Ability") return undefined;
+  const agentId = String(characterId).toLowerCase();
+  const slot = abilityCatalog.slotAliases[damageItem];
+  const ability = abilityCatalog.agents[agentId]?.abilities[slot];
+  return ability
+    ? {
+        agentId,
+        slot,
+        name: ability.name,
+        namePtBr: ability.namePtBr,
+        sprite: ability.sprite,
+      }
+    : undefined;
+}
 
 export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
   const friendlyTeamId = options.friendlyTeamId ?? "Red";
-  const teamId = id => normalizeTeamId(id, friendlyTeamId);
+  const teamId = (id) => normalizeTeamId(id, friendlyTeamId);
   const map = maps.find((map) => map.mapUrl === raw.matchInfo.mapId);
   if (
     !map ||
@@ -45,6 +65,9 @@ export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
   )
     throw new Error("Map not supported by the match library");
   const sourcePlayers = raw.players.filter((player) => !player.isObserver);
+  const characterIds = new Map(
+    sourcePlayers.map((player) => [player.puuid, player.characterId]),
+  );
   const ids = new Map(
     sourcePlayers.map((player, index) => [player.puuid, `p${index + 1}`]),
   );
@@ -78,10 +101,16 @@ export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
         (a, b) => a.timeSinceRoundStartMillis - b.timeSinceRoundStartMillis,
       );
     const events = kills.map((kill, killIndex) => {
-      const weapon =
-        kill.finishingDamage.damageType === "Weapon"
-          ? asset("weapons", kill.finishingDamage.damageItem)?.name
-          : undefined;
+      const ability = resolveKillAbility(
+        characterIds.get(kill.killer),
+        kill.finishingDamage.damageType,
+        kill.finishingDamage.damageItem,
+      );
+      const weapon = ["Weapon", "Melee"].includes(
+        kill.finishingDamage.damageType,
+      )
+        ? asset("weapons", kill.finishingDamage.damageItem)?.name
+        : undefined;
       return {
         id: `r${index + 1}-k${killIndex}`,
         type: "kill",
@@ -89,18 +118,24 @@ export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
         actorId: playerId(kill.killer),
         victimId: playerId(kill.victim),
         ...(weapon ? { weapon } : {}),
+        ...(ability ? { ability } : {}),
         damageType: kill.finishingDamage.damageType,
         damageItem: kill.finishingDamage.damageItem,
-        label:
-          kill.finishingDamage.damageType === "Bomb"
+        label: ability
+          ? `Eliminação com ${ability.namePtBr}`
+          : kill.finishingDamage.damageType === "Bomb"
             ? "Morte pela spike"
             : kill.finishingDamage.damageType === "Ability"
               ? kill.finishingDamage.damageItem === "Ultimate"
                 ? "Eliminação com ultimate"
                 : "Eliminação com habilidade"
-              : weapon
-                ? "Eliminação"
-                : "Eliminação · arma não catalogada",
+              : kill.finishingDamage.damageType === "Fall"
+                ? "Morte por queda"
+                : kill.finishingDamage.damageType === "Crush"
+                  ? "Morte por esmagamento"
+                  : weapon
+                    ? "Eliminação"
+                    : "Eliminação · arma não catalogada",
         coordinateSpace: "world",
         positions: snapshots(kill.playerLocations),
         victimPosition: {
@@ -143,6 +178,30 @@ export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
       ...(round.plantSite ? { site: round.plantSite } : {}),
       result: round.roundResultCode || round.roundResult,
       events,
+      loadouts: round.playerStats.map((stats) => ({
+        playerId: playerId(stats.puuid),
+        score: Number.isFinite(stats.score) ? stats.score : null,
+        kills: (stats.kills ?? []).length,
+        assists: kills.filter((kill) =>
+          (kill.assistants ?? []).includes(stats.puuid),
+        ).length,
+        economy: stats.economy
+          ? {
+              weaponId: stats.economy.weapon ?? "",
+              weapon: asset("weapons", stats.economy.weapon)?.name ?? null,
+              armorId: stats.economy.armor ?? "",
+              loadoutValue: Number.isFinite(stats.economy.loadoutValue)
+                ? stats.economy.loadoutValue
+                : null,
+              remaining: Number.isFinite(stats.economy.remaining)
+                ? stats.economy.remaining
+                : null,
+              spent: Number.isFinite(stats.economy.spent)
+                ? stats.economy.spent
+                : null,
+            }
+          : null,
+      })),
     };
   });
   const players = sourcePlayers.map((player) => {

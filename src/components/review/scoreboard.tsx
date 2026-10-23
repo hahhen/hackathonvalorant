@@ -117,11 +117,14 @@ export function Scoreboard({
           </SelectContent>
         </Select>
       </div>
-      <Table className="scoreboard-table w-[900px] min-w-full table-fixed text-sm [&_th]:h-10 [&_th]:bg-background [&_th]:px-2 [&_th]:text-[12px] [&_th]:text-muted-foreground [&_td]:px-2 [&_td]:py-3 max-[650px]:w-[836px]">
+      <Table className="scoreboard-table w-[752px] min-w-full table-fixed text-sm [&_th]:h-10 [&_th]:bg-background [&_th]:px-1 [&_th]:text-[12px] [&_th]:text-muted-foreground [&_th:last-child]:pr-8 [&_td]:px-1 [&_td]:py-3 [&_td:last-child]:pr-8 max-[650px]:w-[688px]">
         <colgroup>
           <col className="w-[196px] max-[650px]:w-[132px]" />
           {scoreboardColumns.map(({ key }) => (
-            <col key={key} className="w-16" />
+            <col
+              key={key}
+              className={key === "openingDelta" ? "w-18" : "w-11"}
+            />
           ))}
         </colgroup>
         <caption className="sr-only">
@@ -190,7 +193,7 @@ export function Scoreboard({
           {!filtered.length && (
             <TableRow>
               <TableCell
-                colSpan={12}
+                colSpan={scoreboardColumns.length + 1}
                 className="py-10! text-center text-muted-foreground"
               >
                 Nenhum jogador encontrado. Tente outro nome ou agente.
@@ -244,7 +247,7 @@ function TeamRows({
           team === "orbit" && "bg-primary/5 hover:bg-primary/5",
         )}
       >
-        <TableCell colSpan={12}>
+        <TableCell colSpan={scoreboardColumns.length + 1}>
           <div className="flex items-center gap-2 py-0.5 text-[13px]">
             <strong
               className={cn(
@@ -277,12 +280,7 @@ function TeamRows({
                 alt={player.agent}
                 width={34}
                 height={36}
-                className={cn(
-                  "h-9 w-8.5 shrink-0 rounded border border-border bg-muted object-cover max-[650px]:size-7",
-                  team === "orbit"
-                    ? "border-primary/40"
-                    : "border-team-friendly/40",
-                )}
+                className="h-9 w-8.5 shrink-0 rounded bg-muted object-cover max-[650px]:size-7"
               />
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-medium">
@@ -300,10 +298,10 @@ function TeamRows({
               className={cn(
                 "text-right text-[14px] whitespace-nowrap tabular-nums text-foreground",
                 key === "acs" && "font-medium",
-                key === "delta" &&
+                (key === "delta" || key === "openingDelta") &&
                   (scoreboardValue(player, key) ?? 0) > 0 &&
                   "text-success",
-                key === "delta" &&
+                (key === "delta" || key === "openingDelta") &&
                   (scoreboardValue(player, key) ?? 0) < 0 &&
                   "text-primary",
               )}

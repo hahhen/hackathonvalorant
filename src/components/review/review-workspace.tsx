@@ -1,5 +1,5 @@
 "use client";
-import { teamLabel, teamShort } from "@/lib/teams";
+import { teamLabel } from "@/lib/teams";
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -19,8 +19,10 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Scoreboard } from "./scoreboard";
 import { MatchCatalog, TipCard, TipDialog } from "./catalog";
-import { EventInspector, RoundStrip } from "./event-inspector";
+import { EventInspector } from "./event-inspector";
+import { RoundStrip } from "./round-strip";
 import { RoundCoachingTips } from "./round-coaching-tips";
+import { RoundSelector } from "./round-selector";
 import { PlayerSheet } from "./player-sheet";
 import { createMockCoachTips, createReviewData } from "@/data/mock-match";
 import { getOfficialReview } from "@/data/official-matches";
@@ -123,10 +125,7 @@ export function ReviewWorkspace({
           </span>
         </div>
         <div className="match-scoreline relative z-1 flex items-center gap-5.5 pr-3 max-[1300px]:gap-[15px] max-[650px]:gap-[23px] max-[650px]:p-0">
-          <div className="hero-team flex items-center gap-[11px] text-sm font-medium [&.orbit_.hero-emblem]:text-primary max-[1300px]:text-sm max-[1300px]:gap-[7px] max-[650px]:text-[14px] text-team-friendly horizon">
-            <span className="hero-emblem text-[29px] font-[800] italic text-foreground max-[1000px]:hidden">
-              {teamShort("horizon")[0]}
-            </span>
+          <div className="hero-team text-sm font-medium text-foreground">
             <span>{teamLabel("horizon")}</span>
           </div>
           <div className="hero-score [&_strong:first-child]:text-team-friendly flex items-baseline gap-3.5 tabular-nums [&_strong]:text-[45px] [&_strong]:font-semibold [&_strong]:tracking-[-2px] [&_strong:last-child]:text-primary [&_>_span]:text-2xl [&_>_span]:font-light [&_>_span]:text-muted-foreground max-[650px]:[&_strong]:text-[40px]">
@@ -134,11 +133,8 @@ export function ReviewWorkspace({
             <span>:</span>
             <strong>{fixture.teams.orbit.score}</strong>
           </div>
-          <div className="hero-team flex items-center gap-[11px] text-sm font-medium [&.orbit_.hero-emblem]:text-primary max-[1300px]:text-sm max-[1300px]:gap-[7px] max-[650px]:text-[14px] orbit [&_.team-label]:text-primary [&_.team-label_>_span:nth-child(3)]:text-primary">
+          <div className="hero-team text-sm font-medium text-foreground">
             <span>{teamLabel("orbit")}</span>
-            <span className="hero-emblem text-[29px] font-[800] italic text-foreground max-[1000px]:hidden">
-              {teamShort("orbit")[0]}
-            </span>
           </div>
         </div>
       </section>
@@ -165,7 +161,9 @@ export function ReviewWorkspace({
             <Metric
               icon={Target}
               label="Conversão da primeira eliminação"
-              value={officialReview ? officialReview.metrics.opening.value : "69"}
+              value={
+                officialReview ? officialReview.metrics.opening.value : "69"
+              }
               detail={
                 officialReview
                   ? officialReview.metrics.opening.detail.replace(
@@ -178,7 +176,9 @@ export function ReviewWorkspace({
             <Metric
               icon={Swords}
               label="Mortes respondidas em até 3 s"
-              value={officialReview ? officialReview.metrics.trades.value : "61"}
+              value={
+                officialReview ? officialReview.metrics.trades.value : "61"
+              }
               detail={
                 officialReview
                   ? officialReview.metrics.trades.detail.replace(
@@ -191,7 +191,9 @@ export function ReviewWorkspace({
             <Metric
               icon={Flag}
               label="Vitórias após o plant"
-              value={officialReview ? officialReview.metrics.postplant.value : "75"}
+              value={
+                officialReview ? officialReview.metrics.postplant.value : "75"
+              }
               detail={
                 officialReview
                   ? officialReview.metrics.postplant.detail.replace(
@@ -202,6 +204,24 @@ export function ReviewWorkspace({
               }
             />
           </div>
+          <section className="panel border border-solid border-border rounded-[8px] overflow-hidden bg-card round-preview mb-6 [&_.section-heading]:pb-2.5 [&_.section-heading_button]:text-[13px] [&_.section-heading_button]:text-muted-foreground">
+            <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_h2]:text-sm [&_h2]:font-medium [&_h3]:text-sm [&_h3]:font-medium [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5 max-[650px]:[&_h2]:text-[14px]">
+              <h2>Rounds</h2>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => openRound(selectedRound)}
+              >
+                Ver eventos
+                <ArrowUpRight size={14} />
+              </Button>
+            </div>
+            <RoundStrip
+              match={fixture}
+              rounds={data.rounds}
+              onRound={openRound}
+            />
+          </section>
           {focusTip && (
             <div className="training-focus flex items-center gap-[15px] border border-solid border-primary/30 bg-linear-to-r from-primary/10 to-card rounded-[7px] p-[19px] mb-6 [&_.eyebrow]:text-[12px] [&_.eyebrow]:text-primary [&_.eyebrow]:tracking-[0.4px] [&_h2]:text-[15px] [&_h2]:font-medium [&_h2]:mt-1.5 [&_p]:text-[13px] [&_p]:text-muted-foreground [&_p]:mt-[5px] [&_p]:leading-[1.6] [&_>_button]:ml-auto [&_>_button]:shrink-0 [&_>_button]:text-[13px] [&_>_button]:bg-muted max-[650px]:p-[15px] max-[650px]:flex-wrap max-[650px]:gap-3 max-[650px]:[&_h2]:text-sm max-[650px]:[&_p]:text-[13px] max-[650px]:[&_>_button]:ml-0 max-[650px]:[&_>_button]:h-[29px]">
               <span className="focus-icon text-primary bg-primary/10 rounded-md p-3 max-[650px]:hidden">
@@ -257,30 +277,10 @@ export function ReviewWorkspace({
               </Button>
             </aside>
           </div>
-          <section className="panel border border-solid border-border rounded-[8px] overflow-hidden bg-card round-preview mt-6 [&_.section-heading]:pb-2.5 [&_.section-heading_button]:text-[13px] [&_.section-heading_button]:text-muted-foreground">
-            <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_h2]:text-sm [&_h2]:font-medium [&_h3]:text-sm [&_h3]:font-medium [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5 max-[650px]:[&_h2]:text-[14px]">
-              <h2>Rounds</h2>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => openRound(selectedRound)}
-              >
-                Ver eventos
-                <ArrowUpRight size={14} />
-              </Button>
-            </div>
-            <RoundStrip
-              match={fixture}
-              rounds={data.rounds}
-              onRound={openRound}
-            />
-          </section>
         </TabsContent>
         <TabsContent value="rounds" className="view-content m-0 min-w-0">
-          <EventInspector
-            key={fixture.id + selectedRound}
+          <RoundSelector
             match={fixture}
-            players={data.players}
             rounds={data.rounds}
             roundNumber={selectedRound}
             onRound={openRound}
@@ -289,6 +289,13 @@ export function ReviewWorkspace({
             match={fixture}
             round={data.rounds[selectedRound - 1]}
             players={data.players}
+          />
+          <EventInspector
+            key={fixture.id + selectedRound}
+            match={fixture}
+            players={data.players}
+            rounds={data.rounds}
+            roundNumber={selectedRound}
           />
         </TabsContent>
         <TabsContent value="catalog" className="view-content m-0 min-w-0">

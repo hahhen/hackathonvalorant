@@ -3,7 +3,6 @@
 import { useId, useState } from "react";
 import Image from "next/image";
 import { Info, UserRound, Users } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -51,26 +50,20 @@ export function RoundCoachingTips({
   return (
     <section
       data-tip-mode="mock"
-      className="mt-5 rounded-lg border border-border bg-card p-5 max-[650px]:p-3.5"
+      className="mb-5 rounded-lg border border-border bg-card p-5 max-[650px]:p-3.5"
       aria-label={`Dicas do round ${round.number}`}
     >
       <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-base font-medium">
           Dicas do {roundLabel.toLowerCase()}
         </h2>
-        <Badge variant="outline" className="text-[12px] text-muted-foreground">
-          Mock · exemplos
-        </Badge>
-        <p className="w-full text-sm text-muted-foreground">
-          Exemplos de interface, sem análise automática dos eventos da partida.
-        </p>
       </div>
       <div className="grid min-w-0 grid-cols-2 gap-5 max-[800px]:grid-cols-1">
         <section
           aria-label={`Dicas coletivas do round ${round.number}`}
           className="min-w-0"
         >
-          <div className="mb-4 flex min-h-10 items-center gap-2">
+          <div className="mb-4 flex min-h-16 items-center gap-2">
             <Users className="size-4 text-team-friendly" />
             <h3 className="text-sm font-medium">Dicas coletivas · Meu time</h3>
           </div>
@@ -84,8 +77,8 @@ export function RoundCoachingTips({
           aria-label={`Dicas individuais do round ${round.number}`}
           className="min-w-0"
         >
-          <div className="mb-4 flex min-h-10 flex-wrap items-center justify-between gap-3">
-            <h3 className="flex items-center gap-2 text-sm font-medium">
+          <div className="mb-4 flex min-h-16 items-center justify-between gap-3 max-[500px]:flex-wrap">
+            <h3 className="flex shrink-0 items-center gap-2 text-sm font-medium">
               <UserRound className="size-4 text-muted-foreground" />
               Dicas individuais
             </h3>
@@ -95,19 +88,61 @@ export function RoundCoachingTips({
             <Select value={selected?.id} onValueChange={setPlayerId}>
               <SelectTrigger
                 id={selectorId}
-                className="h-9! w-full min-w-0 max-w-56 text-sm"
+                data-coaching-player={selected?.id}
+                className="h-16! w-full min-w-0 max-w-80 bg-muted text-left text-sm max-[500px]:max-w-none"
               >
-                <SelectValue placeholder="Selecionar jogador" />
+                <SelectValue
+                  placeholder="Selecionar jogador"
+                  className="min-w-0 flex-1"
+                >
+                  {selected ? (
+                    <span className="flex min-w-0 items-center gap-3">
+                      <Image
+                        src={agentImage(selected.agent)}
+                        alt=""
+                        width={36}
+                        height={36}
+                        className="size-9 shrink-0 rounded bg-card object-cover"
+                      />
+                      <span className="min-w-0">
+                        <span className="block truncate font-medium text-foreground">
+                          {selected.name}#{selected.tag}
+                        </span>
+                        <span className="block truncate text-sm text-muted-foreground">
+                          {selected.agent} · {teamLabel(selected.team)}
+                        </span>
+                      </span>
+                    </span>
+                  ) : null}
+                </SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent position="popper" align="end">
                 {(["horizon", "orbit"] as const).map((team) => (
                   <SelectGroup key={team}>
                     <SelectLabel>{teamLabel(team)}</SelectLabel>
                     {players
                       .filter((player) => player.team === team)
                       .map((player) => (
-                        <SelectItem key={player.id} value={player.id}>
-                          {player.name} · {player.agent}
+                        <SelectItem
+                          key={player.id}
+                          value={player.id}
+                          textValue={`${player.name} ${player.tag} ${player.agent}`}
+                        >
+                          <Image
+                            src={agentImage(player.agent)}
+                            alt=""
+                            width={32}
+                            height={32}
+                            className="size-8 shrink-0 rounded bg-muted object-cover"
+                          />
+                          <span className="min-w-0">
+                            <span className="block truncate font-medium">
+                              {player.name}#{player.tag}
+                            </span>
+                            <span className="block text-sm text-muted-foreground">
+                              {player.agent}
+                            </span>
+                          </span>
                         </SelectItem>
                       ))}
                   </SelectGroup>
@@ -117,27 +152,6 @@ export function RoundCoachingTips({
           </div>
           {selected ? (
             <>
-              <div
-                data-coaching-player={selected.id}
-                aria-live="polite"
-                className="mb-3 flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-2"
-              >
-                <Image
-                  src={agentImage(selected.agent)}
-                  alt={selected.agent}
-                  width={28}
-                  height={28}
-                  className="size-7 rounded bg-card object-cover"
-                />
-                <span className="min-w-0">
-                  <span className="block truncate text-sm font-medium">
-                    {selected.name}#{selected.tag}
-                  </span>
-                  <span className="text-[12px] text-muted-foreground">
-                    {selected.agent} · {roundLabel} · {teamLabel(selected.team)}
-                  </span>
-                </span>
-              </div>
               <div className="grid gap-3">
                 {individual.map((finding) => (
                   <RoundTip

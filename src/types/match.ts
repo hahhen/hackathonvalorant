@@ -59,12 +59,21 @@ export interface MatchEvent {
   weapon?: string;
   damageType?: string;
   damageItem?: string;
+  ability?: AbilityReference;
   label: string;
   /** Missing means legacy mock percentages, never official world units. */
   coordinateSpace?: "mock-normalized" | "world";
   positions: PlayerPosition[];
   objectiveLocation?: { x: number; y: number };
   victimPosition?: Pick<PlayerPosition, "playerId" | "x" | "y">;
+}
+
+export interface AbilityReference {
+  agentId: string;
+  slot: string;
+  name: string;
+  namePtBr: string;
+  sprite: string | null;
 }
 
 export interface Round {
@@ -74,6 +83,23 @@ export interface Round {
   site?: "A" | "B" | "C";
   result?: string;
   events: MatchEvent[];
+  loadouts?: RoundLoadout[];
+}
+
+/** Round summary, not a purchase ledger or equipment at the selected event. */
+export interface RoundLoadout {
+  playerId: string;
+  score: number | null;
+  kills: number;
+  assists: number;
+  economy: {
+    weaponId: string;
+    weapon: string | null;
+    armorId: string;
+    loadoutValue: number | null;
+    remaining: number | null;
+    spent: number | null;
+  } | null;
 }
 
 export interface CoachTip {

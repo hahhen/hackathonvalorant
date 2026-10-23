@@ -8,7 +8,7 @@ const root = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, root));
 const manifest = JSON.parse(read("public/assets/minimaps/manifest.json"));
 assert.equal(manifest.schemaVersion, 1);
-assert.ok(manifest.provider.includes("community"));
+assert.equal(manifest.provider, "Riot Games Public Content Catalog (official)");
 assert.equal(manifest.coordinateSystem.imageModified, false);
 assert.equal(
   new Set(manifest.maps.map((map) => map.mapUrl)).size,
@@ -34,7 +34,7 @@ for (const map of manifest.maps) {
     map.sha256,
     map.name,
   );
-  assert.ok(map.mapUrl.startsWith("/Game/Maps/"));
+  assert.ok(map.mapUrl.startsWith("/Game/Maps/") || map.mapUrl === map.uuid);
   assert.equal(
     map.projectionSupported,
     [
@@ -83,7 +83,7 @@ const referenceErrorPixels = Math.hypot(
   (bridge.y - 0.2615) * fracture.height,
 );
 assert.ok(
-  referenceErrorPixels < 1,
+  referenceErrorPixels / fracture.width < 0.001,
   `Fracture reference error: ${referenceErrorPixels}px`,
 );
 const wronglyUnswapped = {
