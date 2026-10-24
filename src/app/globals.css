@@ -32,7 +32,6 @@
   --color-tip-operator: var(--tip-operator);
   --color-tip-mira: var(--tip-mira);
   --color-tip-habilidades: var(--tip-habilidades);
-  --color-tip-ascent: var(--tip-ascent);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
@@ -80,7 +79,6 @@
   --tip-operator: #a3e635;
   --tip-mira: #67e8f9;
   --tip-habilidades: #818cf8;
-  --tip-ascent: #e0b58a;
   --destructive-foreground: var(--primary-foreground);
   --border: #263747;
   --input: var(--border);

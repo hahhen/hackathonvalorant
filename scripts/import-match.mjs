@@ -61,7 +61,16 @@ export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
   const map = maps.find((map) => map.mapUrl === raw.matchInfo.mapId);
   if (
     !map ||
-    !["Ascent", "Haven", "Split", "Bind", "Lotus", "Icebox"].includes(map.name)
+    ![
+      "Ascent",
+      "Haven",
+      "Split",
+      "Bind",
+      "Lotus",
+      "Icebox",
+      "Sunset",
+      "Summit",
+    ].includes(map.name)
   )
     throw new Error("Map not supported by the match library");
   const sourcePlayers = raw.players.filter((player) => !player.isObserver);
@@ -296,6 +305,10 @@ export function adaptMatch(raw, sourceName = "partida.json", options = {}) {
       file: sourceName,
       matchId: raw.matchInfo.matchId,
       gameVersion: raw.matchInfo.gameVersion,
+      friendlyTeamId,
+      localPlayerToPuuid: Object.fromEntries(
+        [...ids].map(([puuid, local]) => [local, puuid]),
+      ),
       notes: [
         "Team labels Red/Blue come from the JSON, not inferred organization names.",
         "Detonation has a round result but no exact timestamp/snapshot; no event fabricated.",

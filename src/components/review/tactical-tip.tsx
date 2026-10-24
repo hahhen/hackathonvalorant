@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { FindingSample } from "./analysis-feedback";
 import { tipCategoryTheme } from "@/lib/tip-category-theme";
 
 import {
@@ -136,8 +137,9 @@ export function TacticalTipCard({
       <h3>{tip.titulo}</h3>
       {finding && (
         <div className="finding-observation border-l-2 border-solid border-primary pt-0 pr-0 pb-0 pl-3 mb-5 [&_>_span]:block [&_>_span]:text-[13px] [&_>_span]:text-muted-foreground [&_>_span]:mb-[7px] [&_p]:text-foreground/90 [&_p]:text-[14px] [&_p]:leading-[1.7]">
-          <span>Achado de exemplo</span>
+          <span>Observado neste recorte</span>
           <p>{finding.observation}</p>
+          <FindingSample finding={finding} />
         </div>
       )}
       <p className="tip-description text-sm leading-relaxed text-muted-foreground">
@@ -190,8 +192,9 @@ export function InferenceDialog({
             </p>
             {finding && (
               <div className="evidence-block p-[17px] border border-solid border-border rounded-[7px] bg-muted [&_p]:mt-[9px] [&_p]:mx-0 [&_p]:mb-3 [&_p]:text-foreground/90 [&_[data-slot=badge]]:text-muted-foreground [&_[data-slot=badge]]:text-[12px]">
-                <h4>Exemplo nesta partida · dados mockados</h4>
+                <h4>Observado nesta partida</h4>
                 <p>{finding.observation}</p>
+                <FindingSample finding={finding} />
                 {onRound && (
                   <TipRoundLinks
                     rounds={finding.rounds}
@@ -207,6 +210,52 @@ export function InferenceDialog({
               <h4>Como é inferida pelos dados</h4>
               <p>{tip.inferencia.metodo}</p>
             </section>
+            {finding?.analysis && (
+              <>
+                <section className="rounded-md border border-border bg-muted p-4">
+                  <h4>Limites do recorte calculado</h4>
+                  <p>{finding.limitation}</p>
+                  <p className="mt-2">
+                    {finding.analysis.priorityReasons.join(" ")}
+                  </p>
+                </section>
+                <details className="rounded-md border border-border p-4">
+                  <summary className="cursor-pointer text-foreground">
+                    Evidências · {finding.analysis.evidence.length} registros
+                  </summary>
+                  <div className="mt-3 grid gap-3">
+                    {finding.analysis.evidence.map((ev, index) => (
+                      <div
+                        key={`${ev.sourcePath}:${index}`}
+                        className="min-w-0 rounded border border-border bg-muted p-3 text-sm"
+                      >
+                        <p className="text-foreground">
+                          Round {ev.roundNumber}
+                          {ev.eventId ? ` · ${ev.eventId}` : ""}
+                        </p>
+                        <code className="block wrap-anywhere text-muted-foreground">
+                          {ev.sourcePath}
+                        </code>
+                        <dl className="mt-2 grid gap-1">
+                          {Object.entries(ev.values).map(([key, value]) => (
+                            <div key={key} className="wrap-anywhere">
+                              <dt className="inline font-medium text-foreground">
+                                {key}:{" "}
+                              </dt>
+                              <dd className="inline">
+                                {value == null
+                                  ? "Não informado"
+                                  : String(value)}
+                              </dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              </>
+            )}
             <section>
               <h4>Campos utilizados</h4>
               <div className="inference-fields grid gap-1.5 mt-[11px] [&_details]:border [&_details]:border-solid [&_details]:border-border [&_details]:rounded-[5px] [&_details]:overflow-hidden [&_summary]:p-2.5 [&_summary]:cursor-pointer [&_summary]:text-muted-foreground [&_summary_>_span]:text-primary [&_summary_>_span]:pt-0 [&_summary_>_span]:pr-2.5 [&_summary_>_span]:pb-0 [&_summary_>_span]:pl-[3px] [&_summary_>_span]:font-mono [&_ul]:border-t [&_ul]:border-solid [&_ul]:border-border [&_ul]:py-2.5 [&_ul]:px-3.5 [&_ul]:grid [&_ul]:gap-2 [&_ul]:text-muted-foreground [&_ul]:text-[13px] [&_ul]:wrap-anywhere">
@@ -237,8 +286,8 @@ export function InferenceDialog({
             <p className="inference-note text-[13px] text-muted-foreground">
               Métodos e limiares são propostas de análise. Mensurável não
               significa erro confirmado; indícios precisam de contexto. A
-              presença no catálogo não significa que o detector já foi
-              implementado.
+              presença no catálogo não significa que a dica seja avaliável nesta
+              partida.
             </p>
             <div className="source-line flex items-center gap-[7px] text-[12px] border-t border-solid border-border pt-[15px]">
               <BookOpen size={14} />

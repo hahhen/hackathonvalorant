@@ -3,7 +3,14 @@ export type View = "overview" | "rounds" | "catalog";
 export type EvidenceLevel = "M" | "I";
 
 export type MapName =
-  "Ascent" | "Haven" | "Split" | "Bind" | "Lotus" | "Icebox";
+  | "Ascent"
+  | "Haven"
+  | "Split"
+  | "Bind"
+  | "Lotus"
+  | "Icebox"
+  | "Sunset"
+  | "Summit";
 
 export interface MatchInfo {
   id: string;
@@ -112,4 +119,23 @@ export interface CoachTip {
   limitation: string;
   source: string;
   rounds: number[];
+  analysis?: {
+    recommendationId: string;
+    detectorId: string;
+    status: "complete" | "partial" | "not_evaluable" | "not_implemented";
+    sample: {
+      unit: string;
+      eligible: number | null;
+      evaluated: number;
+      flagged: number;
+    };
+    priority: "low" | "medium" | "high";
+    priorityReasons: string[];
+    evidence: {
+      roundNumber: number;
+      sourcePath: string;
+      eventId?: string;
+      values: Record<string, string | number | boolean | null>;
+    }[];
+  };
 }

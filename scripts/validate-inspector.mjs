@@ -34,6 +34,7 @@ function load(path) {
   vm.runInNewContext(code, {
     module,
     exports: module.exports,
+    URLSearchParams,
     require: (id) => {
       if (id.startsWith("@/")) return load(`src/${id.slice(2)}`);
       if (id.startsWith(".")) return load(resolve(dirname(filename), id));
@@ -224,7 +225,7 @@ const themeCss = readFileSync(resolve(root, "src/app/globals.css"), "utf8");
 assert.equal(
   new Set(tipCategories.map((category) => tipCategoryTheme(category.id).text))
     .size,
-  10,
+  9,
 );
 const luminance = (hex) => {
   const channels = hex
@@ -309,14 +310,14 @@ for (const round of official.rounds) {
       players: official.players,
     }),
   );
-  assert.ok(html.includes('data-tip-mode="mock"'));
+  assert.ok(html.includes('data-tip-mode="computed"'));
   assert.ok(html.includes('data-coaching-player="p1"'));
-  assert.equal((html.match(/data-mock-scope="collective"/g) ?? []).length, 2);
-  assert.equal((html.match(/data-mock-scope="individual"/g) ?? []).length, 2);
+  assert.equal((html.match(/data-mock-scope="collective"/g) ?? []).length, 0);
+  assert.equal((html.match(/data-mock-scope="individual"/g) ?? []).length, 0);
   assert.equal(
     (html.match(new RegExp(`data-mock-round="${round.number}"`, "g")) ?? [])
       .length,
-    4,
+    0,
   );
   assert.ok(!html.includes("Mock · exemplos"));
   assert.ok(html.includes('data-slot="select-trigger"'));
@@ -355,13 +356,13 @@ const renderRoundSelector = (match, rounds, roundNumber) =>
 const { officialReviews, officialMatches, getOfficialReview } = load(
   "src/data/official-matches.ts",
 );
-assert.equal(officialMatches.length, 4);
+assert.equal(officialMatches.length, 12);
 assert.equal(
   getOfficialReview(official.match.id),
   undefined,
   "Old Ascent match is no longer exposed by the library",
 );
-let uspSnapshots = 0;
+let furiaSnapshots = 0;
 const { RoundLoadouts } = load("src/components/review/round-loadouts.tsx");
 const { weaponImage, hasWeaponImage } = load("src/data/assets.ts");
 const { resolveAgentAbility, agentCatalog } = load(
@@ -390,7 +391,7 @@ assert.ok(
 );
 for (const review of officialReviews) {
   assert.equal(getOfficialReview(review.match.id), review);
-  assert.equal(review.match.teams.horizon.name, "USP Stars");
+  assert.equal(review.match.teams.horizon.name, "FURIA UTFPR");
   const getPlayer = (id) => review.players.find((player) => player.id === id);
   for (const player of review.players)
     assert.ok(
@@ -479,11 +480,19 @@ for (const review of officialReviews) {
       );
       assert.equal(count(html, "player"), event.positions.length);
       assertDeathMarkers(html, event, getPlayer);
-      uspSnapshots++;
+      furiaSnapshots++;
     }
   }
 }
-assert.equal(uspSnapshots, 594);
+assert.equal(
+  furiaSnapshots,
+  officialReviews.reduce(
+    (n, review) =>
+      n +
+      review.rounds.reduce((count, round) => count + round.events.length, 0),
+    0,
+  ),
+);
 const { Scoreboard } = load("src/components/review/scoreboard.tsx");
 const { scoreboardColumns, formatScoreboardValue, compareScoreboardPlayers } =
   load("src/lib/scoreboard.ts");

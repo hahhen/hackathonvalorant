@@ -13,8 +13,10 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { createMockCoachTips, match as defaultMatch } from "@/data/mock-match";
-import { getTacticalTip } from "@/data/tactical-catalog";
+import { match as defaultMatch } from "@/data/mock-match";
+import { useAnalysis } from "@/lib/use-analysis";
+import { AnalysisFeedback } from "./analysis-feedback";
+import { AnalysisTipList } from "./round-coaching-tips";
 import { agentImage } from "@/data/assets";
 import type { MatchInfo, Player } from "@/types/match";
 export function PlayerSheet({
@@ -28,10 +30,11 @@ export function PlayerSheet({
   onRound: (round: number) => void;
   match?: MatchInfo;
 }) {
-  const catalogTip = getTacticalTip("023");
-  const exampleRound = (
-    match.dataMode === "official-json" ? [] : createMockCoachTips(match)
-  ).find((tip) => tip.id === "023")?.rounds[0];
+  const analysis = useAnalysis(
+    match.id,
+    { kind: "player", period: "match", playerId: player?.id },
+    !!player && match.dataMode === "official-json",
+  );
   return (
     <Sheet open={!!player} onOpenChange={(open) => !open && onClose()}>
       <SheetContent className="player-sheet w-[min(440px,_95vw)]! max-w-110! overflow-y-auto p-[25px] [&_[data-slot=sheet-header]]:pt-0 [&_[data-slot=sheet-header]]:px-0 [&_[data-slot=sheet-header]]:pb-5.5">
@@ -98,29 +101,18 @@ export function PlayerSheet({
             </div>
             <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_h2]:text-sm [&_h2]:font-medium [&_h3]:text-sm [&_h3]:font-medium [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5 max-[650px]:[&_h2]:text-[14px]">
               <div>
-                <h3>Dica para revisão</h3>
+                <h3>Pontos para revisar</h3>
               </div>
             </div>
-            <div className="profile-tip p-4.5 border border-solid border-border rounded-[7px] [&_h3]:text-base [&_h3]:font-medium [&_h3]:my-3 [&_h3]:mx-0 [&_p]:text-[13px] [&_p]:leading-[1.7] [&_p]:text-muted-foreground [&_p]:mb-[13px] [&_.muted]:text-muted-foreground [&_button]:mt-[7px] [&_button]:text-[12px]">
-              <span className="evidence inline-flex items-center gap-[5px] py-1 px-1.5 rounded-[4px] text-[12px] inference text-primary bg-primary/10">
-                I · Indício
-              </span>
-              <h3>{catalogTip.titulo}</h3>
-              <p>{catalogTip.descricao}</p>
-              <p className="muted">{catalogTip.inferencia.limites}</p>
-              {exampleRound && (
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    onClose();
-                    onRound(exampleRound);
-                  }}
-                >
-                  Abrir exemplo no round {exampleRound}
-                  <ArrowUpRight size={14} />
-                </Button>
-              )}
-            </div>
+            <AnalysisFeedback state={analysis} />
+            <AnalysisTipList
+              key={player.id}
+              tips={analysis.data?.tips ?? []}
+              onRound={(round) => {
+                onClose();
+                onRound(round);
+              }}
+            />
           </div>
         )}
       </SheetContent>

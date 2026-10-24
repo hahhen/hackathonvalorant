@@ -1,0 +1,10 @@
+{
+  "followup_window_ms": 3000,
+  "early": {
+    "tradeWindowMs": 3000,
+    "followupWindowMs": 5000,
+    "ecoMaxValue": 1500,
+    "fullMinValue": 3900,
+    "maps": {}
+  }
+}

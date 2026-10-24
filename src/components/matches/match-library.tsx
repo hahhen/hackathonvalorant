@@ -31,7 +31,7 @@ export function MatchLibrary() {
       <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_h1]:text-3xl [&_h1]:font-[550] [&_h1]:tracking-[-0.95px] [&_h1]:leading-[1.3] [&_p]:text-muted-foreground [&_p]:text-[14px] [&_p]:leading-[1.6] [&_p]:mt-[7px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_h1]:text-[27px] max-[650px]:[&_p]:text-sm max-[650px]:[&_p]:max-w-[245px]">
         <div>
           <h1>Partidas</h1>
-          <p>Selecione uma partida para abrir a análise.</p>
+          <p>FURIA UTFPR · Classificatória 3 e Fase de Grupos</p>
         </div>
         <span className="match-count self-center text-sm text-muted-foreground max-[650px]:text-[12px] max-[650px]:whitespace-nowrap">
           {matches.length} partidas
@@ -115,7 +115,7 @@ function MatchCard({
         />
         <div className="match-card-shade absolute inset-0 bg-linear-to-b from-background/30 via-background/10 to-background/95" />
         <div className="match-card-top absolute inset-[15px_15px_auto] flex items-center justify-between gap-[7px]">
-          <span className="match-type text-foreground/90 text-[12px] tracking-[1.4px] font-semibold text-shadow-sm text-shadow-background/50">
+          <span className="match-type text-foreground/90 text-[12px] tracking-normal font-semibold">
             Partida personalizada
           </span>
           <span

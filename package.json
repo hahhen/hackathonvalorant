@@ -12,6 +12,8 @@
     "import:assets": "node scripts/import-public-catalog.mjs",
     "verify:assets": "node scripts/validate-public-catalog.mjs",
     "verify:abilities": "node scripts/validate-abilities.mjs",
+    "verify:engine": "python -B -m unittest discover -s engine/tests -v",
+    "verify:engine:all": "python -B -m engine.regression",
     "verify:minimaps": "node scripts/validate-minimaps.mjs",
     "verify:inspector": "node scripts/validate-inspector.mjs",
     "import:match": "node scripts/import-match.mjs",
@@ -19,6 +21,9 @@
     "verify:ids": "node scripts/validate-valorant-ids.mjs",
     "verify:scoreboard": "node scripts/validate-player-metrics.mjs",
     "import:usp": "node scripts/import-usp-matches.mjs",
+    "import:furia": "node scripts/import-furia-matches.mjs",
+    "analyze:team": "python -B -m engine.team_analysis",
+    "verify:furia": "node scripts/validate-furia-matches.mjs",
     "verify:usp": "node scripts/validate-usp-matches.mjs"
   },
   "dependencies": {

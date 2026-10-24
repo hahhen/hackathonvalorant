@@ -1,26 +1,15 @@
 "use client";
-
-import { useId, useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import { Info, UserRound, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { agentImage } from "@/data/assets";
-import { mockRoundTips, type MockRoundTip } from "@/data/mock-round-tips";
-import { getTacticalTip, type TacticalTip } from "@/data/tactical-catalog";
-import { teamLabel } from "@/lib/teams";
+import { getTacticalTip } from "@/data/tactical-catalog";
+import { useAnalysis } from "@/lib/use-analysis";
 import { cn } from "@/lib/utils";
 import { tipCategoryTheme } from "@/lib/tip-category-theme";
-import type { MatchInfo, Player, Round } from "@/types/match";
+import type { CoachTip, MatchInfo, Player, Round } from "@/types/match";
 import { InferenceDialog, TipCategoryBadge } from "./tactical-tip";
+import { CoachingPlayerSelect } from "./coaching-player-select";
+import { AnalysisFeedback, FindingSample } from "./analysis-feedback";
 
 export function RoundCoachingTips({
   match,
@@ -31,183 +20,130 @@ export function RoundCoachingTips({
   round: Round;
   players: Player[];
 }) {
-  const selectorId = useId();
   const [playerId, setPlayerId] = useState(
-    () =>
-      players.find((player) => player.team === "horizon")?.id ?? players[0]?.id,
+    () => players.find((p) => p.team === "horizon")?.id ?? players[0]?.id,
   );
-  const [detail, setDetail] = useState<TacticalTip | null>(null);
-  const selected =
-    players.find((player) => player.id === playerId) ?? players[0];
-  const collective = mockRoundTips(match.id, round.number, "collective");
-  const individual = mockRoundTips(
+  const collective = useAnalysis(match.id, {
+    kind: "team",
+    period: "round",
+    round: round.number,
+  });
+  const individual = useAnalysis(
     match.id,
-    round.number,
-    "individual",
-    selected?.id,
+    { kind: "player", period: "round", round: round.number, playerId },
+    !!playerId,
   );
-  const roundLabel = `Round ${String(round.number).padStart(2, "0")}`;
   return (
     <section
-      data-tip-mode="mock"
+      data-tip-mode="computed"
       className="mb-5 rounded-lg border border-border bg-card p-5 max-[650px]:p-3.5"
-      aria-label={`Dicas do round ${round.number}`}
+      aria-label={`Pontos para revisar do round ${round.number}`}
     >
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-base font-medium">
-          Dicas do {roundLabel.toLowerCase()}
-        </h2>
-      </div>
+      <h2 className="mb-5 text-base font-medium">
+        Pontos para revisar · Round {String(round.number).padStart(2, "0")}
+      </h2>
       <div className="grid min-w-0 grid-cols-2 gap-5 max-[800px]:grid-cols-1">
         <section
-          aria-label={`Dicas coletivas do round ${round.number}`}
           className="min-w-0"
+          aria-label={`Pontos coletivos do round ${round.number}`}
         >
           <div className="mb-4 flex min-h-16 items-center gap-2">
             <Users className="size-4 text-team-friendly" />
-            <h3 className="text-sm font-medium">Dicas coletivas · Meu time</h3>
+            <h3 className="text-sm font-medium">Coletivos · Meu time</h3>
           </div>
-          <div className="grid gap-3">
-            {collective.map((finding) => (
-              <RoundTip key={finding.id} finding={finding} onInfo={setDetail} />
-            ))}
-          </div>
+          <AnalysisFeedback state={collective} />
+          <AnalysisTipList
+            key={`team:${round.number}`}
+            tips={collective.data?.tips ?? []}
+          />
         </section>
         <section
-          aria-label={`Dicas individuais do round ${round.number}`}
           className="min-w-0"
+          aria-label={`Pontos individuais do round ${round.number}`}
         >
           <div className="mb-4 flex min-h-16 items-center justify-between gap-3 max-[500px]:flex-wrap">
             <h3 className="flex shrink-0 items-center gap-2 text-sm font-medium">
               <UserRound className="size-4 text-muted-foreground" />
-              Dicas individuais
+              Individuais
             </h3>
-            <label htmlFor={selectorId} className="sr-only">
-              Jogador para dicas individuais
-            </label>
-            <Select value={selected?.id} onValueChange={setPlayerId}>
-              <SelectTrigger
-                id={selectorId}
-                data-coaching-player={selected?.id}
-                className="h-16! w-full min-w-0 max-w-80 bg-muted text-left text-sm max-[500px]:max-w-none"
-              >
-                <SelectValue
-                  placeholder="Selecionar jogador"
-                  className="min-w-0 flex-1"
-                >
-                  {selected ? (
-                    <span className="flex min-w-0 items-center gap-3">
-                      <Image
-                        src={agentImage(selected.agent)}
-                        alt=""
-                        width={36}
-                        height={36}
-                        className="size-9 shrink-0 rounded bg-card object-cover"
-                      />
-                      <span className="min-w-0">
-                        <span className="block truncate font-medium text-foreground">
-                          {selected.name}#{selected.tag}
-                        </span>
-                        <span className="block truncate text-sm text-muted-foreground">
-                          {selected.agent} · {teamLabel(selected.team)}
-                        </span>
-                      </span>
-                    </span>
-                  ) : null}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent position="popper" align="end">
-                {(["horizon", "orbit"] as const).map((team) => (
-                  <SelectGroup key={team}>
-                    <SelectLabel>{teamLabel(team)}</SelectLabel>
-                    {players
-                      .filter((player) => player.team === team)
-                      .map((player) => (
-                        <SelectItem
-                          key={player.id}
-                          value={player.id}
-                          textValue={`${player.name} ${player.tag} ${player.agent}`}
-                        >
-                          <Image
-                            src={agentImage(player.agent)}
-                            alt=""
-                            width={32}
-                            height={32}
-                            className="size-8 shrink-0 rounded bg-muted object-cover"
-                          />
-                          <span className="min-w-0">
-                            <span className="block truncate font-medium">
-                              {player.name}#{player.tag}
-                            </span>
-                            <span className="block text-sm text-muted-foreground">
-                              {player.agent}
-                            </span>
-                          </span>
-                        </SelectItem>
-                      ))}
-                  </SelectGroup>
-                ))}
-              </SelectContent>
-            </Select>
+            <CoachingPlayerSelect
+              players={players}
+              playerId={playerId}
+              onPlayer={setPlayerId}
+            />
           </div>
-          {selected ? (
-            <>
-              <div className="grid gap-3">
-                {individual.map((finding) => (
-                  <RoundTip
-                    key={finding.id}
-                    finding={finding}
-                    onInfo={setDetail}
-                  />
-                ))}
-              </div>
-            </>
-          ) : (
-            <p className="text-sm text-muted-foreground">
-              Nenhum jogador disponível neste round.
-            </p>
-          )}
+          <AnalysisFeedback state={individual} />
+          <AnalysisTipList
+            key={`${playerId}:${round.number}`}
+            tips={individual.data?.tips ?? []}
+          />
         </section>
       </div>
-      <InferenceDialog tip={detail} onClose={() => setDetail(null)} />
     </section>
   );
 }
 
-function RoundTip({
-  finding,
-  onInfo,
+export function AnalysisTipList({
+  tips,
+  onRound,
 }: {
-  finding: MockRoundTip;
-  onInfo: (tip: TacticalTip) => void;
+  tips: CoachTip[];
+  onRound?: (round: number) => void;
 }) {
-  const tip = getTacticalTip(finding.tipId);
+  const [expanded, setExpanded] = useState(false);
+  const [detail, setDetail] = useState<CoachTip | null>(null);
   return (
-    <article
-      data-mock-round={finding.round}
-      data-mock-scope={finding.scope}
-      data-mock-player={finding.playerId}
-      data-tip-category={tip.tipo}
-      className={cn("rounded-md border p-4", tipCategoryTheme(tip.tipo).card)}
-    >
-      <div className="mb-2 flex items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-2">
-          <TipCategoryBadge categoryId={tip.tipo} />
-          <span className="text-[12px] text-muted-foreground">#{tip.id}</span>
-        </div>
-        <Button
-          variant="ghost"
-          size="icon-xs"
-          aria-label={`Como é inferida a dica ${tip.id}`}
-          onClick={() => onInfo(tip)}
-        >
-          <Info />
+    <div className="grid gap-3">
+      {(expanded ? tips : tips.slice(0, 3)).map((finding) => {
+        const tip = getTacticalTip(finding.id);
+        return (
+          <article
+            key={finding.analysis?.recommendationId ?? finding.id}
+            data-tip-category={tip.tipo}
+            data-recommendation-id={finding.analysis?.recommendationId}
+            className={cn(
+              "rounded-md border p-4",
+              tipCategoryTheme(tip.tipo).card,
+            )}
+          >
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <TipCategoryBadge categoryId={tip.tipo} />
+                <span className="text-sm text-muted-foreground">#{tip.id}</span>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon-xs"
+                aria-label={`Como é inferida a dica ${tip.id}`}
+                onClick={() => setDetail(finding)}
+              >
+                <Info />
+              </Button>
+            </div>
+            <h4 className="mb-2 text-sm font-medium leading-relaxed">
+              {tip.titulo}
+            </h4>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {tip.descricao}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground">
+              {finding.observation}
+            </p>
+            <FindingSample finding={finding} />
+          </article>
+        );
+      })}
+      {tips.length > 3 && (
+        <Button variant="outline" onClick={() => setExpanded(!expanded)}>
+          {expanded ? "Mostrar menos" : `Ver os ${tips.length} pontos para revisar`}
         </Button>
-      </div>
-      <h4 className="mb-2 text-sm font-medium leading-relaxed">{tip.titulo}</h4>
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        {tip.descricao}
-      </p>
-    </article>
+      )}
+      <InferenceDialog
+        tip={detail ? getTacticalTip(detail.id) : null}
+        finding={detail ?? undefined}
+        onClose={() => setDetail(null)}
+        onRound={onRound}
+      />
+    </div>
   );
 }

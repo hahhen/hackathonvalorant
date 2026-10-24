@@ -2,7 +2,7 @@
 
 Documentação de trabalho e handoff do motor ficam em `docs/internal/`, preservados localmente e ignorados pelo Git. Essa pasta não é necessária para executar a aplicação.
 
-Base de interface para o hackathon SEMCOMP: Next.js App Router, TypeScript, Tailwind CSS 4, shadcn/ui e Geist. Identidade com as cores `#FF4655`, `#0C1824` e `#FFFFFF`. A plataforma exibe somente as quatro partidas da USP Stars fornecidas pela organização: 72 rounds e 594 eventos. Estatísticas e snapshots vêm desses arquivos; as dicas round a round continuam mockadas, sem motor de recomendações executado.
+Base de interface para o hackathon SEMCOMP: Next.js App Router, TypeScript, Tailwind CSS 4, shadcn/ui e Geist. Identidade com as cores `#FF4655`, `#0C1824` e `#FFFFFF`. A plataforma exibe as 12 partidas da FURIA UTFPR na Classificatória 3 (7) e na Fase de Grupos (5): 237 rounds, 1.682 registros de mortes e 1.910 eventos de replay. Estatísticas, snapshots e pontos para revisar vêm dos JSONs da organização e do motor Python 0.4.0. Não há dicas mockadas nas partidas ativas.
 
 ## Rodar
 
@@ -48,34 +48,45 @@ Os estilos de layout, componentes e estados usam classes Tailwind nos arquivos T
 - Perfil lateral de jogador, com estatísticas e exemplo de dica individual.
 - Seletor de rounds e linha do tempo com kills, plants e defuses registrados; resultado do round mostra eliminação, tempo, explosão ou defuse.
 - Fotogramas de eventos com retratos dos sobreviventes, local da morte e orientação horizontal; controles para mostrar nomes e direções.
-- Biblioteca completa com as 110 dicas analisáveis do Markdown, divididas em dez tipos; cards de categorias e página para cada tipo.
+- Biblioteca com as 100 dicas gerais do Markdown, divididas em nove tipos; cards de categorias e página para cada tipo.
 - Cada dica contém uma descrição fiel às transcrições e classificação mensurável/indício/mista. O botão ⓘ abre método de inferência, campos exatos do JSON, limites e referências; dicas espaciais sinalizam a dependência de geometria do mapa.
 - Busca global e por tipo, incluindo as descrições, sem distinguir acentos; filtros de mensuráveis e indícios incluem os itens mistos em ambos os recortes.
-- Na partida, catálogo separado por tipo com observações de exemplo e botões para os rounds relacionados. O catálogo global não mostra evidências de uma partida específica.
+- Na partida, catálogo separado por tipo com ocorrências calculadas e botões para os rounds relacionados. O catálogo global não mostra evidências de uma partida específica.
 - Abas de revisão maiores, com somente holofote na aba ativa.
-- Cartão de foco do próximo treino, com prioridade **mockada**, sem motor de recomendação implementado.
+- Cartão de foco selecionado da ordem de prioridade do motor, somente com cobertura completa e prioridade acima de baixa; sem foco inventado quando faltam evidências.
 - Exportação do fixture completo para JSON.
 - Layout responsivo, diálogos/sheet acessíveis por teclado e preferência de movimento reduzido.
 
-O inspetor usa minimapas locais, com retratos, nomes, direções, morte e spike. Nas quatro partidas ativas, projeta diretamente as coordenadas world do JSON. Não há animação que invente movimento entre eventos. A seleção individual é um card com retrato, nome e agente no cabeçalho das dicas, sem resumo duplicado abaixo.
+O inspetor usa minimapas locais, com retratos, nomes, direções, morte e spike. Nas 12 partidas ativas, projeta diretamente as coordenadas world do JSON. Não há animação que invente movimento entre eventos. A seleção individual é um card com retrato, nome e agente no cabeçalho das dicas, sem resumo duplicado abaixo.
 
-## Partidas da USP Stars
+## Partidas da FURIA UTFPR
 
-| Adversário            | Mapa  | Placar | ID na rota `/partidas/[id]`            |
-| --------------------- | ----- | ------ | -------------------------------------- |
-| Liga Vulkanica        | Lotus | 13 × 2 | `fc92e080-4f8e-4ed6-a345-a593796d8755` |
-| Macklogic White       | Haven | 13 × 7 | `d8282745-93b7-4a7c-b5e7-873e4779e2d3` |
-| Brutal Esports        | Lotus | 13 × 6 | `d89e1826-76a4-4fbb-91f1-a971127ba4a2` |
-| CEUB Octopus Vulgaris | Haven | 13 × 5 | `ca8290e9-82e4-43f0-b0dc-6139ca6219a9` |
+| Fase              | Adversário            | Mapa   | Placar da FURIA |
+| ----------------- | --------------------- | ------ | --------------- |
+| Classificatória 3 | UFG Eagles Blue       | Lotus  | 13 × 7          |
+| Classificatória 3 | CEUB Octopus Vulgaris | Split  | 5 × 13          |
+| Classificatória 3 | UFPR BBN              | Ascent | 13 × 8          |
+| Classificatória 3 | PUCGO Sistemática     | Lotus  | 13 × 11         |
+| Classificatória 3 | INATEL                | Lotus  | 13 × 11         |
+| Classificatória 3 | FEI Darkowls          | Lotus  | 13 × 11         |
+| Classificatória 3 | CAAP Malditos         | Summit | 13 × 9          |
+| Fase de Grupos    | CAAP Hellhounds       | Lotus  | 5 × 13          |
+| Fase de Grupos    | CAAP Hellhounds       | Ascent | 5 × 13          |
+| Fase de Grupos    | TOTALE UMC            | Ascent | 5 × 13          |
+| Fase de Grupos    | TOTALE UMC            | Sunset | 1 × 13          |
+| Fase de Grupos    | USP Stars             | Sunset | 3 × 13          |
 
-`src/data/official-matches.ts` reúne os dados processados de `src/data/matches/`. USP Stars é Meu time (`horizon`) nas quatro partidas: Red nas três primeiras e Blue contra a CEUB. Os nomes das organizações ficam nos metadados, não nos cards. Fixtures antigos de Ascent permanecem apenas para regressão dos validadores e não são rotas ativas da biblioteca.
+O manifesto [src/data/team-sources.json](src/data/team-sources.json) lista caminhos brutos, IDs das rotas, hashes, fase, adversário e lado original. Os cinco PUUIDs compartilhados identificam a FURIA: Blue em 11 partidas, Red contra a USP Stars. A ordem dos nomes no arquivo não determina Red/Blue. Meu time continua `horizon` na UI, independentemente da cor original.
+
+`src/data/official-matches.ts` expõe somente essas 12 partidas. Dados anteriores foram preservados para regressão, mas não são rotas ativas. Imagens de Sunset e Summit vêm do catálogo oficial já local; sem downloads em runtime.
 
 ```bash
-npm run import:usp
-npm run verify:usp
+npm run import:furia
+npm run analyze:team
+npm run verify:furia
 ```
 
-O importador usa os quatro arquivos em `Dados .Json/Univavá/Classificatória 4/`. O validador confere hashes, rosters, lados, estatísticas, loadouts e todos os eventos contra os originais. Todos os 29 agentes têm retrato no catálogo oficial 13.08; nenhum download é realizado em runtime.
+O importador preserva um mapa explícito `source.localPlayerToPuuid` e `friendlyTeamId`. O Python verifica o hash do manifesto e gera as 12 análises em `src/data/analyses/`. O validador cruza todos os placares, rosters, lados, estatísticas, loadouts, eventos e os quatro recortes de dicas com os originais; também testa identidades inválidas e hashes incompatíveis.
 
 `scripts/import-match.mjs` transforma o arquivo local em `src/data/official-match.json`, mantendo coordenadas e ângulos sem arredondamento e substituindo PUUIDs por IDs locais consistentes. Usa apenas os catálogos de assets já presentes; nenhuma API é consultada. O arquivo original não é alterado ou enviado a um serviço. SHA-256, nome e versão da partida ficam registrados no resultado.
 
@@ -102,7 +113,32 @@ ACS é score/rounds; ADR soma danos registrados contra adversários e divide pel
 
 FK conta a primeira eliminação de adversário por round; FD conta quem sofreu a primeira morte, incluindo ambiente/suicídio. Empates no milissegundo contam para todos os envolvidos, sem escolher pela ordem dos arrays. KAST é calculado localmente: percentual de rounds com kill contra adversário, assistência registrada, nenhuma morte registrada ou morte respondida por um companheiro que elimina o autor em até 3 s no mesmo round. Cada round conta uma vez; não reconstitui sobrevivência após ressurreições. Essa é uma convenção analítica explicitada na UI, não um campo oficial do JSON. Mocks sem FD/KAST permanecem com “—”.
 
-A resposta de morte exige um companheiro matar o autor da morte em até 3 s, no mesmo round; isso não prova uma troca tática planejada. Achados e dica principal fictícios não são exibidos nessa partida: o motor de recomendações ainda não foi executado.
+A resposta de morte exige um companheiro matar o autor da morte em até 3 s, no mesmo round; isso não prova uma troca tática planejada. As dicas das partidas ativas são resultados calculados pelo motor, nunca amostras aleatórias. Recortes parciais e regras não avaliáveis ficam explícitos.
+
+## Motor de dicas em Python
+
+O motor 0.4.0 de `engine/` integra Economia (001–014), Pistol (015–022), Posicionamento (023–038), Trabalho em equipe (039–056), Objetivo (057–072), Clutch (073–080), Operator (081–088), Mira e treino (089–094) e Habilidades e composição (095–100), usando o dicionário compartilhado em `engine/data/valorant-ids.json`. As três entregas usam um contexto, ledger de oportunidades, contrato e priorizador únicos. A documentação de uso e a matriz de observabilidade ficam em [engine/README.md](engine/README.md).
+
+Desde 0.4.0, `recommendations` contém **somente pontos para revisar**, selecionados por `engine/review_policy.py`, sem filtrar pelo texto no frontend. Inventários, contribuições positivas e fatos descritivos continuam em `occurrences`/`coverage` para auditoria, mas não viram recomendações. A política começa conservadora, com nove gatilhos admitidos; os demais IDs continuam no catálogo e são avaliados, sem serem apresentados como falhas. Sinais redundantes são suprimidos antes de montar os recortes geral/round, preservando a mesma seleção para equipe/jogador. Nenhuma quantidade de cards é obrigatória e ponto para revisar não significa erro comprovado. Para atualizar as 12 partidas: `npm run analyze:team`. A API rejeita saídas antigas do motor, em vez de apresentar contextos como problemas.
+
+```powershell
+python -B -m engine "caminho/partida.json" --output "resultado.json"
+npm run verify:engine
+npm run verify:engine:all
+python -B -m engine.regression --write-usp
+```
+
+O arquivo final segue o contrato 1.1.0, com cobertura, ocorrências e recomendações nos quatro recortes. A única extensão do contrato é `sample.unit = "match"`, para casts totais, composição e inventários que não podem ser localizados em rounds específicos. O exemplo interno 1.0.0 continua válido. Schema em `engine/schemas/analysis-result.schema.json`.
+
+Sem geometria anotada real, as regras 024, 027, 028, 029, 031, 032, 034, 036 e 038 retornam não avaliável. As regras 045, 048, 060, 068, 069, 076, 077, 083 e 099 também não inventam geometria ou intenção. Outras regras espaciais produzem somente recortes parciais declarados. Os 100 IDs estão registrados, mas isso não torna todo conselho inferível dos JSONs. As 12 saídas da FURIA ficam em `src/data/analyses/` e alimentam a UI. Os parâmetros 001–038 ficam no objeto `early` da configuração; exemplo em `engine/config.example.json`.
+
+### Integração da análise na interface
+
+A rota **interna** `GET /api/analyses/[id]` lê exclusivamente os resultados locais do Python, sem consultar APIs de VALORANT. Aceita `kind=team|player`, `period=match|round`, `round` e o ID local `player`. Valida partida ativa, hash, versão do catálogo/schema e mapeamento explícito de identidades. Resultado ausente/incompatível mostra erro/estado vazio; nunca cai em mock.
+
+Os arquivos integrais do motor não entram no bundle do navegador. A rota envia somente o recorte consultado, com recomendações, cobertura, amostras e evidências; mantém no máximo dois resultados em cache e considera alteração do arquivo. O build inclui os JSONs no tracing da rota. Em deployment manual, preservar `src/data/analyses/`.
+
+Há análises coletivas e individuais no catálogo da partida e por round; o perfil do jogador também usa o resultado real. Cartões mantêm a descrição do catálogo e mostram a ocorrência calculada. O botão de informação expõe limites, amostra e ponteiros/valores de evidência. Listas de round começam com três itens e permitem expandir todas as dicas. Sequências econômicas gerais não são reclassificadas artificialmente como dicas de um único round.
 
 ## Organização
 
@@ -115,7 +151,7 @@ src/
   components/ui/             Componentes oficiais shadcn (editáveis)
   data/mock-library.ts       Partidas, mapas, placares e escalações
   data/mock-match.ts         Fixtures de scoreboard, eventos e achados por partida
-  data/tactical-tips.json    Catálogo canônico com todas as 110 dicas
+  data/tactical-tips.json    Catálogo canônico com as 100 dicas gerais
   data/tactical-catalog.ts   Tipos, consulta e filtros do catálogo
   data/assets.ts             Caminhos locais das imagens
   data/agents.json           Agentes e habilidades oficiais, slots, sprites e IDs relacionados
@@ -147,17 +183,17 @@ docs/
 
 ## Catálogo tático
 
-Os dez tipos têm cores próprias em `--tip-*`, centralizadas no tema shadcn. `src/lib/tip-category-theme.ts` compartilha as classes Tailwind para rótulos, bordas e fundos sutis entre categorias, cards globais, achados e dicas por round. Os nomes das categorias continuam visíveis; a identificação não depende só da cor. O contraste dos rótulos e a cobertura das 110 dicas são validados offline.
+Os nove tipos têm cores próprias em `--tip-*`, centralizadas no tema shadcn. `src/lib/tip-category-theme.ts` compartilha as classes Tailwind para rótulos, bordas e fundos sutis entre categorias, cards globais, achados e dicas por round. Os nomes das categorias continuam visíveis; a identificação não depende só da cor. O contraste dos rótulos e a cobertura das 100 dicas são validados offline.
 
-No inspetor, a seção **Dicas do round** apresenta dois exemplos coletivos para Meu time e dois individuais para o jogador selecionado. Os exemplos variam por round e jogador, mas são determinísticos: não mudam ao navegar entre eventos do mesmo round. A seleção inclui os dez jogadores e permanece ao avançar ou voltar rounds. A seção fica abaixo do replay, fora do componente que reinicia a seleção de eventos a cada round.
+No inspetor, a seção **Dicas do round** apresenta dois exemplos coletivos para Meu time e dois individuais para o jogador selecionado. Os exemplos variam por round e jogador, mas são determinísticos: não mudam ao navegar entre eventos do mesmo round. A seleção inclui os dez jogadores e permanece ao avançar ou voltar rounds. A ordem na aba é seletor/resumo de rounds, dicas e replay. As dicas ficam fora do componente que reinicia a seleção de eventos a cada round.
 
-`src/data/mock-round-tips.ts` contém os IDs das recomendações coletivas/individuais; títulos, descrições e método continuam vindo do catálogo canônico. Todos os itens têm `mode: "mock"`, round e, quando individuais, playerId. **Não são achados extraídos do JSON**, mesmo na partida real: o aviso “Mock · exemplos” separa essas sugestões dos eventos oficiais. O botão ⓘ abre a explicação de inferência, sem inventar evidências. O catálogo de achados da partida e o foco principal continuam sem um motor executado.
+`src/data/mock-round-tips.ts` contém os IDs das recomendações coletivas/individuais; títulos, descrições e método continuam vindo do catálogo canônico. Todos os itens têm `mode: "mock"`, round e, quando individuais, playerId. **Não são achados extraídos do JSON**, mesmo na partida real; os metadados de mock continuam explícitos no código. O botão ⓘ abre a explicação de inferência, sem inventar evidências. O motor Python já gera saídas separadas; o catálogo de achados e o foco da UI ainda não consomem essa análise parcial.
 
-`src/data/tactical-tips.json` é a fonte única da UI. Contém `tipos`, dicionário `campos` e uma lista `dicas`, com `id`, `tipo`, `titulo`, `descricao`, `classificacao`, `inferencia` e `origem`. `inferencia` preserva o método e as limitações do Markdown, lista os códigos dos campos utilizados e indica dependência de geometria e indícios fracos. Os dez itens específicos de Ascent têm a restrição `mapas`.
+`src/data/tactical-tips.json` é a fonte única da UI. Contém `tipos`, dicionário `campos` e uma lista `dicas`, com `id`, `tipo`, `titulo`, `descricao`, `classificacao`, `inferencia` e `origem`. `inferencia` preserva o método e as limitações do Markdown, lista os códigos dos campos utilizados e indica dependência de geometria e indícios fracos. Os dez itens específicos de Ascent (101–110) foram removidos, sem renumerar os outros.
 
-São todos os **110 itens analisáveis da seção 4** do documento, não 110 erros detectados. As exclusões da seção 5 continuam fora dos detectores. As descrições são paráfrases dos trechos das transcrições, adaptadas da linguagem falada para um pequeno parágrafo; resultados mensuráveis não comprovam decisões erradas. Métodos e limiares são propostas analíticas, não regras universais.
+São **100 itens gerais da seção 4** do documento histórico de 110 dicas, não 100 erros detectados. As exclusões da seção 5 continuam fora dos detectores. As descrições são paráfrases dos trechos das transcrições, adaptadas da linguagem falada para um pequeno parágrafo; resultados mensuráveis não comprovam decisões erradas. Métodos e limiares são propostas analíticas, não regras universais.
 
-Os achados da partida continuam fictícios e independentes dos eventos. Há onze exemplos em Ascent e dez nos outros mapas; referências a rounds inexistentes são removidas em partidas curtas. A validação `npm run verify:catalog` verifica cobertura 110/110, títulos, métodos, limites, categorias, campos, filtros e integridade dos exemplos nos seis mapas.
+Os achados da partida continuam fictícios e independentes dos eventos. Há dez exemplos nos mapas do protótipo; referências a rounds inexistentes são removidas em partidas curtas. A validação `npm run verify:catalog` verifica as 100 dicas gerais contra o MD histórico, títulos, métodos, limites, categorias, campos, filtros e integridade dos exemplos nos seis mapas.
 
 Fixtures de scoreboard, estatísticas e achados são independentes dos eventos demonstrativos; não são estatísticas derivadas deles. Ao conectar o backend, todas as visões deverão vir da mesma fonte processada. Os relatórios foram movidos para `docs/internal/` e os scripts de pesquisa para `docs/internal/scripts/`, todos preservados e ignorados pelo Git. Os scripts operacionais da aplicação continuam em `scripts/`.
 

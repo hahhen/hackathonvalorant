@@ -23,6 +23,9 @@ import { EventInspector } from "./event-inspector";
 import { RoundStrip } from "./round-strip";
 import { RoundCoachingTips } from "./round-coaching-tips";
 import { RoundSelector } from "./round-selector";
+import { AnalysisCatalog } from "./analysis-catalog";
+import { AnalysisFeedback } from "./analysis-feedback";
+import { useAnalysis } from "@/lib/use-analysis";
 import { PlayerSheet } from "./player-sheet";
 import { createMockCoachTips, createReviewData } from "@/data/mock-match";
 import { getOfficialReview } from "@/data/official-matches";
@@ -30,7 +33,7 @@ import type { CoachTip, MatchInfo, Player, View } from "@/types/match";
 const navigation = [
   { id: "overview" as const, title: "Visão geral" },
   { id: "rounds" as const, title: "Rounds e eventos" },
-  { id: "catalog" as const, title: "Catálogo tático" },
+  { id: "catalog" as const, title: "Pontos para revisar" },
 ];
 export function ReviewWorkspace({
   fixture,
@@ -41,15 +44,25 @@ export function ReviewWorkspace({
 }) {
   const isReal = fixture.dataMode === "official-json";
   const officialReview = getOfficialReview(fixture.id);
+  const analysis = useAnalysis(
+    fixture.id,
+    { kind: "team", period: "match" },
+    isReal,
+  );
   const data = useMemo(
     () => officialReview ?? createReviewData(fixture),
     [fixture, officialReview],
   );
   const coachTips = useMemo(
-    () => (isReal ? [] : createMockCoachTips(fixture)),
-    [fixture, isReal],
+    () => (isReal ? (analysis.data?.tips ?? []) : createMockCoachTips(fixture)),
+    [fixture, isReal, analysis.data],
   );
-  const focusTip = coachTips.find((item) => item.id === "025");
+  const focusTip = coachTips.find(
+    (item) =>
+      item.analysis &&
+      item.analysis.priority !== "low" &&
+      item.analysis.status === "complete",
+  );
   const [view, setView] = useState<View>(initialRound ? "rounds" : "overview");
   const [selectedRound, setSelectedRound] = useState(
     Math.max(
@@ -73,6 +86,7 @@ export function ReviewWorkspace({
             dataMode: isReal ? "official-json" : "mock",
             match: fixture,
             ...data,
+            analysis: analysis.data,
           },
           null,
           2,
@@ -112,9 +126,6 @@ export function ReviewWorkspace({
         />
         <div className="review-map-shade absolute inset-0 bg-linear-to-r from-background/95 via-background/65 to-background/35" />
         <div className="match-context relative z-1 [&_>_.eyebrow]:text-[12px] [&_>_.eyebrow]:text-muted-foreground [&_h2]:text-[28px] [&_h2]:font-[550] [&_h2]:tracking-[-0.8px] [&_h2]:mt-[5px] [&_h2]:mx-0 [&_h2]:mb-3 max-[650px]:w-full max-[650px]:[&_h2]:mb-2 max-[650px]:[&_h2]:text-[25px]">
-          <span className="eyebrow block text-[12px] text-muted-foreground tracking-[0.9px]">
-            {fixture.competition}
-          </span>
           <h2>{fixture.map}</h2>
           <span className="match-duration flex items-center flex-wrap gap-1.5 text-muted-foreground text-[13px] [&_>_span]:text-muted-foreground [&_>_span]:my-0 [&_>_span]:mx-1 max-[650px]:text-[12px] max-[650px]:gap-[5px]">
             <Clock3 size={13} />
@@ -229,13 +240,10 @@ export function ReviewWorkspace({
               </span>
               <div>
                 <span className="eyebrow block text-[12px] text-muted-foreground tracking-[0.9px]">
-                  Foco do próximo treino
+                  Prioridade para revisar
                 </span>
-                <h2>Preserve a vantagem do primeiro abate.</h2>
-                <p>
-                  Revise os rounds em que a primeira eliminação terminou em
-                  derrota.
-                </p>
+                <h2>{focusTip.title}</h2>
+                <p>{focusTip.observation}</p>
               </div>
               <Button
                 variant="outline"
@@ -259,6 +267,7 @@ export function ReviewWorkspace({
                 <h2>Pontos para revisar</h2>
                 <Badge variant="outline">{coachTips.length}</Badge>
               </div>
+              {isReal && <AnalysisFeedback state={analysis} />}
               {coachTips.slice(0, 3).map((item) => (
                 <TipCard
                   key={item.id}
@@ -272,7 +281,7 @@ export function ReviewWorkspace({
                 className="all-tips-button w-full border border-dashed border-border h-[35px] text-[13px] text-muted-foreground max-[1000px]:col-[1/-1]"
                 onClick={() => setView("catalog")}
               >
-                Ver catálogo
+                Ver pontos para revisar
                 <ArrowRight size={14} />
               </Button>
             </aside>
@@ -299,13 +308,17 @@ export function ReviewWorkspace({
           />
         </TabsContent>
         <TabsContent value="catalog" className="view-content m-0 min-w-0">
-          {isReal && (
-            <p className="mb-4 text-sm text-muted-foreground">
-              Os eventos desta partida vêm do JSON. O motor de dicas ainda não
-              foi executado; nenhum achado foi inventado.
-            </p>
+          {isReal ? (
+            <AnalysisCatalog
+              matchId={fixture.id}
+              players={data.players}
+              collective={analysis}
+              onTip={setTip}
+              onRound={openRound}
+            />
+          ) : (
+            <MatchCatalog tips={coachTips} onTip={setTip} onRound={openRound} />
           )}
-          <MatchCatalog tips={coachTips} onTip={setTip} onRound={openRound} />
         </TabsContent>
       </Tabs>
       <PlayerSheet

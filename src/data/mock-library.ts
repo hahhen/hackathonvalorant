@@ -9,7 +9,10 @@ export const mapNames: MapName[] = [
   "Icebox",
 ];
 
-export const mapRosters: Record<MapName, MatchInfo["agents"]> = {
+export const mapRosters: Record<
+  Exclude<MapName, "Sunset" | "Summit">,
+  MatchInfo["agents"]
+> = {
   Ascent: {
     horizon: ["Jett", "Sova", "Omen", "Killjoy", "KAY/O"],
     orbit: ["Raze", "Reyna", "Brimstone", "Cypher", "Sage"],
@@ -69,7 +72,7 @@ export function makeDemoMatch(
         color: "var(--primary)",
       },
     },
-    agents: mapRosters[map],
+    agents: mapRosters[map as keyof typeof mapRosters] ?? mapRosters.Ascent,
   };
 }
 

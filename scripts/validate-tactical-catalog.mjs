@@ -12,7 +12,11 @@ const hasResearchSource = existsSync(new URL(catalog.fonteDocumento, root));
 const rows = hasResearchSource
   ? read(catalog.fonteDocumento)
       .split(/\r?\n/)
-      .filter((line) => /^\| \*\*\d{3}\*\*/.test(line))
+      .filter(
+        (line) =>
+          /^\| \*\*\d{3}\*\*/.test(line) &&
+          Number(line.match(/\d{3}/)[0]) <= 100,
+      )
       .map((line) => {
         const cells = line
           .split("|")
@@ -35,18 +39,20 @@ if (!hasResearchSource)
   console.log(
     "MD interno ausente: verificando o catálogo canônico; comparação com o MD disponível apenas no ambiente de pesquisa.",
   );
-assert.equal(rows.length, 110);
+assert.equal(rows.length, 100);
 assert.equal(catalog.totalDicas, rows.length);
 assert.deepEqual(
   catalog.dicas.map((tip) => tip.id),
   rows.map((row) => row.id),
   "Cobertura e ordem de todos os IDs do MD",
 );
-assert.equal(new Set(catalog.dicas.map((tip) => tip.id)).size, 110);
-assert.equal(catalog.tipos.length, 10);
+assert.equal(new Set(catalog.dicas.map((tip) => tip.id)).size, 100);
+assert.equal(catalog.tipos.length, 9);
+assert.ok(!catalog.tipos.some((category) => category.id === "ascent"));
+assert.ok(!catalog.dicas.some((tip) => Number(tip.id) > 100));
 assert.equal(
   catalog.tipos.reduce((sum, category) => sum + category.total, 0),
-  110,
+  100,
 );
 for (const category of catalog.tipos) {
   assert.equal(
@@ -72,7 +78,6 @@ for (const [index, tip] of catalog.dicas.entries()) {
       catalog.campos[field]?.caminhos.length,
       `${tip.id}: campo ${field}`,
     );
-  if (Number(tip.id) >= 101) assert.deepEqual(tip.mapas, ["Ascent"]);
 }
 assert.equal(
   catalog.dicas.find((tip) => tip.id === "094").classificacao,
@@ -115,11 +120,11 @@ const { matchesTip, normalizeSearch } = loadModule(
 assert.equal(normalizeSearch("  POSIÇÃO  "), "posicao");
 assert.equal(
   catalog.dicas.filter((tip) => matchesTip(tip, "", "all")).length,
-  110,
+  100,
 );
 assert.equal(
-  catalog.dicas.filter((tip) => matchesTip(tip, "110", "all"))[0].id,
-  "110",
+  catalog.dicas.filter((tip) => matchesTip(tip, "100", "all"))[0].id,
+  "100",
 );
 assert.equal(
   catalog.dicas.filter((tip) =>
@@ -142,7 +147,6 @@ for (const match of demoMatches) {
     const tip = catalog.dicas.find((tip) => tip.id === finding.id);
     assert.ok(tip);
     assert.equal(finding.title, tip.titulo);
-    assert.ok(!tip.mapas || tip.mapas.includes(match.map));
     assert.ok(finding.rounds.length);
     for (const round of finding.rounds)
       assert.ok(
@@ -164,5 +168,5 @@ assert.equal(
   "Sem links para rounds inexistentes",
 );
 console.log(
-  `OK: ${hasResearchSource ? "110/110 dicas comparadas com o MD" : "110 dicas do catálogo canônico (sem comparação externa)"}; 10 tipos; campos, métodos e limites válidos; filtros e achados mockados válidos nos seis mapas.`,
+  `OK: ${hasResearchSource ? "100 dicas gerais comparadas com o MD histórico" : "100 dicas do catálogo canônico"}; 9 tipos; categoria Ascent removida; campos, filtros e achados válidos.`,
 );

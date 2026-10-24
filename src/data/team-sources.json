@@ -1,0 +1,113 @@
+{
+  "team": "FURIA UTFPR",
+  "entries": [
+    {
+      "file": "UNIVAVA_C3_012_15-08-26_furia_utfpr_13_x_7_ufg_eagles_blue_lotus.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_012_15-08-26_furia_utfpr_13_x_7_ufg_eagles_blue_lotus.json",
+      "stage": "Classificatória 3",
+      "matchId": "d766d406-4eb2-4166-9cce-c067db61dcba",
+      "sha256": "47ed00bac174915e4c8972d42483407a781604f45736c75a557692ece72a5be0",
+      "friendlyTeamId": "Blue",
+      "opponent": "UFG Eagles Blue"
+    },
+    {
+      "file": "UNIVAVA_C3_022_15-08-26_ceub_octopus_vulgaris_13_x_5_furia_utfpr_split.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_022_15-08-26_ceub_octopus_vulgaris_13_x_5_furia_utfpr_split.json",
+      "stage": "Classificatória 3",
+      "matchId": "898d4f25-f93f-48c4-ab69-b7cb9bbc7fdf",
+      "sha256": "6b7dd975c9a5509a03301e60121e5cfa006d83ef023bd52b0f2138487588e909",
+      "friendlyTeamId": "Blue",
+      "opponent": "CEUB Octopus Vulgaris"
+    },
+    {
+      "file": "UNIVAVA_C3_045_15-08-26_furia_utfpr_13_x_8_ufpr_bbn_ascent.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_045_15-08-26_furia_utfpr_13_x_8_ufpr_bbn_ascent.json",
+      "stage": "Classificatória 3",
+      "matchId": "8a698c76-27d6-43b2-bcc6-6ed2af391bfb",
+      "sha256": "a72a8dcdd241826a2705037c3ca46169b13c2e01156f996cf8288d9f1da18d97",
+      "friendlyTeamId": "Blue",
+      "opponent": "UFPR BBN"
+    },
+    {
+      "file": "UNIVAVA_C3_050_15-08-26_furia_utfpr_13_x_11_pucgo_sistematica_lotus.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_050_15-08-26_furia_utfpr_13_x_11_pucgo_sistematica_lotus.json",
+      "stage": "Classificatória 3",
+      "matchId": "af7e7ac5-8a55-4eac-b820-acaa4fa6be0a",
+      "sha256": "3c6f80d989d089320c2345763a883e70887792360265f947d8314dabbf7e5e31",
+      "friendlyTeamId": "Blue",
+      "opponent": "PUCGO Sistemática"
+    },
+    {
+      "file": "UNIVAVA_C3_054_16-08-26_furia_utfpr_13_x_11_inatel_lotus.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_054_16-08-26_furia_utfpr_13_x_11_inatel_lotus.json",
+      "stage": "Classificatória 3",
+      "matchId": "4c0efe60-6b96-439c-8738-e1a935463eac",
+      "sha256": "2d3701fbecc12896eb300b4c1e2a91f5c53d1f4c3bbe029967fd438be4483fc4",
+      "friendlyTeamId": "Blue",
+      "opponent": "INATEL"
+    },
+    {
+      "file": "UNIVAVA_C3_057_16-08-26_fei_darkowls_11_x_13_furia_utfpr_lotus.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_057_16-08-26_fei_darkowls_11_x_13_furia_utfpr_lotus.json",
+      "stage": "Classificatória 3",
+      "matchId": "90b280c1-157c-4c78-b64b-c58d32de675d",
+      "sha256": "e86829b9c16d8724cd8d586c678107af61660d936a8c7d1196cdb8e2329d9aa7",
+      "friendlyTeamId": "Blue",
+      "opponent": "FEI Darkowls"
+    },
+    {
+      "file": "UNIVAVA_C3_059_16-08-26_caap_malditos_9_x_13_furia_utfpr_summit.json",
+      "path": "Dados .Json/Univavá/Classificatória 3/UNIVAVA_C3_059_16-08-26_caap_malditos_9_x_13_furia_utfpr_summit.json",
+      "stage": "Classificatória 3",
+      "matchId": "304e0da1-3603-4a89-9fd4-5e6c593b5415",
+      "sha256": "da88a6af4c0704e25901330522e12320d90dca699dec3f73df86b9a832e30f14",
+      "friendlyTeamId": "Blue",
+      "opponent": "CAAP Malditos"
+    },
+    {
+      "file": "UNIVAVA_G_006a_19-09-26_caap_hellhounds_13_x_5_furia_utfpr_lotus.json",
+      "path": "Dados .Json/Univavá/Fase de Grupos/UNIVAVA_G_006a_19-09-26_caap_hellhounds_13_x_5_furia_utfpr_lotus.json",
+      "stage": "Fase de Grupos",
+      "matchId": "c5817e1b-e646-482a-bab3-00bf62cb8cec",
+      "sha256": "cbb5b051b1cf2c996e8619013686d522b60445dfb2e9bbc9b7f601a5a63b58a6",
+      "friendlyTeamId": "Blue",
+      "opponent": "CAAP Hellhounds"
+    },
+    {
+      "file": "UNIVAVA_G_006b_19-09-26_caap_hellhounds_13_x_5_furia_utfpr_ascent.json",
+      "path": "Dados .Json/Univavá/Fase de Grupos/UNIVAVA_G_006b_19-09-26_caap_hellhounds_13_x_5_furia_utfpr_ascent.json",
+      "stage": "Fase de Grupos",
+      "matchId": "0e2f642e-2d12-492e-a05b-3161bbbd071e",
+      "sha256": "44a63ab93750a6ecf3891adfbe8bf4a87bdef714a2a4c905cff99b5ef2bcf3b5",
+      "friendlyTeamId": "Blue",
+      "opponent": "CAAP Hellhounds"
+    },
+    {
+      "file": "UNIVAVA_G_016a_19-09-26_furia_utfpr_5_x_13_totale_umc_ascent.json",
+      "path": "Dados .Json/Univavá/Fase de Grupos/UNIVAVA_G_016a_19-09-26_furia_utfpr_5_x_13_totale_umc_ascent.json",
+      "stage": "Fase de Grupos",
+      "matchId": "07b0fd61-deff-4d9c-be6c-02ce94f2d96c",
+      "sha256": "d8ba0f92214e3c28af9e9d1fe91a15bfa712e6d77d936404bf6da2e1726c7468",
+      "friendlyTeamId": "Blue",
+      "opponent": "TOTALE UMC"
+    },
+    {
+      "file": "UNIVAVA_G_016b_19-09-26_furia_utfpr_1_x_13_totale_umc_sunset.json",
+      "path": "Dados .Json/Univavá/Fase de Grupos/UNIVAVA_G_016b_19-09-26_furia_utfpr_1_x_13_totale_umc_sunset.json",
+      "stage": "Fase de Grupos",
+      "matchId": "349d67ff-4c5a-4b6f-b538-b2323220086d",
+      "sha256": "539b3ed58b1d09487ed753c26a3fac0a7a03b4cf699376bbc76b4f81ae251c58",
+      "friendlyTeamId": "Blue",
+      "opponent": "TOTALE UMC"
+    },
+    {
+      "file": "UNIVAVA_G_024a_20-09-26_furia_utfpr_3_x_13_usp_stars_sunset.json",
+      "path": "Dados .Json/Univavá/Fase de Grupos/UNIVAVA_G_024a_20-09-26_furia_utfpr_3_x_13_usp_stars_sunset.json",
+      "stage": "Fase de Grupos",
+      "matchId": "1f65f3b7-195b-4c39-91c2-5c96d029a9c4",
+      "sha256": "ac6847ccbcf0d48f6adfbf4583a885662d36491dfd8a2911494d8ae219199453",
+      "friendlyTeamId": "Red",
+      "opponent": "USP Stars"
+    }
+  ]
+}

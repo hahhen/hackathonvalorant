@@ -11,7 +11,6 @@ import {
   Fingerprint,
   Focus,
   Layers3,
-  Map,
   Search,
   Shield,
   Swords,
@@ -39,7 +38,6 @@ const categoryIcons: Record<string, LucideIcon> = {
   operator: Fingerprint,
   mira: Crosshair,
   habilidades: Layers3,
-  ascent: Map,
 };
 export function TipFilters({
   query,

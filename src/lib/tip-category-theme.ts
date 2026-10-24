@@ -48,11 +48,6 @@ const themes: Record<string, { text: string; badge: string; card: string }> = {
       "text-tip-habilidades bg-tip-habilidades/10 border-tip-habilidades/30",
     card: "border-tip-habilidades/30 bg-tip-habilidades/5 hover:border-tip-habilidades/60",
   },
-  ascent: {
-    text: "text-tip-ascent",
-    badge: "text-tip-ascent bg-tip-ascent/10 border-tip-ascent/30",
-    card: "border-tip-ascent/30 bg-tip-ascent/5 hover:border-tip-ascent/60",
-  },
 };
 export const tipCategoryTheme = (id: string) =>
   themes[id] ?? {

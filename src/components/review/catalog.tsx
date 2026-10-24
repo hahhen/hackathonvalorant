@@ -109,14 +109,13 @@ export function MatchCatalog({
     <section className="catalog-section p-0 match-catalog">
       <div className="match-catalog-summary flex items-start justify-between gap-5 mt-2 mx-0 mb-6 [&_h2]:text-[21px] [&_h2]:font-[550] [&_p]:text-[14px] [&_p]:text-muted-foreground [&_p]:mt-[7px] [&_p]:leading-[1.7] [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-1.5 [&_>_a]:text-primary [&_>_a]:text-[14px] [&_>_a]:shrink-0 [&_>_a]:pt-1.5 max-[800px]:flex-col max-[800px]:gap-2.5">
         <div>
-          <h2>Dicas desta partida</h2>
+          <h2>Pontos para revisar</h2>
           <p>
-            {tips.length} achados de exemplo, agrupados por tipo. Os rounds
-            abaixo são mockados.
+            {tips.length} pontos identificados neste recorte, agrupados por tipo.
           </p>
         </div>
         <Link href="/catalogo">
-          Ver as 110 dicas
+          Ver as 100 dicas
           <ArrowUpRight size={15} />
         </Link>
       </div>
@@ -156,7 +155,7 @@ export function MatchCatalog({
             <div className="match-tip-group-heading flex items-center gap-3 mb-[15px] [&_>_h3]:text-[17px] [&_>_h3]:font-[550] [&_>_span]:text-muted-foreground [&_>_span]:text-sm [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-[5px] [&_>_a]:ml-auto [&_>_a]:text-muted-foreground [&_>_a]:text-[13px] max-[650px]:flex-wrap max-[650px]:gap-2 max-[650px]:[&_>_h3]:text-base">
               <h3 className={tipCategoryTheme(group.id).text}>{group.nome}</h3>
               <span>
-                {group.tips.length} {group.tips.length === 1 ? "dica" : "dicas"}
+                {group.tips.length} {group.tips.length === 1 ? "ponto" : "pontos"}
               </span>
               <Link href={`/catalogo/${group.id}`}>
                 Ver tipo completo
@@ -179,7 +178,7 @@ export function MatchCatalog({
       </div>
       {!filtered.length && (
         <div className="empty-state py-[45px]! px-5! text-center text-muted-foreground text-sm [&_button]:block [&_button]:mt-2 [&_button]:mx-auto [&_button]:mb-0 [&_button]:text-[13px]">
-          Nenhuma dica desta partida para os filtros selecionados.
+          Nenhum ponto para revisar com os filtros selecionados.
         </div>
       )}
     </section>

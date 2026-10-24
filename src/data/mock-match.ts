@@ -444,19 +444,12 @@ const findingSeeds = [
       "Exemplo de finalização por habilidade para revisar sua relação temporal com o objetivo.",
     rounds: [6, 19],
   },
-  {
-    id: "110",
-    observation:
-      "Exemplo de confrontos nas entradas B de Ascent para revisar pontos críticos e trocas.",
-    rounds: [5, 18],
-  },
 ];
 
 export function createMockCoachTips(info: MatchInfo): CoachTip[] {
   const total = info.teams.horizon.score + info.teams.orbit.score;
   return findingSeeds.flatMap((seed) => {
     const tip = getTacticalTip(seed.id);
-    if ("mapas" in tip && tip.mapas && !tip.mapas.includes(info.map)) return [];
     const relatedRounds = seed.rounds.filter((round) => round <= total);
     if (!relatedRounds.length) return [];
     return [
