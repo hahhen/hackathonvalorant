@@ -3,13 +3,13 @@ import { CatalogWorkspace } from "@/components/review/catalog-workspace";
 import { tipCategories } from "@/data/tactical-catalog";
 
 export function generateStaticParams() {
-  return tipCategories.map((category) => ({ tipo: category.id }));
+  return tipCategories.map((category) => ({ type: category.id }));
 }
 
 export default async function CategoryPage({
   params,
 }: {
-  params: Promise<{ tipo: string }>;
+  params: Promise<{ type: string }>;
 }) {
   const { type } = await params;
   if (!tipCategories.some((category) => category.id === tipo)) notFound();
