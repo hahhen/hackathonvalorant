@@ -28,10 +28,10 @@ export function AppShell({
   activeView?: string;
 }) {
   return (
-    <div className="workspace min-h-screen">
+    <div className="workspace min-h-screen [&_h1]:font-['Schabo_Condensed',Impact,sans-serif] [&_h2]:font-['Schabo_Condensed',Impact,sans-serif] [&_h3]:font-['Schabo_Condensed',Impact,sans-serif]">
       <aside className="sidebar fixed inset-y-0 left-0 z-20 flex w-56 flex-col border-r border-border bg-sidebar px-3.5 py-4.5 max-[1000px]:w-18 max-[1000px]:px-2.5 max-[650px]:hidden">
         <Link
-          href="/"
+          href="/app"
           className="brand mb-9.5 flex h-16 items-center justify-center max-[1000px]:mb-7"
           aria-label="Afterplant, partidas"
         >
@@ -53,7 +53,7 @@ export function AppShell({
         </Link>
         <nav className="grid gap-2" aria-label="Navegação principal">
           <Link
-            href="/"
+            href="/app"
             aria-label="Partidas"
             className={cn(navItem, section === "matches" && activeItem)}
             aria-current={section === "matches" ? "page" : undefined}
@@ -62,7 +62,7 @@ export function AppShell({
             <span>Partidas</span>
           </Link>
           <Link
-            href="/catalogo"
+            href="/app/catalogo"
             aria-label="Catálogo tático"
             className={cn(navItem, section === "catalog" && activeItem)}
             aria-current={section === "catalog" ? "page" : undefined}
@@ -99,7 +99,7 @@ export function AppShell({
         <header className="topbar flex h-18 items-center justify-between gap-3.5 border-b border-border px-9 max-[1000px]:px-6 max-[650px]:h-16 max-[650px]:px-4.5">
           <div className="breadcrumb flex items-center gap-3 text-sm text-muted-foreground max-[650px]:gap-2 max-[650px]:text-[12px]">
             <Link
-              href="/"
+              href="/app"
               className="mobile-brand hidden max-[650px]:block"
               aria-label="Afterplant, partidas"
             >
@@ -108,7 +108,7 @@ export function AppShell({
             {section === "review" ? (
               <>
                 <Link
-                  href="/"
+                  href="/app"
                   className="back-link inline-flex items-center gap-2 hover:text-foreground"
                 >
                   <ArrowLeft size={14} />

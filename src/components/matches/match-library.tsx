@@ -28,9 +28,9 @@ export function MatchLibrary() {
   );
   return (
     <AppShell>
-      <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_h1]:text-3xl [&_h1]:font-[550] [&_h1]:tracking-[-0.95px] [&_h1]:leading-[1.3] [&_p]:text-muted-foreground [&_p]:text-[14px] [&_p]:leading-[1.6] [&_p]:mt-[7px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_h1]:text-[27px] max-[650px]:[&_p]:text-sm max-[650px]:[&_p]:max-w-[245px]">
+      <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_p]:text-muted-foreground [&_p]:text-[14px] [&_p]:leading-[1.6] [&_p]:mt-[7px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_p]:text-sm max-[650px]:[&_p]:max-w-[245px]">
         <div>
-          <h1>Partidas</h1>
+          <h1 className="uppercase text-2xl">Partidas</h1>
           <p>FURIA UTFPR · Classificatória 3 e Fase de Grupos</p>
         </div>
         <span className="match-count self-center text-sm text-muted-foreground max-[650px]:text-[12px] max-[650px]:whitespace-nowrap">
@@ -101,7 +101,7 @@ function MatchCard({
   const won = match.teams.horizon.score > match.teams.orbit.score;
   return (
     <Link
-      href={`/partidas/${match.id}`}
+      href={`/app/partidas/${match.id}`}
       className="match-card min-w-0 border border-solid border-border rounded-[9px] overflow-hidden bg-card transition-all duration-200 motion-reduce:transition-none block outline-offset-4 [&:hover]:border-primary/55 [&:hover]:-translate-y-[3px] [&:hover]:shadow-xl [&:hover]:shadow-background/25 [&:hover_.match-card-cover_>_img]:scale-[1.035] [&:hover_.match-card-footer]:text-foreground"
       aria-label={`Abrir partida em ${match.map}, ${won ? "vitória" : "derrota"} por ${match.teams.horizon.score} a ${match.teams.orbit.score}`}
     >
@@ -128,7 +128,7 @@ function MatchCard({
             {won ? "Vitória" : "Derrota"}
           </span>
         </div>
-        <div className="match-card-title absolute inset-[auto_18px_13px] flex items-end justify-between gap-3 [&_h2]:text-[26px] [&_h2]:font-semibold [&_h2]:tracking-[-0.7px] [&_h2]:text-shadow-sm [&_h2]:text-shadow-background/50 max-[650px]:[&_h2]:text-[27px]">
+        <div className="absolute uppercase inset-[auto_18px_13px] flex items-end justify-between gap-3">
           <h2>{match.map}</h2>
           <div className="card-score flex items-baseline gap-[7px] tabular-nums [&_strong]:text-[35px] [&_strong]:font-medium [&_strong]:leading-[1.2] [&_strong]:tracking-[-1.5px] [&_strong]:text-muted-foreground [&_.winner-score]:text-foreground [&_>_span]:text-[23px] [&_>_span]:text-muted-foreground [&_>_span]:font-light">
             <strong className={won ? "winner-score" : ""}>

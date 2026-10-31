@@ -44,7 +44,7 @@ export function PlayerSheet({
         </SheetHeader>
         {player && (
           <div className="player-sheet-body grid gap-[23px] [&_.section-heading]:p-0">
-            <div className="profile-heading flex items-center gap-[15px] pt-2.5 [&_.agent-portrait]:h-20 [&_.agent-portrait]:w-19 [&_h2]:text-2xl [&_h2]:font-[550] [&_h2]:my-1.5 [&_h2]:mx-0 [&_h2_>_span]:text-sm [&_h2_>_span]:font-normal [&_h2_>_span]:text-muted-foreground [&_h2_>_span]:ml-[5px] [&_p]:text-[13px] [&_p]:text-muted-foreground">
+            <div className="profile-heading flex items-center gap-[15px] pt-2.5 [&_.agent-portrait]:h-20 [&_.agent-portrait]:w-19 [&_p]:text-[13px] [&_p]:text-muted-foreground">
               <span
                 className={cn(
                   "agent-portrait block shrink-0 w-[35px] h-[37px] bg-muted border border-solid border-border rounded-[4px] overflow-hidden [&.horizon]:border-team-friendly [&.orbit]:bg-muted [&.orbit]:border-primary [&_img]:object-cover [&_img]:w-full [&_img]:h-full",
@@ -99,7 +99,7 @@ export function PlayerSheet({
                 <p>Um recorte para investigar a contribuição de abertura.</p>
               </div>
             </div>
-            <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_h2]:text-sm [&_h2]:font-medium [&_h3]:text-sm [&_h3]:font-medium [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5 max-[650px]:[&_h2]:text-[14px]">
+            <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5">
               <div>
                 <h3>Pontos para revisar</h3>
               </div>

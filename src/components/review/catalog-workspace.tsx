@@ -98,13 +98,13 @@ export function CatalogWorkspace({ categoryId }: { categoryId?: string }) {
       {category && (
         <Link
           className="catalog-back inline-flex items-center gap-[7px] text-muted-foreground text-[14px] mb-4.5 [&:hover]:text-foreground"
-          href="/catalogo"
+          href="/app/catalogo"
         >
           <ArrowLeft size={15} />
           Todos os tipos
         </Link>
       )}
-      <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_h1]:text-3xl [&_h1]:font-[550] [&_h1]:tracking-[-0.95px] [&_h1]:leading-[1.3] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_h1]:text-[27px] max-[650px]:[&_p]:max-w-[245px] catalog-heading [&_p]:text-muted-foreground [&_p]:text-sm [&_p]:leading-[1.7] [&_p]:mt-2 max-[650px]:[&_p]:text-[14px]">
+      <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_p]:max-w-[245px] catalog-heading [&_p]:text-muted-foreground [&_p]:text-sm [&_p]:leading-[1.7] [&_p]:mt-2 max-[650px]:[&_p]:text-[14px]">
         <div>
           <h1
             className={
@@ -134,11 +134,11 @@ export function CatalogWorkspace({ categoryId }: { categoryId?: string }) {
               <Link
                 data-tip-category={type.id}
                 className={cn(
-                  "category-card flex flex-col p-6 border border-solid rounded-[9px] transition-all duration-200 motion-reduce:transition-none [&:hover]:-translate-y-[3px] [&:focus-visible]:outline-2 [&:focus-visible]:outline-primary [&:focus-visible]:outline-offset-4 [&_h2]:text-[19px] [&_h2]:font-[550] [&_h2]:leading-[1.35] [&_h2]:mt-[21px] [&_>_p]:text-[14px] [&_>_p]:leading-[1.7] [&_>_p]:text-muted-foreground [&_>_p]:mt-2 [&_>_p]:mb-6 max-[650px]:p-[21px]",
+                  "category-card flex flex-col p-6 border border-solid rounded-[9px] transition-all duration-200 motion-reduce:transition-none [&:hover]:-translate-y-[3px] [&:focus-visible]:outline-2 [&:focus-visible]:outline-primary [&:focus-visible]:outline-offset-4 [&_>_p]:text-[14px] [&_>_p]:leading-[1.7] [&_>_p]:text-muted-foreground [&_>_p]:mt-2 [&_>_p]:mb-6 max-[650px]:p-[21px]",
                   tipCategoryTheme(type.id).card,
                 )}
                 key={type.id}
-                href={`/catalogo/${type.id}`}
+                href={`/app/catalogo/${type.id}`}
               >
                 <div className="category-card-top flex justify-between items-center">
                   <span

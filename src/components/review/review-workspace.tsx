@@ -105,7 +105,7 @@ export function ReviewWorkspace({
   }
   return (
     <AppShell section="review" activeView={view} onView={setView}>
-      <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_h1]:text-3xl [&_h1]:font-[550] [&_h1]:tracking-[-0.95px] [&_h1]:leading-[1.3] [&_p]:text-muted-foreground [&_p]:text-[14px] [&_p]:leading-[1.6] [&_p]:mt-[7px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_h1]:text-[27px] max-[650px]:[&_p]:text-sm max-[650px]:[&_p]:max-w-[245px]">
+      <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_p]:text-muted-foreground [&_p]:text-[14px] [&_p]:leading-[1.6] [&_p]:mt-[7px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_p]:text-sm max-[650px]:[&_p]:max-w-[245px]">
         <h1>{navigation.find((item) => item.id === view)?.title}</h1>
         <Button variant="outline" onClick={exportMock}>
           {exported ? <Check size={15} /> : <ArrowDownToLine size={15} />}
@@ -125,7 +125,7 @@ export function ReviewWorkspace({
           priority
         />
         <div className="review-map-shade absolute inset-0 bg-linear-to-r from-background/95 via-background/65 to-background/35" />
-        <div className="match-context relative z-1 [&_>_.eyebrow]:text-[12px] [&_>_.eyebrow]:text-muted-foreground [&_h2]:text-[28px] [&_h2]:font-[550] [&_h2]:tracking-[-0.8px] [&_h2]:mt-[5px] [&_h2]:mx-0 [&_h2]:mb-3 max-[650px]:w-full max-[650px]:[&_h2]:mb-2 max-[650px]:[&_h2]:text-[25px]">
+        <div className="match-context relative z-1 [&_>_.eyebrow]:text-[12px] [&_>_.eyebrow]:text-muted-foreground max-[650px]:w-full">
           <h2>{fixture.map}</h2>
           <span className="match-duration flex items-center flex-wrap gap-1.5 text-muted-foreground text-[13px] [&_>_span]:text-muted-foreground [&_>_span]:my-0 [&_>_span]:mx-1 max-[650px]:text-[12px] max-[650px]:gap-[5px]">
             <Clock3 size={13} />
@@ -216,7 +216,7 @@ export function ReviewWorkspace({
             />
           </div>
           <section className="panel border border-solid border-border rounded-[8px] overflow-hidden bg-card round-preview mb-6 [&_.section-heading]:pb-2.5 [&_.section-heading_button]:text-[13px] [&_.section-heading_button]:text-muted-foreground">
-            <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_h2]:text-sm [&_h2]:font-medium [&_h3]:text-sm [&_h3]:font-medium [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5 max-[650px]:[&_h2]:text-[14px]">
+            <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5">
               <h2>Rounds</h2>
               <Button
                 variant="ghost"
@@ -234,7 +234,7 @@ export function ReviewWorkspace({
             />
           </section>
           {focusTip && (
-            <div className="training-focus flex items-center gap-[15px] border border-solid border-primary/30 bg-linear-to-r from-primary/10 to-card rounded-[7px] p-[19px] mb-6 [&_.eyebrow]:text-[12px] [&_.eyebrow]:text-primary [&_.eyebrow]:tracking-[0.4px] [&_h2]:text-[15px] [&_h2]:font-medium [&_h2]:mt-1.5 [&_p]:text-[13px] [&_p]:text-muted-foreground [&_p]:mt-[5px] [&_p]:leading-[1.6] [&_>_button]:ml-auto [&_>_button]:shrink-0 [&_>_button]:text-[13px] [&_>_button]:bg-muted max-[650px]:p-[15px] max-[650px]:flex-wrap max-[650px]:gap-3 max-[650px]:[&_h2]:text-sm max-[650px]:[&_p]:text-[13px] max-[650px]:[&_>_button]:ml-0 max-[650px]:[&_>_button]:h-[29px]">
+            <div className="training-focus flex items-center gap-[15px] border border-solid border-primary/30 bg-linear-to-r from-primary/10 to-card rounded-[7px] p-[19px] mb-6 [&_.eyebrow]:text-[12px] [&_.eyebrow]:text-primary [&_.eyebrow]:tracking-[0.4px] [&_p]:text-[13px] [&_p]:text-muted-foreground [&_p]:mt-[5px] [&_p]:leading-[1.6] [&_>_button]:ml-auto [&_>_button]:shrink-0 [&_>_button]:text-[13px] [&_>_button]:bg-muted max-[650px]:p-[15px] max-[650px]:flex-wrap max-[650px]:gap-3 max-[650px]:[&_p]:text-[13px] max-[650px]:[&_>_button]:ml-0 max-[650px]:[&_>_button]:h-[29px]">
               <span className="focus-icon text-primary bg-primary/10 rounded-md p-3 max-[650px]:hidden">
                 <Target size={22} />
               </span>
@@ -262,7 +262,7 @@ export function ReviewWorkspace({
               onPlayer={setPlayer}
             />
             <aside className="insights-column max-[1000px]:grid max-[1000px]:grid-cols-3 max-[1000px]:gap-3 max-[650px]:grid-cols-1">
-              <div className="insights-heading flex items-center gap-[9px] pt-[9px] px-0 pb-4.5 [&_>_svg]:text-primary [&_h2]:text-[14px] [&_h2]:font-medium [&_>_[data-slot=badge]]:ml-auto [&_>_[data-slot=badge]]:text-[12px] [&_>_[data-slot=badge]]:text-muted-foreground max-[1000px]:col-[1/-1] max-[1000px]:pt-[7px] max-[1000px]:px-0 max-[1000px]:pb-0">
+              <div className="insights-heading flex items-center gap-[9px] pt-[9px] px-0 pb-4.5 [&_>_svg]:text-primary [&_>_[data-slot=badge]]:ml-auto [&_>_[data-slot=badge]]:text-[12px] [&_>_[data-slot=badge]]:text-muted-foreground max-[1000px]:col-[1/-1] max-[1000px]:pt-[7px] max-[1000px]:px-0 max-[1000px]:pb-0">
                 <Sparkles size={17} />
                 <h2>Pontos para revisar</h2>
                 <Badge variant="outline">{coachTips.length}</Badge>

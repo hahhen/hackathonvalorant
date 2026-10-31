@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Schabo Condensed";
+  src: url("/fonts/schabo-condensed.woff2") format("woff2");
+  font-display: swap;
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -49,7 +54,6 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-
 :root {
   --radius: 0.5rem;
   --background: #0c1824;
@@ -106,3 +110,4 @@
     @apply cursor-pointer;
   }
 }
+/* Global base styles end here. */

@@ -31,7 +31,7 @@ export function TipCard({
   return (
     <button
       className={cn(
-        "tip-card w-full text-left border border-solid border-border rounded-[7px] bg-card p-5 transition-all duration-200 motion-reduce:transition-none [&_h3]:flex [&_h3]:items-start [&_h3]:justify-between [&_h3]:gap-2 [&_h3]:text-sm [&_h3]:font-medium [&_h3]:leading-[1.5] [&_h3]:mt-[13px] [&_h3_svg]:shrink-0 [&_h3_svg]:mt-[3px] [&_h3_svg]:text-muted-foreground [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.7] [&_p]:mt-[9px] [&.compact]:mb-3 [&.compact]:p-4 [&.compact_h3]:text-sm [&.compact_p]:text-[12px] max-[1000px]:[&.compact]:m-0 max-[650px]:[&.compact]:p-[17px] max-[650px]:[&.compact_h3]:text-sm max-[650px]:[&.compact_p]:text-[13px]",
+        "tip-card w-full text-left border border-solid border-border rounded-[7px] bg-card p-5 transition-all duration-200 motion-reduce:transition-none [&_h3]:flex [&_h3]:items-start [&_h3]:justify-between [&_h3]:gap-2 [&_h3_svg]:shrink-0 [&_h3_svg]:mt-[3px] [&_h3_svg]:text-muted-foreground [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.7] [&_p]:mt-[9px] [&.compact]:mb-3 [&.compact]:p-4 [&.compact_p]:text-[12px] max-[1000px]:[&.compact]:m-0 max-[650px]:[&.compact]:p-[17px] max-[650px]:[&.compact_p]:text-[13px]",
         compact && "compact",
         tipCategoryTheme(getTacticalTip(tip.id).tipo).card,
       )}
@@ -107,14 +107,14 @@ export function MatchCatalog({
     .filter((category) => category.tips.length);
   return (
     <section className="catalog-section p-0 match-catalog">
-      <div className="match-catalog-summary flex items-start justify-between gap-5 mt-2 mx-0 mb-6 [&_h2]:text-[21px] [&_h2]:font-[550] [&_p]:text-[14px] [&_p]:text-muted-foreground [&_p]:mt-[7px] [&_p]:leading-[1.7] [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-1.5 [&_>_a]:text-primary [&_>_a]:text-[14px] [&_>_a]:shrink-0 [&_>_a]:pt-1.5 max-[800px]:flex-col max-[800px]:gap-2.5">
+      <div className="match-catalog-summary flex items-start justify-between gap-5 mt-2 mx-0 mb-6 [&_p]:text-[14px] [&_p]:text-muted-foreground [&_p]:mt-[7px] [&_p]:leading-[1.7] [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-1.5 [&_>_a]:text-primary [&_>_a]:text-[14px] [&_>_a]:shrink-0 [&_>_a]:pt-1.5 max-[800px]:flex-col max-[800px]:gap-2.5">
         <div>
           <h2>Pontos para revisar</h2>
           <p>
             {tips.length} pontos identificados neste recorte, agrupados por tipo.
           </p>
         </div>
-        <Link href="/catalogo">
+        <Link href="/app/catalogo">
           Ver as 100 dicas
           <ArrowUpRight size={15} />
         </Link>
@@ -152,12 +152,12 @@ export function MatchCatalog({
             key={group.id}
             id={`dicas-${group.id}`}
           >
-            <div className="match-tip-group-heading flex items-center gap-3 mb-[15px] [&_>_h3]:text-[17px] [&_>_h3]:font-[550] [&_>_span]:text-muted-foreground [&_>_span]:text-sm [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-[5px] [&_>_a]:ml-auto [&_>_a]:text-muted-foreground [&_>_a]:text-[13px] max-[650px]:flex-wrap max-[650px]:gap-2 max-[650px]:[&_>_h3]:text-base">
+            <div className="match-tip-group-heading flex items-center gap-3 mb-[15px] [&_>_span]:text-muted-foreground [&_>_span]:text-sm [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-[5px] [&_>_a]:ml-auto [&_>_a]:text-muted-foreground [&_>_a]:text-[13px] max-[650px]:flex-wrap max-[650px]:gap-2">
               <h3 className={tipCategoryTheme(group.id).text}>{group.nome}</h3>
               <span>
                 {group.tips.length} {group.tips.length === 1 ? "ponto" : "pontos"}
               </span>
-              <Link href={`/catalogo/${group.id}`}>
+              <Link href={`/app/catalogo/${group.id}`}>
                 Ver tipo completo
                 <ArrowUpRight size={13} />
               </Link>

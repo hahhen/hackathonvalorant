@@ -103,7 +103,7 @@ export function TacticalTipCard({
     <article
       data-tip-category={tip.tipo}
       className={cn(
-        "tactical-tip min-w-0 p-5.5 border border-solid border-border rounded-[8px] bg-card [&_.evidence]:text-[13px] [&_.evidence]:py-[5px] [&_.evidence]:px-[7px] [&_h3]:text-base [&_h3]:leading-[1.55] [&_h3]:font-[550] [&_h3]:text-foreground/90 [&_h3]:mb-5 max-[650px]:p-4.5",
+        "tactical-tip min-w-0 p-5.5 border border-solid border-border rounded-[8px] bg-card [&_.evidence]:text-[13px] [&_.evidence]:py-[5px] [&_.evidence]:px-[7px] max-[650px]:p-4.5",
         tipCategoryTheme(tip.tipo).card,
         finding &&
           "match-tactical-tip [&_.tip-guidance]:grid-cols-2 [&_.tip-guidance]:gap-7 max-[800px]:[&_.tip-guidance]:grid-cols-1 max-[800px]:[&_.tip-guidance]:gap-[17px]",
