@@ -1,4 +1,7 @@
 "use client";
+import { AnalysisText } from "@/i18n/analysis-text";
+import { formatMetricDetail } from "@/i18n/translate";
+import { useI18n } from "@/i18n/provider";
 import { teamLabel } from "@/lib/teams";
 import { useMemo, useState } from "react";
 import Image from "next/image";
@@ -42,6 +45,7 @@ export function ReviewWorkspace({
   fixture: MatchInfo;
   initialRound?: number;
 }) {
+  const { t, date } = useI18n();
   const isReal = fixture.dataMode === "official-json";
   const officialReview = getOfficialReview(fixture.id);
   const analysis = useAnalysis(
@@ -106,15 +110,15 @@ export function ReviewWorkspace({
   return (
     <AppShell section="review" activeView={view} onView={setView}>
       <div className="page-heading flex justify-between items-center gap-5 mb-7 min-h-[49px] [&_p]:text-muted-foreground [&_p]:text-[14px] [&_p]:leading-[1.6] [&_p]:mt-[7px] [&_>_button]:text-sm [&_>_button]:bg-card max-[650px]:mb-5.5 max-[650px]:gap-3 max-[650px]:[&_p]:text-sm max-[650px]:[&_p]:max-w-[245px]">
-        <h1>{navigation.find((item) => item.id === view)?.title}</h1>
+        <h1>{t(navigation.find((item) => item.id === view)?.title)}</h1>
         <Button variant="outline" onClick={exportMock}>
           {exported ? <Check size={15} /> : <ArrowDownToLine size={15} />}
-          {exported ? "Exportado" : "Exportar"}
+          {t(exported ? "Exportado" : "Exportar")}
         </Button>
       </div>
       <section
         className="match-hero min-h-38.5 border border-solid border-border rounded-[8px] relative overflow-hidden flex justify-between items-center p-6.5 gap-[15px] bg-muted max-[650px]:p-[19px] max-[650px]:flex-wrap max-[650px]:justify-center max-[650px]:gap-[15px]"
-        aria-label="Resumo da partida"
+        aria-label={t("Resumo da partida")}
       >
         <Image
           className="review-map-photo object-cover object-[50%_45%] opacity-45"
@@ -131,13 +135,13 @@ export function ReviewWorkspace({
             <Clock3 size={13} />
             {fixture.duration}
             <span>·</span>
-            {totalRounds} rounds<span>·</span>
-            {fixture.date}
+            {totalRounds}{t(" rounds")}<span>·</span>
+            {date(fixture.playedAt)}
           </span>
         </div>
         <div className="match-scoreline relative z-1 flex items-center gap-5.5 pr-3 max-[1300px]:gap-[15px] max-[650px]:gap-[23px] max-[650px]:p-0">
           <div className="hero-team text-sm font-medium text-foreground">
-            <span>{teamLabel("horizon")}</span>
+            <span>{t(teamLabel("horizon"))}</span>
           </div>
           <div className="hero-score [&_strong:first-child]:text-team-friendly flex items-baseline gap-3.5 tabular-nums [&_strong]:text-[45px] [&_strong]:font-semibold [&_strong]:tracking-[-2px] [&_strong:last-child]:text-primary [&_>_span]:text-2xl [&_>_span]:font-light [&_>_span]:text-muted-foreground max-[650px]:[&_strong]:text-[40px]">
             <strong>{fixture.teams.horizon.score}</strong>
@@ -145,7 +149,7 @@ export function ReviewWorkspace({
             <strong>{fixture.teams.orbit.score}</strong>
           </div>
           <div className="hero-team text-sm font-medium text-foreground">
-            <span>{teamLabel("orbit")}</span>
+            <span>{t(teamLabel("orbit"))}</span>
           </div>
         </div>
       </section>
@@ -162,7 +166,7 @@ export function ReviewWorkspace({
                 value={id}
                 className="relative isolate h-16 rounded-none border-0 bg-transparent! px-6 text-[17px] font-medium text-muted-foreground shadow-none! outline-none after:hidden before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:bg-radial-[at_50%_115%] before:from-primary/30 before:via-primary/10 before:to-transparent before:opacity-0 before:transition-opacity before:content-[''] data-[state=active]:text-foreground data-[state=active]:before:opacity-100 focus-visible:outline-none focus-visible:ring-0 focus-visible:text-primary max-[650px]:h-17.5 max-[650px]:min-w-0 max-[650px]:flex-1 max-[650px]:px-2 max-[650px]:text-sm max-[650px]:leading-relaxed max-[650px]:whitespace-normal motion-reduce:transition-none"
               >
-                {title}
+                {t(title)}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -171,7 +175,7 @@ export function ReviewWorkspace({
           <div className="metrics-grid grid grid-cols-3 gap-4 mb-4.5 max-[650px]:gap-2">
             <Metric
               icon={Target}
-              label="Conversão da primeira eliminação"
+              label={t("Conversão da primeira eliminação")}
               value={
                 officialReview ? officialReview.metrics.opening.value : "69"
               }
@@ -186,7 +190,7 @@ export function ReviewWorkspace({
             />
             <Metric
               icon={Swords}
-              label="Mortes respondidas em até 3 s"
+              label={t("Mortes respondidas em até 3 s")}
               value={
                 officialReview ? officialReview.metrics.trades.value : "61"
               }
@@ -201,7 +205,7 @@ export function ReviewWorkspace({
             />
             <Metric
               icon={Flag}
-              label="Vitórias após o plant"
+              label={t("Vitórias após o plant")}
               value={
                 officialReview ? officialReview.metrics.postplant.value : "75"
               }
@@ -217,14 +221,13 @@ export function ReviewWorkspace({
           </div>
           <section className="panel border border-solid border-border rounded-[8px] overflow-hidden bg-card round-preview mb-6 [&_.section-heading]:pb-2.5 [&_.section-heading_button]:text-[13px] [&_.section-heading_button]:text-muted-foreground">
             <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5">
-              <h2>Rounds</h2>
+              <h2>{t("Rounds")}</h2>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => openRound(selectedRound)}
               >
-                Ver eventos
-                <ArrowUpRight size={14} />
+                {t("Ver eventos")}<ArrowUpRight size={14} />
               </Button>
             </div>
             <RoundStrip
@@ -240,18 +243,16 @@ export function ReviewWorkspace({
               </span>
               <div>
                 <span className="eyebrow block text-[12px] text-muted-foreground tracking-[0.9px]">
-                  Prioridade para revisar
-                </span>
-                <h2>{focusTip.title}</h2>
-                <p>{focusTip.observation}</p>
+                  {t("Prioridade para revisar")}</span>
+                <h2>{t(focusTip.title)}</h2>
+                <p><AnalysisText text={focusTip.observation} /></p>
               </div>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setTip(focusTip)}
               >
-                Ver evidências
-                <ArrowUpRight size={14} />
+                {t("Ver evidências")}<ArrowUpRight size={14} />
               </Button>
             </div>
           )}
@@ -264,7 +265,7 @@ export function ReviewWorkspace({
             <aside className="insights-column max-[1000px]:grid max-[1000px]:grid-cols-3 max-[1000px]:gap-3 max-[650px]:grid-cols-1">
               <div className="insights-heading flex items-center gap-[9px] pt-[9px] px-0 pb-4.5 [&_>_svg]:text-primary [&_>_[data-slot=badge]]:ml-auto [&_>_[data-slot=badge]]:text-[12px] [&_>_[data-slot=badge]]:text-muted-foreground max-[1000px]:col-[1/-1] max-[1000px]:pt-[7px] max-[1000px]:px-0 max-[1000px]:pb-0">
                 <Sparkles size={17} />
-                <h2>Pontos para revisar</h2>
+                <h2>{t("Pontos para revisar")}</h2>
                 <Badge variant="outline">{coachTips.length}</Badge>
               </div>
               {isReal && <AnalysisFeedback state={analysis} />}
@@ -281,8 +282,7 @@ export function ReviewWorkspace({
                 className="all-tips-button w-full border border-dashed border-border h-[35px] text-[13px] text-muted-foreground max-[1000px]:col-[1/-1]"
                 onClick={() => setView("catalog")}
               >
-                Ver pontos para revisar
-                <ArrowRight size={14} />
+                {t("Ver pontos para revisar")}<ArrowRight size={14} />
               </Button>
             </aside>
           </div>
@@ -342,18 +342,19 @@ function Metric({
   value: string;
   detail: string;
 }) {
+  const { t, locale } = useI18n();
   return (
     <div className="metric-card border border-solid border-border rounded-[7px] bg-card p-[19px] max-[1300px]:p-4 max-[650px]:py-3 max-[650px]:px-[9px]">
       <div className="metric-label flex items-center gap-2 text-muted-foreground text-[13px] [&_svg]:text-muted-foreground max-[1300px]:text-[12px] max-[650px]:text-[12px] max-[650px]:gap-[5px] max-[650px]:items-start max-[650px]:leading-[1.5] max-[650px]:[&_svg]:w-[11px] max-[650px]:[&_svg]:shrink-0 max-[650px]:[&_svg]:mt-px">
         <Icon size={16} />
-        <span>{label}</span>
+        <span>{t(label)}</span>
       </div>
       <strong className="metric-value block text-[33px] tracking-[-1px] font-medium mt-4.5 [&_>_span]:text-[19px] [&_>_span]:text-muted-foreground [&_>_span]:ml-[3px] max-[650px]:text-[26px] max-[650px]:mt-[11px] max-[650px]:[&_>_span]:text-sm">
         {value}
         <span>%</span>
       </strong>
       <p className="metric-detail text-[12px] text-muted-foreground mt-[5px] max-[650px]:text-[12px] max-[650px]:leading-[1.6]">
-        {detail}
+        {formatMetricDetail(detail, locale)}
       </p>
     </div>
   );

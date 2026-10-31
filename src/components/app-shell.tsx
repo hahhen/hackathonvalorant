@@ -1,5 +1,7 @@
+"use client";
+import { useI18n } from "@/i18n/provider";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/i18n/link";
 import {
   ArrowLeft,
   BookOpen,
@@ -10,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import wordmark from "@/app/icon_typo.svg";
 import icon from "@/app/icon.svg";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 const navItem =
   "flex w-full items-center gap-3 rounded-md px-3.5 py-3 text-left text-[14px] text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground max-[1000px]:justify-center max-[1000px]:[&>span]:hidden";
@@ -27,18 +30,19 @@ export function AppShell({
   onView?: (view: "overview" | "rounds" | "catalog") => void;
   activeView?: string;
 }) {
+  const { t } = useI18n();
   return (
     <div className="workspace min-h-screen [&_h1]:font-['Schabo_Condensed',Impact,sans-serif] [&_h2]:font-['Schabo_Condensed',Impact,sans-serif] [&_h3]:font-['Schabo_Condensed',Impact,sans-serif]">
       <aside className="sidebar fixed inset-y-0 left-0 z-20 flex w-56 flex-col border-r border-border bg-sidebar px-3.5 py-4.5 max-[1000px]:w-18 max-[1000px]:px-2.5 max-[650px]:hidden">
         <Link
           href="/app"
           className="brand mb-9.5 flex h-16 items-center justify-center max-[1000px]:mb-7"
-          aria-label="Afterplant, partidas"
+          aria-label={t("Afterplant, partidas")}
         >
           <Image
             className="wordmark h-16 w-full object-contain max-[1000px]:hidden"
             src={wordmark}
-            alt="Afterplant"
+            alt={t("Afterplant")}
             width={206}
             height={64}
             priority
@@ -51,45 +55,44 @@ export function AppShell({
             height={35}
           />
         </Link>
-        <nav className="grid gap-2" aria-label="Navegação principal">
+        <nav className="grid gap-2" aria-label={t("Navegação principal")}>
           <Link
             href="/app"
-            aria-label="Partidas"
+            aria-label={t("Partidas")}
             className={cn(navItem, section === "matches" && activeItem)}
             aria-current={section === "matches" ? "page" : undefined}
           >
             <LayoutGrid size={17} />
-            <span>Partidas</span>
+            <span>{t("Partidas")}</span>
           </Link>
           <Link
-            href="/app/catalogo"
-            aria-label="Catálogo tático"
+            href="/app/catalogue"
+            aria-label={t("Catálogo tático")}
             className={cn(navItem, section === "catalog" && activeItem)}
             aria-current={section === "catalog" ? "page" : undefined}
           >
             <BookOpen size={17} />
-            <span>Catálogo tático</span>
+            <span>{t("Catálogo tático")}</span>
           </Link>
           {section === "review" && onView && (
             <div className="review-nav mt-7 grid gap-1 border-t border-border pt-6 max-[1000px]:mt-5 max-[1000px]:pt-3.5">
               <span className="sidebar-label px-3.5 pb-3 text-[12px] font-semibold tracking-widest text-muted-foreground max-[1000px]:hidden">
-                PARTIDA SELECIONADA
-              </span>
+                {t("PARTIDA SELECIONADA")}</span>
               <button
-                aria-label="Visão geral"
+                aria-label={t("Visão geral")}
                 onClick={() => onView("overview")}
                 className={cn(navItem, activeView === "overview" && activeItem)}
               >
                 <LayoutGrid size={16} />
-                <span>Visão geral</span>
+                <span>{t("Visão geral")}</span>
               </button>
               <button
-                aria-label="Inspetor de rounds"
+                aria-label={t("Inspetor de rounds")}
                 onClick={() => onView("rounds")}
                 className={cn(navItem, activeView === "rounds" && activeItem)}
               >
                 <Crosshair size={16} />
-                <span>Rounds e eventos</span>
+                <span>{t("Rounds e eventos")}</span>
               </button>
             </div>
           )}
@@ -101,7 +104,7 @@ export function AppShell({
             <Link
               href="/app"
               className="mobile-brand hidden max-[650px]:block"
-              aria-label="Afterplant, partidas"
+              aria-label={t("Afterplant, partidas")}
             >
               <Image src={icon} alt="" width={27} height={27} />
             </Link>
@@ -112,24 +115,24 @@ export function AppShell({
                   className="back-link inline-flex items-center gap-2 hover:text-foreground"
                 >
                   <ArrowLeft size={14} />
-                  Partidas
-                </Link>
+                  {t("Partidas")}</Link>
                 <ChevronRight size={12} />
-                <span>Análise da partida</span>
+                <span>{t("Análise da partida")}</span>
               </>
             ) : (
               <span>
-                {section === "catalog" ? "Catálogo tático" : "Partidas"}
+                {t(section === "catalog" ? "Catálogo tático" : "Partidas")}
               </span>
             )}
           </div>
+          <LanguageSwitcher />
         </header>
         <main className="mx-auto max-w-395 px-9 pt-8.5 pb-7 max-[1000px]:px-6 max-[650px]:px-4.5 max-[650px]:pt-6">
-          {children}
+          {t(children)}
         </main>
         <footer className="app-footer mx-auto flex max-w-395 justify-between gap-3 px-9 pb-5.5 text-[12px] text-muted-foreground max-[1000px]:px-6 max-[650px]:px-4.5">
-          <span>AFTERPLANT</span>
-          <span>Imagens © Riot Games</span>
+          <span>{t("AFTERPLANT")}</span>
+          <span>{t("Imagens © Riot Games")}</span>
         </footer>
       </div>
     </div>

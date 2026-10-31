@@ -1,10 +1,11 @@
 "use client";
-
+import { AnalysisText } from "@/i18n/analysis-text";
+import { useI18n } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 import { tipCategoryTheme } from "@/lib/tip-category-theme";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@/i18n/link";
 import { ArrowUpRight, CheckCheck, Eye } from "lucide-react";
 import {
   getTacticalTip,
@@ -28,6 +29,7 @@ export function TipCard({
   onClick: () => void;
   compact?: boolean;
 }) {
+  const { t } = useI18n();
   return (
     <button
       className={cn(
@@ -47,19 +49,19 @@ export function TipCard({
           )}
         >
           {tip.level === "M" ? <CheckCheck size={11} /> : <Eye size={11} />}
-          {tip.level === "M" ? "Mensurável" : "Indício"}
+          {t(tip.level === "M" ? "Mensurável" : "Indício")}
         </span>
         <span>#{tip.id}</span>
       </div>
       <h3>
-        {tip.title}
+        {t(tip.title)}
         <ArrowUpRight size={15} />
       </h3>
-      <p>{compact ? tip.description : tip.observation}</p>
+      <p>{compact ? t(tip.description) : <AnalysisText text={tip.observation} />}</p>
       <div className="tip-bottom flex justify-between gap-2 mt-4.5 pt-3 border-t border-solid border-border text-muted-foreground text-[12px]">
         <TipCategoryBadge categoryId={getTacticalTip(tip.id).tipo} />
         <span>
-          {tip.rounds.length} {tip.rounds.length === 1 ? "round" : "rounds"}
+          {tip.rounds.length} {t(tip.rounds.length === 1 ? "round" : "rounds")}
         </span>
       </div>
     </button>
@@ -74,6 +76,7 @@ export function TipDialog({
   onClose: () => void;
   onRound: (round: number) => void;
 }) {
+  const { t } = useI18n();
   return (
     <InferenceDialog
       tip={tip ? getTacticalTip(tip.id) : null}
@@ -92,10 +95,11 @@ export function MatchCatalog({
   onTip: (tip: CoachTip) => void;
   onRound: (round: number) => void;
 }) {
+  const { t } = useI18n();
   const [query, setQuery] = useState("");
   const [level, setLevel] = useState<EvidenceFilter>("all");
   const filtered = tips.filter((tip) =>
-    matchesTip(getTacticalTip(tip.id), query, level),
+    matchesTip(getTacticalTip(tip.id), query, level, t),
   );
   const groups = tipCategories
     .map((category) => ({
@@ -109,14 +113,12 @@ export function MatchCatalog({
     <section className="catalog-section p-0 match-catalog">
       <div className="match-catalog-summary flex items-start justify-between gap-5 mt-2 mx-0 mb-6 [&_p]:text-[14px] [&_p]:text-muted-foreground [&_p]:mt-[7px] [&_p]:leading-[1.7] [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-1.5 [&_>_a]:text-primary [&_>_a]:text-[14px] [&_>_a]:shrink-0 [&_>_a]:pt-1.5 max-[800px]:flex-col max-[800px]:gap-2.5">
         <div>
-          <h2>Pontos para revisar</h2>
+          <h2>{t("Pontos para revisar")}</h2>
           <p>
-            {tips.length} pontos identificados neste recorte, agrupados por tipo.
-          </p>
+            {tips.length}{t(" pontos identificados neste recorte, agrupados por tipo.")}</p>
         </div>
-        <Link href="/app/catalogo">
-          Ver as 100 dicas
-          <ArrowUpRight size={15} />
+        <Link href="/app/catalogue">
+          {t("Ver as 100 dicas")}<ArrowUpRight size={15} />
         </Link>
       </div>
       <TipFilters
@@ -128,7 +130,7 @@ export function MatchCatalog({
       {!!groups.length && (
         <nav
           className="category-jump-links mb-7 flex flex-wrap gap-2 border-b border-border pb-6"
-          aria-label="Tipos de dica nesta partida"
+          aria-label={t("Tipos de dica nesta partida")}
         >
           {groups.map((group) => (
             <a
@@ -139,7 +141,7 @@ export function MatchCatalog({
                 tipCategoryTheme(group.id).badge,
               )}
             >
-              {group.nome}
+              {t(group.nome)}
               <span>{group.tips.length}</span>
             </a>
           ))}
@@ -153,13 +155,12 @@ export function MatchCatalog({
             id={`dicas-${group.id}`}
           >
             <div className="match-tip-group-heading flex items-center gap-3 mb-[15px] [&_>_span]:text-muted-foreground [&_>_span]:text-sm [&_>_a]:flex [&_>_a]:items-center [&_>_a]:gap-[5px] [&_>_a]:ml-auto [&_>_a]:text-muted-foreground [&_>_a]:text-[13px] max-[650px]:flex-wrap max-[650px]:gap-2">
-              <h3 className={tipCategoryTheme(group.id).text}>{group.nome}</h3>
+              <h3 className={tipCategoryTheme(group.id).text}>{t(group.nome)}</h3>
               <span>
-                {group.tips.length} {group.tips.length === 1 ? "ponto" : "pontos"}
+                {group.tips.length} {t(group.tips.length === 1 ? "ponto" : "pontos")}
               </span>
-              <Link href={`/app/catalogo/${group.id}`}>
-                Ver tipo completo
-                <ArrowUpRight size={13} />
+              <Link href={`/app/catalogue/${group.id}`}>
+                {t("Ver tipo completo")}<ArrowUpRight size={13} />
               </Link>
             </div>
             <div className="tactical-grid grid grid-cols-2 gap-4.5 max-[800px]:grid-cols-1">
@@ -178,8 +179,7 @@ export function MatchCatalog({
       </div>
       {!filtered.length && (
         <div className="empty-state py-[45px]! px-5! text-center text-muted-foreground text-sm [&_button]:block [&_button]:mt-2 [&_button]:mx-auto [&_button]:mb-0 [&_button]:text-[13px]">
-          Nenhum ponto para revisar com os filtros selecionados.
-        </div>
+          {t("Nenhum ponto para revisar com os filtros selecionados.")}</div>
       )}
     </section>
   );

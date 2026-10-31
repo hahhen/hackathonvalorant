@@ -1,4 +1,5 @@
 "use client";
+import { useI18n } from "@/i18n/provider";
 import { teamLabel } from "@/lib/teams";
 
 import { cn } from "@/lib/utils";
@@ -30,6 +31,7 @@ export function PlayerSheet({
   onRound: (round: number) => void;
   match?: MatchInfo;
 }) {
+  const { t } = useI18n();
   const analysis = useAnalysis(
     match.id,
     { kind: "player", period: "match", playerId: player?.id },
@@ -39,8 +41,8 @@ export function PlayerSheet({
     <Sheet open={!!player} onOpenChange={(open) => !open && onClose()}>
       <SheetContent className="player-sheet w-[min(440px,_95vw)]! max-w-110! overflow-y-auto p-[25px] [&_[data-slot=sheet-header]]:pt-0 [&_[data-slot=sheet-header]]:px-0 [&_[data-slot=sheet-header]]:pb-5.5">
         <SheetHeader>
-          <SheetTitle>Review individual</SheetTitle>
-          <SheetDescription>Estatísticas do jogador</SheetDescription>
+          <SheetTitle>{t("Review individual")}</SheetTitle>
+          <SheetDescription>{t("Estatísticas do jogador")}</SheetDescription>
         </SheetHeader>
         {player && (
           <div className="player-sheet-body grid gap-[23px] [&_.section-heading]:p-0">
@@ -60,14 +62,14 @@ export function PlayerSheet({
               </span>
               <div>
                 <span className="eyebrow block text-[12px] text-muted-foreground tracking-[0.9px]">
-                  {teamLabel(player.team)}
+                  {t(teamLabel(player.team))}
                 </span>
                 <h2>
                   {player.name}
                   <span>#{player.tag}</span>
                 </h2>
                 <p>
-                  {player.agent} · {player.role}
+                  {player.agent} · {t(player.role)}
                 </p>
               </div>
             </div>
@@ -87,7 +89,7 @@ export function PlayerSheet({
                 ["Habilidades usadas", player.abilityCasts],
               ].map(([label, value]) => (
                 <div key={label}>
-                  <span>{label}</span>
+                  <span>{t(label)}</span>
                   <strong>{value}</strong>
                 </div>
               ))}
@@ -95,13 +97,13 @@ export function PlayerSheet({
             <div className="profile-callout flex items-center gap-3 p-3.5 bg-primary/5 border border-solid border-primary/30 rounded-md text-foreground/90 [&_strong]:text-sm [&_p]:text-[12px] [&_p]:leading-[1.6] [&_p]:text-muted-foreground [&_p]:mt-1">
               <Crosshair size={20} />
               <div>
-                <strong>{player.firstKills} primeiras eliminações</strong>
-                <p>Um recorte para investigar a contribuição de abertura.</p>
+                <strong>{player.firstKills}{t(" primeiras eliminações")}</strong>
+                <p>{t("Um recorte para investigar a contribuição de abertura.")}</p>
               </div>
             </div>
             <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5">
               <div>
-                <h3>Pontos para revisar</h3>
+                <h3>{t("Pontos para revisar")}</h3>
               </div>
             </div>
             <AnalysisFeedback state={analysis} />

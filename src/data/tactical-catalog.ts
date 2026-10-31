@@ -25,8 +25,9 @@ export function matchesTip(
   tip: TacticalTip,
   query: string,
   level: EvidenceFilter,
+  translate: (value: string) => string = (value) => value,
 ) {
-  const text = normalizeSearch(`${tip.id} ${tip.titulo} ${tip.descricao}`);
+  const text = normalizeSearch(`${tip.id} ${translate(tip.titulo)} ${translate(tip.descricao)}`);
   return (
     text.includes(normalizeSearch(query)) &&
     (level === "all" ||

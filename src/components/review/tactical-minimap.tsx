@@ -1,5 +1,6 @@
 "use client";
-
+import { formatEventLabel } from "@/i18n/translate";
+import { useI18n } from "@/i18n/provider";
 import { useEffect, useId, useRef, useState } from "react";
 import { Minus, Plus, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,7 @@ export function TacticalMinimap({
   getPlayer: (id: string) => Player;
   objectiveLocation?: { x: number; y: number };
 }) {
+  const { t, locale } = useI18n();
   const id = useId().replace(/:/g, "");
   const [failedImage, setFailedImage] = useState<string>();
   const [camera, setCamera] = useState(initialMinimapCamera);
@@ -70,10 +72,9 @@ export function TacticalMinimap({
         role="status"
         className="grid aspect-square place-content-center gap-2 bg-background p-8 text-center text-sm text-muted-foreground"
       >
-        <p>Minimapa indisponível para {mapName}.</p>
+        <p>{t("Minimapa indisponível para ")}{t(mapName)}.</p>
         <p className="text-sm">
-          Os eventos continuam disponíveis na linha do tempo.
-        </p>
+          {t("Os eventos continuam disponíveis na linha do tempo.")}</p>
       </div>
     );
   }
@@ -115,12 +116,12 @@ export function TacticalMinimap({
   return (
     <div className="bg-background">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-2 text-[12px] text-muted-foreground">
-        <span>Role para ampliar · arraste para mover</span>
+        <span>{t("Role para ampliar · arraste para mover")}</span>
         <div className="flex items-center gap-1">
           <Button
             variant="ghost"
             size="icon-sm"
-            aria-label="Diminuir zoom"
+            aria-label={t("Diminuir zoom")}
             disabled={camera.zoom <= 1}
             onClick={() =>
               setCamera((current) => zoomMinimap(current, 1 / 1.4))
@@ -129,7 +130,7 @@ export function TacticalMinimap({
             <Minus />
           </Button>
           <output
-            aria-label="Nível de zoom"
+            aria-label={t("Nível de zoom")}
             className="min-w-10 text-center tabular-nums"
           >
             {Math.round(camera.zoom * 100)}%
@@ -137,7 +138,7 @@ export function TacticalMinimap({
           <Button
             variant="ghost"
             size="icon-sm"
-            aria-label="Aumentar zoom"
+            aria-label={t("Aumentar zoom")}
             disabled={camera.zoom >= 4}
             onClick={() => setCamera((current) => zoomMinimap(current, 1.4))}
           >
@@ -146,7 +147,7 @@ export function TacticalMinimap({
           <Button
             variant="ghost"
             size="icon-sm"
-            aria-label="Restaurar visão do mapa"
+            aria-label={t("Restaurar visão do mapa")}
             onClick={() => setCamera(initialMinimapCamera)}
           >
             <RotateCcw />
@@ -234,7 +235,7 @@ export function TacticalMinimap({
           drag.current = null;
         }}
         role="img"
-        aria-label={`Minimapa de ${map.name}: ${event.label}. ${event.coordinateSpace === "world" ? "Coordenadas do jogo" : "Posições simuladas"}.`}
+        aria-label={t("Minimapa de {0}: {1}. {2}.", { "0": map.name, "1": formatEventLabel(event.label, locale), "2": t(event.coordinateSpace === "world" ? "Coordenadas do jogo" : "Posições simuladas") })}
       >
         <defs>
           {victim && (
@@ -264,7 +265,7 @@ export function TacticalMinimap({
         />
         {spike && (
           <g data-marker="spike" transform={`translate(${spike.x} ${spike.y})`}>
-            <title>Local da spike</title>
+            <title>{t("Local da spike")}</title>
             <rect
               x="-13"
               y="-13"
@@ -283,8 +284,7 @@ export function TacticalMinimap({
               fontWeight="bold"
               fill="var(--background)"
             >
-              S
-            </text>
+              {t("S")}</text>
           </g>
         )}
         {positions.map(({ position, point }) => {
@@ -299,7 +299,7 @@ export function TacticalMinimap({
           );
           return (
             <g key={position.playerId} data-marker="player">
-              <title>{`${player.name} · ${player.agent}`}</title>
+              <title>{t("{0} · {1}", { "0": player.name, "1": player.agent })}</title>
               {showDirections && heading !== undefined && (
                 <g data-marker="direction">
                   <path
@@ -355,7 +355,7 @@ export function TacticalMinimap({
             data-marker="victim"
             transform={`translate(${victim.x} ${victim.y})`}
           >
-            <title>{`${victimPlayer.name} · ${victimPlayer.agent} · morto neste evento`}</title>
+            <title>{t("{0} · {1} · morto neste evento", { "0": victimPlayer.name, "1": victimPlayer.agent })}</title>
             <circle
               r="23"
               fill="var(--card)"
@@ -422,9 +422,7 @@ export function TacticalMinimap({
             opacity=".8"
           >
             <title>
-              Ligação entre autor e vítima neste evento; não representa
-              trajetória ou visibilidade.
-            </title>
+              {t("Ligação entre autor e vítima neste evento; não representa trajetória ou visibilidade.")}</title>
           </line>
         )}
       </svg>
@@ -433,8 +431,7 @@ export function TacticalMinimap({
           role="status"
           className="px-4 pb-3 text-center text-sm text-muted-foreground"
         >
-          {omitted} posição(ões) inválida(s) ou fora da imagem; não exibida(s).
-        </p>
+          {omitted}{t(" posição(ões) inválida(s) ou fora da imagem; não exibida(s).")}</p>
       )}
     </div>
   );

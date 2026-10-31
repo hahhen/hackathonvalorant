@@ -1,4 +1,5 @@
 "use client";
+import { useI18n } from "@/i18n/provider";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +20,7 @@ export function RoundSelector({
   roundNumber: number;
   onRound: (round: number) => void;
 }) {
+  const { t } = useI18n();
   const round = rounds[roundNumber - 1];
   const isReal = match.dataMode === "official-json";
   if (!round) return null;
@@ -29,13 +31,13 @@ export function RoundSelector({
     >
       <div className="section-heading flex justify-between items-center gap-[13px] p-[21px] [&_p]:text-muted-foreground [&_p]:text-[13px] [&_p]:leading-[1.6] [&_p]:mt-1.5 max-[650px]:py-[17px] max-[650px]:px-3.5">
         <div>
-          <h2 id="round-selector-title">Inspetor de rounds</h2>
+          <h2 id="round-selector-title">{t("Inspetor de rounds")}</h2>
         </div>
         <Badge
           variant="outline"
           className="muted-badge text-[12px] font-normal text-muted-foreground border-border py-1 px-[7px]"
         >
-          {isReal ? "Eventos do JSON" : "Eventos simulados"}
+          {t(isReal ? "Eventos do JSON" : "Eventos simulados")}
         </Badge>
       </div>
       <RoundStrip
@@ -49,17 +51,17 @@ export function RoundSelector({
           <Button
             size="icon"
             variant="ghost"
-            aria-label="Round anterior"
+            aria-label={t("Round anterior")}
             disabled={roundNumber === 1}
             onClick={() => onRound(roundNumber - 1)}
           >
             <ChevronLeft size={17} />
           </Button>
-          <strong>Round {roundNumber.toString().padStart(2, "0")}</strong>
+          <strong>{t("Round ")}{t(roundNumber.toString().padStart(2, "0"))}</strong>
           <Button
             size="icon"
             variant="ghost"
-            aria-label="Próximo round"
+            aria-label={t("Próximo round")}
             disabled={roundNumber === rounds.length}
             onClick={() => onRound(roundNumber + 1)}
           >
@@ -71,16 +73,15 @@ export function RoundSelector({
               round.winner,
             )}
           >
-            {teamLabel(round.winner)} venceu
-          </span>
+            {t(teamLabel(round.winner))}{t(" venceu")}</span>
           <span className="flex items-center gap-1.5 text-[12px] text-muted-foreground">
             <RoundOutcomeIcon round={round} />
-            {getRoundOutcome(round)?.label ?? "Resultado não informado"}
+            {t(getRoundOutcome(round)?.label ?? "Resultado não informado")}
           </span>
         </div>
         <span className="round-side text-[13px] text-muted-foreground [&_>_span]:text-muted-foreground [&_>_span]:my-0 [&_>_span]:mx-2 max-[650px]:text-[12px]">
-          {teamLabel(round.attackTeam)} no ataque <span>·</span>
-          {round.site ? `Plant no ${round.site}` : "Sem plant"}
+          {t(teamLabel(round.attackTeam))}{t(" no ataque ")}<span>·</span>
+          {t(round.site ? t("Plant no {0}", { "0": t(round.site) }) : "Sem plant")}
         </span>
       </div>
     </section>

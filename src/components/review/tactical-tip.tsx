@@ -1,5 +1,6 @@
 "use client";
-
+import { AnalysisText } from "@/i18n/analysis-text";
+import { useI18n } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 import { FindingSample } from "./analysis-feedback";
 import { tipCategoryTheme } from "@/lib/tip-category-theme";
@@ -27,6 +28,7 @@ import {
 } from "@/data/tactical-catalog";
 import type { CoachTip } from "@/types/match";
 export function TipCategoryBadge({ categoryId }: { categoryId: string }) {
+  const { t } = useI18n();
   return (
     <span
       data-tip-category={categoryId}
@@ -35,12 +37,13 @@ export function TipCategoryBadge({ categoryId }: { categoryId: string }) {
         tipCategoryTheme(categoryId).badge,
       )}
     >
-      {tipCategories.find((category) => category.id === categoryId)?.nome ??
-        categoryId}
+      {t(tipCategories.find((category) => category.id === categoryId)?.nome ??
+        categoryId)}
     </span>
   );
 }
 export function EvidenceBadge({ tip }: { tip: TacticalTip }) {
+  const { t } = useI18n();
   return (
     <span
       className={cn(
@@ -55,12 +58,12 @@ export function EvidenceBadge({ tip }: { tip: TacticalTip }) {
       ) : (
         <Eye size={12} />
       )}
-      {tip.classificacao === "mensuravel"
+      {t(tip.classificacao === "mensuravel"
         ? "Mensurável"
         : tip.classificacao === "misto"
           ? "Mensurável + indício"
-          : "Indício"}
-      {tip.inferencia.indicioFraco && " · fraco"}
+          : "Indício")}
+      {t(tip.inferencia.indicioFraco && " · fraco")}
     </span>
   );
 }
@@ -71,6 +74,7 @@ export function TipRoundLinks({
   rounds: number[];
   onRound: (round: number) => void;
 }) {
+  const { t } = useI18n();
   return (
     <div className="round-links flex flex-wrap gap-[7px]">
       {rounds.map((round) => (
@@ -78,10 +82,10 @@ export function TipRoundLinks({
           key={round}
           variant="outline"
           size="sm"
-          aria-label={`Ver round ${round}`}
+          aria-label={t("Ver round {0}", { "0": round })}
           onClick={() => onRound(round)}
         >
-          R{round}
+          {t("R")}{round}
           <ArrowUpRight size={12} />
         </Button>
       ))}
@@ -99,6 +103,7 @@ export function TacticalTipCard({
   onInfo: () => void;
   onRound?: (round: number) => void;
 }) {
+  const { t } = useI18n();
   return (
     <article
       data-tip-category={tip.tipo}
@@ -119,8 +124,7 @@ export function TacticalTipCard({
           {tip.inferencia.requerGeometria && (
             <span className="geometry-tag inline-flex items-center gap-[5px] text-muted-foreground text-[13px]">
               <Map size={12} />
-              Requer mapa
-            </span>
+              {t("Requer mapa")}</span>
           )}
         </div>
         <Button
@@ -128,26 +132,26 @@ export function TacticalTipCard({
           size="icon"
           className="inference-button shrink-0 w-7.5 h-7.5 text-muted-foreground mt-[-4px] mr-[-5px] mb-0 ml-0 [&:hover]:text-primary [&:hover]:bg-primary/10"
           onClick={onInfo}
-          aria-label={`Como a dica ${tip.id} é inferida`}
-          title="Como é inferida pelos dados"
+          aria-label={t("Como a dica {0} é inferida", { "0": tip.id })}
+          title={t("Como é inferida pelos dados")}
         >
           <Info size={18} />
         </Button>
       </div>
-      <h3>{tip.titulo}</h3>
+      <h3>{t(tip.titulo)}</h3>
       {finding && (
         <div className="finding-observation border-l-2 border-solid border-primary pt-0 pr-0 pb-0 pl-3 mb-5 [&_>_span]:block [&_>_span]:text-[13px] [&_>_span]:text-muted-foreground [&_>_span]:mb-[7px] [&_p]:text-foreground/90 [&_p]:text-[14px] [&_p]:leading-[1.7]">
-          <span>Observado neste recorte</span>
-          <p>{finding.observation}</p>
+          <span>{t("Observado neste recorte")}</span>
+          <p><AnalysisText text={finding.observation} /></p>
           <FindingSample finding={finding} />
         </div>
       )}
       <p className="tip-description text-sm leading-relaxed text-muted-foreground">
-        {tip.descricao}
+        {t(tip.descricao)}
       </p>
       {finding && onRound && (
         <div className="finding-rounds [&_>_span]:block [&_>_span]:text-[13px] [&_>_span]:text-muted-foreground [&_>_span]:mb-[7px] border-t border-solid border-border mt-5 pt-[15px] [&_.round-links_button]:text-sm [&_.round-links_button]:text-primary [&_.round-links_button]:border-primary/20 [&_.round-links_button]:bg-primary/5">
-          <span>Rounds relacionados</span>
+          <span>{t("Rounds relacionados")}</span>
           <TipRoundLinks rounds={finding.rounds} onRound={onRound} />
         </div>
       )}
@@ -165,14 +169,15 @@ export function InferenceDialog({
   onClose: () => void;
   onRound?: (round: number) => void;
 }) {
+  const { t } = useI18n();
   return (
     <Dialog open={!!tip} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="tip-dialog max-w-135 inference-dialog [&_.evidence]:text-[13px] [&_.evidence]:py-[5px] [&_.evidence]:px-[7px] w-[min(680px,_calc(100vw_-_32px))] max-w-170! max-h-[calc(100dvh_-_48px)] overflow-y-auto p-7 [&_[data-slot=dialog-title]]:text-xl [&_[data-slot=dialog-title]]:leading-[1.5] [&_[data-slot=dialog-title]]:font-[550] [&_[data-slot=dialog-title]]:pr-5 [&_[data-slot=dialog-header]]:text-left [&_.tip-detail]:text-[14px] [&_.tip-detail]:gap-[23px] [&_h4]:text-[14px] [&_h4]:text-foreground/90 max-[650px]:p-5.5 max-[650px]:max-h-[calc(100dvh_-_30px)]">
         <DialogHeader>
-          <DialogTitle>{tip?.titulo}</DialogTitle>
+          <DialogTitle>{t(tip?.titulo)}</DialogTitle>
           <DialogDescription>
-            Dica #{tip?.id} ·{" "}
-            {tipCategories.find((type) => type.id === tip?.tipo)?.nome}
+            {t("Dica #")}{tip?.id} ·{t(" ")}
+            {t(tipCategories.find((type) => type.id === tip?.tipo)?.nome)}
           </DialogDescription>
         </DialogHeader>
         {tip && (
@@ -183,17 +188,16 @@ export function InferenceDialog({
               {tip.inferencia.requerGeometria && (
                 <span className="geometry-tag inline-flex items-center gap-[5px] text-muted-foreground text-[13px]">
                   <Map size={13} />
-                  Requer geometria complementar
-                </span>
+                  {t("Requer geometria complementar")}</span>
               )}
             </div>
             <p className="tip-description text-sm leading-relaxed text-muted-foreground">
-              {tip.descricao}
+              {t(tip.descricao)}
             </p>
             {finding && (
               <div className="evidence-block p-[17px] border border-solid border-border rounded-[7px] bg-muted [&_p]:mt-[9px] [&_p]:mx-0 [&_p]:mb-3 [&_p]:text-foreground/90 [&_[data-slot=badge]]:text-muted-foreground [&_[data-slot=badge]]:text-[12px]">
-                <h4>Observado nesta partida</h4>
-                <p>{finding.observation}</p>
+                <h4>{t("Observado nesta partida")}</h4>
+                <p><AnalysisText text={finding.observation} /></p>
                 <FindingSample finding={finding} />
                 {onRound && (
                   <TipRoundLinks
@@ -207,22 +211,21 @@ export function InferenceDialog({
               </div>
             )}
             <section>
-              <h4>Como é inferida pelos dados</h4>
-              <p>{tip.inferencia.metodo}</p>
+              <h4>{t("Como é inferida pelos dados")}</h4>
+              <p>{t(tip.inferencia.metodo)}</p>
             </section>
             {finding?.analysis && (
               <>
                 <section className="rounded-md border border-border bg-muted p-4">
-                  <h4>Limites do recorte calculado</h4>
-                  <p>{finding.limitation}</p>
+                  <h4>{t("Limites do recorte calculado")}</h4>
+                  <p><AnalysisText text={finding.limitation} /></p>
                   <p className="mt-2">
-                    {finding.analysis.priorityReasons.join(" ")}
+                    {finding.analysis.priorityReasons.map((reason, index) => <span key={index}><AnalysisText text={reason} />{" "}</span>)}
                   </p>
                 </section>
                 <details className="rounded-md border border-border p-4">
                   <summary className="cursor-pointer text-foreground">
-                    Evidências · {finding.analysis.evidence.length} registros
-                  </summary>
+                    {t("Evidências · ")}{finding.analysis.evidence.length}{t(" registros")}</summary>
                   <div className="mt-3 grid gap-3">
                     {finding.analysis.evidence.map((ev, index) => (
                       <div
@@ -230,8 +233,8 @@ export function InferenceDialog({
                         className="min-w-0 rounded border border-border bg-muted p-3 text-sm"
                       >
                         <p className="text-foreground">
-                          Round {ev.roundNumber}
-                          {ev.eventId ? ` · ${ev.eventId}` : ""}
+                          {t("Round ")}{ev.roundNumber}
+                          {t(ev.eventId ? ` · ${ev.eventId}` : "")}
                         </p>
                         <code className="block wrap-anywhere text-muted-foreground">
                           {ev.sourcePath}
@@ -240,11 +243,11 @@ export function InferenceDialog({
                           {Object.entries(ev.values).map(([key, value]) => (
                             <div key={key} className="wrap-anywhere">
                               <dt className="inline font-medium text-foreground">
-                                {key}:{" "}
+                                {key}:{t(" ")}
                               </dt>
                               <dd className="inline">
                                 {value == null
-                                  ? "Não informado"
+                                  ? t("Não informado")
                                   : String(value)}
                               </dd>
                             </div>
@@ -257,7 +260,7 @@ export function InferenceDialog({
               </>
             )}
             <section>
-              <h4>Campos utilizados</h4>
+              <h4>{t("Campos utilizados")}</h4>
               <div className="inference-fields grid gap-1.5 mt-[11px] [&_details]:border [&_details]:border-solid [&_details]:border-border [&_details]:rounded-[5px] [&_details]:overflow-hidden [&_summary]:p-2.5 [&_summary]:cursor-pointer [&_summary]:text-muted-foreground [&_summary_>_span]:text-primary [&_summary_>_span]:pt-0 [&_summary_>_span]:pr-2.5 [&_summary_>_span]:pb-0 [&_summary_>_span]:pl-[3px] [&_summary_>_span]:font-mono [&_ul]:border-t [&_ul]:border-solid [&_ul]:border-border [&_ul]:py-2.5 [&_ul]:px-3.5 [&_ul]:grid [&_ul]:gap-2 [&_ul]:text-muted-foreground [&_ul]:text-[13px] [&_ul]:wrap-anywhere">
                 {tip.inferencia.campos.map((code) => {
                   const field = dataFields[code as keyof typeof dataFields];
@@ -265,7 +268,7 @@ export function InferenceDialog({
                     <details key={code}>
                       <summary>
                         <span>{code}</span>
-                        {field.nome}
+                        {t(field.nome)}
                       </summary>
                       <ul>
                         {field.caminhos.map((path) => (
@@ -280,18 +283,14 @@ export function InferenceDialog({
               </div>
             </section>
             <section className="inference-limit p-[15px] border-l-2 border-solid border-primary/50 bg-primary/5">
-              <h4>O que isso não permite concluir</h4>
-              <p>{tip.inferencia.limites}</p>
+              <h4>{t("O que isso não permite concluir")}</h4>
+              <p>{t(tip.inferencia.limites)}</p>
             </section>
             <p className="inference-note text-[13px] text-muted-foreground">
-              Métodos e limiares são propostas de análise. Mensurável não
-              significa erro confirmado; indícios precisam de contexto. A
-              presença no catálogo não significa que a dica seja avaliável nesta
-              partida.
-            </p>
+              {t("Métodos e limiares são propostas de análise. Mensurável não significa erro confirmado; indícios precisam de contexto. A presença no catálogo não significa que a dica seja avaliável nesta partida.")}</p>
             <div className="source-line flex items-center gap-[7px] text-[12px] border-t border-solid border-border pt-[15px]">
               <BookOpen size={14} />
-              <span>Referência no documento · {tip.origem}</span>
+              <span>{t("Referência no documento · ")}{tip.origem}</span>
             </div>
           </div>
         )}

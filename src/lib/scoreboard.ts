@@ -70,14 +70,14 @@ export function scoreboardValue(
         : null;
   return player[key] ?? null;
 }
-export function formatScoreboardValue(player: Player, key: ScoreboardKey) {
+export function formatScoreboardValue(player: Player, key: ScoreboardKey, locale = "en") {
   const value = scoreboardValue(player, key);
   if (value == null) return "—";
   if (key === "delta" || key === "openingDelta")
     return value > 0 ? `+${value}` : String(value);
-  if (key === "ratio") return value === Infinity ? "∞" : value.toFixed(2);
-  if (key === "headshotPercent" || key === "kastPercent") return `${value}%`;
-  return String(value);
+  if (key === "ratio") return value === Infinity ? "∞" : new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+  if (key === "headshotPercent" || key === "kastPercent") return `${new Intl.NumberFormat(locale).format(value)}%`;
+  return new Intl.NumberFormat(locale).format(value);
 }
 export function compareScoreboardPlayers(
   a: Player,

@@ -1,4 +1,5 @@
 "use client";
+import { useI18n } from "@/i18n/provider";
 import { useId } from "react";
 import Image from "next/image";
 import {
@@ -23,13 +24,13 @@ export function CoachingPlayerSelect({
   playerId?: string;
   onPlayer: (id: string) => void;
 }) {
+  const { t } = useI18n();
   const id = useId(),
     selected = players.find((p) => p.id === playerId);
   return (
     <>
       <label htmlFor={id} className="sr-only">
-        Jogador para dicas individuais
-      </label>
+        {t("Jogador para dicas individuais")}</label>
       <Select value={playerId} onValueChange={onPlayer}>
         <SelectTrigger
           id={id}
@@ -37,7 +38,7 @@ export function CoachingPlayerSelect({
           className="h-16! w-full min-w-0 max-w-80 bg-muted text-left text-sm max-[500px]:max-w-none"
         >
           <SelectValue
-            placeholder="Selecionar jogador"
+            placeholder={t("Selecionar jogador")}
             className="min-w-0 flex-1"
           >
             {selected && (
@@ -54,7 +55,7 @@ export function CoachingPlayerSelect({
                     {selected.name}#{selected.tag}
                   </span>
                   <span className="block truncate text-sm text-muted-foreground">
-                    {selected.agent} · {teamLabel(selected.team)}
+                    {selected.agent} · {t(teamLabel(selected.team))}
                   </span>
                 </span>
               </span>
@@ -64,7 +65,7 @@ export function CoachingPlayerSelect({
         <SelectContent position="popper" align="end">
           {(["horizon", "orbit"] as const).map((team) => (
             <SelectGroup key={team}>
-              <SelectLabel>{teamLabel(team)}</SelectLabel>
+              <SelectLabel>{t(teamLabel(team))}</SelectLabel>
               {players
                 .filter((p) => p.team === team)
                 .map((p) => (

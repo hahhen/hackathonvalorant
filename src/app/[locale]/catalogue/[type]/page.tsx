@@ -6,8 +6,12 @@ export function generateStaticParams() {
   return tipCategories.map((category) => ({ tipo: category.id }));
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ tipo: string }> }) {
-  const { tipo } = await params;
+export default async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ tipo: string }>;
+}) {
+  const { type } = await params;
   if (!tipCategories.some((category) => category.id === tipo)) notFound();
-  return <CatalogWorkspace categoryId={tipo} />;
+  return <CatalogWorkspace categoryId={type} />;
 }

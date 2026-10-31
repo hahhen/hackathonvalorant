@@ -1,4 +1,6 @@
 "use client";
+import { formatEventLabel } from "@/i18n/translate";
+import { useI18n } from "@/i18n/provider";
 import { teamLabel, teamShort } from "@/lib/teams";
 
 import { cn } from "@/lib/utils";
@@ -54,6 +56,7 @@ export function EventInspector({
   rounds?: Round[];
   players?: Player[];
 }) {
+  const { t, locale } = useI18n();
   const getPlayer = (id: string) => players.find((player) => player.id === id)!;
   const round = rounds[roundNumber - 1];
   // Reset the event when changing round by keying this component in its parent.
@@ -65,39 +68,35 @@ export function EventInspector({
   if (!round || !event)
     return (
       <section className="rounded-lg border border-border bg-card p-5">
-        <h2>Replay 2D</h2>
+        <h2>{t("Replay 2D")}</h2>
         <p className="text-sm text-muted-foreground">
-          Nenhum evento com snapshot neste round.
-        </p>
+          {t("Nenhum evento com snapshot neste round.")}</p>
       </section>
     );
   const objectiveLocation = snapshotObjective(round, event);
   return (
     <section
       className="panel border border-solid border-border rounded-[8px] overflow-hidden bg-card inspector-panel [&_>_.section-heading]:pb-[7px]"
-      aria-label="Replay 2D"
+      aria-label={t("Replay 2D")}
     >
-      <h2 className="sr-only">Replay 2D</h2>
+      <h2 className="sr-only">{t("Replay 2D")}</h2>
       {isReal && round.result === "Detonate" && (
         <p className="border-b border-border bg-muted px-5 py-3 text-sm text-muted-foreground">
-          Resultado: spike detonada. O JSON não registra o horário da detonação;
-          a linha do tempo mostra apenas eventos com horário informado.
-        </p>
+          {t("Resultado: spike detonada. O JSON não registra o horário da detonação; a linha do tempo mostra apenas eventos com horário informado.")}</p>
       )}
       <div className="inspector-grid grid grid-cols-[minmax(0,_1fr)_280px] max-[1300px]:grid-cols-[minmax(0,_1fr)_250px] max-[650px]:grid-cols-1">
         <div className="map-section min-w-0">
           <RoundLoadouts round={round} players={players} />
           <div className="map-toolbar flex justify-between items-center py-2 px-[17px] bg-card [&_>_span]:flex [&_>_span]:items-center [&_>_span]:gap-[7px] [&_>_span]:text-[12px] [&_>_span]:tracking-[1px] [&_>_span]:text-muted-foreground [&_>_div]:flex [&_>_div]:gap-1 [&_button]:h-7 [&_button]:w-7 [&_button]:text-muted-foreground [&_button.active-tool]:text-foreground [&_button.active-tool]:bg-muted">
             <span>
-              <LocateFixed size={13} /> {match.map.toUpperCase()} · MINIMAPA
-            </span>
+              <LocateFixed size={13} /> {t(match.map.toUpperCase())}{t(" · MINIMAPA")}</span>
             <div>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Mostrar nomes no minimapa"
+                    aria-label={t("Mostrar nomes no minimapa")}
                     aria-pressed={showNames}
                     className={showNames ? "active-tool" : ""}
                     onClick={() => setShowNames(!showNames)}
@@ -105,14 +104,14 @@ export function EventInspector({
                     <Users size={15} />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Mostrar nomes</TooltipContent>
+                <TooltipContent>{t("Mostrar nomes")}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Mostrar direções no minimapa"
+                    aria-label={t("Mostrar direções no minimapa")}
                     aria-pressed={showDirections}
                     className={showDirections ? "active-tool" : ""}
                     onClick={() => setShowDirections(!showDirections)}
@@ -120,7 +119,7 @@ export function EventInspector({
                     <Navigation size={15} />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Mostrar orientação horizontal</TooltipContent>
+                <TooltipContent>{t("Mostrar orientação horizontal")}</TooltipContent>
               </Tooltip>
             </div>
           </div>
@@ -134,31 +133,29 @@ export function EventInspector({
           />
           <div className="map-legend flex flex-wrap items-center justify-center gap-[17px] pt-3 px-2 pb-4.5 bg-background text-[12px] text-muted-foreground [&_>_span]:flex [&_>_span]:items-center [&_>_span]:gap-[5px] [&_i]:inline-block [&_i]:w-[5px] [&_i]:h-[5px] [&_i]:rounded-full max-[650px]:gap-2.5 max-[650px]:text-[12px]">
             <span>
-              <i className="horizon-dot bg-team-friendly" />{" "}
-              {teamLabel("horizon")}
+              <i className="horizon-dot bg-team-friendly" />{t(" ")}
+              {t(teamLabel("horizon"))}
             </span>
             <span>
-              <i className="orbit-dot bg-primary" /> {teamLabel("orbit")}
+              <i className="orbit-dot bg-primary" /> {t(teamLabel("orbit"))}
             </span>
             <span>
-              <Crosshair size={11} /> Local da morte
-            </span>
+              <Crosshair size={11} /> {t(" Local da morte")}</span>
             <span>
-              <Eye size={11} /> Orientação
-            </span>
+              <Eye size={11} /> {t(" Orientação")}</span>
           </div>
           <div className="snapshot-controls flex justify-between items-center gap-2 py-3 px-[17px] border-t border-solid border-border bg-muted [&_>_div]:flex [&_>_div]:items-center [&_>_div]:gap-2 [&_strong]:text-[15px] [&_strong]:font-medium [&_strong]:tabular-nums [&_>_div:first-child_>_span]:text-muted-foreground [&_>_div:first-child_>_span]:text-[12px] [&_>_span]:text-muted-foreground [&_>_span]:text-[12px] [&_svg]:text-muted-foreground [&_button]:w-7.5 [&_button]:h-7 max-[1300px]:[&_>_div:first-child_>_span]:hidden">
             <div>
               <Timer size={16} />
-              <strong>{timeLabel(event.timeMs)}</strong>
-              <span>tempo do round</span>
+              <strong>{t(timeLabel(event.timeMs))}</strong>
+              <span>{t("tempo do round")}</span>
             </div>
             <span>
-              Evento {eventIndex + 1} de {round.events.length}
+              {t("Evento ")}{eventIndex + 1}{t(" de ")}{round.events.length}
             </span>
             <div>
               <Button
-                aria-label="Evento anterior"
+                aria-label={t("Evento anterior")}
                 variant="outline"
                 size="icon"
                 disabled={eventIndex === 0}
@@ -167,7 +164,7 @@ export function EventInspector({
                 <ChevronLeft size={16} />
               </Button>
               <Button
-                aria-label="Próximo evento"
+                aria-label={t("Próximo evento")}
                 variant="outline"
                 size="icon"
                 disabled={eventIndex === round.events.length - 1}
@@ -181,14 +178,13 @@ export function EventInspector({
         <div className="event-sidebar border-l border-solid border-border bg-card py-4.5 px-[13px] max-[650px]:border-l-0 max-[650px]:border-t max-[650px]:border-solid max-[650px]:border-border">
           <div className="events-heading flex justify-between items-center pt-0 px-1.5 pb-[15px] [&_.eyebrow]:text-[12px] [&_>_span:last-child]:text-[12px] [&_>_span:last-child]:text-muted-foreground">
             <span className="eyebrow block text-[12px] text-muted-foreground tracking-[0.9px]">
-              LINHA DO TEMPO
-            </span>
-            <span>{round.events.length} eventos</span>
+              {t("LINHA DO TEMPO")}</span>
+            <span>{round.events.length}{t(" eventos")}</span>
           </div>
           <div
             className="event-list grid gap-[5px]"
             role="group"
-            aria-label="Eventos do round"
+            aria-label={t("Eventos do round")}
           >
             {round.events.map((item, index) => (
               <EventItem
@@ -202,7 +198,7 @@ export function EventInspector({
           </div>
           <div className="alive-panel border-t border-solid border-border pt-4.5 px-[5px] pb-0 mt-[15px] [&_>_.eyebrow]:text-[12px] [&_>_div]:flex [&_>_div]:items-center [&_>_div]:gap-2.5 [&_>_div]:mt-3 [&_>_div_>_span]:text-[12px] [&_>_div_>_span]:min-w-[25px] [&_>_div_>_div]:flex [&_>_div_>_div]:gap-1 [&_img]:w-[25px] [&_img]:h-[25px] [&_img]:object-cover [&_img]:bg-muted [&_img]:rounded-[3px] [&_strong]:text-sm [&_strong]:text-muted-foreground [&_strong]:ml-auto">
             <span className="eyebrow block text-[12px] text-muted-foreground tracking-[0.9px]">
-              {isReal ? "JOGADORES NESTE SNAPSHOT" : "VIVOS NESTE EVENTO"}
+              {t(isReal ? "JOGADORES NESTE SNAPSHOT" : "VIVOS NESTE EVENTO")}
             </span>
             {(["horizon", "orbit"] as const).map((team) => (
               <div key={team}>
@@ -212,7 +208,7 @@ export function EventInspector({
                     team,
                   )}
                 >
-                  {teamShort(team)}
+                  {t(teamShort(team))}
                 </span>
                 <div>
                   {event.positions
@@ -253,6 +249,7 @@ function EventItem({
   onSelect: () => void;
   getPlayer?: typeof defaultGetPlayer;
 }) {
+  const { t, locale } = useI18n();
   const Icon = eventIcon[event.type];
   const actor = getPlayer(event.actorId);
   const ability =
@@ -275,8 +272,8 @@ function EventItem({
       </span>
       <span className="event-content min-w-0 flex-1">
         <span className="event-time flex justify-between items-center text-[12px] text-muted-foreground tabular-nums [&_>_span]:text-[12px] [&_>_span]:tracking-[0.6px] [&_>_span]:text-muted-foreground max-[650px]:text-[12px] max-[650px]:[&_>_span]:text-[12px]">
-          {timeLabel(event.timeMs)}
-          <span>{event.type === "kill" ? "ELIMINAÇÃO" : "OBJETIVO"}</span>
+          {t(timeLabel(event.timeMs))}
+          <span>{t(event.type === "kill" ? "ELIMINAÇÃO" : "OBJETIVO")}</span>
         </span>
         <span className="event-actors flex flex-wrap items-center gap-1.5 mt-[5px] text-[13px] [&_img]:object-contain [&_img]:opacity-80 [&_b]:font-medium [&_>_span:last-child]:text-muted-foreground max-[650px]:text-sm">
           <b
@@ -290,8 +287,8 @@ function EventItem({
           {ability?.sprite && (
             <Image
               src={ability.sprite}
-              alt={ability.namePtBr}
-              title={ability.namePtBr}
+              alt={locale === "en" ? ability.name : ability.namePtBr}
+              title={locale === "en" ? ability.name : ability.namePtBr}
               width={20}
               height={20}
               className="size-5 shrink-0"
@@ -299,7 +296,7 @@ function EventItem({
           )}
           {ability && !ability.sprite && (
             <span className="text-[12px] text-muted-foreground">
-              {ability.namePtBr}
+              {locale === "en" ? ability.name : ability.namePtBr}
             </span>
           )}
           {event.weapon && hasWeaponImage(event.weapon) && (
@@ -319,16 +316,16 @@ function EventItem({
           {victim && <span>{victim.name}</span>}
           {!victim && (
             <span>
-              {event.type === "plant"
+              {t(event.type === "plant"
                 ? "plantou"
                 : event.type === "defuse"
                   ? "desarmou"
-                  : "detonou"}
+                  : "detonou")}
             </span>
           )}
         </span>
         <span className="event-label block text-muted-foreground text-[12px] mt-1.5 max-[650px]:text-[12px]">
-          {event.label}
+          {formatEventLabel(event.label, locale)}
         </span>
       </span>
       {selected && <ChevronRight size={13} />}

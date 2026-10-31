@@ -1,4 +1,5 @@
 "use client";
+import { useI18n } from "@/i18n/provider";
 import {
   Tooltip,
   TooltipContent,
@@ -24,17 +25,18 @@ export function RoundStrip({
   match?: MatchInfo;
   rounds?: Round[];
 }) {
+  const { t } = useI18n();
   return (
     <div
       className="round-strip flex gap-[5px] pt-3 px-5 pb-5 overflow-x-auto [scrollbar-width:thin] max-[650px]:px-3.5"
-      aria-label="Selecionar round"
+      aria-label={t("Selecionar round")}
     >
       {rounds.map((round) => (
         <Tooltip key={round.number}>
           <TooltipTrigger asChild>
             <button
               onClick={() => onRound(round.number)}
-              aria-label={`Round ${round.number}, vitória de ${teamLabel(round.winner)}, ${getRoundOutcome(round)?.label ?? "resultado não informado"}`}
+              aria-label={t("Round {0}, vitória de {1}, {2}", { "0": round.number, "1": t(teamLabel(round.winner)), "2": t(getRoundOutcome(round)?.label ?? "resultado não informado") })}
               aria-pressed={round.number === active}
               className={cn(
                 "round-chip min-w-[27px] flex-1 max-w-12 h-11.5 flex flex-col items-center justify-center gap-[9px] border border-solid border-border rounded-[4px] bg-muted text-foreground/90 text-[12px] relative [&.orbit]:text-primary [&.orbit]:border-primary/30 [&.orbit]:bg-primary/5 [&:hover]:brightness-[1.3] [&.selected]:outline-1 [&.selected]:outline-primary [&.selected]:outline-offset-2 [&.orbit_.round-chip-line]:bg-primary [&.half-switch]:ml-[11px] [&.half-switch::before]:content-[''] [&.half-switch::before]:absolute [&.half-switch::before]:left-[-10px] [&.half-switch::before]:h-[35px] [&.half-switch::before]:w-px [&.half-switch::before]:bg-muted max-[650px]:min-w-7",
@@ -48,8 +50,8 @@ export function RoundStrip({
             </button>
           </TooltipTrigger>
           <TooltipContent>
-            R{round.number} · {teamLabel(round.winner)} ·{" "}
-            {getRoundOutcome(round)?.label ?? "Resultado não informado"}
+            {t("R")}{round.number} · {t(teamLabel(round.winner))} ·{t(" ")}
+            {t(getRoundOutcome(round)?.label ?? "Resultado não informado")}
           </TooltipContent>
         </Tooltip>
       ))}
@@ -57,6 +59,7 @@ export function RoundStrip({
   );
 }
 export function RoundOutcomeIcon({ round }: { round: Round }) {
+  const { t } = useI18n();
   const outcome = getRoundOutcome(round);
   if (!outcome) return <span aria-hidden="true">—</span>;
   return (

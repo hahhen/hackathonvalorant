@@ -7,6 +7,7 @@
     "build": "next build --webpack",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
+    "verify:i18n": "node scripts/validate-i18n.mjs",
     "verify:catalog": "node scripts/validate-tactical-catalog.mjs",
     "verify:ui": "node scripts/validate-ui-theme.mjs",
     "import:assets": "node scripts/import-public-catalog.mjs",

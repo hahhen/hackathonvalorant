@@ -1,4 +1,5 @@
 "use client";
+import { useI18n } from "@/i18n/provider";
 import { teamLabel } from "@/lib/teams";
 
 import { useMemo, useState } from "react";
@@ -51,6 +52,7 @@ export function Scoreboard({
   match?: MatchInfo;
   players?: Player[];
 }) {
+  const { t, locale } = useI18n();
   const [query, setQuery] = useState("");
   const [team, setTeam] = useState("all");
   const [sort, setSort] = useState<ScoreboardKey>("acs");
@@ -79,14 +81,12 @@ export function Scoreboard({
     >
       <div className="flex items-center justify-between gap-3 p-5 max-[650px]:p-3.5">
         <h2 id="scoreboard-title" className="text-sm font-medium">
-          Scoreboard
-        </h2>
+          {t("Scoreboard")}</h2>
         <Badge
           variant="outline"
           className="text-[12px] font-normal text-muted-foreground"
         >
-          {match.teams.horizon.score + match.teams.orbit.score} rounds
-        </Badge>
+          {match.teams.horizon.score + match.teams.orbit.score}{t(" rounds")}</Badge>
       </div>
       <div className="flex items-center justify-between gap-3 px-5 pb-4 max-[650px]:px-3.5">
         <div className="relative min-w-0 max-w-64 flex-1">
@@ -97,23 +97,23 @@ export function Scoreboard({
           />
           <Input
             className="h-9 bg-card pl-9 text-sm"
-            aria-label="Buscar jogador ou agente"
-            placeholder="Buscar jogador ou agente..."
+            aria-label={t("Buscar jogador ou agente")}
+            placeholder={t("Buscar jogador ou agente...")}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
         </div>
         <Select value={team} onValueChange={setTeam}>
           <SelectTrigger
-            aria-label="Filtrar equipe"
+            aria-label={t("Filtrar equipe")}
             className="h-9! min-w-32 bg-muted text-[13px]"
           >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Ambas as equipes</SelectItem>
-            <SelectItem value="horizon">{teamLabel("horizon")}</SelectItem>
-            <SelectItem value="orbit">{teamLabel("orbit")}</SelectItem>
+            <SelectItem value="all">{t("Ambas as equipes")}</SelectItem>
+            <SelectItem value="horizon">{t(teamLabel("horizon"))}</SelectItem>
+            <SelectItem value="orbit">{t(teamLabel("orbit"))}</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -128,15 +128,11 @@ export function Scoreboard({
           ))}
         </colgroup>
         <caption className="sr-only">
-          Estatísticas dos jogadores. ADR e HS% são calculados pelos danos
-          registrados. KAST usa janela de troca de 3 segundos. Valores
-          indisponíveis aparecem como traço.
-        </caption>
+          {t("Estatísticas dos jogadores. ADR e HS% são calculados pelos danos registrados. KAST usa janela de troca de 3 segundos. Valores indisponíveis aparecem como traço.")}</caption>
         <TableHeader>
           <TableRow>
             <TableHead className="sticky left-0 z-10 border-r border-border pl-5! max-[650px]:pl-3!">
-              Jogador
-            </TableHead>
+              {t("Jogador")}</TableHead>
             {scoreboardColumns.map(({ key, label, description }) => (
               <TableHead
                 key={key}
@@ -153,13 +149,13 @@ export function Scoreboard({
                   <TooltipTrigger asChild>
                     <button
                       onClick={() => changeSort(key)}
-                      aria-label={`Ordenar por ${label}`}
+                      aria-label={t("Ordenar por {0}", { "0": t(label) })}
                       className={cn(
                         "inline-flex w-full items-center justify-end gap-1 rounded-sm py-2 outline-offset-2 hover:text-foreground",
                         sort === key && "text-foreground",
                       )}
                     >
-                      {label}
+                      {t(label)}
                       {sort === key && (
                         <ArrowDown
                           size={11}
@@ -169,7 +165,7 @@ export function Scoreboard({
                     </button>
                   </TooltipTrigger>
                   <TooltipContent className="max-w-72">
-                    {description}
+                    {t(description)}
                   </TooltipContent>
                 </Tooltip>
               </TableHead>
@@ -196,8 +192,7 @@ export function Scoreboard({
                 colSpan={scoreboardColumns.length + 1}
                 className="py-10! text-center text-muted-foreground"
               >
-                Nenhum jogador encontrado. Tente outro nome ou agente.
-                <Button
+                {t("Nenhum jogador encontrado. Tente outro nome ou agente.")}<Button
                   variant="link"
                   className="mx-auto mt-2 block text-sm"
                   onClick={() => {
@@ -205,8 +200,7 @@ export function Scoreboard({
                     setTeam("all");
                   }}
                 >
-                  Limpar filtros
-                </Button>
+                  {t("Limpar filtros")}</Button>
               </TableCell>
             </TableRow>
           )}
@@ -214,12 +208,9 @@ export function Scoreboard({
       </Table>
       <div className="flex flex-wrap justify-between gap-2 border-t border-border px-5 py-3 text-[12px] leading-relaxed text-muted-foreground">
         <span>
-          Clique no jogador para abrir o perfil. Role a tabela para ver todas as
-          colunas.
-        </span>
+          {t("Clique no jogador para abrir o perfil. Role a tabela para ver todas as colunas.")}</span>
         <span>
-          HS% por acertos · KAST: janela de troca de 3 s · — = indisponível
-        </span>
+          {t("HS% por acertos · KAST: janela de troca de 3 s · — = indisponível")}</span>
       </div>
     </section>
   );
@@ -236,6 +227,7 @@ function TeamRows({
   members: Player[];
   onPlayer: (player: Player) => void;
 }) {
+  const { t, locale } = useI18n();
   const winner =
     match.teams[team].score >
     match.teams[team === "horizon" ? "orbit" : "horizon"].score;
@@ -255,10 +247,10 @@ function TeamRows({
                 team === "orbit" ? "text-primary" : "text-team-friendly",
               )}
             >
-              {teamLabel(team)}
+              {t(teamLabel(team))}
             </strong>
             <span className="text-[12px] tracking-wide text-muted-foreground">
-              {winner ? "VITÓRIA" : "DERROTA"}
+              {t(winner ? "VITÓRIA" : "DERROTA")}
             </span>
           </div>
         </TableCell>
@@ -271,9 +263,9 @@ function TeamRows({
           <TableCell className="sticky left-0 z-10 overflow-hidden border-r border-border bg-card pl-5! group-hover:bg-muted max-[650px]:pl-3!">
             <button
               onClick={() => onPlayer(player)}
-              aria-label={`Abrir perfil de ${player.name}`}
+              aria-label={t("Abrir perfil de {0}", { "0": player.name })}
               className="flex w-full min-w-0 items-center gap-2.5 overflow-hidden rounded-sm text-left outline-offset-4 max-[650px]:gap-2"
-              title={`${player.name}#${player.tag} · ${player.agent}`}
+              title={t("{0}#{1} · {2}", { "0": player.name, "1": player.tag, "2": player.agent })}
             >
               <Image
                 src={agentImage(player.agent)}
@@ -306,7 +298,7 @@ function TeamRows({
                   "text-primary",
               )}
             >
-              {formatScoreboardValue(player, key)}
+              {t(formatScoreboardValue(player, key, locale))}
             </TableCell>
           ))}
         </TableRow>

@@ -6,11 +6,15 @@ import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import ts from "typescript";
 import { createElement } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToStaticMarkup as renderMarkup } from "react-dom/server";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const nativeRequire = createRequire(import.meta.url);
 const cache = new Map();
+function renderToStaticMarkup(element) {
+  const { I18nProvider } = load("src/i18n/provider.tsx");
+  return renderMarkup(createElement(I18nProvider, { locale: "pt-BR" }, element));
+}
 function load(path) {
   let filename = resolve(root, path);
   if (!existsSync(filename))

@@ -1,3 +1,5 @@
+"use client";
+import { useI18n } from "@/i18n/provider";
 import Image from "next/image";
 import {
   agentImage,
@@ -9,8 +11,6 @@ import { teamLabel } from "@/lib/teams";
 import { cn } from "@/lib/utils";
 import type { Player, Round } from "@/types/match";
 
-const number = (value: number | null | undefined) =>
-  value == null ? "—" : value.toLocaleString("pt-BR");
 const armorNames: Record<string, string> = {
   "Light Armor": "Escudo leve",
   "Heavy Armor": "Escudo pesado",
@@ -24,15 +24,15 @@ export function RoundLoadouts({
   round: Round;
   players: Player[];
 }) {
+  const { t, number } = useI18n();
   return (
     <section
-      aria-label={`Equipamento do round ${round.number}`}
+      aria-label={t("Equipamento do round {0}", { "0": round.number })}
       className="border-b border-border p-3"
     >
       {!round.loadouts?.length ? (
         <p className="text-sm text-muted-foreground">
-          Equipamento não informado nesta partida.
-        </p>
+          {t("Equipamento não informado nesta partida.")}</p>
       ) : (
         <div className="grid min-w-0 grid-cols-2 gap-3 max-[1100px]:grid-cols-1">
           {(["horizon", "orbit"] as const).map((team) => (
@@ -48,14 +48,12 @@ export function RoundLoadouts({
                     : "bg-primary/10 text-primary",
                 )}
               >
-                {teamLabel(team)}
+                {t(teamLabel(team))}
               </h4>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[360px] table-fixed text-sm leading-tight [&_th]:py-1.5 [&_td]:py-1.5">
                   <caption className="sr-only">
-                    Jogadores, pontuação, eliminações, assistências, economia e
-                    equipamento do round
-                  </caption>
+                    {t("Jogadores, pontuação, eliminações, assistências, economia e equipamento do round")}</caption>
                   <colgroup>
                     <col className="w-[29%]" />
                     <col className="w-[10%]" />
@@ -67,22 +65,18 @@ export function RoundLoadouts({
                   <thead className="border-b border-border bg-muted text-muted-foreground">
                     <tr>
                       <th className="px-2 py-2 text-left font-normal">
-                        Jogador
-                      </th>
+                        {t("Jogador")}</th>
                       <th
-                        title="Pontuação no round"
+                        title={t("Pontuação no round")}
                         className="px-1 py-2 text-right font-normal"
                       >
-                        Score
-                      </th>
-                      <th className="px-1 py-2 text-right font-normal">K</th>
-                      <th className="px-1 py-2 text-right font-normal">A</th>
+                        {t("Score")}</th>
+                      <th className="px-1 py-2 text-right font-normal">{t("K")}</th>
+                      <th className="px-1 py-2 text-right font-normal">{t("A")}</th>
                       <th className="px-2 py-2 text-right font-normal">
-                        Economia
-                      </th>
+                        {t("Economia")}</th>
                       <th className="px-2 py-2 text-center font-normal">
-                        Equip.
-                      </th>
+                        {t("Equip.")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -120,36 +114,36 @@ export function RoundLoadouts({
                                 />
                                 <span
                                   className="truncate"
-                                  title={`${player.name}#${player.tag}`}
+                                  title={t("{0}#{1}", { "0": player.name, "1": player.tag })}
                                 >
                                   {player.name}
                                 </span>
                               </div>
                             </td>
                             <td className="px-1 text-right tabular-nums">
-                              {number(summary?.score)}
+                              {t(number(summary?.score))}
                             </td>
                             <td className="px-1 text-right tabular-nums">
-                              {number(summary?.kills)}
+                              {t(number(summary?.kills))}
                             </td>
                             <td className="px-1 text-right tabular-nums">
-                              {number(summary?.assists)}
+                              {t(number(summary?.assists))}
                             </td>
                             <td
                               className="px-2 text-right tabular-nums"
-                              title={`Gasto no round: ${number(economy?.spent)}`}
+                              title={t("Gasto no round: {0}", { "0": t(number(economy?.spent)) })}
                             >
                               <span
                                 className="block"
-                                title="Valor do equipamento"
+                                title={t("Valor do equipamento")}
                               >
-                                {number(economy?.loadoutValue)}
+                                {t(number(economy?.loadoutValue))}
                               </span>
                               <span className="block text-xs text-muted-foreground">
-                                Saldo {number(economy?.remaining)}
+                                {t("Saldo ")}{t(number(economy?.remaining))}
                               </span>
                               <span className="sr-only">
-                                Gasto {number(economy?.spent)}
+                                {t("Gasto ")}{t(number(economy?.spent))}
                               </span>
                             </td>
                             <td className="px-2">
@@ -166,12 +160,12 @@ export function RoundLoadouts({
                                   />
                                 ) : (
                                   <span className="text-xs text-muted-foreground">
-                                    {economy?.weapon ?? "Não informado"}
+                                    {t(economy?.weapon ?? "Não informado")}
                                   </span>
                                 )}
                                 <span
                                   className="flex max-w-full min-w-0 items-center justify-center gap-1 text-xs text-muted-foreground"
-                                  title={armorName}
+                                  title={t(armorName)}
                                 >
                                   {armor && (
                                     <Image
@@ -182,7 +176,7 @@ export function RoundLoadouts({
                                       className="size-3.5 shrink-0 object-contain"
                                     />
                                   )}
-                                  <span className="truncate">{armorName}</span>
+                                  <span className="truncate">{t(armorName)}</span>
                                 </span>
                               </div>
                             </td>

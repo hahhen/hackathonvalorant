@@ -1,4 +1,5 @@
 "use client";
+import { useI18n } from "@/i18n/provider";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useAnalysis, type AnalysisState } from "@/lib/use-analysis";
@@ -20,6 +21,7 @@ export function AnalysisCatalog({
   onTip: (tip: CoachTip) => void;
   onRound: (round: number) => void;
 }) {
+  const { t } = useI18n();
   const [scope, setScope] = useState<"team" | "player">("team");
   const [playerId, setPlayerId] = useState(
     () => players.find((p) => p.team === "horizon")?.id ?? players[0]?.id,
@@ -33,21 +35,19 @@ export function AnalysisCatalog({
   return (
     <>
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex gap-2" role="group" aria-label="Escopo das dicas">
+        <div className="flex gap-2" role="group" aria-label={t("Escopo das dicas")}>
           <Button
             variant={scope === "team" ? "secondary" : "outline"}
             aria-pressed={scope === "team"}
             onClick={() => setScope("team")}
           >
-            Coletivas · Meu time
-          </Button>
+            {t("Coletivas · Meu time")}</Button>
           <Button
             variant={scope === "player" ? "secondary" : "outline"}
             aria-pressed={scope === "player"}
             onClick={() => setScope("player")}
           >
-            Individuais
-          </Button>
+            {t("Individuais")}</Button>
         </div>
         {scope === "player" && (
           <CoachingPlayerSelect

@@ -1,14 +1,16 @@
 "use client";
+import { AnalysisText } from "@/i18n/analysis-text";
+import { useI18n } from "@/i18n/provider";
 import { getTacticalTip } from "@/data/tactical-catalog";
 import type { AnalysisState } from "@/lib/use-analysis";
 import type { CoachTip } from "@/types/match";
 
 export function AnalysisFeedback({ state }: { state: AnalysisState }) {
+  const { t } = useI18n();
   if (state.status === "loading")
     return (
       <p role="status" className="mb-4 text-sm text-muted-foreground">
-        Carregando análise…
-      </p>
+        {t("Carregando análise…")}</p>
     );
   if (state.status === "error")
     return (
@@ -16,7 +18,7 @@ export function AnalysisFeedback({ state }: { state: AnalysisState }) {
         role="alert"
         className="mb-4 rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm text-foreground"
       >
-        {state.error}
+        {t(state.error)}
       </p>
     );
   const coverage = state.data?.coverage ?? [];
@@ -30,24 +32,21 @@ export function AnalysisFeedback({ state }: { state: AnalysisState }) {
     >
       {state.data?.tips.length === 0 && (
         <p>
-          Nenhum ponto para revisar identificado neste recorte. Isso não garante
-          ausência de problemas.
-        </p>
+          {t("Nenhum ponto para revisar identificado neste recorte. Isso não garante ausência de problemas.")}</p>
       )}
       {unavailable.length > 0 && (
         <details className="mt-2">
           <summary className="cursor-pointer">
-            {unavailable.length} regras sem dados suficientes neste recorte
-          </summary>
+            {unavailable.length}{t(" regras sem dados suficientes neste recorte")}</summary>
           <ul className="mt-3 grid gap-2 border-l border-border pl-4">
             {unavailable.map((c) => (
               <li key={c.detectorId}>
                 <span className="text-foreground">
                   {c.tipId
-                    ? `#${c.tipId} · ${getTacticalTip(c.tipId).titulo}`
+                    ? `#${c.tipId} · ${t(getTacticalTip(c.tipId).titulo)}`
                     : c.detectorId}
                 </span>
-                <p>{c.reasons.join(" ")}</p>
+                <p>{c.reasons.map((reason, index) => <span key={index}><AnalysisText text={reason} />{" "}</span>)}</p>
               </li>
             ))}
           </ul>
@@ -58,6 +57,7 @@ export function AnalysisFeedback({ state }: { state: AnalysisState }) {
 }
 
 export function FindingSample({ finding }: { finding: CoachTip }) {
+  const { t } = useI18n();
   const data = finding.analysis;
   if (!data) return null;
   const units: Record<string, string> = {
@@ -69,9 +69,8 @@ export function FindingSample({ finding }: { finding: CoachTip }) {
   };
   return (
     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-      {data.sample.flagged} de {data.sample.evaluated}{" "}
-      {units[data.sample.unit] ?? "oportunidades"} avaliados
-      {data.status === "partial" && " · Recorte parcial"}
+      {data.sample.flagged}{t(" de ")}{data.sample.evaluated}{t(" ")}
+      {t(units[data.sample.unit] ?? "oportunidades")}{t(" avaliados")}{t(data.status === "partial" && " · Recorte parcial")}
     </p>
   );
 }

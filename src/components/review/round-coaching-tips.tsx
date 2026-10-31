@@ -1,4 +1,6 @@
 "use client";
+import { AnalysisText } from "@/i18n/analysis-text";
+import { useI18n } from "@/i18n/provider";
 import { useState } from "react";
 import { Info, UserRound, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +22,7 @@ export function RoundCoachingTips({
   round: Round;
   players: Player[];
 }) {
+  const { t } = useI18n();
   const [playerId, setPlayerId] = useState(
     () => players.find((p) => p.team === "horizon")?.id ?? players[0]?.id,
   );
@@ -37,19 +40,19 @@ export function RoundCoachingTips({
     <section
       data-tip-mode="computed"
       className="mb-5 rounded-lg border border-border bg-card p-5 max-[650px]:p-3.5"
-      aria-label={`Pontos para revisar do round ${round.number}`}
+      aria-label={t("Pontos para revisar do round {0}", { "0": round.number })}
     >
       <h2 className="mb-5 text-base font-medium">
-        Pontos para revisar · Round {String(round.number).padStart(2, "0")}
+        {t("Pontos para revisar · Round ")}{t(String(round.number).padStart(2, "0"))}
       </h2>
       <div className="grid min-w-0 grid-cols-2 gap-5 max-[800px]:grid-cols-1">
         <section
           className="min-w-0"
-          aria-label={`Pontos coletivos do round ${round.number}`}
+          aria-label={t("Pontos coletivos do round {0}", { "0": round.number })}
         >
           <div className="mb-4 flex min-h-16 items-center gap-2">
             <Users className="size-4 text-team-friendly" />
-            <h3 className="text-sm font-medium">Coletivos · Meu time</h3>
+            <h3 className="text-sm font-medium">{t("Coletivos · Meu time")}</h3>
           </div>
           <AnalysisFeedback state={collective} />
           <AnalysisTipList
@@ -59,13 +62,12 @@ export function RoundCoachingTips({
         </section>
         <section
           className="min-w-0"
-          aria-label={`Pontos individuais do round ${round.number}`}
+          aria-label={t("Pontos individuais do round {0}", { "0": round.number })}
         >
           <div className="mb-4 flex min-h-16 items-center justify-between gap-3 max-[500px]:flex-wrap">
             <h3 className="flex shrink-0 items-center gap-2 text-sm font-medium">
               <UserRound className="size-4 text-muted-foreground" />
-              Individuais
-            </h3>
+              {t("Individuais")}</h3>
             <CoachingPlayerSelect
               players={players}
               playerId={playerId}
@@ -90,6 +92,7 @@ export function AnalysisTipList({
   tips: CoachTip[];
   onRound?: (round: number) => void;
 }) {
+  const { t } = useI18n();
   const [expanded, setExpanded] = useState(false);
   const [detail, setDetail] = useState<CoachTip | null>(null);
   return (
@@ -114,20 +117,20 @@ export function AnalysisTipList({
               <Button
                 variant="ghost"
                 size="icon-xs"
-                aria-label={`Como é inferida a dica ${tip.id}`}
+                aria-label={t("Como é inferida a dica {0}", { "0": tip.id })}
                 onClick={() => setDetail(finding)}
               >
                 <Info />
               </Button>
             </div>
             <h4 className="mb-2 text-sm font-medium leading-relaxed">
-              {tip.titulo}
+              {t(tip.titulo)}
             </h4>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              {tip.descricao}
+              {t(tip.descricao)}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-foreground">
-              {finding.observation}
+              <AnalysisText text={finding.observation} />
             </p>
             <FindingSample finding={finding} />
           </article>
@@ -135,7 +138,7 @@ export function AnalysisTipList({
       })}
       {tips.length > 3 && (
         <Button variant="outline" onClick={() => setExpanded(!expanded)}>
-          {expanded ? "Mostrar menos" : `Ver os ${tips.length} pontos para revisar`}
+          {t(expanded ? "Mostrar menos" : t("Ver os {0} pontos para revisar", { "0": tips.length }))}
         </Button>
       )}
       <InferenceDialog
