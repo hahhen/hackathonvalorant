@@ -28,7 +28,7 @@ export default async function RootLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <html lang={locale} className="dark">
+    <html lang={locale} className="dark typeset typeset-docs">
       <body
         className={`${GeistSans.variable} motion-reduce:[&_*]:animate-none motion-reduce:[&_*]:transition-none`}
       >
